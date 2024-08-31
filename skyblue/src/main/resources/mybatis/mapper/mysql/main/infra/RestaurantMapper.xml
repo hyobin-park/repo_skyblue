@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.restaurant.RestaurantDao">
+
+<resultMap type="com.color.infra.restaurant.RestaurantDto" id="resultMapRes"></resultMap>
+	  <select id="selectRes" resultMap="resultMapRes">
+	  SELECT
+		e.seq
+    	,e.type
+    	,e.name
+    	,e.openTime
+    	,e.closeTime
+    	,e.tel
+    	,e.website
+    	,e.parking
+    	,e.reservation
+    	,e.corkageFree
+    	,e.introduction
+    	,e.regDate
+    	,e.EditDate
+	FROM
+		restaurant e
+	ORDER BY
+		e.seq desc
+	  </select>
+	  
+</mapper>

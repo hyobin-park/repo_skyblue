@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.lecture.LectureDao">
+
+<resultMap type="com.color.infra.lecture.LectureDto" id="resultMapLec"></resultMap>
+
+<select id="selectLec" resultMap="resultMapLec">
+	SELECT
+		d.seq
+    	,d.type
+    	,d.title
+    	,d.tuition
+    	,d.instructor
+    	,d.classRegDate
+    	,d.classRegEndDate
+    	,d.classStartDate
+    	,d.classEndDate
+    	,d.place
+    	,d.classDesc
+    	,d.regDate
+    	,d.editDate
+	FROM
+		lecture d
+	ORDER BY
+		d.seq desc
+</select>
+
+<insert id="insert">
+	insert into lecture (
+		type
+	    ,title
+	    ,tuition
+	    ,instructor
+	    ,classRegDate
+	    ,classRegEndDate
+	    ,classStartDate
+	    ,classEndDate
+	    ,place
+	    ,classDesc
+	    ,regDate
+	    ,editDate
+	)
+	values (
+		"오프라인"
+	    ,"JAVA"
+	    ,1500000
+	    ,"장원영"
+	    ,"2024-05-01"
+	    ,"2024-06-20"
+	    ,"2024-06-27"
+	    ,"2024-12-18"
+	    ,"노원이젠컴퓨터아카데미"
+	    ,null
+	    ,now()
+	    ,now()
+	)
+</insert>
+	  
+</mapper>

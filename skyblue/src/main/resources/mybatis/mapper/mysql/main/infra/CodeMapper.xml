@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.code.CodeDao">
+
+	<resultMap type="com.color.infra.code.CodeDto" id="resultMapObj"></resultMap>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			b.ifcdSeq
+    		,b.ifcdName
+    		,b.ifcdUseNy
+    		,b.ifcdOrder
+    		,b.ifcdDesc
+    		,b.ifcdDelNy
+    		,b.ifcdRgDate
+    		,b.ifcdEditDate
+    		,b.codegroup_ifcgSeq
+		FROM
+			code b
+		ORDER BY
+			b.ifcdSeq desc
+	</select>
+</mapper>

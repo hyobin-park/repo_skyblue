@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.pmembers.PmembersDao">
+
+<resultMap type="com.color.infra.pmembers.PmembersDto" id="resultMapMem"></resultMap>
+	  
+	  <select id="selectMem" resultMap="resultMapMem">
+	  SELECT
+		c.seq
+    	,c.admin
+    	,c.name
+    	,c.id
+    	,c.password
+    	,c.gender
+    	,c.birthDate
+    	,c.email
+    	,c.tel
+    	,c.desc
+    	,c.regDate
+    	,c.editDate
+	FROM 
+		pmembers c
+	ORDER BY
+		c.seq desc
+	  </select>
+</mapper>
