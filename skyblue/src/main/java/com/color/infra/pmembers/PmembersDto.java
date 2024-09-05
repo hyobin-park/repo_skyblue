@@ -6,14 +6,14 @@ public class PmembersDto {
 	
 	private String seq;
 	private Integer admin;
-	private String name;
-	private String id;
-	private String password;
-	private String gender;
-	private Date birthDate;
-	private String email;
-	private String tel;
-	private String desc;
+	private String pmembers_name;
+	private String pmembers_id;
+	private String pmembers_password;
+	private String pmembers_gender;
+	private Date pmembers_birthDate;
+	private String pmembers_email;
+	private String pmembers_tel;
+	private String pmembers_desc;
 	private Date regDate;
 	private Date editDate;
 //	-----
@@ -29,53 +29,53 @@ public class PmembersDto {
 	public void setAdmin(Integer admin) {
 		this.admin = admin;
 	}
-	public String getName() {
-		return name;
+	public String getPmembers_name() {
+		return pmembers_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setPmembers_name(String pmembers_name) {
+		this.pmembers_name = pmembers_name;
 	}
-	public String getId() {
-		return id;
+	public String getPmembers_id() {
+		return pmembers_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setPmembers_id(String pmembers_id) {
+		this.pmembers_id = pmembers_id;
 	}
-	public String getPassword() {
-		return password;
+	public String getPmembers_password() {
+		return pmembers_password;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPmembers_password(String pmembers_password) {
+		this.pmembers_password = pmembers_password;
 	}
-	public String getGender() {
-		return gender;
+	public String getPmembers_gender() {
+		return pmembers_gender;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setPmembers_gender(String pmembers_gender) {
+		this.pmembers_gender = pmembers_gender;
 	}
-	public Date getBirthDate() {
-		return birthDate;
+	public Date getPmembers_birthDate() {
+		return pmembers_birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setPmembers_birthDate(Date pmembers_birthDate) {
+		this.pmembers_birthDate = pmembers_birthDate;
 	}
-	public String getEmail() {
-		return email;
+	public String getPmembers_email() {
+		return pmembers_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPmembers_email(String pmembers_email) {
+		this.pmembers_email = pmembers_email;
 	}
-	public String getTel() {
-		return tel;
+	public String getPmembers_tel() {
+		return pmembers_tel;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setPmembers_tel(String pmembers_tel) {
+		this.pmembers_tel = pmembers_tel;
 	}
-	public String getDesc() {
-		return desc;
+	public String getPmembers_desc() {
+		return pmembers_desc;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setPmembers_desc(String pmembers_desc) {
+		this.pmembers_desc = pmembers_desc;
 	}
 	public Date getRegDate() {
 		return regDate;
@@ -89,5 +89,6 @@ public class PmembersDto {
 	public void setEditDate(Date editDate) {
 		this.editDate = editDate;
 	}
+
 	
 }

@@ -33,4 +33,11 @@ public class CodeController {
 //		}
 		return "/xdm/v1/infra/code/codeXdmList";
 	}
+	
+	@RequestMapping(value="/v1/infra/code/codeXdmForm")
+	public String codeXdmForm() {
+		return "/xdm/v1/infra/code/codeXdmForm";
+	}
+	
+	
 }

@@ -30,9 +30,31 @@ public class PmembersController {
 //			System.out.print(pmembersDto.getDesc() + "|");
 //			System.out.print(pmembersDto.getRegDate() + "|");
 //			System.out.println(pmembersDto.getEditDate() + "|");
-//		}
-		
+//		}		
 		return "/xdm/v1/infra/pmembers/pmembersXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/pmembers/pmembersXdmForm")
+	public String pmembersXdmForm() {
+		return "/xdm/v1/infra/pmembers/pmembersXdmForm";
+	}
+	
+	@RequestMapping(value="/v1/infra/pmembers/pmembersXdmInst")
+	public String pmembersXdmInst(PmembersDto pmembersDto) {
+		pmembersService.insert(pmembersDto);
+		return "redirect:/v1/infra/pmembers/pmembersXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/pmembers/pmembersXdmMFom")
+	public String pmembersXdmMFom(PmembersDto pmembersDto, Model model) {
+		model.addAttribute("item", pmembersService.selectOne(pmembersDto));
+		return "/xdm/v1/infra/pmembers/pmembersXdmMFom";
+	}
+	
+	@RequestMapping(value="/v1/infra/pmembers/pmembersXdmUpdt")
+	public String pmembersXdmUpdt(PmembersDto pmembersDto) {
+		pmembersService.update(pmembersDto);
+		return "redirect:/v1/infra/pmembers/pmembersXdmList";
 	}
 	
 }

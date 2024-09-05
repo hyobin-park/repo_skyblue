@@ -297,7 +297,9 @@
 
                                 <li class="submenu-item  ">
                                     <a href="form-element-textarea.html" class="submenu-link">Textarea</a>
+
                                 </li>
+
                             </ul>
 
 
@@ -682,7 +684,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Lecture Code</h3>
+                            <h3>Lecture M Form</h3>
                             <br>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
@@ -709,14 +711,14 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form" data-parsley-validate method="post" action="/v1/infra/lecture/lectureXdmInst">
+                                        <form class="form" data-parsley-validate method="post" action="/v1/infra/lecture/lectureXdmUpdt">
                                             <div class="row"> <!-- 1번째 row start -->
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <div class="form-group mandatory">
                                                             <label for="country-floating" class="form-label">순번</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="seq"
+                                                                class="form-control" name="seq" th:value="${item?.seq}"
                                                                 placeholder="자동 생성" />
                                                         </div>
                                                     </div>
@@ -727,8 +729,8 @@
                                                         <fieldset class="form-group">
                                                             <select class="form-select" id="basicSelect" name="type"
                                                                 style="padding: .375rem .75rem;">
-                                                                <option value="1">온라인</option>
-                                                                <option value="0">오프라인</option>
+                                                                <option value="1" th:selected="${item?.type == 1}">온라인</option>
+                                                                <option value="0" th:selected="${item?.type == 0}">오프라인</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
@@ -738,7 +740,7 @@
                                                         <div class="form-group mandatory">
                                                             <label for="country-floating" class="form-label">제목</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="title"
+                                                                class="form-control" name="title" th:value="${item?.title}"
                                                                 placeholder="강의제목" />
                                                         </div>
                                                     </div>
@@ -748,7 +750,7 @@
                                                         <div class="form-group mandatory">
                                                             <label for="country-floating" class="form-label">강의료</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="tuition"
+                                                                class="form-control" name="tuition" th:value="${item?.tuition}"
                                                                 placeholder="강의료" />
                                                         </div>
                                                     </div>
@@ -790,7 +792,7 @@
                                                         <div class="form-group mandatory">
                                                             <label for="country-floating" class="form-label">강사</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="instructor"
+                                                                class="form-control" name="instructor" th:value="${item?.instructor}"
                                                                 placeholder="강사 이름" />
                                                         </div>
                                                     </div>
@@ -800,7 +802,7 @@
                                                         <div class="form-group mandatory">
                                                             <label for="country-floating" class="form-label">강의장소</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="place"
+                                                                class="form-control" name="place" th:value="${item?.place}"
                                                                 placeholder="장소" />
                                                         </div>
                                                     </div>
@@ -811,7 +813,7 @@
                                                     <div class="form-group">
                                                         <label for="country-floating" class="form-label">설명</label>
                                                         <div class="form-group mb-3">
-                                                            <textarea class="form-control" name="classDesc"
+                                                            <textarea class="form-control" name="classDesc" th:text="${item?.classDesc}"
                                                                 id="exampleFormControlTextarea1"></textarea>
                                                         </div>
                                                     </div>

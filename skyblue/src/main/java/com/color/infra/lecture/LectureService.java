@@ -20,5 +20,13 @@ public class LectureService {
 		return lectureDao.insert(lectureDto);
 	}
 	
+	public LectureDto selectOne(LectureDto lectureDto) {
+		return lectureDao.selectOne(lectureDto);
+	}
+	
+	public int update(LectureDto lectureDto) {
+		return lectureDao.update(lectureDto);
+	}
+	
 	
 }

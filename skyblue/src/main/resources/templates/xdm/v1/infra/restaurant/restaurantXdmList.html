@@ -706,7 +706,7 @@
                 <div class="page-title">
                     <div class="row match-height">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Code</h3>
+                            <h3>Restaurant List</h3>
                             <br>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
@@ -826,7 +826,7 @@
                                                         <td><input type="checkbox"></td>
                                                         <td th:text="${list.seq}"></td>
                                                         <td th:text="${list.type}"></td>
-                                                        <td th:text="${list.name}"></td>
+                                                        <td><a th:href="@{/v1/infra/restaurant/restaurantXdmMFom(seq=${list.seq})}" th:text="${list.name}"></a></td>
                                                         <td th:text="${#dates.format(list.openTime, 'HH:mm:ss')}"></td>
                                                         <td th:text="${#dates.format(list.closeTime, 'HH:mm:ss')}"></td>
                                                         <td th:text="${list.tel}"></td>

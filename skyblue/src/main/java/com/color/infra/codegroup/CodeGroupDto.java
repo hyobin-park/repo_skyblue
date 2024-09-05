@@ -1,6 +1,7 @@
 package com.color.infra.codegroup;
 
 import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class CodeGroupDto {
 
@@ -8,11 +9,13 @@ public class CodeGroupDto {
 	private String ifcgName;
 	private Integer ifcgUseNy;
 	private Integer ifcgOrder;
-	private String ifcgDesc;
 	private Integer ifcgDelNy;
+	private String ifcgDesc;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ifcgRgDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ifcgEditDate;
-//	----- getter/setter -----
+//	----- getter/setter -----	
 	public String getIfcgSeq() {
 		return ifcgSeq;
 	}
@@ -37,17 +40,17 @@ public class CodeGroupDto {
 	public void setIfcgOrder(Integer ifcgOrder) {
 		this.ifcgOrder = ifcgOrder;
 	}
-	public String getIfcgDesc() {
-		return ifcgDesc;
-	}
-	public void setIfcgDesc(String ifcgDesc) {
-		this.ifcgDesc = ifcgDesc;
-	}
 	public Integer getIfcgDelNy() {
 		return ifcgDelNy;
 	}
 	public void setIfcgDelNy(Integer ifcgDelNy) {
 		this.ifcgDelNy = ifcgDelNy;
+	}
+	public String getIfcgDesc() {
+		return ifcgDesc;
+	}
+	public void setIfcgDesc(String ifcgDesc) {
+		this.ifcgDesc = ifcgDesc;
 	}
 	public Date getIfcgRgDate() {
 		return ifcgRgDate;
@@ -61,7 +64,4 @@ public class CodeGroupDto {
 	public void setIfcgEditDate(Date ifcgEditDate) {
 		this.ifcgEditDate = ifcgEditDate;
 	}
-	
-	
-	
 }

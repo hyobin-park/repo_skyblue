@@ -10,4 +10,8 @@ public interface LectureDao {
 	public List<LectureDto> selectLec();
 	
 	public int insert(LectureDto lectureDto);
+	
+	public LectureDto selectOne(LectureDto lectureDto);
+	
+	public int update(LectureDto lectureDto);
 }

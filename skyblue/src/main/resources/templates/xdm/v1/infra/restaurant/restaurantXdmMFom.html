@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataTable - Mazer Admin Dashboard</title>
+<title>Form Validation - Mazer Admin Dashboard</title>
+
+
 
 <link rel="shortcut icon"
 	href="/xdm/v1/template/ui/assets/compiled/svg/favicon.svg"
@@ -14,27 +16,13 @@
 	type="image/png">
 
 <link rel="stylesheet"
-	href="/xdm/v1/template/ui/assets/extensions/simple-datatables/style.css">
-
-
-<link rel="stylesheet"
-	href="/xdm/v1/template/ui/assets/compiled/css/table-datatable.css">
-<link rel="stylesheet"
 	href="/xdm/v1/template/ui/assets/compiled/css/app.css">
 <link rel="stylesheet"
 	href="/xdm/v1/template/ui/assets/compiled/css/app-dark.css">
 
 <style type="text/css">
-table, th, td {
-	text-align: center;
-}
-
-th {
+label, placeholder {
 	font-size: 15px;
-}
-
-td {
-	font-size: 14px;
 }
 </style>
 </head>
@@ -280,14 +268,13 @@ td {
 									Layout</span>
 						</a></li>
 
-						<li class="sidebar-item  has-sub"><a href="#"
-							class='sidebar-link'> <i class="bi bi-journal-check"></i> <span>Form
-									Validation</span>
+						<li class="sidebar-item active has-sub"><a href="#"
+							class='sidebar-link'> <i class="bi bi-journal-check"></i> <span>Code</span>
 						</a>
 
-							<ul class="submenu ">
+							<ul class="submenu active">
 
-								<li class="submenu-item  "><a
+								<li class="submenu-item active "><a
 									href="form-validation-parsley.html" class="submenu-link">Parsley</a>
 
 								</li>
@@ -325,17 +312,15 @@ td {
 							class='sidebar-link'> <i class="bi bi-grid-1x2-fill"></i> <span>Table</span>
 						</a></li>
 
-						<li class="sidebar-item active has-sub"><a href="#"
+						<li class="sidebar-item  has-sub"><a href="#"
 							class='sidebar-link'> <i
 								class="bi bi-file-earmark-spreadsheet-fill"></i> <span>Datatables</span>
 						</a>
 
-							<ul class="submenu active">
+							<ul class="submenu ">
 
-								<li class="submenu-item active "><a
-									href="table-datatable.html" class="submenu-link">Datatable</a>
-
-								</li>
+								<li class="submenu-item  "><a href="table-datatable.html"
+									class="submenu-link">Datatable</a></li>
 
 								<li class="submenu-item  "><a
 									href="table-datatable-jquery.html" class="submenu-link">Datatable
@@ -517,7 +502,6 @@ td {
 
 								<li class="submenu-item  "><a href="error-500.html"
 									class="submenu-link">500</a></li>
-
 							</ul></li>
 
 						<li class="sidebar-title">Raise Support</li>
@@ -536,14 +520,10 @@ td {
 							href="https://github.com/zuramai/mazer#donation"
 							class='sidebar-link'> <i class="bi bi-cash"></i> <span>Donate</span>
 						</a></li>
-
 					</ul>
 				</div>
 			</div>
 		</div>
-		<!-- 사이드바 끝-->
-
-		<!-- 메인 시작-->
 		<div id="main">
 			<header class="mb-3">
 				<a href="#" class="burger-btn d-block d-xl-none"> <i
@@ -553,251 +533,207 @@ td {
 
 			<div class="page-heading">
 				<div class="page-title">
-					<div class="row match-height">
+					<div class="row">
 						<div class="col-12 col-md-6 order-md-1 order-last">
-							<h3>Code Group</h3>
+							<h3>Restaurant M Form</h3>
 							<br>
 						</div>
 						<div class="col-12 col-md-6 order-md-2 order-first">
 							<nav aria-label="breadcrumb"
 								class="breadcrumb-header float-start float-lg-end">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active" aria-current="page">DataTable</li>
+									<li class="breadcrumb-item"><a href="index.html">Page
+											1</a></li>
+									<li class="breadcrumb-item active" aria-current="page">
+										Page 2</li>
+									<li class="breadcrumb-item active" aria-current="page">Default</li>
 								</ol>
 							</nav>
 						</div>
 					</div>
-					<section class="section">
-						<div class="card">
-							<div class="card-header"></div>
-							<div class="card-body">
-								<form>
-									<div class="row">
-										<div class="col-md-2">
-											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect1">
-													<option>N</option>
-													<option>Y</option>
-												</select>
-											</fieldset>
-										</div>
-										<div class="col-md-2">
-											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect2">
-													<option>N</option>
-													<option>Y</option>
-												</select>
-											</fieldset>
-										</div>
-										<div class="col-md-2">
-											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect3">
-													<option>수정일</option>
-													<option>등록일</option>
-												</select>
-											</fieldset>
-										</div>
-										<div class="col-md-2">
-											<input type="date"
-												class="form-control mb-3 flatpickr-no-config"
-												placeholder="Select date..">
-										</div>
-										<div class="col-md-2">
-											<input type="date"
-												class="form-control mb-3 flatpickr-no-config"
-												placeholder="Select date..">
-										</div>
-									</div>
-									<!-- class="row" 1 end -->
-									<div class="row">
-										<!-- class="row" 2 start -->
-										<div class="col-md-2">
-											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect4">
-													<option>검색구분</option>
-													<option>코드그룹 코드</option>
-													<option>코드그룹 이름</option>
-													<option>코드</option>
-													<option>코드 이름</option>
-												</select>
-											</fieldset>
-										</div>
-										<div class="col-md-2">
-											<input type="text" class="form-control" id="basicInput"
-												placeholder="검색어">
-										</div>
-										<div class="col-md-2">
-											<button class="btn icon btn-sm btn-light">
-												<i class="bi bi-search"></i>
-											</button>
-											<button class="btn icon btn-sm btn-light">
-												<i class="bi bi-arrow-repeat"></i>
-											</button>
-										</div>
-									</div>
-									<!-- class="row" 2 end -->
-									<br>
-									<div class="row">
-										<div class="col-md-2">
-											<p>Total : 171</p>
-										</div>
-										<div class="col-md-8"></div>
-										<div class="col-md-2">
-											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect">
-													<option>5</option>
-													<option>10</option>
-													<option>15</option>
-													<option>20</option>
-													<option>25</option>
-												</select>
-											</fieldset>
-										</div>
-									</div>
-								</form>
-								<!-- ------------table-------------->
-								<div class="row" id="table-head">
-									<div class="col-12">
-										<div class="table-responsive">
-											<table class="table mb-0">
-												<thead>
-													<tr>
-														<th><input type="checkbox"></th>
-														<th>#</th>
-														<th>코드그룹 번호</th>
-														<th>코드그룹 이름</th>
-														<th>사용여부</th>
-														<th>삭제여부</th>
-														<th>순서</th>
-														<th>등록일</th>
-														<th>수정일</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr th:each="list : ${list}">
-														<td><input type="checkbox"></td>
-														<td></td>
-														<td th:text="${list.ifcgSeq}"></td>
-														<td><a
-															th:href="@{/v1/infra/codegroup/codegroupxdmMfom(ifcgSeq=${list.ifcgSeq})}"
-															th:text="${list.ifcgName}"></a></td>
-														<td th:if="${list.ifcgUseNy eq 0}">N</td>
-														<td th:unless="${list.ifcgUseNy eq 0}">Y</td>
-														<td th:if="${list.ifcgDelNy eq 0}">N</td>
-														<td th:unless="${list.ifcgDelNy eq 0}">Y</td>
-														<td th:text="${list.ifcgOrder}"></td>
-														<td
-															th:text="${#dates.format(list.ifcgRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td
-															th:text="${#dates.format(list.ifcgEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+				</div>
+
+				<!-- // Basic multiple Column Form section start -->
+				<section id="multiple-column-form">
+					<div class="row match-height">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">기본정보</h4>
 								</div>
-							</div>
-							<!-- row end-->
-							<!-- ------------table-------------->
-							<div class="card-body">
-								<div class="row md-3">
-									<ul
-										class="pagination pagination-primary  justify-content-center">
-										<li class="page-item"><a class="page-link" href="#">
-												<span aria-hidden="true"><i
-													class="bi bi-chevron-left"></i></span>
-										</a></li>
-										<li class="page-item active"><a class="page-link"
-											href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">
-												<span aria-hidden="true"><i
-													class="bi bi-chevron-right"></i></span>
-										</a></li>
-									</ul>
-								</div>
-								<!--Bottom button -->
-								<div class="row md-3">
-									<div class="col-md-6">
-										<button class="btn icon btn-sm btn-danger">
-											<i class="bi bi-x-lg"></i>
-										</button>
-										<div class="modal-danger me-1 mb-1 d-inline-block">
-											<button type="button" class="btn icon btn-sm btn-danger"
-												data-bs-toggle="modal" data-bs-target="#danger">
-												<i class="bi bi-trash"></i>
-											</button>
-											<!--Delete Modal -->
-											<div class="modal fade text-left" id="danger" tabindex="-1"
-												role="dialog" aria-labelledby="myModalLabel120"
-												aria-hidden="true">
-												<div
-													class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-													role="document">
-													<div class="modal-content">
-														<div class="modal-header bg-danger">
-															<h5 class="modal-title white" id="myModalLabel120">Delete</h5>
-															<button type="button" class="close"
-																data-bs-dismiss="modal" aria-label="Close">
-																<i data-feather="x"></i>
-															</button>
+								<div class="card-content">
+									<div class="card-body">
+										<form class="form" data-parsley-validate method="post"
+											action="/v1/infra/restaurant/restaurantXdmInst">
+											<div class="row">
+												<!-- 1번째 row start -->
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="country-floating" class="form-label">순번</label>
+															<input type="text" id="country-floating"
+																class="form-control" name="seq" th:value="${item?.seq}" placeholder="자동 생성" />
 														</div>
-														<div class="modal-body">선택된 데이터를 삭제하시겠습니까?</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-light-secondary"
-																data-bs-dismiss="modal">
-																<i class="bx bx-x d-block d-sm-none"></i> <span
-																	class="d-none d-sm-block">취소</span>
-															</button>
-															<button type="button" class="btn btn-danger ms-1"
-																data-bs-dismiss="modal">
-																<i class="bx bx-check d-block d-sm-none"></i> <span
-																	class="d-none d-sm-block">확인</span>
-															</button>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="country-floating" class="form-label">종류</label>
+															<input type="text" id="country-floating" 
+																class="form-control" name="type" th:value="${item?.type}" placeholder="종류" />
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="country-floating" class="form-label">이름</label>
+															<input type="text" id="country-floating"
+																th:value="${item?.name}" class="form-control"
+																name="name" placeholder="이름" />
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="country-floating" class="form-label">전화번호</label>
+															<input type="text" id="country-floating" th:value="${item?.tel}"
+																class="form-control" name="tel" placeholder="전화번호" />
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
+											<!-- 1번째 row end -->
+											<div class="row">
+												<!-- 2번째 row start -->
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="country-floating" class="form-label">웹사이트</label>
+															<input type="text" id="country-floating" th:value="${item?.website}"
+																class="form-control" name="website" placeholder="www..." />
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group mandatory">
+														<label for="email-id-column" class="form-label">주차
+															가능여부</label>
+														<fieldset class="form-group">
+															<select class="form-select" id="basicSelect"
+																name="parking" style="padding: .375rem .75rem;">
+																<option value="1" th:selected="${item?.parking == 1}">O</option>
+																<option value="0" th:selected="${item?.parking == 0}">X</option>
+															</select>
+														</fieldset>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="email-id-column" class="form-label">예약
+																가능여부</label>
+															<fieldset class="form-group">
+																<select class="form-select" id="basicSelect"
+																	name="reservation" style="padding: .375rem .75rem;">
+																	<option value="1" th:selected="${item?.reservation == 1}">O</option>
+																	<option value="0" th:selected="${item?.reservation == 0}">X</option>
+																</select>
+															</fieldset>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="email-id-column" class="form-label">콜키지
+																가능여부</label>
+															<fieldset class="form-group">
+																<select class="form-select" id="basicSelect"
+																	name="corkageFree" style="padding: .375rem .75rem;">
+																	<option value="1" th:selected="${item?.corkageFree == 1}">O</option>
+																	<option value="0" th:selected="${item?.corkageFree == 0}">X</option>
+																</select>
+															</fieldset>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- 2번째 row end -->
+											<div class="row">
+												<!-- 3번째 row start -->
+												<div class="col-md-6 col-12">
+													<div class="form-group">
+														<label for="country-floating" class="form-label">소개글</label>
+														<div class="form-group mb-3">
+															<textarea class="form-control" name="introduction" th:text="${item?.introduction}"
+																id="exampleFormControlTextarea1"></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- 3번째 row end -->
+											<!-- 4번째 row start -->
+											<!-- 											<div class="row"> -->
+											<!-- 												<div class="col-md-3 col-12"> -->
+											<!-- 													<div class="form-group"> -->
+											<!-- 														<label for="company-column" class="form-label">수정일</label> -->
+											<!-- 														<input type="text" id="company-column" name="regDate" -->
+											<!-- 															class="form-control" placeholder="날짜" /> -->
+											<!-- 													</div> -->
+											<!-- 												</div> -->
+											<!-- 												<div class="col-md-3 col-12"> -->
+											<!-- 													<div class="form-group"> -->
+											<!-- 														<label for="company-column" class="form-label">수정일</label> -->
+											<!-- 														<input type="text" id="company-column" name="editDate" -->
+											<!-- 															class="form-control" placeholder="날짜" /> -->
+											<!-- 													</div> -->
+											<!-- 												</div> -->
+											<!-- 											</div> -->
+											<!-- 4번째 row end -->
+											<div class="row md-3">
+												<div class="col-md-6">
+													<button class="btn btn-sm btn-outline-dark">
+														<i class="bi bi-list-ul"></i>
+													</button>
+												</div>
+												<div class="col-md-6" align="Right">
+													<button type="submit" class="btn icon btn-sm btn-primary">
+														<i class="bi bi-hdd-stack-fill"></i>
+													</button>
+												</div>
+											</div>
 									</div>
-									<!--Excel & Add button -->
-									<div class="col-md-6" align="Right">
-										<button class="btn icon btn-sm btn-success">
-											<i class="bi bi-file-earmark-excel"></i>
-										</button>
-										<a href="/v1/infra/codegroup/codeGroupXdmForm">
-											<button class="btn icon btn-sm btn-primary">
-												<i class="bi bi-plus-lg"></i>
-											</button>
-										</a>
-									</div>
+									<!-- class="card-body" end -->
 								</div>
 							</div>
+							</form>
 						</div>
-						<!-- card body end-->
+						<!-- class="card" end -->
+					</div>
+					<!-- class="col-12" end -->
+			</div>
+			<!-- class="row match-height" end -->
+		</div>
+		</section>
+		<!-- // Basic multiple Column Form section end -->
+
+		<footer>
+			<div class="footer clearfix mb-0 text-muted">
+				<div class="float-start">
+					<p>2023 &copy; Mazer</p>
+				</div>
+				<div class="float-end">
+					<p>
+						Crafted with <span class="text-danger"><i
+							class="bi bi-heart-fill icon-mid"></i></span> by <a
+							href="https://saugi.me">Saugi</a>
+					</p>
 				</div>
 			</div>
-		</div>
-
-		</section>
-	</div>
-
-	<footer>
-		<div class="footer clearfix mb-0 text-muted">
-			<div class="float-start">
-				<p>2023 &copy; Mazer</p>
-			</div>
-			<div class="float-end">
-				<p>
-					Crafted with <span class="text-danger"><i
-						class="bi bi-heart-fill icon-mid"></i></span> by <a
-						href="https://saugi.me">Saugi</a>
-				</p>
-			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
 	</div>
 	<script src="/xdm/v1/template/ui/assets/static/js/components/dark.js"></script>
@@ -810,9 +746,10 @@ td {
 
 
 	<script
-		src="/xdm/v1/template/ui/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+		src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
 	<script
-		src="/xdm/v1/template/ui/assets/static/js/pages/simple-datatables.js"></script>
+		src="/xdm/v1/template/ui/assets/extensions/parsleyjs/parsley.min.js"></script>
+	<script src="/xdm/v1/template/ui/assets/static/js/pages/parsley.js"></script>
 
 </body>
 

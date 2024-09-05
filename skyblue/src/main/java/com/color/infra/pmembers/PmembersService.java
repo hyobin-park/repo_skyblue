@@ -15,4 +15,16 @@ public class PmembersService {
 		return pmembersDao.selectMem();
 	}
 
+	public int insert(PmembersDto pmembersDto) {
+		return pmembersDao.insert(pmembersDto);
+	}
+
+	public PmembersDto selectOne(PmembersDto pmembersDto) {
+		return pmembersDao.selectOne(pmembersDto);
+	}
+	
+	public int update(PmembersDto pmembersDto) {
+		return pmembersDao.update(pmembersDto);
+	}
+
 }

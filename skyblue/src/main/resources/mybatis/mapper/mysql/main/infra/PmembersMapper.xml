@@ -6,22 +6,85 @@
 <resultMap type="com.color.infra.pmembers.PmembersDto" id="resultMapMem"></resultMap>
 	  
 	  <select id="selectMem" resultMap="resultMapMem">
-	  SELECT
-		c.seq
-    	,c.admin
-    	,c.name
-    	,c.id
-    	,c.password
-    	,c.gender
-    	,c.birthDate
-    	,c.email
-    	,c.tel
-    	,c.desc
-    	,c.regDate
-    	,c.editDate
-	FROM 
-		pmembers c
-	ORDER BY
-		c.seq desc
+	  	SELECT
+			c.seq
+		    ,c.admin
+		    ,c.pmembers_name
+		    ,c.pmembers_id
+		    ,c.pmembers_password
+		    ,c.pmembers_gender
+		    ,c.pmembers_birthDate
+		    ,c.pmembers_email
+		    ,c.pmembers_tel
+		    ,c.pmembers_desc
+		    ,c.regDate
+		    ,c.regDate
+		FROM 
+			pmembers c
+		ORDER BY
+			c.seq desc
 	  </select>
+	  
+	  <insert id="insert">
+		  insert into pmembers (
+			  admin
+			  ,pmembers_name
+			  ,pmembers_id
+			  ,pmembers_password
+			  ,pmembers_gender
+			  ,pmembers_birthDate
+			  ,pmembers_email
+			  ,pmembers_tel
+			  ,pmembers_desc
+			  ,regDate
+			  ,editDate
+			)
+		  values (
+		    #{admin}
+		    ,#{pmembers_name}
+		    ,#{pmembers_id}
+		    ,#{pmembers_password}
+		    ,#{pmembers_gender}
+		    ,now()
+		    ,#{pmembers_email}
+		    ,#{pmembers_tel}
+		    ,NULL
+		    ,now()
+		    ,now()
+		)
+	  </insert>
+	  <select id="selectOne" resultMap="resultMapMem">
+	  SELECT
+			c.seq
+		    ,c.admin
+		    ,c.pmembers_name
+		    ,c.pmembers_id
+		    ,c.pmembers_password
+		    ,c.pmembers_gender
+		    ,c.pmembers_birthDate
+		    ,c.pmembers_email
+		    ,c.pmembers_tel
+		    ,c.pmembers_desc
+		    ,c.regDate
+		    ,c.regDate
+		FROM 
+			pmembers c
+		WHERE 1=1
+			AND c.seq = #{seq}
+	  </select>
+	  
+	  <update id="update">
+	  UPDATE Pmembers
+	  SET
+	  		admin = #{admin}
+		    ,pmembers_name = #{pmembers_name}
+		    ,pmembers_id = #{pmembers_id}
+		    ,pmembers_password = #{pmembers_password}
+		    ,pmembers_gender = #{pmembers_gender}
+		    ,pmembers_email = #{pmembers_email}
+		    ,pmembers_tel = #{pmembers_tel}
+		    ,pmembers_desc = #{pmembers_desc}
+	 WHERE 1 = 1
+	 	AND seq = #{seq}
+	  </update>
 </mapper>

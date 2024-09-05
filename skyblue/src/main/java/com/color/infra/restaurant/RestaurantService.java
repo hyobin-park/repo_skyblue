@@ -15,6 +15,12 @@ public class RestaurantService {
 		return restaurantDao.selectRes();
 	}
 	
+	public int insert(RestaurantDto restaurantDto) {
+		return restaurantDao.insert(restaurantDto);
+	}
 	
+	public RestaurantDto selectOne(RestaurantDto restaurantDto) {
+		return restaurantDao.selectOne(restaurantDto);
+	}
 
 }

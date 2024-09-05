@@ -3,58 +3,93 @@
 
 <mapper namespace="com.color.infra.lecture.LectureDao">
 
-<resultMap type="com.color.infra.lecture.LectureDto" id="resultMapLec"></resultMap>
+	<resultMap type="com.color.infra.lecture.LectureDto"
+		id="resultMapLec"></resultMap>
 
-<select id="selectLec" resultMap="resultMapLec">
-	SELECT
-		d.seq
-    	,d.type
-    	,d.title
-    	,d.tuition
-    	,d.instructor
-    	,d.classRegDate
-    	,d.classRegEndDate
-    	,d.classStartDate
-    	,d.classEndDate
-    	,d.place
-    	,d.classDesc
-    	,d.regDate
-    	,d.editDate
-	FROM
-		lecture d
-	ORDER BY
-		d.seq desc
-</select>
+	<select id="selectLec" resultMap="resultMapLec">
+		SELECT
+			d.seq
+			,d.type
+			,d.title
+			,d.tuition
+			,d.instructor
+			,d.classRegDate
+			,d.classRegEndDate
+			,d.classStartDate
+			,d.classEndDate
+			,d.place
+			,d.classDesc
+			,d.regDate
+			,d.editDate
+		FROM
+			lecture d
+		ORDER BY
+			d.seq desc
+	</select>
 
-<insert id="insert">
-	insert into lecture (
+	<insert id="insert">
+		insert into lecture (
 		type
-	    ,title
-	    ,tuition
-	    ,instructor
-	    ,classRegDate
-	    ,classRegEndDate
-	    ,classStartDate
-	    ,classEndDate
-	    ,place
-	    ,classDesc
-	    ,regDate
-	    ,editDate
-	)
-	values (
-		"오프라인"
-	    ,"JAVA"
-	    ,1500000
-	    ,"장원영"
-	    ,"2024-05-01"
-	    ,"2024-06-20"
-	    ,"2024-06-27"
-	    ,"2024-12-18"
-	    ,"노원이젠컴퓨터아카데미"
-	    ,null
-	    ,now()
-	    ,now()
-	)
-</insert>
-	  
+		,title
+		,tuition
+		,instructor
+		,classRegDate
+		,classRegEndDate
+		,classStartDate
+		,classEndDate
+		,place
+		,classDesc
+		,regDate
+		,editDate
+		)
+		values (
+		#{type}
+		,#{title}
+		,#{tuition}
+		,#{instructor}
+		,now()
+		,now()
+		,now()
+		,now()
+		,#{place}
+		,null
+		,now()
+		,now()
+		)
+	</insert>
+	<select id="selectOne" resultMap="resultMapLec">
+		SELECT
+			d.seq
+			,d.type
+			,d.title
+			,d.tuition
+			,d.instructor
+			,d.classRegDate
+			,d.classRegEndDate
+			,d.classStartDate
+			,d.classEndDate
+			,d.place
+			,d.classDesc
+			,d.regDate
+			,d.editDate
+		FROM
+			lecture d
+		WHERE 1=1
+			AND d.seq = #{seq}
+
+	</select>
+	
+	<update id="update">
+	UPDATE Lecture
+	SET
+		type = #{type}
+		,title = #{title}
+		,tuition = #{tuition}
+		,instructor = #{instructor}
+		,place = #{place}
+		,classDesc = #{classDesc}
+	WHERE 1 = 1
+		AND seq = #{seq}
+	</update>
+
 </mapper>

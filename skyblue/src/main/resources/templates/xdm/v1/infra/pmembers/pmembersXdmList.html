@@ -12,8 +12,6 @@
         type="image/png">
 
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/extensions/simple-datatables/style.css">
-
-
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/table-datatable.css">
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app-dark.css">
@@ -706,7 +704,7 @@
                 <div class="page-title">
                     <div class="row match-height">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Code</h3>
+                            <h3>Pmembers List</h3>
                             <br>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
@@ -826,14 +824,15 @@
                                                         <td th:text="${list.seq}"></td>
                                                         <td th:if="${list.admin eq 0}">N</td>
                                                         <td th:unless="${list.admin eq 0}">Y</td>
-                                                        <td th:text="${list.name}"></td>
-                                                        <td th:text="${list.id}"></td>
-                                                        <td th:text="${list.password}"></td>
-                                                        <td th:text="${list.gender}"></td>
-                                                        <td th:text="${#dates.format(list.birthDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-                                                        <td th:text="${list.email}"></td>
-                                                        <td th:text="${list.tel}"></td>
-                                                        <td th:text="${list.desc}"></td>
+                                                        <td><a th:href="@{/v1/infra/pmembers/pmembersXdmMFom(seq=${list.seq})}" th:text="${list.pmembers_name}"></a></td>
+                                                        <td th:text="${list.pmembers_id}"></td>
+                                                        <td th:text="${list.pmembers_password}"></td>
+                                                        <td th:if="${list.pmembers_gender eq 0}">여성</td>
+                                                        <td th:unless="${list.pmembers_gender eq 0}">남성</td>
+                                                        <td th:text="${#dates.format(list.pmembers_birthDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                                        <td th:text="${list.pmembers_email}"></td>
+                                                        <td th:text="${list.pmembers_tel}"></td>
+                                                        <td th:text="${list.pmembers_desc}"></td>
                                                         <td th:text="${#dates.format(list.regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                                                     	<td th:text="${#dates.format(list.editDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                                                     </tr>

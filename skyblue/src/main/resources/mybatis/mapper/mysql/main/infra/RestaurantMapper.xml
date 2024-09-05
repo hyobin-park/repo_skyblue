@@ -3,26 +3,79 @@
 
 <mapper namespace="com.color.infra.restaurant.RestaurantDao">
 
-<resultMap type="com.color.infra.restaurant.RestaurantDto" id="resultMapRes"></resultMap>
-	  <select id="selectRes" resultMap="resultMapRes">
-	  SELECT
-		e.seq
-    	,e.type
-    	,e.name
-    	,e.openTime
-    	,e.closeTime
-    	,e.tel
-    	,e.website
-    	,e.parking
-    	,e.reservation
-    	,e.corkageFree
-    	,e.introduction
-    	,e.regDate
-    	,e.EditDate
-	FROM
-		restaurant e
-	ORDER BY
-		e.seq desc
-	  </select>
-	  
+	<resultMap type="com.color.infra.restaurant.RestaurantDto"
+		id="resultMapRes"></resultMap>
+	<select id="selectRes" resultMap="resultMapRes">
+		SELECT
+			e.seq
+			,e.type
+			,e.name
+			,e.openTime
+			,e.closeTime
+			,e.tel
+			,e.website
+			,e.parking
+			,e.reservation
+			,e.corkageFree
+			,e.introduction
+			,e.regDate
+			,e.EditDate
+		FROM
+			restaurant e
+		ORDER BY
+			e.seq desc
+	</select>
+
+	<insert id="insert">
+		INSERT INTO restaurant (
+			type
+			,name
+			,openTime
+			,closeTime
+			,tel
+			,website
+			,parking
+			,reservation
+			,corkageFree
+			,introduction
+			,regDate
+			,EditDate
+			)
+		VALUES (
+			#{type}
+			,#{name}
+			,#{openTime}
+			,#{closeTime}
+			,#{tel}
+			,#{website}
+			,#{parking}
+			,#{reservation}
+			,#{corkageFree}
+			,#{introduction}
+			,now()
+			,now()
+			)
+	</insert>
+
+	<select id="selectOne" resultMap="resultMapRes">
+		SELECT
+			e.seq
+			,e.type
+			,e.name
+			,e.openTime
+			,e.closeTime
+			,e.tel
+			,e.website
+			,e.parking
+			,e.reservation
+			,e.corkageFree
+			,e.introduction
+			,e.regDate
+			,e.EditDate
+		FROM
+			restaurant e
+		WHERE 1=1
+			AND e.seq = #{seq}
+	</select>
+
 </mapper>

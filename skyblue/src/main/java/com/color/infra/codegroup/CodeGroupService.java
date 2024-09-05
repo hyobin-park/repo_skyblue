@@ -29,5 +29,23 @@ public class CodeGroupService {
 //		int result = codeGroupDao.insert(codeGroupDto);
 //		return result;
 //	}
+	
+	public CodeGroupDto selectOne(CodeGroupDto codeGroupDto) {
+		return codeGroupDao.selectOne(codeGroupDto);
+	}
+	
+//	public CodeGroupDto selectOne(CodeGroupDto codeGroupDto) {
+//		CodeGroupDto dto = codeGroupDao.selectOne(codeGroupDto);
+//		return dto;
+//	}
+	
+	public int update(CodeGroupDto codeGroupDto) {
+		return codeGroupDao.update(codeGroupDto);
+	}
+	
+//	public int update(CodeGroupDto codeGroupDto) {
+//		int a = codeGroupDao.update(codeGroupDto);
+//		return a;
+//	}
 
 }

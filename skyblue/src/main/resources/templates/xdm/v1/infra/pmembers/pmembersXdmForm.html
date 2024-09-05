@@ -297,7 +297,9 @@
 
                                 <li class="submenu-item  ">
                                     <a href="form-element-textarea.html" class="submenu-link">Textarea</a>
+
                                 </li>
+
                             </ul>
 
 
@@ -682,7 +684,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Lecture Code</h3>
+                            <h3>Pmembers Form</h3>
                             <br>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
@@ -709,7 +711,7 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form" data-parsley-validate method="post" action="/v1/infra/lecture/lectureXdmInst">
+                                        <form class="form" data-parsley-validate method="post" action="/v1/infra/pmembers/pmembersXdmInst">
                                             <div class="row"> <!-- 1번째 row start -->
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
@@ -723,12 +725,12 @@
                                                 </div>
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group mandatory">
-                                                        <label for="email-id-column" class="form-label">강의타입</label>
+                                                        <label for="email-id-column" class="form-label">관리자여부</label>
                                                         <fieldset class="form-group">
-                                                            <select class="form-select" id="basicSelect" name="type"
+                                                            <select class="form-select" id="basicSelect" name="admin"
                                                                 style="padding: .375rem .75rem;">
-                                                                <option value="1">온라인</option>
-                                                                <option value="0">오프라인</option>
+                                                                <option value="1">Y</option>
+                                                                <option value="0">N</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
@@ -736,95 +738,87 @@
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <div class="form-group mandatory">
-                                                            <label for="country-floating" class="form-label">제목</label>
+                                                            <label for="country-floating" class="form-label">이름</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="title"
-                                                                placeholder="강의제목" />
+                                                                class="form-control" name="pmembers_name"
+                                                                placeholder="이름" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <div class="form-group mandatory">
-                                                            <label for="country-floating" class="form-label">강의료</label>
+                                                            <label for="country-floating" class="form-label">ID</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="tuition"
-                                                                placeholder="강의료" />
+                                                                class="form-control" name="pmembers_id"
+                                                                placeholder="아이디" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                </div> <!-- 1번째 row end -->
-<!--                                                <div class="row"> 2번째 row start -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="city-column" class="form-label">수강신청시작</label> -->
-<!--                                                         <input type="text" id="city-column" name="classRegDate" class="form-control" -->
-<!--                                                             placeholder="날짜" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="company-column" class="form-label">수강신청종료</label> -->
-<!--                                                         <input type="text" id="company-column" name="classRegEndDate" class="form-control" -->
-<!--                                                             placeholder="날짜" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="company-column" class="form-label">수업시작일</label> -->
-<!--                                                         <input type="text" id="company-column" name="classStartDate" class="form-control" -->
-<!--                                                             placeholder="날짜" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="company-column" class="form-label">수업종료일</label> -->
-<!--                                                         <input type="text" id="company-column" name="classEndDate" class="form-control" -->
-<!--                                                             placeholder="날짜" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
-<!--                                             </div> 2번째 row end -->
-                                            <div class="row"> <!-- 3번째 row start -->
+                                            <div class="row"> <!-- 2번째 row start -->
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <div class="form-group mandatory">
-                                                            <label for="country-floating" class="form-label">강사</label>
+                                                            <label for="country-floating" class="form-label">PASSWORD</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="instructor"
-                                                                placeholder="강사 이름" />
+                                                                class="form-control" name="pmembers_password"
+                                                                placeholder="비밀번호" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-12">
+                                                    <div class="form-group mandatory">
+                                                        <label for="email-id-column" class="form-label">성별</label>
+                                                        <fieldset class="form-group">
+                                                            <select class="form-select" id="basicSelect" name="pmembers_gender"
+                                                                style="padding: .375rem .75rem;">
+                                                                <option value="1">남성</option>
+                                                                <option value="0">여성</option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+<!-- 	                                            <div class="col-md-3 col-12"> -->
+<!--                                                     <div class="form-group"> -->
+<!--                                                         <div class="form-group mandatory"> -->
+<!--                                                             <label for="country-floating" class="form-label">생년월일</label> -->
+<!--                                                             <input type="text" id="country-floating" -->
+<!--                                                                 class="form-control" name="pmembers_birthDate" -->
+<!--                                                                 placeholder="생년월일" /> -->
+<!--                                                         </div> -->
+<!--                                                     </div> -->
+<!--                                                 </div> -->
+                                                <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <div class="form-group mandatory">
-                                                            <label for="country-floating" class="form-label">강의장소</label>
+                                                            <label for="country-floating" class="form-label">이메일</label>
                                                             <input type="text" id="country-floating"
-                                                                class="form-control" name="place"
-                                                                placeholder="장소" />
+                                                                class="form-control" name="pmembers_email"
+                                                                placeholder="이메일" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- 2번째 row end -->
+                                            <div class="row"> <!-- 3번째 row start -->
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="country-floating" class="form-label">설명</label>
+                                                        <div class="form-group mb-3">
+                                                            <textarea class="form-control" name="pmembers_desc"
+                                                                id="exampleFormControlTextarea1"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div> <!-- 3번째 row end -->
                                             <div class="row"> <!-- 4번째 row start -->
-                                                <div class="col-md-6 col-12">
+                                                <div class="col-md-3 col-12">
                                                     <div class="form-group">
-                                                        <label for="country-floating" class="form-label">설명</label>
-                                                        <div class="form-group mb-3">
-                                                            <textarea class="form-control" name="classDesc"
-                                                                id="exampleFormControlTextarea1"></textarea>
-                                                        </div>
+                                                        <label for="city-column" class="form-label">전화번호</label>
+                                                        <input type="text" id="city-column" name="pmembers_tel" class="form-control"
+                                                            placeholder="전화번호" />
                                                     </div>
                                                 </div>
-                                            </div> <!-- 4번째 row end -->
-<!--                                             <div class="row"> 5번째 row start -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="city-column" class="form-label">등록일</label> -->
-<!--                                                         <input type="text" id="city-column" name="regDate" class="form-control" -->
-<!--                                                             placeholder="날짜" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
 <!--                                                 <div class="col-md-3 col-12"> -->
 <!--                                                     <div class="form-group"> -->
 <!--                                                         <label for="company-column" class="form-label">수정일</label> -->
@@ -834,19 +828,12 @@
 <!--                                                 </div> -->
 <!--                                                 <div class="col-md-3 col-12"> -->
 <!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="company-column" class="form-label">기타</label> -->
-<!--                                                         <input type="text" id="company-column" name="" class="form-control" -->
-<!--                                                             placeholder="" /> -->
+<!--                                                         <label for="company-column" class="form-label">수정일</label> -->
+<!--                                                         <input type="text" id="company-column" name="editDate" class="form-control" -->
+<!--                                                             placeholder="날짜" /> -->
 <!--                                                     </div> -->
 <!--                                                 </div> -->
-<!--                                                 <div class="col-md-3 col-12"> -->
-<!--                                                     <div class="form-group"> -->
-<!--                                                         <label for="company-column" class="form-label">기타</label> -->
-<!--                                                         <input type="text" id="company-column" name="" class="form-control" -->
-<!--                                                             placeholder="" /> -->
-<!--                                                     </div> -->
-<!--                                                 </div> -->
-<!--                                             </div> 5번째 row end -->
+                                            </div> <!-- 4번째 row end -->
                                             <div class="row md-3">
                                                 <div class="col-md-6">
                                                     <button class="btn btn-sm btn-outline-dark"><i

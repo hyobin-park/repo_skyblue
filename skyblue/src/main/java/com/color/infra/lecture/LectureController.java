@@ -43,4 +43,17 @@ public class LectureController {
 		lectureService.insert(lectureDto);
 		return "redirect:/v1/infra/lecture/lectureXdmList";
 	}
+	
+	@RequestMapping(value="/v1/infra/lecture/lectureXdmMFom")
+	public String lectureXdmMFom(LectureDto lectureDto, Model model) {
+		model.addAttribute("item", lectureService.selectOne(lectureDto));
+		return "/xdm/v1/infra/lecture/lectureXdmMFom";
+	}
+	
+	@RequestMapping(value="/v1/infra/lecture/lectureXdmUpdt")
+	public String lectureUpdt(LectureDto lectureDto) {
+		lectureService.update(lectureDto);
+		return "redirect:/v1/infra/lecture/lectureXdmList";
+	}
+	
 }

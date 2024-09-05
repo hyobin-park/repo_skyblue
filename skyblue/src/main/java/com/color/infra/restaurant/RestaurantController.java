@@ -33,4 +33,22 @@ public class RestaurantController {
 //		}
 		return "/xdm/v1/infra/restaurant/restaurantXdmList";
 	}
+	
+	@RequestMapping(value="/v1/infra/restaurant/restaurantXdmForm")
+	public String restaurantXdmForm() {
+		return "/xdm/v1/infra/restaurant/restaurantXdmForm";
+	}
+	
+	@RequestMapping(value="/v1/infra/restaurant/restaurantXdmInst")
+	public String restaurantXdmInst(RestaurantDto restaurantDto) {
+		restaurantService.insert(restaurantDto);
+		return "redirect:/v1/infra/restaurant/restaurantXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/restaurant/restaurantXdmMFom")
+	public String restaurantXdmMFom(RestaurantDto restaurantDto, Model model) {
+		model.addAttribute("item", restaurantService.selectOne(restaurantDto));
+		return "/xdm/v1/infra/restaurant/restaurantXdmMFom";
+	}
+	
 }

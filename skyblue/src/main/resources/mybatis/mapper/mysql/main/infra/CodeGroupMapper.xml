@@ -10,37 +10,67 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.ifcgSeq
-    		,a.ifcgName
-    		,a.ifcgUseNy
-    		,a.ifcgOrder
-    		,a.ifcgDesc
-    		,a.ifcgDelNy
-    		,a.ifcgRgDate
-    		,a.ifcgEditDate
-	FROM
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		FROM
 			codegroup a
-	ORDER BY
+		ORDER BY
 			a.ifcgSeq desc
 	</select>
 	
 	<insert id="insert">
-		insert into codegroup (
+		INSERT INTO codegroup (
 			ifcgName
 			,ifcgUseNy
 			,ifcgOrder
-			,ifcgDesc
 			,ifcgDelNy
+			,ifcgDesc
 			,ifcgRgDate
 			,ifcgEditDate
 		)
-		values (
-		    "hyobin"
-		    ,1
-		    ,1
-		    ,NULL
-		    ,0
+		VALUES (
+		    #{ifcgName}
+		    ,#{ifcgUseNy}
+		    ,#{ifcgOrder}
+		    ,#{ifcgDelNy}
+		    ,#{ifcgDesc}
 		    ,now()
 		    ,now()
 		)
 	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.ifcgSeq
+    		,a.ifcgName
+    		,a.ifcgUseNy
+    		,a.ifcgOrder
+    		,a.ifcgDelNy
+    		,a.ifcgDesc
+    		,a.ifcgRgDate
+    		,a.ifcgEditDate
+		FROM
+			codegroup a
+		WHERE 1=1
+			AND a.ifcgSeq = #{ifcgSeq}
+	</select>
+	
+	<update id="update">
+		UPDATE CodeGroup
+		SET
+			ifcgName = #{ifcgName}
+			,ifcgUseNy = #{ifcgUseNy}
+			,ifcgOrder = #{ifcgOrder}
+			,ifcgDelNy = #{ifcgDelNy}
+			,ifcgDesc = #{ifcgDesc}
+			,ifcgEditDate = now()
+		WHERE 1=1
+			AND ifcgSeq = #{ifcgSeq}
+	</update>
+	
 </mapper>

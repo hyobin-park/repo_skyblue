@@ -9,4 +9,10 @@ public interface PmembersDao {
 
 	public List<PmembersDto> selectMem();
 	
+	public int insert(PmembersDto pmembersDto);
+	
+	public PmembersDto selectOne(PmembersDto pmembersDto);
+	
+	public int update(PmembersDto pmembersDto);
+	
 }
