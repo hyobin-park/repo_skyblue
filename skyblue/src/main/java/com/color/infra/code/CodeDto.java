@@ -12,8 +12,13 @@ public class CodeDto {
 	private Integer ifcdDelNy;
 	private Date ifcdRgDate;
 	private Date ifcdEditDate;
-	private String codegroupIfcgSeq;
-//	-----
+	private String codegroup_ifcgSeq;
+	
+//	CodeGroup에서 가져올 데이터 추가 및 getter/setter 하기
+	private String ifcgSeq;
+	private String ifcgName;
+	
+//	----- getter/setter -----
 	public String getIfcdSeq() {
 		return ifcdSeq;
 	}
@@ -62,11 +67,23 @@ public class CodeDto {
 	public void setIfcdEditDate(Date ifcdEditDate) {
 		this.ifcdEditDate = ifcdEditDate;
 	}
-	public String getCodegroupIfcgSeq() {
-		return codegroupIfcgSeq;
+	public String getCodegroup_ifcgSeq() {
+		return codegroup_ifcgSeq;
 	}
-	public void setCodegroupIfcgSeq(String codegroupIfcgSeq) {
-		this.codegroupIfcgSeq = codegroupIfcgSeq;
+	public void setCodegroup_ifcgSeq(String codegroup_ifcgSeq) {
+		this.codegroup_ifcgSeq = codegroup_ifcgSeq;
+	}
+	public String getIfcgSeq() {
+		return ifcgSeq;
+	}
+	public void setIfcgSeq(String ifcgSeq) {
+		this.ifcgSeq = ifcgSeq;
+	}
+	public String getIfcgName() {
+		return ifcgName;
+	}
+	public void setIfcgName(String ifcgName) {
+		this.ifcgName = ifcgName;
 	}
 	
 }

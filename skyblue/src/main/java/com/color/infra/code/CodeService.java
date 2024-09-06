@@ -14,4 +14,30 @@ public class CodeService {
 	public List<CodeDto> selectList() {
 		return codeDao.selectList();
 	}
+	//Code - CodeGroup Relation 
+	//데이터를 넘겨줄 필요가 없음
+	public List<CodeDto> selectListCodeGroup() {
+		return codeDao.selectListCodeGroup();
+	}
+	
+//	public List<CodeDto> selectListCodeGroup() {
+//		List<CodeDto> codeGroups = codeDao.selectListCodeGroup();
+//		return codeGroups;
+//	}
+	
+	//insert
+	public int codeinsert(CodeDto codeDto) {
+		return codeDao.codeinsert(codeDto);
+	}
+	
+	//update
+	public int codeUpdate(CodeDto codeDto) {
+		return codeDao.codeUpdate(codeDto);
+	}
+	
+	//selectOne
+	public CodeDto selectOne(CodeDto codeDto) {
+		return codeDao.selectOne(codeDto);
+	}
+	
 }

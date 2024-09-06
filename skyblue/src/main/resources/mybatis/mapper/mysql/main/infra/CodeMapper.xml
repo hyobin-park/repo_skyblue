@@ -21,4 +21,68 @@
 		ORDER BY
 			b.ifcdSeq desc
 	</select>
+	<select id="selectListCodeGroup" resultMap="resultMapObj">
+		SELECT
+			a.ifcgSeq
+    		,a.ifcgName
+    	FROM CodeGroup a
+		WHERE 1=1
+			AND a.ifcgDelNy = 0
+		ORDER BY
+			a.ifcgOrder DESC
+	</select>
+	
+	<insert id="codeinsert">
+		INSERT INTO code (
+			ifcdName
+			,ifcdUseNy
+			,ifcdOrder
+			,ifcdDesc
+			,ifcdDelNy
+			,ifcdRgDate
+			,ifcdEditDate
+			,codegroup_ifcgSeq
+		)
+		VALUES (
+    		#{ifcdName}
+			,#{ifcdUseNy}
+			,#{ifcdOrder}
+			,#{ifcdDesc}
+			,#{ifcdDelNy}
+			,now()
+			,now()
+			,#{codegroup_ifcgSeq}
+	)
+	</insert>
+	
+	<update id="codeUpdate">
+		UPDATE code
+		SET
+    		ifcdName = #{ifcdName}
+			,ifcdUseNy = #{ifcdUseNy}
+			,ifcdOrder = #{ifcdOrder}
+			,ifcdDesc = #{ifcdDesc}
+			,ifcdDelNy = #{ifcdDelNy}
+			,ifcdEditDate = now()
+			,codegroup_ifcgSeq = #{codegroup_ifcgSeq}
+		WHERE 1=1
+			AND ifcdSeq = #{ifcdSeq}
+	</update>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			b.ifcdSeq
+    		,b.ifcdName
+    		,b.ifcdUseNy
+    		,b.ifcdOrder
+    		,b.ifcdDesc
+    		,b.ifcdDelNy
+    		,b.ifcdRgDate
+    		,b.ifcdEditDate
+    		,b.codegroup_ifcgSeq
+		FROM
+			code b
+		WHERE 1=1
+			AND b.ifcdSeq = #{ifcdSeq}
+	</select>
 </mapper>

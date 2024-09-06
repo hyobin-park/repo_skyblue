@@ -828,16 +828,16 @@
                                                     <tr th:each="list : ${list}">
                                                         <td><input type="checkbox"></td>
                                                         <td th:text="${list.ifcdSeq}"></td>
-                                                        <td th:text="${list.ifcdName}"></td>
+                                                        <td><a th:href="@{/v1/infra/code/codeXdmMFom(ifcdSeq=${list.ifcdSeq})}" th:text="${list.ifcdName}"></a></td>
                                                         <td th:if="${list.ifcdUseNy eq 0}">N</td>
                                                         <td th:unless="${list.ifcdUseNy eq 0}">Y</td>
                                                         <td th:text="${list.ifcdOrder}"></td>
                                                         <td th:text="${list.ifcdDesc}"></td>
                                                         <td th:if="${list.ifcdDelNy eq 0}">N</td>
                                                         <td th:unless="${list.ifcdDelNy eq 0}">Y</td>
-                                                        <td th:text="${#dates.format(list.ifcdRgDate, 'yyyy-MM-dd HH:mm:ss')}">ㅁㄴㅇㄹ</td>
-                                                        <td th:text="${#dates.format(list.ifcdEditDate, 'yyyy-MM-dd HH:mm:ss')}">2023-10-12 16:02:31</td>
-                                                    	<td th:text="${list.codegroupIfcgSeq}"></td>
+                                                        <td th:text="${#dates.format(list.ifcdRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                                        <td th:text="${#dates.format(list.ifcdEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                                    	<td th:text="${list.codegroup_ifcgSeq}"></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -867,7 +867,7 @@
                                     </div>
                                     <div class="col-md-6" align="Right">
                                         <button class="btn icon btn-sm btn-success"><i class="bi bi-file-earmark-excel"></i></button>
-                                        <button class="btn icon btn-sm btn-primary"><i class="bi bi-plus-lg"></i></button>
+                                        <a href="/v1/infra/code/codeXdmForm"><button class="btn icon btn-sm btn-primary"><i class="bi bi-plus-lg"></i></button></a>
                                     </div>
                                 </div>
                             </div>
