@@ -18,7 +18,6 @@ public class CodeController {
 	public String codeXdmList(Model model) {
 		model.addAttribute("list", codeService.selectList());
 		
-		
 //		System.out.println("codes.size(): " + codes.size());
 //	
 //		for(CodeDto codedto : codes) {
@@ -45,7 +44,6 @@ public class CodeController {
 	@RequestMapping(value="/v1/infra/code/codeXdmInst")
 	public String codeXdmInst(CodeDto codeDto) {
 		codeService.codeinsert(codeDto);
-//		System.out.println(codeDto.getCodegroup_ifcgSeq());
 		return "redirect:/v1/infra/code/codeXdmList";
 	}
 	
@@ -57,7 +55,7 @@ public class CodeController {
 	
 	@RequestMapping(value="/v1/infra/code/codeXdmMFom")
 	public String codeXdmMFom(CodeDto codeDto, Model model) {
-		model.addAttribute("item", codeService.selectOne(codeDto));
+		model.addAttribute("codeItem", codeService.selectOne(codeDto));
 		
 		List<CodeDto> codeGroups = codeService.selectListCodeGroup();
 		model.addAttribute("listCodeGroup", codeService.selectListCodeGroup());
