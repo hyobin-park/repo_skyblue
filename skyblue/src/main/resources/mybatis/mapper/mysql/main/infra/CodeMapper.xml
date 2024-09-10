@@ -16,8 +16,11 @@
     		,b.ifcdRgDate
     		,b.ifcdEditDate
     		,b.codegroup_ifcgSeq
+    		,a.ifcgName
 		FROM
 			code b
+		LEFT JOIN codegroup a
+		ON b.codegroup_ifcgSeq = a.ifcgSeq
 		ORDER BY
 			b.ifcdSeq desc
 	</select>
