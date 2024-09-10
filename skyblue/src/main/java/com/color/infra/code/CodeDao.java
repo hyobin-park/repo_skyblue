@@ -19,4 +19,10 @@ public interface CodeDao {
 	
 	//selectOne
 	public CodeDto selectOne(CodeDto codeDto);
+	
+	//uelete
+	public int codeUelete(CodeDto codeDto);
+	
+	//delete
+	public int codeDelete(CodeDto codeDto);
 }

@@ -62,4 +62,17 @@ public class CodeController {
 		
 		return "/xdm/v1/infra/code/codeXdmMFom";
 	}
+	
+	@RequestMapping(value="/v1/infra/code/codeXdmUel")
+	public String codeXdmUel(CodeDto codeDto) {
+		codeService.codeUelete(codeDto);
+		return "redirect:/v1/infra/code/codeXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/code/codeXdmDel")
+	public String codeXdmDel(CodeDto codeDto) {
+		codeService.codeDelete(codeDto);
+		return "redirect:/v1/infra/code/codeXdmList";
+	}
+	
 }

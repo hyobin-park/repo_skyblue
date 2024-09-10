@@ -669,6 +669,7 @@ td {
 														<th>코드그룹 이름</th>
 														<th>사용여부</th>
 														<th>삭제여부</th>
+														<th>개수</th>
 														<th>순서</th>
 														<th>등록일</th>
 														<th>수정일</th>
@@ -679,18 +680,17 @@ td {
 														<td><input type="checkbox"></td>
 														<td></td>
 														<td th:text="${list.ifcgSeq}"></td>
-														<td><a
-															th:href="@{/v1/infra/codegroup/codegroupxdmMfom(ifcgSeq=${list.ifcgSeq})}"
+														<td>
+														<a th:href="@{/v1/infra/codegroup/codegroupxdmMfom(ifcgSeq=${list.ifcgSeq})}"
 															th:text="${list.ifcgName}"></a></td>
 														<td th:if="${list.ifcgUseNy eq 0}">N</td>
 														<td th:unless="${list.ifcgUseNy eq 0}">Y</td>
 														<td th:if="${list.ifcgDelNy eq 0}">N</td>
 														<td th:unless="${list.ifcgDelNy eq 0}">Y</td>
+														<td th:text="${list.ifcdSeqCount}"></td>
 														<td th:text="${list.ifcgOrder}"></td>
-														<td
-															th:text="${#dates.format(list.ifcgRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td
-															th:text="${#dates.format(list.ifcgEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:text="${#dates.format(list.ifcgRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:text="${#dates.format(list.ifcgEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 													</tr>
 												</tbody>
 											</table>

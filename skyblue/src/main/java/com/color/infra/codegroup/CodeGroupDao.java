@@ -19,4 +19,10 @@ public interface CodeGroupDao {
 	//update - update
 	public int update(CodeGroupDto codeGroupDto);
 	
+	//uelete
+	public int uelete(CodeGroupDto codeGroupDto);
+	
+	//delete
+	public int delete(CodeGroupDto codeGroupDto);
+	
 }

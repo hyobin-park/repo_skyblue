@@ -808,13 +808,14 @@
                                                         <th><input type="checkbox"></th>
                                                         <th>#</th>
                                                         <th>코드이름</th>
-                                                        <th>사용</th>
-                                                        <th>순서</th>
-                                                        <th>설명</th>
+                                                        <th>사용여부</th>
                                                         <th>삭제여부</th>
+                                                        <th>순서</th>
+<!--                                                         <th>설명</th> -->
                                                         <th>등록일</th>
                                                         <th>수정일</th>
                                                         <th>코드그룹 번호</th>
+                                                        <th>코드그룹 이름</th>
                                                     </tr>
                                                 	<tr th:if="${#lists.isEmpty(list)}">
                                                 		<td colspan="10">
@@ -831,13 +832,14 @@
                                                         <td><a th:href="@{/v1/infra/code/codeXdmMFom(ifcdSeq=${list.ifcdSeq})}" th:text="${list.ifcdName}"></a></td>
                                                         <td th:if="${list.ifcdUseNy eq 0}">N</td>
                                                         <td th:unless="${list.ifcdUseNy eq 0}">Y</td>
-                                                        <td th:text="${list.ifcdOrder}"></td>
-                                                        <td th:text="${list.ifcdDesc}"></td>
                                                         <td th:if="${list.ifcdDelNy eq 0}">N</td>
                                                         <td th:unless="${list.ifcdDelNy eq 0}">Y</td>
+                                                        <td th:text="${list.ifcdOrder}"></td>
+<!--                                                         <td th:text="${list.ifcdDesc}"></td> -->
                                                         <td th:text="${#dates.format(list.ifcdRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                                                         <td th:text="${#dates.format(list.ifcdEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                                                     	<td th:text="${list.codegroup_ifcgSeq}"></td>
+<!--                                                     	<td th:text="${}"></td> -->
                                                     </tr>
                                                 </tbody>
                                             </table>

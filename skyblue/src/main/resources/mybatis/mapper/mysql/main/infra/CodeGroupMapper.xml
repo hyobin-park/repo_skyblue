@@ -17,6 +17,11 @@
 		    ,a.ifcgDesc
 		    ,a.ifcgRgDate
 		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1 
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
 		FROM
 			codegroup a
 		ORDER BY
@@ -72,5 +77,19 @@
 		WHERE 1=1
 			AND ifcgSeq = #{ifcgSeq}
 	</update>
+	
+	<update id="uelete">
+		UPDATE codegroup
+		SET
+			ifcgDelNy = 1
+		WHERE 1=1
+			AND ifcgSeq = #{ifcgSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM codegroup
+		WHERE 1=1
+			AND ifcgSeq = #{ifcgSeq}
+	</delete>
 	
 </mapper>

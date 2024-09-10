@@ -40,4 +40,14 @@ public class CodeService {
 		return codeDao.selectOne(codeDto);
 	}
 	
+	//uelete
+	public int codeUelete(CodeDto codeDto) {
+		return codeDao.codeUelete(codeDto);
+	}
+	
+	//delete
+	public int codeDelete(CodeDto codeDto) {
+		return codeDao.codeDelete(codeDto);
+	}
+	
 }

@@ -15,7 +15,10 @@ public class CodeGroupDto {
 	private Date ifcgRgDate;
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ifcgEditDate;
-//	----- getter/setter -----	
+	
+	private Integer ifcdSeqCount;
+	
+	//	----- getter/setter -----	
 	public String getIfcgSeq() {
 		return ifcgSeq;
 	}
@@ -63,5 +66,11 @@ public class CodeGroupDto {
 	}
 	public void setIfcgEditDate(Date ifcgEditDate) {
 		this.ifcgEditDate = ifcgEditDate;
+	}
+	public Integer getIfcdSeqCount() {
+		return ifcdSeqCount;
+	}
+	public void setIfcdSeqCount(Integer ifcdSeqCount) {
+		this.ifcdSeqCount = ifcdSeqCount;
 	}
 }

@@ -2,6 +2,8 @@ package com.color.infra.code;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CodeDto {
 	
 	private String ifcdSeq;
@@ -10,7 +12,9 @@ public class CodeDto {
 	private Integer ifcdOrder;
 	private String ifcdDesc;
 	private Integer ifcdDelNy;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ifcdRgDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date ifcdEditDate;
 	private String codegroup_ifcgSeq;
 	

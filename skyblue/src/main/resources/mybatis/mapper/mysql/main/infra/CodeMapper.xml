@@ -85,4 +85,19 @@
 		WHERE 1=1
 			AND b.ifcdSeq = #{ifcdSeq}
 	</select>
+	
+	<update id="codeUelete">
+		UPDATE code
+		SET
+			ifcdDelNy = 1
+		WHERE 1=1
+			AND ifcdSeq = #{ifcdSeq}
+	</update>
+	
+	<delete id="codeDelete">
+		DELETE FROM code
+		WHERE 1=1
+			AND ifcdSeq = #{ifcdSeq}
+	</delete>
+	
 </mapper>
