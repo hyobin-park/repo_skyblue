@@ -15,8 +15,11 @@ public class CodeController {
 	CodeService codeService;
 	
 	@RequestMapping(value="/v1/infra/code/codeXdmList")
-	public String codeXdmList(Model model) {
-		model.addAttribute("list", codeService.selectList());
+	public String codeXdmList(Model model, CodeVo codeVo) {
+		codeVo.setShDateStart(codeVo.getShDateStart() + " 00:00:00");
+		codeVo.setShDateEnd(codeVo.getShDateEnd() + " 23:59:59");
+		
+		model.addAttribute("list", codeService.selectList(codeVo));
 		
 //		System.out.println("codes.size(): " + codes.size());
 //	
@@ -74,5 +77,4 @@ public class CodeController {
 		codeService.codeDelete(codeDto);
 		return "redirect:/v1/infra/code/codeXdmList";
 	}
-	
 }

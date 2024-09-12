@@ -14,14 +14,16 @@ public class CodeGroupController {
 	CodeGroupService codeGroupService;
 	
 	@RequestMapping(value="/v1/infra/codegroup/codeGroupXdmList")	// 변경 가능한 주소로 '/xdm' 제외 혹은 포함 가능
-	public String codeGroupXdmList(Model model) {
+	public String codeGroupXdmList(Model model, CodeGroupVo codeGroupVo) {
 		
+		codeGroupVo.setShDateStart(codeGroupVo.getShDateStart() + " 00:00:00");
+		codeGroupVo.setShDateEnd(codeGroupVo.getShDateEnd() + " 23:59:59");
 //		여기에서 함수를 호출해야 된다는
 //		service에 있는 함수를 호출
 		
-		model.addAttribute("list", codeGroupService.selectList());
-		
-//		System.out.println("codeGroups.size():" + codeGroups.size());
+		model.addAttribute("list", codeGroupService.selectList(codeGroupVo));
+
+		//		System.out.println("codeGroups.size():" + codeGroups.size());
 //		
 //		for(CodeGroupDto codegroupdto : codeGroups) {
 //			System.out.print(codegroupdto.getIfcgSeq() + "|");

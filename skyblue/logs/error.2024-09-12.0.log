@@ -1,0 +1,140 @@
+2024-09-12T12:26:31.733 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:26:31.745 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:26:53.480 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:26:53.512 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:27:49.548 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:27:49.584 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:29:49.485 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:29:49.579 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:30:23.186 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:30:23.217 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:32:49.622 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:32:49.655 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:34:15.491 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:34:15.581 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 

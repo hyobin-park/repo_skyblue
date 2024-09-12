@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface CodeGroupDao {
 	
 	//selectList
-	public List<CodeGroupDto> selectList();
+	public List<CodeGroupDto> selectList(CodeGroupVo codeGroupVo);
 	
 	//insert 
 	public int insert(CodeGroupDto codeGroupDto);

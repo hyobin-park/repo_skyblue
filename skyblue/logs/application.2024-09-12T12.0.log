@@ -1,0 +1,307 @@
+2024-09-12T12:26:31.408 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 10600 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:26:31.409 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:26:31.685 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:26:31.686 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:26:31.695 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:26:31.720 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:26:31.720 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 308 ms 
+2024-09-12T12:26:31.733 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:26:31.734 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:26:31.734 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:26:31.739 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:26:31.745 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:26:52.644 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 25936 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:26:52.646 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:26:52.677 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:26:52.677 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:26:53.385 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:26:53.391 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:26:53.393 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:26:53.394 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:26:53.432 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:26:53.433 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 756 ms 
+2024-09-12T12:26:53.480 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:26:53.482 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:26:53.484 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:26:53.497 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:26:53.512 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:27:47.712 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 3316 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:27:47.714 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:27:47.798 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:27:47.798 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:27:49.442 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:27:49.451 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:27:49.454 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:27:49.454 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:27:49.496 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:27:49.496 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1697 ms 
+2024-09-12T12:27:49.548 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:27:49.551 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:27:49.553 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:27:49.565 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:27:49.584 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:29:48.106 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 21924 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:29:48.111 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:29:48.172 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:29:48.173 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:29:49.315 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:29:49.321 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:29:49.325 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:29:49.325 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:29:49.362 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:29:49.362 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1189 ms 
+2024-09-12T12:29:49.485 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:29:49.489 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:29:49.494 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:29:49.517 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:29:49.579 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:30:22.332 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 27624 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:30:22.333 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:30:22.363 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:30:22.363 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:30:23.074 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:30:23.082 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:30:23.085 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:30:23.085 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:30:23.132 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:30:23.133 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 768 ms 
+2024-09-12T12:30:23.186 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:30:23.189 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:30:23.191 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:30:23.203 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:30:23.217 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:32:48.564 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 15196 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:32:48.566 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:32:48.613 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:32:48.613 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:32:49.426 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:32:49.443 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:32:49.445 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:32:49.446 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:32:49.517 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:32:49.518 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 905 ms 
+2024-09-12T12:32:49.622 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:32:49.624 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:32:49.626 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:32:49.640 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:32:49.655 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:34:14.594 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 3256 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:34:14.595 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:34:14.626 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:34:14.626 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:34:15.311 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:34:15.318 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:34:15.320 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:34:15.320 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:34:15.396 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:34:15.397 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 769 ms 
+2024-09-12T12:34:15.491 [restartedMain] ERROR c.z.h.HikariConfig - Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+2024-09-12T12:34:15.494 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'codeGroupController': Unsatisfied dependency expressed through field 'codeGroupService': Error creating bean with name 'codeGroupService': Unsatisfied dependency expressed through field 'codeGroupDao': Error creating bean with name 'codeGroupDao' defined in file [C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main\com\color\infra\codegroup\CodeGroupDao.class]: Cannot resolve reference to bean 'sqlSessionFactoryMysqlMain' while setting bean property 'sqlSessionFactory' 
+2024-09-12T12:34:15.496 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2024-09-12T12:34:15.534 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-09-12T12:34:15.581 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.mysql.main' to javax.sql.DataSource:
+
+    Property: spring.datasource.mysql.main.driver-class-name
+    Value: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    Origin: class path resource [application.properties] - 5:48
+    Reason: java.lang.RuntimeException: Failed to load driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+ 
+2024-09-12T12:37:27.391 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 22428 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T12:37:27.393 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T12:37:27.423 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-12T12:37:27.423 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-12T12:37:28.150 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T12:37:28.157 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:37:28.159 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T12:37:28.159 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T12:37:28.204 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T12:37:28.204 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 781 ms 
+2024-09-12T12:37:29.733 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T12:37:29.747 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T12:37:29.769 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T12:37:29.780 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 2.605 seconds (process running for 3.164) 
+2024-09-12T12:37:38.712 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-12T12:37:38.712 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-12T12:37:38.713 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-09-12T12:37:38.781 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2024-09-12T12:37:39.044 [http-nio-8080-exec-1] INFO c.z.h.p.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-12T12:37:39.046 [http-nio-8080-exec-1] INFO c.z.h.p.HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4280ac0a 
+2024-09-12T12:37:39.048 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2024-09-12T12:37:39.068 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 8 msec} 
+2024-09-12T12:37:39.081 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 

@@ -13,10 +13,10 @@
 
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/extensions/simple-datatables/style.css">
 
-
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/table-datatable.css">
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="/xdm/v1/css/datetimepicker/jquery.datetimepicker.min.css">
 
     <style type="text/css">
         table, th, td {
@@ -722,58 +722,61 @@
                         <div class="card">
                             <div class="card-header"></div>
                             <div class="card-body">
-                                <form>
+                                <form name="form" method="post" action="/v1/infra/code/codeXdmList">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect1">
-                                                    <option>N</option>
-                                                    <option>Y</option>
+                                                <select class="form-select" id="basicSelect1" name=shcdDelNy>
+                                                	<option value="">삭제여부</option>
+                                                    <option value="1">Y</option>
+                                                    <option value="0">N</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-2">
                                             <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect2">
-                                                    <option>N</option>
-                                                    <option>Y</option>
+                                                <select class="form-select" id="basicSelect2" name=shcdUseNy>
+                                                    <option value="">사용여부</option>
+                                                    <option value="1">Y</option>
+                                                    <option value="0">N</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-2">
                                             <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect3">
-                                                    <option>수정일</option>
-                                                    <option>등록일</option>
+                                                <select class="form-select" id="shOptionDate" name="shOptionDate">
+                                                	<option value="">날짜구분</option>
+                                                    <option value="1">등록일</option>
+                                                    <option value="2">수정일</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="date" class="form-control mb-3 flatpickr-no-config"
-                                                placeholder="Select date..">
+                                            <input type="text" id="shDateStart" name="shDateStart"
+                                            class="form-control mb-3 flatpickr-no-config" autocomplete="off"
+                                                placeholder="시작일">
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="date" class="form-control mb-3 flatpickr-no-config"
-                                                placeholder="Select date..">
+                                            <input type="text" id="shDateEnd" name="shDateEnd"
+                                            class="form-control mb-3 flatpickr-no-config" autocomplete="off"
+                                                placeholder="종료일">
                                         </div>
                                     </div> <!-- class="row" 1 end -->
                                     <div class="row"> <!-- class="row" 2 start -->
                                         <div class="col-md-2">
                                             <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect4">
-                                                    <option>검색구분</option>
-                                                    <option>코드그룹 코드</option>
-                                                    <option>코드그룹 이름</option>
-                                                    <option>코드</option>
-                                                    <option>코드 이름</option>
+                                                <select class="form-select" id="basicSelect4" name="shcdOption">
+                                                    <option value="">검색구분</option>
+                                                    <option value="1">코드</option>
+                                                    <option value="2">코드 이름</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" id="basicInput" placeholder="검색어">
+                                            <input type="text" class="form-control" id="basicInput" name="shcdValue" placeholder="검색어">
                                         </div>
                                         <div class="col-md-2">
-                                            <button class="btn icon btn-sm btn-light"><i
+                                            <button type="submit" class="btn icon btn-sm btn-light"><i
                                                     class="bi bi-search"></i></button>
                                             <button class="btn icon btn-sm btn-light"><i
                                                     class="bi bi-arrow-repeat"></i></button>
@@ -898,14 +901,26 @@
     <script src="/xdm/v1/template/ui/assets/static/js/components/dark.js"></script>
     <script src="/xdm/v1/template/ui/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
-
     <script src="/xdm/v1/template/ui/assets/compiled/js/app.js"></script>
-
-
 
     <script src="/xdm/v1/template/ui/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
     <script src="/xdm/v1/template/ui/assets/static/js/pages/simple-datatables.js"></script>
 
+	<!-- by developer -->
+	<script src="/xdm/v1/jquery/jquery-3.7.1.min.js"></script>
+	<script src="/xdm/v1/js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	
+	<script type="text/javascript">
+	
+		window.addEventListener('load', function() {
+
+			$.datetimepicker.setLocale('ko'); //한국어 사용하겠다.
+			$("#shDateStart, #shDateEnd").datetimepicker({
+			timepicker:false,
+			format: 'Y-m-d'
+			});
+		});
+	</script>
 </body>
 
 </html>

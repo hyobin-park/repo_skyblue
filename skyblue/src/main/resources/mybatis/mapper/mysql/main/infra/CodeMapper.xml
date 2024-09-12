@@ -21,6 +21,17 @@
 			code b
 		LEFT JOIN codegroup a
 		ON b.codegroup_ifcgSeq = a.ifcgSeq
+		WHERE 1=1
+			<if test="shcdDelNy != null and !shcdDelNy.equals('')">AND ifcdDelNy = #{shcdDelNy}</if>
+			<if test="shcdUseNy != null and !shcdUseNy.equals('')">AND ifcdUseNy = #{shcdUseNy}</if>
+			<choose>
+				<when test="shOptionDate == 1">AND b.ifcdRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND b.ifcdEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			<choose>
+				<when test="shcdOption == 1">AND ifcdSeq = #{shcdValue}</when>
+				<when test="shcdOption == 2">AND ifcdName LIKE CONCAT('%',#{shcdValue},'%')</when>
+			</choose>
 		ORDER BY
 			b.ifcdSeq desc
 	</select>
@@ -51,7 +62,7 @@
 			,#{ifcdUseNy}
 			,#{ifcdOrder}
 			,#{ifcdDesc}
-			,#{ifcdDelNy}
+			,0
 			,now()
 			,now()
 			,#{codegroup_ifcgSeq}

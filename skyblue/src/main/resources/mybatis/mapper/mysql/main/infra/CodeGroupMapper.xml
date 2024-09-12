@@ -6,7 +6,7 @@
 <!-- xml 주석 단축키 : Ctrl + Shift + C -->
 
 	<resultMap type="com.color.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
-	
+
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.ifcgSeq
@@ -19,11 +19,22 @@
 		    ,a.ifcgEditDate
 		    ,(SELECT count(ifcdSeq)
 				FROM Code b 
-		        WHERE 1=1 
+		        WHERE 1=1
 		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
 		        AS ifcdSeqcount
 		FROM
 			codegroup a
+		WHERE 1=1
+			<if test="shcgDelNy != null and !shcgDelNy.equals('')">AND ifcgDelNy = #{shcgDelNy}</if>
+			<if test="shcgUseNy != null and !shcgUseNy.equals('')">AND ifcgUseNy = #{shcgUseNy}</if>
+			<choose>
+				<when test="shOptionDate == 1">AND a.ifcgRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.ifcgEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			<choose>
+				<when test="shOption == 1">AND ifcgSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
 		ORDER BY
 			a.ifcgSeq desc
 	</select>
@@ -42,7 +53,7 @@
 		    #{ifcgName}
 		    ,#{ifcgUseNy}
 		    ,#{ifcgOrder}
-		    ,#{ifcgDelNy}
+		    ,0
 		    ,#{ifcgDesc}
 		    ,now()
 		    ,now()

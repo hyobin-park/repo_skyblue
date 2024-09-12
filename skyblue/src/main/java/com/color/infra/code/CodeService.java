@@ -11,8 +11,8 @@ public class CodeService {
 	@Autowired
 	private CodeDao codeDao;
 
-	public List<CodeDto> selectList() {
-		return codeDao.selectList();
+	public List<CodeDto> selectList(CodeVo codeVo) {
+		return codeDao.selectList(codeVo);
 	}
 	//Code - CodeGroup Relation 
 	//데이터를 넘겨줄 필요가 없음

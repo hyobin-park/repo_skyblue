@@ -23,6 +23,7 @@
 	href="/xdm/v1/template/ui/assets/compiled/css/app.css">
 <link rel="stylesheet"
 	href="/xdm/v1/template/ui/assets/compiled/css/app-dark.css">
+<link rel="stylesheet" href="/xdm/v1/css/datetimepicker/jquery.datetimepicker.min.css"> 
 
 <style type="text/css">
 table, th, td {
@@ -295,8 +296,8 @@ td {
 							</ul></li>
 
 						<li class="sidebar-item  has-sub"><a href="#"
-							class='sidebar-link'> <i class="bi bi-pen-fill"></i> <span>Form
-									Editor</span>
+							class='sidebar-link'> <i class="bi bi-pen-fill"></i>
+							<span>Form Editor</span>
 						</a>
 
 							<ul class="submenu ">
@@ -309,13 +310,13 @@ td {
 
 								</li>
 
-								<li class="submenu-item  "><a
-									href="form-editor-summernote.html" class="submenu-link">Summernote</a>
+								<li class="submenu-item  ">
+								<a href="form-editor-summernote.html" class="submenu-link">Summernote</a>
 
 								</li>
 
-								<li class="submenu-item  "><a
-									href="form-editor-tinymce.html" class="submenu-link">TinyMCE</a>
+								<li class="submenu-item  ">
+								<a href="form-editor-tinymce.html" class="submenu-link">TinyMCE</a>
 
 								</li>
 
@@ -572,41 +573,44 @@ td {
 						<div class="card">
 							<div class="card-header"></div>
 							<div class="card-body">
-								<form>
+								<form name="form" method="post" action="/v1/infra/codegroup/codeGroupXdmList">
 									<div class="row">
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect1">
-													<option>N</option>
-													<option>Y</option>
+												<select class="form-select" id="basicSelect1" name="shcgDelNy">
+													<option value="">삭제여부</option>
+													<option value="1">Y</option>
+													<option value="0">N</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect2">
-													<option>N</option>
-													<option>Y</option>
+												<select class="form-select" id="basicSelect2" name="shcgUseNy">
+													<option value="">사용여부</option>
+													<option value="1">Y</option>
+													<option value="0">N</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect3">
-													<option>수정일</option>
-													<option>등록일</option>
+												<select class="form-select" name="shOptionDate">
+													<option value="">날짜 구분</option>
+													<option value="1">등록일</option>
+													<option value="2">수정일</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
-											<input type="date"
+											<input type="text" id="shDateStart" name="shDateStart"
 												class="form-control mb-3 flatpickr-no-config"
-												placeholder="Select date..">
+												placeholder="시작일" autocomplete="off">
 										</div>
 										<div class="col-md-2">
-											<input type="date"
+											<input type="text" id="shDateEnd" name="shDateEnd"
 												class="form-control mb-3 flatpickr-no-config"
-												placeholder="Select date..">
+												placeholder="종료일" autocomplete="off">
 										</div>
 									</div>
 									<!-- class="row" 1 end -->
@@ -614,24 +618,22 @@ td {
 										<!-- class="row" 2 start -->
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect4">
-													<option>검색구분</option>
-													<option>코드그룹 코드</option>
-													<option>코드그룹 이름</option>
-													<option>코드</option>
-													<option>코드 이름</option>
+												<select class="form-select" id="basicSelect4" name="shOption">
+													<option value="">검색구분</option>
+													<option value="1">코드그룹 번호</option>
+													<option value="2">코드그룹 이름</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
-											<input type="text" class="form-control" id="basicInput"
+											<input type="text" class="form-control" id="basicInput" name="shValue"
 												placeholder="검색어">
 										</div>
 										<div class="col-md-2">
-											<button class="btn icon btn-sm btn-light">
+											<button type="submit" class="btn icon btn-sm btn-light">
 												<i class="bi bi-search"></i>
 											</button>
-											<button class="btn icon btn-sm btn-light">
+											<button type="reset" class="btn icon btn-sm btn-light">
 												<i class="bi bi-arrow-repeat"></i>
 											</button>
 										</div>
@@ -674,6 +676,11 @@ td {
 														<th>등록일</th>
 														<th>수정일</th>
 													</tr>
+													<tr th:if="${#lists.isEmpty(list)}">
+                                                		<td colspan="10">
+                                                			<p class="fs-0" style="padding-top: 12px;">There are no data!</p>
+                                                		</td>
+                                                	</tr>
 												</thead>
 												<tbody>
 													<tr th:each="list : ${list}">
@@ -764,7 +771,7 @@ td {
 									</div>
 									<!--Excel & Add button -->
 									<div class="col-md-6" align="Right">
-										<button class="btn icon btn-sm btn-success">
+										<button  class="btn icon btn-sm btn-success">
 											<i class="bi bi-file-earmark-excel"></i>
 										</button>
 										<a href="/v1/infra/codegroup/codeGroupXdmForm">
@@ -801,18 +808,27 @@ td {
 	</div>
 	</div>
 	<script src="/xdm/v1/template/ui/assets/static/js/components/dark.js"></script>
-	<script
-		src="/xdm/v1/template/ui/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-
+	<script src="/xdm/v1/template/ui/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script src="/xdm/v1/template/ui/assets/compiled/js/app.js"></script>
+	<script src="/xdm/v1/template/ui/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+	<script src="/xdm/v1/template/ui/assets/static/js/pages/simple-datatables.js"></script>
+	
+	<!-- by developer -->
+	<script src="/xdm/v1/jquery/jquery-3.7.1.min.js"></script>
+	<script src="/xdm/v1/js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	window.addEventListener('load', function() {
 
-
-
-	<script
-		src="/xdm/v1/template/ui/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-	<script
-		src="/xdm/v1/template/ui/assets/static/js/pages/simple-datatables.js"></script>
+		$.datetimepicker.setLocale('ko'); //한국어 사용하겠다.
+		$("#shDateStart, #shDateEnd").datetimepicker({
+			timepicker:false,
+			format: 'Y-m-d'
+		});
+	});
+	
+	</script>
 
 </body>
 
