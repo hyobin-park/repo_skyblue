@@ -1,0 +1,258 @@
+2024-09-12T14:00:50.379 [HikariPool-1 housekeeper] WARN c.z.h.p.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m29s156ms750µs200ns). 
+2024-09-12T14:04:27.494 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:04:27.498 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 2 msec} 
+2024-09-12T14:04:42.187 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgRgDate BETWEEN '2024-09-10' AND '2024-09-12' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:04:42.189 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgRgDate BETWEEN '2024-09-10' AND '2024-09-12' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:12:00.323 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-12T14:12:00.326 [Thread-5] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-12T14:12:00.573 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2024-09-12T14:12:00.586 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2024-09-12T14:12:00.661 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 22428 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-12T14:12:00.662 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T14:12:00.868 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T14:12:00.869 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T14:12:00.869 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T14:12:00.869 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T14:12:00.883 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T14:12:00.883 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 220 ms 
+2024-09-12T14:12:01.013 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T14:12:01.018 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T14:12:01.021 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T14:12:01.025 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.408 seconds (process running for 5674.46) 
+2024-09-12T14:12:01.027 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-12T14:12:36.871 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-12T14:12:36.871 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-12T14:12:36.872 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-09-12T14:12:36.873 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-2 - Starting... 
+2024-09-12T14:12:36.884 [http-nio-8080-exec-1] INFO c.z.h.p.PoolBase - HikariPool-2 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-12T14:12:36.887 [http-nio-8080-exec-1] INFO c.z.h.p.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@19760196 
+2024-09-12T14:12:36.887 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-2 - Start completed. 
+2024-09-12T14:12:36.891 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgRgDate BETWEEN '2024-09-10' AND '2024-09-12' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 2 msec} 
+2024-09-12T14:12:36.892 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgRgDate BETWEEN '2024-09-10' AND '2024-09-12' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 0 msec} 
+2024-09-12T14:12:39.965 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:12:39.967 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:12:58.585 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgEditDate BETWEEN '2024-09-11' AND '2024-09-11' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 1 msec} 
+2024-09-12T14:12:58.587 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			a.ifcgSeq
+		    ,a.ifcgName
+		    ,a.ifcgUseNy
+		    ,a.ifcgOrder
+		    ,a.ifcgDelNy
+		    ,a.ifcgDesc
+		    ,a.ifcgRgDate
+		    ,a.ifcgEditDate
+		    ,(SELECT count(ifcdSeq)
+				FROM Code b 
+		        WHERE 1=1
+		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
+		        AS ifcdSeqcount
+		FROM
+			codegroup a
+		WHERE 1=1
+
+			 AND a.ifcgEditDate BETWEEN '2024-09-11' AND '2024-09-11' 
+
+		ORDER BY
+			a.ifcgSeq desc
+ {executed in 0 msec} 
+2024-09-12T14:40:38.142 [HikariPool-2 housekeeper] WARN c.z.h.p.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=20m992ms604µs300ns). 
