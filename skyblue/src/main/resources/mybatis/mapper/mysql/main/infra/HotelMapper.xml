@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.hotel.HotelDao">
+
+	<resultMap type="com.color.infra.hotel.HotelDto" id="resultMapObj"></resultMap>
+
+	<select id="hotelList" resultMap="resultMapObj">
+		SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+	</select>
+	
+	<insert id="hotelInsert">
+		INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			#{hotelName},
+		    #{hotelAddress},
+		    #{facilities},
+		    #{stars},
+		    #{swimmingPool},
+		    #{fitnessCenter},
+		    #{roomService},
+		    #{spa},
+		    #{wifi},
+		    #{parking},
+		    #{hvac},
+		    #{smokingArea},
+		    #{pets},
+		    0,
+		    #{hotel_useNy},
+		    #{hotelDesc}
+		)
+	</insert>
+	  
+</mapper>

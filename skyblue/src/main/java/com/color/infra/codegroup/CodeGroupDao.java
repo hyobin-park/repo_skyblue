@@ -1,7 +1,6 @@
 package com.color.infra.codegroup;
 
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
