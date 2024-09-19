@@ -687,8 +687,7 @@ td {
 														<td><input type="checkbox"></td>
 														<td></td>
 														<td th:text="${list.ifcgSeq}"></td>
-														<td>
-														<a th:href="@{/v1/infra/codegroup/codegroupxdmMfom(ifcgSeq=${list.ifcgSeq})}"
+														<td><a th:href="@{/v1/infra/codegroup/codegroupxdmMfom(ifcgSeq=${list.ifcgSeq})}"
 															th:text="${list.ifcgName}"></a></td>
 														<td th:if="${list.ifcgUseNy eq 0}">N</td>
 														<td th:unless="${list.ifcgUseNy eq 0}">Y</td>

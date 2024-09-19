@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,8 +14,12 @@ public class HotelController {
 	HotelService hotelService;
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmList")
-	public String hotelXdmList() {
-		List<HotelDto> hotels = hotelService.hotelList();
+	public String hotelXdmList(Model model, HotelVo hotelVo) {
+		
+		hotelVo.setShDateStart(hotelVo.getShDateStart() + " 00:00:00");
+		hotelVo.setShDateEnd(hotelVo.getShDateEnd() + " 23:59:59");
+		
+		model.addAttribute("list", hotelService.hotelList(hotelVo));
 		return "/xdm/v1/infra/hotel/hotelXdmList";
 	}
 	
@@ -28,4 +33,30 @@ public class HotelController {
 		hotelService.hotelInsert(hotelDto);
 		return "redirect:/v1/infra/hotel/hotelXdmList";
 	}
+	
+	@RequestMapping(value="/v1/infra/hotel/hotelXdmMFom")
+	public String hotelXdmMFom(HotelDto hotelDto, Model model) {
+		model.addAttribute("hotelItem", hotelService.selectOne(hotelDto));
+		return "/xdm/v1/infra/hotel/hotelXdmMFom";
+	}
+	
+	@RequestMapping(value="/v1/infra/hotel/hotelXdmUpdt")
+	public String hotelXdmUpdt(HotelDto hotelDto) {
+		hotelService.hotelUpdate(hotelDto);
+		return "redirect:/v1/infra/hotel/hotelXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/hotel/hotelXdmUel")
+	public String hotelXdmUel(HotelDto hotelDto) {
+		hotelService.hotelUelete(hotelDto);
+		System.out.println("uelete 했다~");
+		return "redirect:/v1/infra/hotel/hotelXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/hotel/hotelXdmDel")
+	public String hotelXdmDel(HotelDto hotelDto) {
+		hotelService.hotelDelete(hotelDto);
+		return "redirect:/v1/infra/hotel/hotelXdmList";
+	}
+	
 }

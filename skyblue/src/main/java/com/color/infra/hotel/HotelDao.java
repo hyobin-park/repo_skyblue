@@ -7,9 +7,21 @@ import org.springframework.stereotype.Repository;
 public interface HotelDao {
 	
 	//HotelList
-	public List<HotelDto> hotelList();
+	public List<HotelDto> hotelList(HotelVo hotelVo);
 	
 	//insert
 	public int hotelInsert(HotelDto hotelDto);
-
+	
+	//selectOne
+	public HotelDto selectOne(HotelDto hotelDto);
+	
+	//update
+	public int hotelUpdate(HotelDto hotelDto);
+	
+	//uelete
+	public int hotelUelete(HotelDto hotelDto);
+	
+	//delete
+	public int hotelDelete(HotelDto hotelDto);
+	
 }

@@ -1,0 +1,48 @@
+2024-09-18T00:07:55.122 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-18T00:08:12.197 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 

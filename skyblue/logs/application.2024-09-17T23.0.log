@@ -1,0 +1,716 @@
+2024-09-17T23:05:21.790 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:11:27.779 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:11:27.790 [Thread-27] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:28.067 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown initiated... 
+2024-09-17T23:11:28.072 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown completed. 
+2024-09-17T23:11:28.122 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:11:28.122 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:11:28.279 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:11:28.280 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:28.280 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:11:28.280 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:11:28.293 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:11:28.293 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 170 ms 
+2024-09-17T23:11:28.395 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:11:28.399 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:28.402 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:11:28.405 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.301 seconds (process running for 2361.511) 
+2024-09-17T23:11:28.405 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:11:51.743 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:11:51.745 [Thread-31] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:52.112 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:11:52.112 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:11:52.267 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:11:52.267 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:52.268 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:11:52.268 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:11:52.292 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:11:52.292 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 179 ms 
+2024-09-17T23:11:52.414 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:11:52.423 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:11:52.426 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:11:52.430 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.336 seconds (process running for 2385.536) 
+2024-09-17T23:11:52.431 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:12:02.148 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:12:02.149 [Thread-35] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:02.465 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:12:02.465 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:12:02.592 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:12:02.593 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:02.593 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:12:02.593 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:12:02.605 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:12:02.605 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 139 ms 
+2024-09-17T23:12:02.686 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:12:02.692 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:02.695 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:12:02.699 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.257 seconds (process running for 2395.805) 
+2024-09-17T23:12:02.700 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:12:28.317 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:12:28.318 [Thread-39] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:28.627 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:12:28.627 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:12:28.767 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:12:28.768 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:28.768 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:12:28.768 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:12:28.779 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:12:28.780 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 152 ms 
+2024-09-17T23:12:28.859 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:12:28.864 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:12:28.868 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:12:28.871 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.26 seconds (process running for 2421.977) 
+2024-09-17T23:12:28.872 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:12:59.790 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:12:59.791 [Thread-43] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:13:00.086 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:13:00.086 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:13:00.243 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:13:00.244 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:13:00.244 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:13:00.244 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:13:00.256 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:13:00.256 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 169 ms 
+2024-09-17T23:13:00.337 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:13:00.342 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:13:00.346 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:13:00.349 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.279 seconds (process running for 2453.454) 
+2024-09-17T23:13:00.350 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:13:32.454 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:13:32.454 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:13:32.455 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-09-17T23:33:41.387 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:33:41.389 [Thread-47] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:33:41.693 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:33:41.693 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:33:41.830 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:33:41.831 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:33:41.831 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:33:41.831 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:33:41.842 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:33:41.842 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 147 ms 
+2024-09-17T23:33:41.939 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:33:41.943 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:33:41.946 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:33:41.949 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.271 seconds (process running for 3695.055) 
+2024-09-17T23:33:41.949 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:34:05.811 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:34:05.812 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:34:05.812 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 0 ms 
+2024-09-17T23:36:15.360 [http-nio-8080-exec-4] INFO c.z.h.HikariDataSource - HikariPool-4 - Starting... 
+2024-09-17T23:36:15.374 [http-nio-8080-exec-4] INFO c.z.h.p.PoolBase - HikariPool-4 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-17T23:36:15.375 [http-nio-8080-exec-4] INFO c.z.h.p.HikariPool - HikariPool-4 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1a671bfd 
+2024-09-17T23:36:15.376 [http-nio-8080-exec-4] INFO c.z.h.HikariDataSource - HikariPool-4 - Start completed. 
+2024-09-17T23:36:15.377 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:36:25.367 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy
+		)
+		VALUES (
+			NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    NULL,
+		    0,
+		    NULL
+		)
+ {executed in 2 msec} 
+2024-09-17T23:38:09.272 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:40:06.092 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:40:08.067 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 0 msec} 
+2024-09-17T23:41:25.718 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:41:41.122 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy
+		)
+		VALUES (
+			'',
+		    '',
+		    '',
+		    NULL,
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    0,
+		    1
+		)
+ {executed in 4 msec} 
+2024-09-17T23:42:31.740 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:42:31.742 [Thread-51] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:31.986 [Thread-51] INFO c.z.h.HikariDataSource - HikariPool-4 - Shutdown initiated... 
+2024-09-17T23:42:31.990 [Thread-51] INFO c.z.h.HikariDataSource - HikariPool-4 - Shutdown completed. 
+2024-09-17T23:42:32.029 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:42:32.029 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:42:32.159 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:42:32.159 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:32.160 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:42:32.160 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:42:32.182 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:42:32.182 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 152 ms 
+2024-09-17T23:42:32.275 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:42:32.279 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:32.282 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:42:32.284 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.271 seconds (process running for 4225.39) 
+2024-09-17T23:42:32.285 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:42:43.691 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:42:43.692 [Thread-55] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:43.980 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:42:43.980 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:42:44.106 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:42:44.106 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:44.106 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:42:44.106 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:42:44.117 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:42:44.118 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 137 ms 
+2024-09-17T23:42:44.202 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:42:44.205 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:42:44.209 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:42:44.213 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.249 seconds (process running for 4237.319) 
+2024-09-17T23:42:44.213 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:44:19.156 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:44:19.156 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:44:19.156 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 0 ms 
+2024-09-17T23:44:19.167 [http-nio-8080-exec-1] WARN o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.lang.String com.color.infra.hotel.HotelController.hotelXdmInst(com.color.infra.hotel.HotelDto): [Field error in object 'hotelDto' on field 'stars': rejected value [5성급]; codes [typeMismatch.hotelDto.stars,typeMismatch.stars,typeMismatch.java.lang.Integer,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [hotelDto.stars,stars]; arguments []; default message [stars]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Integer' for property 'stars'; For input string: "5성급"]] ] 
+2024-09-17T23:44:43.413 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-5 - Starting... 
+2024-09-17T23:44:43.423 [http-nio-8080-exec-2] INFO c.z.h.p.PoolBase - HikariPool-5 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-17T23:44:43.424 [http-nio-8080-exec-2] INFO c.z.h.p.HikariPool - HikariPool-5 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2c7286c2 
+2024-09-17T23:44:43.424 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-5 - Start completed. 
+2024-09-17T23:44:43.427 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			'서울 신라호텔',
+		    '서울 중구 동호로 249',
+		    '',
+		    5,
+		    '실외 수영장',
+		    '있음',
+		    '가능',
+		    '있음',
+		    '무료 와이파이',
+		    '무료 주차',
+		    '냉/난방',
+		    '있음',
+		    '불가능',
+		    0,
+		    1,
+		    '서울 신라호텔 설명'
+		)
+ {executed in 2 msec} 
+2024-09-17T23:45:45.044 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			'서울 신라호텔',
+		    '서울 중구 동호로 249',
+		    '',
+		    5,
+		    '실외 수영장',
+		    '있음',
+		    '가능',
+		    '있음',
+		    '무료 와이파이',
+		    '무료 주차',
+		    '냉/난방',
+		    '있음',
+		    '불가능',
+		    0,
+		    1,
+		    '서울 신라호텔 설명'
+		)
+ {executed in 2 msec} 
+2024-09-17T23:46:42.904 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:46:42.905 [Thread-59] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:43.213 [Thread-59] INFO c.z.h.HikariDataSource - HikariPool-5 - Shutdown initiated... 
+2024-09-17T23:46:43.217 [Thread-59] INFO c.z.h.HikariDataSource - HikariPool-5 - Shutdown completed. 
+2024-09-17T23:46:43.268 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:46:43.268 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:46:43.429 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:46:43.430 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:43.430 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:46:43.430 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:46:43.442 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:46:43.442 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 171 ms 
+2024-09-17T23:46:43.553 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:46:43.557 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:43.562 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:46:43.565 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.318 seconds (process running for 4476.671) 
+2024-09-17T23:46:43.566 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:46:51.200 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:46:51.201 [Thread-63] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:51.507 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:46:51.508 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:46:51.640 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:46:51.640 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:51.640 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:46:51.640 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:46:51.652 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:46:51.652 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 143 ms 
+2024-09-17T23:46:51.739 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:46:51.742 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:46:51.745 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:46:51.748 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.257 seconds (process running for 4484.854) 
+2024-09-17T23:46:51.748 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:47:40.170 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:47:40.170 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:47:40.171 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-09-17T23:48:55.595 [http-nio-8080-exec-5] INFO c.z.h.HikariDataSource - HikariPool-6 - Starting... 
+2024-09-17T23:48:55.605 [http-nio-8080-exec-5] INFO c.z.h.p.PoolBase - HikariPool-6 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-17T23:48:55.606 [http-nio-8080-exec-5] INFO c.z.h.p.HikariPool - HikariPool-6 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4cfc6687 
+2024-09-17T23:48:55.606 [http-nio-8080-exec-5] INFO c.z.h.HikariDataSource - HikariPool-6 - Start completed. 
+2024-09-17T23:48:55.607 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:51:33.028 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:51:33.029 [Thread-67] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:51:33.282 [Thread-67] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown initiated... 
+2024-09-17T23:51:33.286 [Thread-67] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown completed. 
+2024-09-17T23:51:33.330 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:51:33.330 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:51:33.462 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:51:33.462 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:51:33.462 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:51:33.462 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:51:33.481 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:51:33.482 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 151 ms 
+2024-09-17T23:51:33.575 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:51:33.579 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:51:33.585 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:51:33.588 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.273 seconds (process running for 4766.694) 
+2024-09-17T23:51:33.588 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:52:08.900 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:52:08.901 [Thread-71] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:09.209 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:52:09.209 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:52:09.351 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:52:09.352 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:09.352 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:52:09.352 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:52:09.364 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:52:09.364 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 154 ms 
+2024-09-17T23:52:09.460 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:52:09.466 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:09.470 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:52:09.475 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.282 seconds (process running for 4802.581) 
+2024-09-17T23:52:09.476 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:52:23.086 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:52:23.086 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:52:23.087 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-09-17T23:52:45.114 [http-nio-8080-exec-8] INFO c.z.h.HikariDataSource - HikariPool-7 - Starting... 
+2024-09-17T23:52:45.124 [http-nio-8080-exec-8] INFO c.z.h.p.PoolBase - HikariPool-7 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-17T23:52:45.125 [http-nio-8080-exec-8] INFO c.z.h.p.HikariPool - HikariPool-7 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@505f6dde 
+2024-09-17T23:52:45.125 [http-nio-8080-exec-8] INFO c.z.h.HikariDataSource - HikariPool-7 - Start completed. 
+2024-09-17T23:52:45.128 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			'서울 신라호텔',
+		    '서울 중구 동호로 249',
+		    '',
+		    5,
+		    '실외 수영장',
+		    '있음',
+		    '가능',
+		    '있음',
+		    '무료 와이파이',
+		    '무료 주차',
+		    '냉/난방',
+		    '있음',
+		    '불가능',
+		    0,
+		    1,
+		    '서울'
+		)
+ {executed in 1 msec} 
+2024-09-17T23:52:58.143 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-17T23:52:58.144 [Thread-75] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:58.412 [Thread-75] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown initiated... 
+2024-09-17T23:52:58.417 [Thread-75] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown completed. 
+2024-09-17T23:52:58.472 [restartedMain] INFO c.c.SkyblueApplication - Starting SkyblueApplication using Java 17.0.11 with PID 488 (C:\factory\ws_sts4_4240\repo_skyblue\skyblue\bin\main started by user in C:\factory\ws_sts4_4240\repo_skyblue\skyblue) 
+2024-09-17T23:52:58.473 [restartedMain] INFO c.c.SkyblueApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-17T23:52:58.684 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-17T23:52:58.684 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:58.684 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-17T23:52:58.684 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-17T23:52:58.698 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-17T23:52:58.698 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 223 ms 
+2024-09-17T23:52:58.792 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-17T23:52:58.795 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-17T23:52:58.798 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-17T23:52:58.801 [restartedMain] INFO c.c.SkyblueApplication - Started SkyblueApplication in 0.358 seconds (process running for 4851.908) 
+2024-09-17T23:52:58.802 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-17T23:53:17.992 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-09-17T23:53:17.992 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-09-17T23:53:17.992 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 0 ms 
+2024-09-17T23:53:21.469 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-8 - Starting... 
+2024-09-17T23:53:21.479 [http-nio-8080-exec-1] INFO c.z.h.p.PoolBase - HikariPool-8 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.) 
+2024-09-17T23:53:21.480 [http-nio-8080-exec-1] INFO c.z.h.p.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@784f7a10 
+2024-09-17T23:53:21.480 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-8 - Start completed. 
+2024-09-17T23:53:21.484 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			'',
+		    '',
+		    '',
+		    NULL,
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    '',
+		    0,
+		    1,
+		    ''
+		)
+ {executed in 2 msec} 
+2024-09-17T23:53:21.488 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 
+2024-09-17T23:53:58.788 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. INSERT INTO hotel (
+		    hotelName,
+		    hotelAddress,
+		    facilities,
+		    stars,
+		    swimmingPool,
+		    fitnessCenter,
+		    roomService,
+		    spa,
+		    wifi,
+		    parking,
+		    hvac,
+		    smokingArea,
+		    pets,
+		    hotel_delNy,
+		    hotel_useNy,
+		    hotelDesc
+		)
+		VALUES (
+			'서울 신라호텔',
+		    '서울 중구 동호로 249',
+		    '',
+		    5,
+		    '실외 수영장',
+		    '있음',
+		    '가능',
+		    '있음',
+		    '무료 와이파이',
+		    '무료 주차',
+		    '냉/난방',
+		    '있음',
+		    '불가능',
+		    0,
+		    1,
+		    '서울'
+		)
+ {executed in 2 msec} 
+2024-09-17T23:53:58.793 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.facilities,
+		    c.stars,
+		    c.swimmingPool,
+		    c.fitnessCenter,
+		    c.roomService,
+		    c.spa,
+		    c.wifi,
+		    c.parking,
+		    c.hvac,
+		    c.smokingArea,
+		    c.pets,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc
+		FROM
+			hotel c
+		ORDER BY
+			c.hotelSeq DESC
+ {executed in 1 msec} 

@@ -1,0 +1,5 @@
+2024-09-18T22:03:31.738 [HikariPool-8 housekeeper] WARN c.z.h.p.HikariPool - HikariPool-8 - Thread starvation or clock leap detected (housekeeper delta=21h53m9s895ms844µs800ns). 
+2024-09-18T22:03:37.832 [RMI TCP Connection(161)-127.0.0.1] INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2024-09-18T22:03:37.834 [RMI TCP Connection(161)-127.0.0.1] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-18T22:03:40.105 [RMI TCP Connection(161)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-8 - Shutdown initiated... 
+2024-09-18T22:03:40.110 [RMI TCP Connection(161)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-8 - Shutdown completed. 

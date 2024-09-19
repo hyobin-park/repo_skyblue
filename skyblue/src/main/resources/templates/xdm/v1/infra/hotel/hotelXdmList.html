@@ -572,11 +572,11 @@ td {
 						<div class="card">
 							<div class="card-header"></div>
 							<div class="card-body">
-								<form name="form" method="post" action="/v1/infra/hotel/hotelXdmInst">
+								<form name="form" method="post" action="/v1/infra/hotel/hotelXdmList">
 									<div class="row">
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect1" name="shcgDelNy">
+												<select class="form-select" id="shtelDelNy" name="shtelDelNy">
 													<option value="">삭제여부</option>
 													<option value="1">Y</option>
 													<option value="0">N</option>
@@ -585,7 +585,7 @@ td {
 										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect2" name="shcgUseNy">
+												<select class="form-select" id="shtelUseNy" name="shtelUseNy">
 													<option value="">사용여부</option>
 													<option value="1">Y</option>
 													<option value="0">N</option>
@@ -617,15 +617,15 @@ td {
 										<!-- class="row" 2 start -->
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="basicSelect4" name="shOption">
+												<select class="form-select" id="shOption" name="shOption">
 													<option value="">검색구분</option>
-													<option value="1">코드그룹 번호</option>
-													<option value="2">코드그룹 이름</option>
+													<option value="1">번호</option>
+													<option value="2">호텔이름</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
-											<input type="text" class="form-control" id="basicInput" name="shValue"
+											<input type="text" class="form-control" id="shValue" name="shValue"
 												placeholder="검색어">
 										</div>
 										<div class="col-md-2">
@@ -681,6 +681,8 @@ td {
 														<th>애완동물</th>
 														<th>삭제여부</th>
 														<th>사용여부</th>
+														<th>등록일</th>
+														<th>수정일</th>
 													</tr>
 													<tr th:if="${#lists.isEmpty(list)}">
                                                 		<td colspan="17">
@@ -689,26 +691,38 @@ td {
                                                 	</tr>
 												</thead>
 												<tbody>
-													<tr th:each="list : ${list}">
+													<tr th:if="!${#lists.isEmpty(list)}" th:each="list : ${list}">
 														<td><input type="checkbox"></td>
 														<td th:text="${list.hotelSeq}"></td>
-														<td th:text="${list.hotelName}"></td>
+														<td><a th:href="@{/v1/infra/hotel/hotelXdmMFom(hotelSeq=${list.hotelSeq})}"
+															th:text="${list.hotelName}"></a></td>
 														<td th:text="${list.hotelAddress}"></td>
-														<td th:text="${list.facilities}"></td>
+														<td th:text="${list.site}"></td>
 														<td th:text="${list.stars}"></td>
-														<td th:text="${list.swimmingPool}"></td>
-														<td th:text="${list.fitnessCenter}"></td>
-														<td th:text="${list.roomService}"></td>
-														<td th:text="${list.wifi}"></td>
-														<td th:text="${list.parking}"></td>
-														<td th:text="${list.hvac}"></td>
-														<td th:text="${list.smokingArea}"></td>
-														<td th:text="${list.pets}"></td>
+														<td th:if="${list.swimmingPoolNy eq 0}">N</td>
+														<td th:unless="${list.swimmingPoolNy eq 0}">Y</td>
+														<td th:if="${list.fitnessCenterNy eq 0}">N</td>
+														<td th:unless="${list.fitnessCenterNy eq 0}">Y</td>
+														<td th:if="${list.roomServiceNy eq 0}">N</td>
+														<td th:unless="${list.roomServiceNy eq 0}">Y</td>
+														<td th:if="${list.spaNy eq 0}">N</td>
+														<td th:unless="${list.spaNy eq 0}">Y</td>
+														<td th:if="${list.wifiNy eq 0}">N</td>
+														<td th:unless="${list.wifiNy eq 0}">Y</td>
+														<td th:if="${list.parkingNy eq 0}">N</td>
+														<td th:unless="${list.parkingNy eq 0}">Y</td>
+														<td th:if="${list.hvacNy eq 0}">N</td>
+														<td th:unless="${list.hvacNy eq 0}">Y</td>
+														<td th:if="${list.smokingAreaNy eq 0}">N</td>
+														<td th:unless="${list.smokingAreaNy eq 0}">Y</td>
+														<td th:if="${list.petsNy eq 0}">N</td>
+														<td th:unless="${list.petsNy eq 0}">Y</td>
 														<td th:if="${list.hotel_delNy eq 0}">N</td>
 														<td th:unless="${list.hotel_delNy eq 0}">Y</td>
 														<td th:if="${list.hotel_useNy eq 0}">N</td>
 														<td th:unless="${list.hotel_useNy eq 0}">Y</td>
-														<td th:text="${list.hotelDesc}"></td>
+														<td th:text="${#dates.format(list.hotelRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:text="${#dates.format(list.hotelEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -785,7 +799,7 @@ td {
 										<button  class="btn icon btn-sm btn-success">
 											<i class="bi bi-file-earmark-excel"></i>
 										</button>
-										<a href="/v1/infra/codegroup/codeGroupXdmForm">
+										<a href="/v1/infra/hotel/hotelXdmForm">
 											<button class="btn icon btn-sm btn-primary">
 												<i class="bi bi-plus-lg"></i>
 											</button>

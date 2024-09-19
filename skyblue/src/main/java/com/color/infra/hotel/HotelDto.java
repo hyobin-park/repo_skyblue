@@ -1,24 +1,32 @@
 package com.color.infra.hotel;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class HotelDto {
 	
 	private String hotelSeq;
 	private String hotelName;
 	private String hotelAddress;
-	private String facilities;
+	private String site;
 	private Integer stars;
-	private String swimmingPool;
-	private String fitnessCenter;
-	private String roomService;
-	private String spa;
-	private String wifi;
-	private String parking;
-	private String hvac;
-	private String smokingArea;
-	private String pets;
+	private Integer swimmingPoolNy;
+	private Integer fitnessCenterNy;
+	private Integer roomServiceNy;
+	private Integer spaNy;
+	private Integer wifiNy;
+	private Integer parkingNy;
+	private Integer hvacNy;
+	private Integer smokingAreaNy;
+	private Integer petsNy;
 	private Integer hotel_delNy;
 	private Integer hotel_useNy;
 	private String hotelDesc;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date hotelRgDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date hotelEditDate;
 
 	//	----- getter/setter -----
 	public String getHotelSeq() {
@@ -39,11 +47,11 @@ public class HotelDto {
 	public void setHotelAddress(String hotelAddress) {
 		this.hotelAddress = hotelAddress;
 	}
-	public String getFacilities() {
-		return facilities;
+	public String getSite() {
+		return site;
 	}
-	public void setFacilities(String facilities) {
-		this.facilities = facilities;
+	public void setSite(String site) {
+		this.site = site;
 	}
 	public Integer getStars() {
 		return stars;
@@ -51,59 +59,59 @@ public class HotelDto {
 	public void setStars(Integer stars) {
 		this.stars = stars;
 	}
-	public String getSwimmingPool() {
-		return swimmingPool;
+	public Integer getSwimmingPoolNy() {
+		return swimmingPoolNy;
 	}
-	public void setSwimmingPool(String swimmingPool) {
-		this.swimmingPool = swimmingPool;
+	public void setSwimmingPoolNy(Integer swimmingPoolNy) {
+		this.swimmingPoolNy = swimmingPoolNy;
 	}
-	public String getFitnessCenter() {
-		return fitnessCenter;
+	public Integer getFitnessCenterNy() {
+		return fitnessCenterNy;
 	}
-	public void setFitnessCenter(String fitnessCenter) {
-		this.fitnessCenter = fitnessCenter;
+	public void setFitnessCenterNy(Integer fitnessCenterNy) {
+		this.fitnessCenterNy = fitnessCenterNy;
 	}
-	public String getRoomService() {
-		return roomService;
+	public Integer getRoomServiceNy() {
+		return roomServiceNy;
 	}
-	public void setRoomService(String roomService) {
-		this.roomService = roomService;
+	public void setRoomServiceNy(Integer roomServiceNy) {
+		this.roomServiceNy = roomServiceNy;
 	}
-	public String getSpa() {
-		return spa;
+	public Integer getSpaNy() {
+		return spaNy;
 	}
-	public void setSpa(String spa) {
-		this.spa = spa;
+	public void setSpaNy(Integer spaNy) {
+		this.spaNy = spaNy;
 	}
-	public String getWifi() {
-		return wifi;
+	public Integer getWifiNy() {
+		return wifiNy;
 	}
-	public void setWifi(String wifi) {
-		this.wifi = wifi;
+	public void setWifiNy(Integer wifiNy) {
+		this.wifiNy = wifiNy;
 	}
-	public String getParking() {
-		return parking;
+	public Integer getParkingNy() {
+		return parkingNy;
 	}
-	public void setParking(String parking) {
-		this.parking = parking;
+	public void setParkingNy(Integer parkingNy) {
+		this.parkingNy = parkingNy;
 	}
-	public String getHvac() {
-		return hvac;
+	public Integer getHvacNy() {
+		return hvacNy;
 	}
-	public void setHvac(String hvac) {
-		this.hvac = hvac;
+	public void setHvacNy(Integer hvacNy) {
+		this.hvacNy = hvacNy;
 	}
-	public String getSmokingArea() {
-		return smokingArea;
+	public Integer getSmokingAreaNy() {
+		return smokingAreaNy;
 	}
-	public void setSmokingArea(String smokingArea) {
-		this.smokingArea = smokingArea;
+	public void setSmokingAreaNy(Integer smokingAreaNy) {
+		this.smokingAreaNy = smokingAreaNy;
 	}
-	public String getPets() {
-		return pets;
+	public Integer getPetsNy() {
+		return petsNy;
 	}
-	public void setPets(String pets) {
-		this.pets = pets;
+	public void setPetsNy(Integer petsNy) {
+		this.petsNy = petsNy;
 	}
 	public Integer getHotel_delNy() {
 		return hotel_delNy;
@@ -122,5 +130,17 @@ public class HotelDto {
 	}
 	public void setHotelDesc(String hotelDesc) {
 		this.hotelDesc = hotelDesc;
+	}
+	public Date getHotelRgDate() {
+		return hotelRgDate;
+	}
+	public void setHotelRgDate(Date hotelRgDate) {
+		this.hotelRgDate = hotelRgDate;
+	}
+	public Date getHotelEditDate() {
+		return hotelEditDate;
+	}
+	public void setHotelEditDate(Date hotelEditDate) {
+		this.hotelEditDate = hotelEditDate;
 	}
 }

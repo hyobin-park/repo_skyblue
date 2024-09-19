@@ -10,22 +10,35 @@
 			c.hotelSeq,
 		    c.hotelName,
 		    c.hotelAddress,
-		    c.facilities,
+		    c.site,
 		    c.stars,
-		    c.swimmingPool,
-		    c.fitnessCenter,
-		    c.roomService,
-		    c.spa,
-		    c.wifi,
-		    c.parking,
-		    c.hvac,
-		    c.smokingArea,
-		    c.pets,
+		    c.swimmingPoolNy,
+		    c.fitnessCenterNy,
+		    c.roomServiceNy,
+		    c.spaNy,
+		    c.wifiNy,
+		    c.parkingNy,
+		    c.hvacNy,
+		    c.smokingAreaNy,
+		    c.petsNy,
 		    c.hotel_delNy,
 		    c.hotel_useNy,
-		    c.hotelDesc
+		    c.hotelDesc,
+		    c.hotelRgDate,
+		    c.hotelEditDate
 		FROM
 			hotel c
+		WHERE 1=1
+			<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
+			<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
+			<choose>
+				<when test="shOptionDate == 1">AND c.hotelRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND c.hotelEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			<choose>
+				<when test="shOption == 1">AND hotelSeq = #{shValue}</when>
+				<when test="shOption == 2">AND hotelName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
 		ORDER BY
 			c.hotelSeq DESC
 	</select>
@@ -34,39 +47,105 @@
 		INSERT INTO hotel (
 		    hotelName,
 		    hotelAddress,
-		    facilities,
+		    site,
 		    stars,
-		    swimmingPool,
-		    fitnessCenter,
-		    roomService,
-		    spa,
-		    wifi,
-		    parking,
-		    hvac,
-		    smokingArea,
-		    pets,
+		    swimmingPoolNy,
+		    fitnessCenterNy,
+		    roomServiceNy,
+		    spaNy,
+		    wifiNy,
+		    parkingNy,
+		    hvacNy,
+		    smokingAreaNy,
+		    petsNy,
 		    hotel_delNy,
 		    hotel_useNy,
-		    hotelDesc
+		    hotelDesc,
+		    hotelRgDate,
+		    hotelEditDate
 		)
 		VALUES (
 			#{hotelName},
 		    #{hotelAddress},
-		    #{facilities},
+		    #{site},
 		    #{stars},
-		    #{swimmingPool},
-		    #{fitnessCenter},
-		    #{roomService},
-		    #{spa},
-		    #{wifi},
-		    #{parking},
-		    #{hvac},
-		    #{smokingArea},
-		    #{pets},
+		    #{swimmingPoolNy},
+		    #{fitnessCenterNy},
+		    #{roomServiceNy},
+		    #{spaNy},
+		    #{wifiNy},
+		    #{parkingNy},
+		    #{hvacNy},
+		    #{smokingAreaNy},
+		    #{petsNy},
 		    0,
 		    #{hotel_useNy},
-		    #{hotelDesc}
+		    #{hotelDesc},
+		    now(),
+		    now()
 		)
 	</insert>
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+		    c.hotelName,
+		    c.hotelAddress,
+		    c.site,
+		    c.stars,
+		    c.swimmingPoolNy,
+		    c.fitnessCenterNy,
+		    c.roomServiceNy,
+		    c.spaNy,
+		    c.wifiNy,
+		    c.parkingNy,
+		    c.hvacNy,
+		    c.smokingAreaNy,
+		    c.petsNy,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc,
+		    c.hotelRgDate,
+		    c.hotelEditDate
+		FROM
+			hotel c
+		WHERE 1=1
+			AND c.hotelSeq = #{hotelSeq}
+	</select>
+	<update id="hotelUpdate">
+		UPDATE hotel
+		SET
+			hotelName = #{hotelName},
+		    hotelAddress = #{hotelAddress},
+		    site = #{site},
+		    stars = #{stars},
+		    swimmingPoolNy = #{swimmingPoolNy},
+		    fitnessCenterNy = #{fitnessCenterNy},
+		    roomServiceNy = #{roomServiceNy},
+		    spaNy = #{spaNy},
+		    wifiNy = #{wifiNy},
+		    parkingNy = #{parkingNy},
+		    hvacNy = #{hvacNy},
+		    smokingAreaNy = #{smokingAreaNy},
+		    petsNy = #{petsNy},
+		    hotel_delNy = #{hotel_delNy},
+		    hotel_useNy = #{hotel_useNy},
+		    hotelDesc = #{hotelDesc},
+    		hotelEditDate = now()
+    	WHERE 1=1
+    		AND hotelSeq = #{hotelSeq}
+	</update>
+	
+	<update id="hotelUelete">
+		UPDATE hotel
+		SET
+			hotel_delNy = 1
+		WHERE 1=1
+			AND hotelSeq = #{hotelSeq}
+	</update>
+	
+	<delete id="hotelDelete">
+		DELETE FROM hotel
+		WHERE 1=1
+			AND hotelSeq = #{hotelSeq}
+	</delete>
 	  
 </mapper>

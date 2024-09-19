@@ -11,14 +11,27 @@ public class HotelService {
 	@Autowired
 	private HotelDao hotelDao;
 	
-	public List<HotelDto> hotelList() {
-		List<HotelDto> hotels = hotelDao.hotelList();
-		return hotels;
+	public List<HotelDto> hotelList(HotelVo hotelVo) {
+		return hotelDao.hotelList(hotelVo);
 	}
 	
 	public int hotelInsert(HotelDto hotelDto) {
 		return hotelDao.hotelInsert(hotelDto);
 	}
 	
-
+	public HotelDto selectOne(HotelDto hotelDto) {
+		return hotelDao.selectOne(hotelDto);
+	}
+	
+	public int hotelUpdate(HotelDto hotelDto) {
+		return hotelDao.hotelUpdate(hotelDto);
+	}
+	
+	public int hotelUelete(HotelDto hotelDto) {
+		return hotelDao.hotelUelete(hotelDto);
+	}
+	
+	public int hotelDelete(HotelDto hotelDto) {
+		return hotelDao.hotelDelete(hotelDto);
+	}
 }
