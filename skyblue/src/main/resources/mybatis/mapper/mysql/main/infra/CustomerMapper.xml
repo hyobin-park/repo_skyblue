@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.color.infra.customer.CustomerDao">
+
+	<resultMap type="com.color.infra.customer.CustomerDto" id="resultMapObj"></resultMap>
+	
+	<select id="customerList" resultMap="resultMapObj">
+		SELECT
+			d.customerSeq,
+		    d.firstName,
+		    d.lastName,
+		    d.gender,
+		    d.birthDate,
+		    d.email,
+		    d.phoneNumber,
+		    d.id,
+		    d.password,
+		    d.registerAgreeContentNy,
+		    d.customer_delNy,
+		    d.customer_useNy,
+		    d.customerDesc,
+		    d.customerRgDate,
+		    d.customerEditDate
+		FROM
+			customer d
+		WHERE 1=1
+			<if test="shcustomer_delNy != null and !shcustomer_delNy.equals('')">AND customer_delNy = #{shcustomer_delNy}</if>
+			<if test="shcustomer_useNy != null and !shcustomer_useNy.equals('')">AND customer_useNy = #{shcustomer_useNy}</if>
+			<choose>
+				<when test="shOption == 1">AND customerSeq = #{shValue}</when>
+				<when test="shOption == 2">AND firstName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+			<choose>
+				<when test="shOptionDate == 1">AND d.customerRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND d.customerEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+		ORDER BY
+			d.customerSeq DESC
+	</select>
+	<insert id="customerIns">
+		INSERT INTO customer (
+		    firstName,
+		    lastName,
+		    gender,
+		    birthDate,
+		    email,
+		    phoneNumber,
+		    id,
+		    password,
+		    registerAgreeContentNy,
+		    customer_delNy,
+		    customer_useNy,
+		    customerDesc,
+		    customerRgDate,
+		    customerEditDate
+		)
+		VALUES (
+		    #{firstName},
+		    #{lastName},
+		    #{gender},
+		    #{birthDate},
+		    #{email},
+		    #{phoneNumber},
+		    #{id},
+		    #{password},
+		    #{registerAgreeContentNy},
+		    0,
+		    #{customer_useNy},
+		    #{customerDesc},
+		    now(),
+		    now()
+		)
+	</insert>
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			d.customerSeq,
+		    d.firstName,
+		    d.lastName,
+		    d.gender,
+		    d.birthDate,
+		    d.email,
+		    d.phoneNumber,
+		    d.id,
+		    d.password,
+		    d.registerAgreeContentNy,
+		    d.customer_delNy,
+		    d.customer_useNy,
+		    d.customerDesc,
+		    d.customerRgDate,
+		    d.customerEditDate
+		FROM
+			customer d
+		WHERE 1=1
+			AND d.customerSeq = #{customerSeq}
+	</select>
+	<update id="customerUpdt">
+		UPDATE customer
+		SET
+			firstName = #{firstName},
+		    lastName = #{lastName},
+		    gender = #{gender},
+		    birthDate = #{birthDate},
+		    email = #{email},
+		    phoneNumber = #{phoneNumber},
+		    id = #{id},
+		    password = #{password},
+		    registerAgreeContentNy = #{registerAgreeContentNy},
+		    customer_delNy = #{customer_delNy},
+		    customer_useNy = #{customer_useNy},
+		    customerDesc = #{customerDesc},
+		    customerEditDate = now()
+		WHERE 1=1
+			AND customerSeq = #{customerSeq}
+	</update>
+	
+	<update id="customerUel">
+		UPDATE customer
+		SET
+			customer_delNy = 1
+		WHERE 1=1
+			AND customerSeq = #{customerSeq}
+	</update>
+	
+	<delete id="customerDel">
+		DELETE FROM customer
+		WHERE 1=1
+			AND customerSeq = #{customerSeq}
+	</delete>
+</mapper>

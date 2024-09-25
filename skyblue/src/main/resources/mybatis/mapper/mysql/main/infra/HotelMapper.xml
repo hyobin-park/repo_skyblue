@@ -87,6 +87,7 @@
 	</insert>
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
+			c.hotelSeq,
 		    c.hotelName,
 		    c.hotelAddress,
 		    c.site,

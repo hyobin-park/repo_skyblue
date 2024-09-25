@@ -24,4 +24,7 @@ public interface CodeGroupDao {
 	//delete
 	public int delete(CodeGroupDto codeGroupDto);
 	
+	//selectOneCount
+	public int selectOneCount(CodeGroupVo codeGroupVo);
+	
 }

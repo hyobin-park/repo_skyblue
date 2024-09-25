@@ -35,6 +35,7 @@
 		ORDER BY
 			b.ifcdSeq desc
 	</select>
+	
 	<select id="selectListCodeGroup" resultMap="resultMapObj">
 		SELECT
 			a.ifcgSeq
@@ -113,5 +114,17 @@
 		WHERE 1=1
 			AND ifcdSeq = #{ifcdSeq}
 	</delete>
+	
+	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			ifcdSeq,
+			ifcdName,
+			codegroup_ifcgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND ifcdDelNy = 0
+		    AND ifcdUseNy = 1
+   </select>
 	
 </mapper>

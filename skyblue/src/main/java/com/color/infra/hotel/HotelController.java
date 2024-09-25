@@ -49,7 +49,6 @@ public class HotelController {
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmUel")
 	public String hotelXdmUel(HotelDto hotelDto) {
 		hotelService.hotelUelete(hotelDto);
-		System.out.println("uelete 했다~");
 		return "redirect:/v1/infra/hotel/hotelXdmList";
 	}
 	

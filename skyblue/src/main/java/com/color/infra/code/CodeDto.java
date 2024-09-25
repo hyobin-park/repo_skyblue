@@ -1,7 +1,8 @@
 package com.color.infra.code;
 
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class CodeDto {
@@ -21,6 +22,9 @@ public class CodeDto {
 //	CodeGroup에서 가져올 데이터 추가 및 getter/setter 하기
 	private String ifcgSeq;
 	private String ifcgName;
+	
+//	for cache
+	public static List<CodeDto> cachedCodeArrayList = new ArrayList<CodeDto>();
 	
 //	----- getter/setter -----
 	public String getIfcdSeq() {
@@ -88,6 +92,12 @@ public class CodeDto {
 	}
 	public void setIfcgName(String ifcgName) {
 		this.ifcgName = ifcgName;
+	}
+	public static List<CodeDto> getCachedCodeArrayList() {
+		return cachedCodeArrayList;
+	}
+	public static void setCachedCodeArrayList(List<CodeDto> cachedCodeArrayList) {
+		CodeDto.cachedCodeArrayList = cachedCodeArrayList;
 	}
 	
 }

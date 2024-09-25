@@ -540,7 +540,7 @@ label {
 				<div class="page-title">
 					<div class="row">
 						<div class="col-12 col-md-6 order-md-1 order-last">
-							<h3>Hotel</h3>
+							<h3>Customer</h3>
 							<br>
 						</div>
 						<div class="col-12 col-md-6 order-md-2 order-first">
@@ -568,15 +568,15 @@ label {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post" action="/v1/infra/hotel/hotelXdmInst">
-											<!-- 2번째 row start -->
+										<form class="form" data-parsley-validate method="post" action="/v1/infra/customer/customerXdmInst">
+											<!-- 1번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">번호</label>
-															<input type="text" id="disabledInput"
-																class="form-control" name="hotelSeq"
+															<input type="text" id="customerSeq"
+																class="form-control" name="customerSeq"
 																placeholder="자동생성" disabled/>
 														</div>
 													</div>
@@ -584,153 +584,112 @@ label {
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
-															<label for="country-floating" class="form-label">호텔 이름</label>
-															<input type="text" id="country-floating"
-																class="form-control" name="hotelName"
+															<label for="country-floating" class="form-label">이름</label>
+															<input type="text" id="firstName"
+																class="form-control" name="firstName"
 																placeholder="이름" />
 														</div>
 													</div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
-												 		<label for="city-column" class="form-label">호텔 주소</label>
-												    		<input type="text" id="city-column" name="hotelAddress"
-												    		class="form-control" placeholder="주소" />
+														<div class="form-group mandatory">
+												 			<label for="city-column" class="form-label">성</label>
+													    		<input type="text" id="lastName" name="lastName"
+													    		class="form-control" placeholder="성" />
+												    	</div>
+												    </div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group mandatory">
+														<label for="email-id-column" class="form-label">성별</label>
+															<fieldset class="form-group">
+																<select class="form-select" id="gender"
+																	name="gender" style="padding: .375rem .75rem;">
+																	<option value="">선택하세요</option>
+																	<option th:each="list : ${@codeService.selectListCachedCode(1)}"
+																	th:value="${list.ifcdSeq}" th:text="${list.ifcdName}"
+																	th:selected="${list.ifcdSeq} == ${customerItem?.gender}"></option>
+																</select>
+															</fieldset>
+													</div>
+												</div>
+											</div>
+											<!-- 1번째 row end -->
+											<!-- 2번째 row start -->
+											<div class="row">
+											<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+												 			<label for="city-column" class="form-label">이메일</label>
+													    		<input type="text" id="email" name="email"
+													    		class="form-control" placeholder="email@naver.com" />
+												    	</div>
 												    </div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
-															<label for="company-column" class="form-label">등급</label>
-																<input type="text" id="company-column" name="stars"
-																class="form-control" placeholder="1-5성급" />
+															<label for="company-column" class="form-label">생년월일</label>
+																<input type="text" id="birthDate" name="birthDate"
+																class="form-control" placeholder="YYYY-MM-DD" />
 												    	</div>
 												    </div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">휴대폰번호</label>
+																<input type="text" id="phoneNumber" name="phoneNumber"
+																	class="form-control" placeholder="01012345678"/>
+														</div>
+													</div>
 												</div>
 											</div>
 											<!-- 2번째 row end -->
 											<!-- 3번째 row start -->
 											<div class="row">
-												<div class="col-md-3 col-12">
+											<div class="col-md-3 col-12">
 													<div class="form-group">
-														<label for="disabledInput" class="form-label">시설</label>
-															<input type="text" id="site"
-																class="form-control" name="site" placeholder="시설"/>
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">아이디</label>
+																<input type="text" id="id" name="id"
+																	class="form-control" placeholder="영문, 숫자"/>
+														</div>
 													</div>
 												</div>
 												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">수영장</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="swimmingPoolNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">피트니스센터</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="fitnessCenterNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">룸서비스</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="roomServiceNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">비밀번호</label>
+																<input type="text" id="password" name="password"
+																	class="form-control" placeholder="영대소문자, 숫자"/>
+														</div>
+													</div>
 												</div>
 											</div>
 											<!-- 3번째 row end -->
 											<!-- 4번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">스파</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="spaNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">와이파이</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="wifiNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">주차</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="parkingNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">냉난방</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="hvacNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-											</div>
-											<!-- 3번째 row end -->											
-											<!-- 4번째 row start -->
-											<div class="row">
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">흡연구역</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="smokingAreaNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
-												</div>
-												<div class="col-md-3 col-12">
-													<label for="email-id-column" class="form-label">애완동물</label>
-														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="petsNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">Y</option>
-																<option value="0">N</option>
-															</select>
-														</fieldset>
+													<div class="form-group mandatory">
+														<label for="email-id-column" class="form-label">약관</label>
+															<fieldset class="form-group">
+																<select class="form-select" id="registerAgreeContentNy"
+																	name="registerAgreeContentNy" style="padding: .375rem .75rem;">
+																	<option value="">선택하세요</option>
+																	<option value="1">동의</option>
+																	<option value="0">거부</option>
+																</select>
+															</fieldset>
+													</div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group mandatory">
 														<label for="email-id-column" class="form-label">사용여부</label>
 															<fieldset class="form-group">
-																<select class="form-select" id="basicSelect"
-																	name="hotel_useNy" style="padding: .375rem .75rem;">
+																<select class="form-select" id="customer_useNy"
+																	name="customer_useNy" style="padding: .375rem .75rem;">
 																	<option value="">선택하세요</option>
 																	<option value="1">Y</option>
 																	<option value="0">N</option>
@@ -742,7 +701,7 @@ label {
 												<!--                                                     <div class="form-group mandatory"> -->
 												<!--                                                         <label for="email-id-column" class="form-label">삭제여부</label> -->
 												<!--                                                         <fieldset class="form-group"> -->
-												<!--                                                             <select class="form-select" id="basicSelect" name="ifcgDelNy" -->
+												<!--                                                             <select class="form-select" id="customer_delNy" name="customer_delNy" -->
 												<!--                                                                 style="padding: .375rem .75rem;"> -->
 												<!--                                                                 <option value="1">Y</option> -->
 												<!--                                                                 <option value="0">N</option> -->
@@ -758,8 +717,8 @@ label {
 													<div class="form-group">
 														<label for="country-floating" class="form-label">설명</label>
 														<div class="form-group mb-3">
-															<textarea class="form-control" name="hotelDesc"
-																id="hotelDesc"></textarea>
+															<textarea class="form-control" name="customerDesc"
+																id="customerDesc"></textarea>
 														</div>
 													</div>
 												</div>

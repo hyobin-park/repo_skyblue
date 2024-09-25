@@ -24,7 +24,11 @@
 label, placeholder {
 	font-size: 15px;
 }
+label {
+	font-weight: bold;
+}
 </style>
+
 </head>
 
 <body>
@@ -573,8 +577,9 @@ label, placeholder {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">번호</label>
-															<input type="text" id="disabledInput" style="background-color: #EAECEF"
-																name="hotelSeq" th:value=${hotelItem?.hotelSeq}
+															<input type="text" id="hotelSeq"
+																name="hotelSeq" th:value="${hotelItem?.hotelSeq}"
+																style="background-color: #EAECEF"
 																class="form-control" placeholder="자동생성" readonly/>
 														</div>
 													</div>
