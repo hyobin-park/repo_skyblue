@@ -5,7 +5,29 @@
 
 	<resultMap type="com.color.infra.hotel.HotelDto" id="resultMapObj"></resultMap>
 
+	<sql id="selectCommon">
+		FROM
+			hotel c
+		WHERE 1=1
+		<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
+		<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
+		<choose>
+			<when test="shOptionDate == 1">AND c.hotelRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 2">AND c.hotelEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+		<choose>
+			<when test="shOption == 1">AND hotelSeq = #{shValue}</when>
+			<when test="shOption == 2">AND hotelName LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon"/>
+	</select>
+	
 	<select id="hotelList" resultMap="resultMapObj">
+		select aa.* from (
 		SELECT
 			c.hotelSeq,
 		    c.hotelName,
@@ -26,21 +48,11 @@
 		    c.hotelDesc,
 		    c.hotelRgDate,
 		    c.hotelEditDate
-		FROM
-			hotel c
-		WHERE 1=1
-			<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
-			<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
-			<choose>
-				<when test="shOptionDate == 1">AND c.hotelRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND c.hotelEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			</choose>
-			<choose>
-				<when test="shOption == 1">AND hotelSeq = #{shValue}</when>
-				<when test="shOption == 2">AND hotelName LIKE CONCAT('%',#{shValue},'%')</when>
-			</choose>
+		<include refid="selectCommon"/>
 		ORDER BY
 			c.hotelSeq DESC
+		) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
 	<insert id="hotelInsert">
@@ -84,7 +96,11 @@
 		    now(),
 		    now()
 		)
+		<selectKey resultType="String" keyProperty="hotelSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			c.hotelSeq,
@@ -111,6 +127,7 @@
 		WHERE 1=1
 			AND c.hotelSeq = #{hotelSeq}
 	</select>
+	
 	<update id="hotelUpdate">
 		UPDATE hotel
 		SET

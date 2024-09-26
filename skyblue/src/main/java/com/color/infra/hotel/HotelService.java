@@ -34,4 +34,8 @@ public class HotelService {
 	public int hotelDelete(HotelDto hotelDto) {
 		return hotelDao.hotelDelete(hotelDto);
 	}
+	
+	public int selectOneCount(HotelVo hotelVo) {
+		return hotelDao.selectOneCount(hotelVo);
+	}
 }

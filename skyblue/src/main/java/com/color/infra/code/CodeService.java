@@ -54,19 +54,19 @@ public class CodeService {
 	}
 	
 	@PostConstruct
-	public void selectListCachedCodeArrayList() throws Exception {
+	public void selectListCachedCodeArrayList() {
+//		System.out.println("selectListCachedCodeArrayList 함수 실행");
 		List<CodeDto> codeListFromDb = (ArrayList<CodeDto>) codeDao.selectListCachedCodeArrayList();
-//		codeListFromDb = (ArrayList<Code>) dao.selectListCachedCodeArrayList();
-		CodeDto.cachedCodeArrayList.clear(); 
+		CodeDto.cachedCodeArrayList.clear();
 		CodeDto.cachedCodeArrayList.addAll(codeListFromDb);
-		System.out.println("cachedCodeArrayList: " + CodeDto.cachedCodeArrayList.size() + " chached !");
+		System.out.println("cachedCodeArrayList: " + CodeDto.cachedCodeArrayList.size() + "chached!!");
 	}
 	
-	public static void clear() throws Exception {
+	public static void clear() {
 		CodeDto.cachedCodeArrayList.clear();
 	}
 	
-	public static List<CodeDto> selectListCachedCode(String ifcgSeq) throws Exception {
+	public static List<CodeDto> selectListCachedCode(String ifcgSeq) {
 		List<CodeDto> rt = new ArrayList<CodeDto>();
 		for(CodeDto codeRow : CodeDto.cachedCodeArrayList) {
 			if (codeRow.getCodegroup_ifcgSeq().equals(ifcgSeq)) {

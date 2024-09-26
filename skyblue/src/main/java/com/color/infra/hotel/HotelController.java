@@ -1,11 +1,12 @@
 package com.color.infra.hotel;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.color.common.util.UtilDateTime;
 
 @Controller
 public class HotelController {
@@ -14,12 +15,21 @@ public class HotelController {
 	HotelService hotelService;
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmList")
-	public String hotelXdmList(Model model, HotelVo hotelVo) {
+	public String hotelXdmList(@ModelAttribute("vo") HotelVo hotelVo, Model model) {
 		
-		hotelVo.setShDateStart(hotelVo.getShDateStart() + " 00:00:00");
-		hotelVo.setShDateEnd(hotelVo.getShDateEnd() + " 23:59:59");
+//		hotelVo.setShDateStart(hotelVo.getShDateStart() + " 00:00:00");
+//		hotelVo.setShDateEnd(hotelVo.getShDateEnd() + " 23:59:59");
 		
-		model.addAttribute("list", hotelService.hotelList(hotelVo));
+		hotelVo.setShDateStart(hotelVo.getShDateStart() == null || hotelVo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(hotelVo.getShDateStart()));
+		hotelVo.setShDateEnd(hotelVo.getShDateEnd() == null || hotelVo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(hotelVo.getShDateEnd()));
+		
+		//paging
+		hotelVo.setParamsPaging(hotelService.selectOneCount(hotelVo));
+
+		if (hotelVo.getTotalRows() > 0) {
+			model.addAttribute("list", hotelService.hotelList(hotelVo));
+				}
+		
 		return "/xdm/v1/infra/hotel/hotelXdmList";
 	}
 	

@@ -23,4 +23,8 @@ public interface CustomerDao {
 	
 	//delete
 	public int customerDel(CustomerDto customerDto);
+	
+	//selectOneCount
+	public int selectOneCount(CustomerVo customerVo);
+	
 }

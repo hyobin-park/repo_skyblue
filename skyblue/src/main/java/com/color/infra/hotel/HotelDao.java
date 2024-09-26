@@ -24,4 +24,7 @@ public interface HotelDao {
 	//delete
 	public int hotelDelete(HotelDto hotelDto);
 	
+	//selectOneCount
+	public int selectOneCount(HotelVo hotelVo);
+	
 }

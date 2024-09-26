@@ -115,6 +115,7 @@
 			AND ifcdSeq = #{ifcdSeq}
 	</delete>
 	
+<!-- 	for cache -->
 	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
 		SELECT 
 			ifcdSeq,

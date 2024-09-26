@@ -34,4 +34,8 @@ public class CustomerService {
 		return customerDao.customerDel(customerDto);
 	}
 	
+	public int selectOneCount(CustomerVo customerVo) {
+		return customerDao.selectOneCount(customerVo);
+	}
+	
 }

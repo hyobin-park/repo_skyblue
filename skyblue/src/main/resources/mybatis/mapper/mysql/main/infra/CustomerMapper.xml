@@ -5,7 +5,29 @@
 
 	<resultMap type="com.color.infra.customer.CustomerDto" id="resultMapObj"></resultMap>
 	
+	<sql id="selectCommon">
+		FROM
+			customer d
+		WHERE 1=1
+		<if test="shcustomer_delNy != null and !shcustomer_delNy.equals('')">AND customer_delNy = #{shcustomer_delNy}</if>
+		<if test="shcustomer_useNy != null and !shcustomer_useNy.equals('')">AND customer_useNy = #{shcustomer_useNy}</if>
+		<choose>
+			<when test="shOption == 1">AND customerSeq = #{shValue}</when>
+			<when test="shOption == 2">AND firstName LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+		<choose>
+			<when test="shOptionDate == 1">AND d.customerRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 2">AND d.customerEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon"/>
+	</select>
+	
 	<select id="customerList" resultMap="resultMapObj">
+		select aa.* from (
 		SELECT
 			d.customerSeq,
 		    d.firstName,
@@ -22,22 +44,13 @@
 		    d.customerDesc,
 		    d.customerRgDate,
 		    d.customerEditDate
-		FROM
-			customer d
-		WHERE 1=1
-			<if test="shcustomer_delNy != null and !shcustomer_delNy.equals('')">AND customer_delNy = #{shcustomer_delNy}</if>
-			<if test="shcustomer_useNy != null and !shcustomer_useNy.equals('')">AND customer_useNy = #{shcustomer_useNy}</if>
-			<choose>
-				<when test="shOption == 1">AND customerSeq = #{shValue}</when>
-				<when test="shOption == 2">AND firstName LIKE CONCAT('%',#{shValue},'%')</when>
-			</choose>
-			<choose>
-				<when test="shOptionDate == 1">AND d.customerRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND d.customerEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			</choose>
+		<include refid="selectCommon"/>
 		ORDER BY
 			d.customerSeq DESC
+			) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
+	
 	<insert id="customerIns">
 		INSERT INTO customer (
 		    firstName,
@@ -71,7 +84,11 @@
 		    now(),
 		    now()
 		)
+		<selectKey resultType="String" keyProperty="customerSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			d.customerSeq,
@@ -94,6 +111,7 @@
 		WHERE 1=1
 			AND d.customerSeq = #{customerSeq}
 	</select>
+	
 	<update id="customerUpdt">
 		UPDATE customer
 		SET
