@@ -53,6 +53,11 @@ public class CodeService {
 		return codeDao.codeDelete(codeDto);
 	}
 	
+	//selectOneCount
+	public int selectOneCount(CodeVo codeVo) {
+		return codeDao.selectOneCount(codeVo);
+	}
+	
 	@PostConstruct
 	public void selectListCachedCodeArrayList() {
 //		System.out.println("selectListCachedCodeArrayList 함수 실행");

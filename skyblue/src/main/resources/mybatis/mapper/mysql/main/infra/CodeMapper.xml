@@ -5,7 +5,31 @@
 
 	<resultMap type="com.color.infra.code.CodeDto" id="resultMapObj"></resultMap>
 	
+	<sql id="selectCommon">
+		FROM
+			code b
+			LEFT JOIN codegroup a
+			ON b.codegroup_ifcgSeq = a.ifcgSeq
+		WHERE 1=1
+		<if test="shcdDelNy != null and !shcdDelNy.equals('')">AND ifcdDelNy = #{shcdDelNy}</if>
+		<if test="shcdUseNy != null and !shcdUseNy.equals('')">AND ifcdUseNy = #{shcdUseNy}</if>
+		<choose>
+			<when test="shOptionDate == 1">AND b.ifcdRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 2">AND b.ifcdEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+		<choose>
+			<when test="shcdOption == 1">AND ifcdSeq = #{shcdValue}</when>
+			<when test="shcdOption == 2">AND ifcdName LIKE CONCAT('%',#{shcdValue},'%')</when>
+		</choose>
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon"/>
+	</select>
+	
 	<select id="selectList" resultMap="resultMapObj">
+		select aa.* from (
 		SELECT
 			b.ifcdSeq
     		,b.ifcdName
@@ -17,29 +41,17 @@
     		,b.ifcdEditDate
     		,b.codegroup_ifcgSeq
     		,a.ifcgName
-		FROM
-			code b
-		LEFT JOIN codegroup a
-		ON b.codegroup_ifcgSeq = a.ifcgSeq
-		WHERE 1=1
-			<if test="shcdDelNy != null and !shcdDelNy.equals('')">AND ifcdDelNy = #{shcdDelNy}</if>
-			<if test="shcdUseNy != null and !shcdUseNy.equals('')">AND ifcdUseNy = #{shcdUseNy}</if>
-			<choose>
-				<when test="shOptionDate == 1">AND b.ifcdRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND b.ifcdEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			</choose>
-			<choose>
-				<when test="shcdOption == 1">AND ifcdSeq = #{shcdValue}</when>
-				<when test="shcdOption == 2">AND ifcdName LIKE CONCAT('%',#{shcdValue},'%')</when>
-			</choose>
+		<include refid="selectCommon"/>
 		ORDER BY
 			b.ifcdSeq desc
+			) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
 	<select id="selectListCodeGroup" resultMap="resultMapObj">
 		SELECT
-			a.ifcgSeq
-    		,a.ifcgName
+			a.ifcgSeq,
+    		a.ifcgName
     	FROM CodeGroup a
 		WHERE 1=1
 			AND a.ifcgDelNy = 0
@@ -67,7 +79,10 @@
 			,now()
 			,now()
 			,#{codegroup_ifcgSeq}
-	)
+		)
+		<selectKey resultType="String" keyProperty="ifcdSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
 	</insert>
 	
 	<update id="codeUpdate">

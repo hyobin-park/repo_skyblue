@@ -27,4 +27,7 @@ public interface CodeDao {
 	public int codeDelete(CodeDto codeDto);
 	
 	public List<CodeDto> selectListCachedCodeArrayList();
+	
+	//selectOneCount
+	public int selectOneCount(CodeVo codeVo);
 }

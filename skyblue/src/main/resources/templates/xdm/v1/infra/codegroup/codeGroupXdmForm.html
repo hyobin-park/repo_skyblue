@@ -565,15 +565,15 @@ label, placeholder {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post"
-											action="/v1/infra/codegroup/codeGroupXdmInst">
+										<form name="form" data-parsley-validate method="post"
+											action="/v1/infra/codegroup/codeGroupXdmInst" class="needs-validation" novalidate="novalidate">
 											<div class="row">
 												<!-- 2번째 row start -->
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">코드그룹 번호</label>
-															<input type="text" id="disabledInput"
+															<input type="text" id="ifcgSeq"
 																class="form-control"
 																name="ifcgSeq" placeholder="자동생성" disabled/>
 														</div>
@@ -583,9 +583,10 @@ label, placeholder {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="country-floating" class="form-label">코드그룹 이름</label>
-															<input type="text" id="country-floating"
+															<input type="text" id="ifcgName"
 																class="form-control" name="ifcgName"
-																placeholder="한글, 영대소문자, 숫자" />
+																placeholder="한글, 영대소문자, 숫자" required/>
+															<div class="invalid-feedback">코드그룹이름을 입력해 주세요.</div>
 														</div>
 													</div>
 												</div>
@@ -611,11 +612,13 @@ label, placeholder {
 													<div class="form-group mandatory">
 														<label for="email-id-column" class="form-label">사용여부</label>
 														<fieldset class="form-group">
-															<select class="form-select" id="basicSelect"
-																name="ifcgUseNy" style="padding: .375rem .75rem;">
+															<select class="form-select" id="ifcgUseNy"
+																name="ifcgUseNy" style="padding: .375rem .75rem;" required>
+																<option value="">선택하세요</option>
 																<option value="1">Y</option>
 																<option value="0">N</option>
 															</select>
+															<div class="invalid-feedback">사용여부를 선택해주세요.</div>
 														</fieldset>
 													</div>
 												</div>
@@ -635,8 +638,9 @@ label, placeholder {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="country-floating" class="form-label">순서</label>
-															<input type="text" id="country-floating" name="ifcgOrder"
-																class="form-control" />
+															<input type="text" id="ifcgOrder" name="ifcgOrder"
+																class="form-control" placeholder="순서" required />
+															<div class="invalid-feedback">순서를 입력해주세요.</div>
 														</div>
 													</div>
 												</div>
@@ -649,7 +653,7 @@ label, placeholder {
 														<label for="country-floating" class="form-label">설명</label>
 														<div class="form-group mb-3">
 															<textarea class="form-control" name="ifcgDesc"
-																id="exampleFormControlTextarea1"></textarea>
+																id="ifcgDesc"></textarea>
 														</div>
 													</div>
 												</div>
@@ -662,7 +666,7 @@ label, placeholder {
 													</button>
 												</div>
 												<div class="col-md-6" align="Right">
-													<button type="submit" class="btn icon btn-sm btn-primary">
+													<button type="button" id="btnSubmit" class="btn icon btn-sm btn-primary">
 														<i class="bi bi-hdd-stack-fill"></i>
 													</button>
 												</div>
@@ -699,19 +703,63 @@ label, placeholder {
 	</div>
 	</div>
 	<script src="/xdm/v1/template/ui/assets/static/js/components/dark.js"></script>
-	<script
-		src="/xdm/v1/template/ui/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-
+	<script src="/xdm/v1/template/ui/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script src="/xdm/v1/template/ui/assets/compiled/js/app.js"></script>
-
-
-
-	<script
-		src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
-	<script
-		src="/xdm/v1/template/ui/assets/extensions/parsleyjs/parsley.min.js"></script>
+	<script src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
+	<script src="/xdm/v1/template/ui/assets/extensions/parsleyjs/parsley.min.js"></script>
 	<script src="/xdm/v1/template/ui/assets/static/js/pages/parsley.js"></script>
+	
+	<script type="text/javascript">
+	
+// 	var abc = document.getElementById("ifcgName");
+// 	alert(abc);
+// 	alert(abc.value);
+// 	alert(document.getElementById("ifcgName").value);
+	
+	document.getElementById("btnSubmit").onclick = function (){
+// 		alert(document.getElementById("ifcgName").value);	 
+		
+	    var ifcgName = document.getElementById("ifcgName");
+	    var ifcgNameValue = document.getElementById("ifcgName").value.trim();
+		
+	    if (ifcgNameValue == "" || ifcgNameValue == null) {
+// 			alert("이름을 입력해 주세요");
+			form.classList.add('was-validated');
+			ifcgName.focus();
+			return false;
+	    } else {
+// 			by pass
+	    }
+	    
+	    var ifcgUseNy = document.getElementById("ifcgUseNy");
+	    var ifcgUseNyValue = document.getElementById("ifcgUseNy").value.trim();
+		
+	    if (ifcgUseNyValue == "" || ifcgUseNyValue == null) {
+// 			alert("사용여부를 선택해 주세요");
+			form.classList.add('was-validated');
+			ifcgUseNy.focus();
+			return false;
+	    } else {
+// 			by pass
+	    }
+	    
+	    var ifcgOrder = document.getElementById("ifcgOrder");
+	    var ifcgOrderValue = document.getElementById("ifcgOrder").value.trim();
+
+	    if (ifcgOrderValue == "" || ifcgOrderValue == null) {
+// 			alert("순서를 입력해 주세요");
+			form.classList.add('was-validated');
+			ifcgOrder.focus();
+			return false;
+	    } else {
+// 			by pass
+	    }
+	    
+	    form.action = "/v1/infra/codegroup/codeGroupXdmInst";
+		form.submit();
+	}
+	
+	</script>
 
 </body>
 
