@@ -1,6 +1,8 @@
 package com.color.infra.customer;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,8 +36,19 @@ public class CustomerService {
 		return customerDao.customerDel(customerDto);
 	}
 	
+	//paging
 	public int selectOneCount(CustomerVo customerVo) {
 		return customerDao.selectOneCount(customerVo);
 	}
 	
+	//LoginselectOne
+	public CustomerDto LoginselectOne(CustomerDto customerDto) {
+		return customerDao.LoginselectOne(customerDto);
+	}
+	
+	//Login Session
+	public CustomerDto selectOneId(CustomerDto customerDto) {
+		return customerDao.selectOneId(customerDto);
+	}
+
 }

@@ -1,6 +1,8 @@
 package com.color.infra.customer;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -26,5 +28,12 @@ public interface CustomerDao {
 	
 	//selectOneCount
 	public int selectOneCount(CustomerVo customerVo);
+	
+	//LoginselectOne
+	public CustomerDto LoginselectOne(CustomerDto customerDto);
+	
+	//Login Session
+	public CustomerDto selectOneId(CustomerDto customerDto);
+	
 	
 }

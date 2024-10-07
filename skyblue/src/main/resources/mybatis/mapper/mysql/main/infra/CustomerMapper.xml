@@ -51,6 +51,30 @@
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
+	<select id="LoginselectOne" resultMap="resultMapObj">
+		SELECT
+			d.customerSeq,
+			d.id,
+		    d.password
+		FROM
+			customer d
+		WHERE 1=1
+			AND d.id = #{id}
+			AND d.password = #{password}
+	</select>
+	
+	<!-- 로그인 세션 유지 -->
+	<select id="selectOneId" resultMap="resultMapObj">
+		SELECT
+			d.customerSeq,
+			d.id,
+		    d.firstName
+		FROM
+			customer d
+		WHERE 1=1
+			AND d.id = #{id}
+	</select>
+	
 	<insert id="customerIns">
 		INSERT INTO customer (
 		    firstName,

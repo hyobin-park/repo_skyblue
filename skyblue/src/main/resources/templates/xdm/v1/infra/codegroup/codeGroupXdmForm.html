@@ -586,7 +586,8 @@ label, placeholder {
 															<input type="text" id="ifcgName"
 																class="form-control" name="ifcgName"
 																placeholder="한글, 영대소문자, 숫자" required/>
-															<div class="invalid-feedback">코드그룹이름을 입력해 주세요.</div>
+															<div class="invalid-feedback" id="ifcgNameFeedback">코드그룹이름을 입력해 주세요.</div>
+															<div class="invalid-feedback" id="ifcgNameRegExpFeedback">한글, 영대소문자, 숫자만 입력해 주세요.</div>
 														</div>
 													</div>
 												</div>
@@ -717,42 +718,63 @@ label, placeholder {
 // 	alert(document.getElementById("ifcgName").value);
 	
 	document.getElementById("btnSubmit").onclick = function (){
-// 		alert(document.getElementById("ifcgName").value);	 
 		
+		// ifcgName
 	    var ifcgName = document.getElementById("ifcgName");
 	    var ifcgNameValue = document.getElementById("ifcgName").value.trim();
+	    var ifcgNameRegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
+	    
+	    var ifcgNameFeedback = document.getElementById("ifcgNameFeedback");
+	    var ifcgNameRegExpFeedback = document.getElementById("ifcgNameRegExpFeedback");
 		
-	    if (ifcgNameValue == "" || ifcgNameValue == null) {
-// 			alert("이름을 입력해 주세요");
-			form.classList.add('was-validated');
-			ifcgName.focus();
-			return false;
+	    //기존의 validation 초기화
+	    ifcgName.classList.remove('is-valid', 'is-invalid');
+	    ifcgNameFeedback.style.display='none';
+	    ifcgNameRegExpFeedback.style.display='none';
+	    
+	    if(ifcgNameValue == "" || ifcgNameValue == null) { 
+	    	ifcgNameFeedback.style.display='block';
+	    	ifcgName.classList.add('is-invalid');
+	    	ifcgName.focus(); // ifcgName의 input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
 	    } else {
-// 			by pass
+// 	    	by pass
+	    }
+	    if(!ifcgNameRegExp.test(ifcgNameValue)) {
+	    	ifcgNameRegExpFeedback.style.display='block';
+	    	ifcgName.classList.add('is-invalid');
+	    	ifcgName.focus();
+	    	return false;
+	    } else {
+			ifcgName.classList.add('is-valid');
 	    }
 	    
+	    // ifcgUseNy
 	    var ifcgUseNy = document.getElementById("ifcgUseNy");
 	    var ifcgUseNyValue = document.getElementById("ifcgUseNy").value.trim();
-		
-	    if (ifcgUseNyValue == "" || ifcgUseNyValue == null) {
-// 			alert("사용여부를 선택해 주세요");
-			form.classList.add('was-validated');
-			ifcgUseNy.focus();
-			return false;
-	    } else {
-// 			by pass
-	    }
 	    
+	    if (ifcgUseNyValue == "" || ifcgUseNyValue == null) {
+//	 		alert("사용여부를 선택해 주세요");
+				ifcgUseNy.classList.add('is-invalid');
+				ifcgUseNy.focus();
+				return false;
+		    } else {
+		    	ifcgUseNy.classList.remove('is-invalid');
+		    	ifcgUseNy.classList.add('is-valid');
+		    }
+	    
+	    // ifcgOrder
 	    var ifcgOrder = document.getElementById("ifcgOrder");
 	    var ifcgOrderValue = document.getElementById("ifcgOrder").value.trim();
-
+	    
 	    if (ifcgOrderValue == "" || ifcgOrderValue == null) {
-// 			alert("순서를 입력해 주세요");
-			form.classList.add('was-validated');
+	    	ifcgOrder.classList.add('is-invalid');
 			ifcgOrder.focus();
 			return false;
 	    } else {
 // 			by pass
+			ifcgOrder.classList.remove('is-invalid');
+	    	ifcgOrder.classList.add('is-valid');
 	    }
 	    
 	    form.action = "/v1/infra/codegroup/codeGroupXdmInst";
