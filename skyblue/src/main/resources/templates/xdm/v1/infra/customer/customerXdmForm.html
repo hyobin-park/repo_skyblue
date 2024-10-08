@@ -123,17 +123,14 @@ label {
 
 								<li class="submenu-item  "><a
 									href="component-carousel.html" class="submenu-link">Carousel</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
 									href="component-collapse.html" class="submenu-link">Collapse</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
 									href="component-dropdown.html" class="submenu-link">Dropdown</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
@@ -148,12 +145,10 @@ label {
 
 								<li class="submenu-item  "><a
 									href="component-pagination.html" class="submenu-link">Pagination</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
 									href="component-progress.html" class="submenu-link">Progress</a>
-
 								</li>
 
 								<li class="submenu-item  "><a href="component-spinner.html"
@@ -164,7 +159,6 @@ label {
 
 								<li class="submenu-item  "><a href="component-tooltip.html"
 									class="submenu-link">Tooltip</a></li>
-
 							</ul></li>
 
 						<li class="sidebar-item  has-sub"><a href="#"
@@ -568,7 +562,8 @@ label {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post" action="/v1/infra/customer/customerXdmInst">
+										<form name="form" data-parsley-validate method="post" action="/v1/infra/customer/customerXdmInst"
+										class="needs-validation" novalidate="novalidate">
 											<!-- 1번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
@@ -585,76 +580,70 @@ label {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="country-floating" class="form-label">이름</label>
-															<input type="text" id="firstName"
-																class="form-control" name="firstName"
-																placeholder="이름" />
+															<input type="text" id="customerName"
+																class="form-control" name="customerName"
+																placeholder="이름" required/>
+															<div class="invalid-feedback" id="customerNameFeedback">이름을 입력해주세요.</div>
+															<div class="invalid-feedback" id="customerNameRegExpFeedback">이름은 한글, 영대소문자만 입력해주세요.</div>
 														</div>
 													</div>
-												</div>
-												<div class="col-md-3 col-12">
-													<div class="form-group">
-														<div class="form-group mandatory">
-												 			<label for="city-column" class="form-label">성</label>
-													    		<input type="text" id="lastName" name="lastName"
-													    		class="form-control" placeholder="성" />
-												    	</div>
-												    </div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group mandatory">
 														<label for="email-id-column" class="form-label">성별</label>
 															<fieldset class="form-group">
 																<select class="form-select" id="gender"
-																	name="gender" style="padding: .375rem .75rem;">
+																	name="gender" style="padding: .375rem .75rem;" required>
 																	<option value="">선택하세요</option>
 																	<option th:each="list : ${@codeService.selectListCachedCode(1)}"
 																	th:value="${list.ifcdSeq}" th:text="${list.ifcdName}"
 																	th:selected="${list.ifcdSeq} == ${customerItem?.gender}"></option>
 																</select>
+																<div class="invalid-feedback">성별을 선택해주세요.</div>
 															</fieldset>
 													</div>
-												</div>
-											</div>
-											<!-- 1번째 row end -->
-											<!-- 2번째 row start -->
-											<div class="row">
-											<div class="col-md-3 col-12">
-													<div class="form-group">
-														<div class="form-group mandatory">
-												 			<label for="city-column" class="form-label">이메일</label>
-													    		<input type="text" id="email" name="email"
-													    		class="form-control" placeholder="email@naver.com" />
-												    	</div>
-												    </div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="company-column" class="form-label">생년월일</label>
 																<input type="text" id="birthDate" name="birthDate"
-																class="form-control" placeholder="YYYY-MM-DD" />
+																class="form-control" placeholder="YYYY-MM-DD" required/>
+																<div class="invalid-feedback">생년월일을 입력해주세요.</div>
+												    	</div>
+												    </div>
+												</div>
+											</div>
+											<!-- 1번째 row end -->
+											<!-- 2번째 row start -->
+											<div class="row">
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">휴대폰번호</label>
+																<input type="text" id="phoneNumber" name="phoneNumber"
+																	class="form-control" placeholder="01012345678" required/>
+																<div class="invalid-feedback">휴대폰번호를 입력해주세요.</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+												 			<label for="city-column" class="form-label">이메일</label>
+													    		<input type="text" id="email" name="email"
+													    		class="form-control" placeholder="email@naver.com" required/>
+													    		<div class="invalid-feedback">이메일을 입력해주세요.</div>
 												    	</div>
 												    </div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
-															<label for="disabledInput" class="form-label">휴대폰번호</label>
-																<input type="text" id="phoneNumber" name="phoneNumber"
-																	class="form-control" placeholder="01012345678"/>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- 2번째 row end -->
-											<!-- 3번째 row start -->
-											<div class="row">
-											<div class="col-md-3 col-12">
-													<div class="form-group">
-														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">아이디</label>
 																<input type="text" id="id" name="id"
-																	class="form-control" placeholder="영문, 숫자"/>
+																	class="form-control" placeholder="영문, 숫자" required/>
+																	<div class="invalid-feedback">아이디를 입력해주세요.</div>
 														</div>
 													</div>
 												</div>
@@ -663,7 +652,42 @@ label {
 														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">비밀번호</label>
 																<input type="text" id="password" name="password"
-																	class="form-control" placeholder="영대소문자, 숫자"/>
+																	class="form-control" placeholder="영대소문자, 숫자" required/>
+																<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- 2번째 row end -->
+											<!-- 3번째 row start -->
+											<div class="row">
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="company-column" class="form-label">우편번호</label>
+																<input type="text" id="customerZipCode" name="customerZipCode"
+																class="form-control" placeholder="우편번호" required/>
+																<div class="invalid-feedback">우편번호를 입력해주세요.</div>
+												    	</div>
+												    </div>
+												</div>
+											<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">주소</label>
+																<input type="text" id="customerAddress1" name="customerAddress1"
+																	class="form-control" placeholder="주소" required/>
+																<div class="invalid-feedback">주소를 입력해주세요.</div>	
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">상세주소</label>
+																<input type="text" id="customerAddress2" name="customerAddress2"
+																	class="form-control" placeholder="상세주소" required/>
+																<div class="invalid-feedback">상세주소를 입력해주세요.</div>
 														</div>
 													</div>
 												</div>
@@ -676,11 +700,12 @@ label {
 														<label for="email-id-column" class="form-label">약관</label>
 															<fieldset class="form-group">
 																<select class="form-select" id="registerAgreeContentNy"
-																	name="registerAgreeContentNy" style="padding: .375rem .75rem;">
+																	name="registerAgreeContentNy" style="padding: .375rem .75rem;" required>
 																	<option value="">선택하세요</option>
 																	<option value="1">동의</option>
 																	<option value="0">거부</option>
 																</select>
+																<div class="invalid-feedback">약관 동의여부를 선택해주세요.</div>
 															</fieldset>
 													</div>
 												</div>
@@ -689,11 +714,12 @@ label {
 														<label for="email-id-column" class="form-label">사용여부</label>
 															<fieldset class="form-group">
 																<select class="form-select" id="customer_useNy"
-																	name="customer_useNy" style="padding: .375rem .75rem;">
+																	name="customer_useNy" style="padding: .375rem .75rem;" required>
 																	<option value="">선택하세요</option>
 																	<option value="1">Y</option>
 																	<option value="0">N</option>
 																</select>
+																<div class="invalid-feedback">사용여부를 선택해주세요.</div>
 															</fieldset>
 													</div>
 												</div>
@@ -731,7 +757,7 @@ label {
 													</button>
 												</div>
 												<div class="col-md-6" align="Right">
-													<button type="submit" class="btn icon btn-sm btn-primary">
+													<button type="button" id="btnSubmit" class="btn icon btn-sm btn-primary">
 														<i class="bi bi-hdd-stack-fill"></i>
 													</button>
 												</div>
@@ -774,7 +800,41 @@ label {
 	<script src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
 	<script src="/xdm/v1/template/ui/assets/extensions/parsleyjs/parsley.min.js"></script>
 	<script src="/xdm/v1/template/ui/assets/static/js/pages/parsley.js"></script>
-
+	
+	<script type="text/javascript">
+		document.getElementById("btnSubmit").onclick = function (){
+		
+		// customerName
+	    var customerName = document.getElementById("customerName");
+	    var customerNameValue = document.getElementById("customerName").value.trim();
+	    var customerNameRegExp = "^[a-z|A-Z|ㄱ-ㅎ|가-힣| ]*$";
+	    
+	    var customerNameFeedback = document.getElementById("customerNameFeedback");
+	    var customerNameRegExpFeedback = document.getElementById("customerNameRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    customerName.classList.remove('is-valid', 'is-invalid');
+	    customerNameFeedback.style.display='none';
+	    customerNameRegExpFeedback.style.display='none';
+	    
+	    if(customerNameValue == "" || customerNameValue == null) { 
+	    	customerNameFeedback.style.display='block';
+	    	customerName.classList.add('is-invalid');
+	    	customerName.focus(); // ifcgName의 input창에 포커스 함
+ 			return false; // 함수를 빠져나옴
+	    } else {
+// 	    	by pass
+	    }
+	    if(!customerNameRegExp.test(customerNameValue)) {
+	    	customerNameRegExpFeedback.style.display='block';
+	    	customerName.classList.add('is-invalid');
+	    	customerName.focus();
+	    	return false;
+	    } else {
+	    	customerName.classList.add('is-valid');
+	    }
+	}
+	</script>
 </body>
 
 </html>

@@ -7,8 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CustomerDto {
 
 	private String customerSeq;
-	private String firstName;
-	private String lastName;
+	private String customerName;
 	private Integer gender;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthDate;
@@ -16,6 +15,9 @@ public class CustomerDto {
 	private String phoneNumber;
 	private String id;
 	private String password;
+	private String customerZipCode;
+	private String customerAddress1;
+	private String customerAddress2;
 	private Integer registerAgreeContentNy;
 	private Integer customer_delNy;
 	private Integer customer_useNy;
@@ -32,17 +34,11 @@ public class CustomerDto {
 	public void setCustomerSeq(String customerSeq) {
 		this.customerSeq = customerSeq;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getCustomerName() {
+		return customerName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	public Integer getGender() {
 		return gender;
@@ -80,6 +76,24 @@ public class CustomerDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getCustomerZipCode() {
+		return customerZipCode;
+	}
+	public void setCustomerZipCode(String customerZipCode) {
+		this.customerZipCode = customerZipCode;
+	}
+	public String getCustomerAddress1() {
+		return customerAddress1;
+	}
+	public void setCustomerAddress1(String customerAddress1) {
+		this.customerAddress1 = customerAddress1;
+	}
+	public String getCustomerAddress2() {
+		return customerAddress2;
+	}
+	public void setCustomerAddress2(String customerAddress2) {
+		this.customerAddress2 = customerAddress2;
+	}
 	public Integer getRegisterAgreeContentNy() {
 		return registerAgreeContentNy;
 	}
@@ -116,6 +130,5 @@ public class CustomerDto {
 	public void setCustomerEditDate(Date customerEditDate) {
 		this.customerEditDate = customerEditDate;
 	}
-	
-	
+
 }

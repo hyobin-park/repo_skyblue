@@ -11,9 +11,16 @@
 		WHERE 1=1
 		<if test="shcustomer_delNy != null and !shcustomer_delNy.equals('')">AND customer_delNy = #{shcustomer_delNy}</if>
 		<if test="shcustomer_useNy != null and !shcustomer_useNy.equals('')">AND customer_useNy = #{shcustomer_useNy}</if>
+		<if test="shregisterAgreeContentNy != null and !shregisterAgreeContentNy.equals('')">AND registerAgreeContentNy = #{shregisterAgreeContentNy}</if>		
+		<if test="shgender != null and !shgender.equals('')">AND gender = #{shgender}</if>
 		<choose>
 			<when test="shOption == 1">AND customerSeq = #{shValue}</when>
-			<when test="shOption == 2">AND firstName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND customerName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND birthDate LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 4">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 5">AND email LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 6">AND id LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 7">AND customerAddress1 LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 		<choose>
 			<when test="shOptionDate == 1">AND d.customerRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
@@ -30,14 +37,16 @@
 		select aa.* from (
 		SELECT
 			d.customerSeq,
-		    d.firstName,
-		    d.lastName,
+		    d.customerName,
 		    d.gender,
 		    d.birthDate,
 		    d.email,
 		    d.phoneNumber,
 		    d.id,
 		    d.password,
+		    d.customerZipCode,
+		    d.customerAddress1,
+		    d.customerAddress2,
 		    d.registerAgreeContentNy,
 		    d.customer_delNy,
 		    d.customer_useNy,
@@ -68,7 +77,7 @@
 		SELECT
 			d.customerSeq,
 			d.id,
-		    d.firstName
+		    d.customerName
 		FROM
 			customer d
 		WHERE 1=1
@@ -77,14 +86,16 @@
 	
 	<insert id="customerIns">
 		INSERT INTO customer (
-		    firstName,
-		    lastName,
+		    customerName,
 		    gender,
 		    birthDate,
 		    email,
 		    phoneNumber,
 		    id,
 		    password,
+			customerZipCode,
+		    customerAddress1,
+		    customerAddress2,
 		    registerAgreeContentNy,
 		    customer_delNy,
 		    customer_useNy,
@@ -93,14 +104,16 @@
 		    customerEditDate
 		)
 		VALUES (
-		    #{firstName},
-		    #{lastName},
+		    #{customerName},
 		    #{gender},
 		    #{birthDate},
 		    #{email},
 		    #{phoneNumber},
 		    #{id},
 		    #{password},
+		    #{customerZipCode},
+		    #{customerAddress1},
+		    #{customerAddress2},
 		    #{registerAgreeContentNy},
 		    0,
 		    #{customer_useNy},
@@ -116,14 +129,16 @@
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			d.customerSeq,
-		    d.firstName,
-		    d.lastName,
+		    d.customerName,
 		    d.gender,
 		    d.birthDate,
 		    d.email,
 		    d.phoneNumber,
 		    d.id,
 		    d.password,
+		    d.customerZipCode,
+		    d.customerAddress1,
+		    d.customerAddress2,
 		    d.registerAgreeContentNy,
 		    d.customer_delNy,
 		    d.customer_useNy,
@@ -139,14 +154,16 @@
 	<update id="customerUpdt">
 		UPDATE customer
 		SET
-			firstName = #{firstName},
-		    lastName = #{lastName},
+			customerName = #{customerName},
 		    gender = #{gender},
 		    birthDate = #{birthDate},
 		    email = #{email},
 		    phoneNumber = #{phoneNumber},
 		    id = #{id},
 		    password = #{password},
+		    customerZipCode = #{customerZipCode},
+		    customerAddress1 = #{customerAddress1},
+		    customerAddress2 = #{customerAddress2},
 		    registerAgreeContentNy = #{registerAgreeContentNy},
 		    customer_delNy = #{customer_delNy},
 		    customer_useNy = #{customer_useNy},

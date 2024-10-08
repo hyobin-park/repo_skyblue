@@ -4,6 +4,8 @@ public class CustomerVo {
 	
 	private Integer shcustomer_delNy;
 	private Integer shcustomer_useNy;
+	private Integer shregisterAgreeContentNy;
+	private Integer shgender;
 	private Integer shOption;
 	private String shValue;
 	private String shDateStart;
@@ -34,6 +36,18 @@ public class CustomerVo {
 	}
 	public void setShcustomer_useNy(Integer shcustomer_useNy) {
 		this.shcustomer_useNy = shcustomer_useNy;
+	}
+	public Integer getShregisterAgreeContentNy() {
+		return shregisterAgreeContentNy;
+	}
+	public void setShregisterAgreeContentNy(Integer shregisterAgreeContentNy) {
+		this.shregisterAgreeContentNy = shregisterAgreeContentNy;
+	}
+	public Integer getShgender() {
+		return shgender;
+	}
+	public void setShgender(Integer shgender) {
+		this.shgender = shgender;
 	}
 	public Integer getShOption() {
 		return shOption;

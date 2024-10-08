@@ -97,7 +97,6 @@ label {
 
 								<li class="submenu-item  "><a
 									href="component-accordion.html" class="submenu-link">Accordion</a>
-
 								</li>
 
 								<li class="submenu-item  "><a href="component-alert.html"
@@ -108,7 +107,6 @@ label {
 
 								<li class="submenu-item  "><a
 									href="component-breadcrumb.html" class="submenu-link">Breadcrumb</a>
-
 								</li>
 
 								<li class="submenu-item  "><a href="component-button.html"
@@ -119,17 +117,14 @@ label {
 
 								<li class="submenu-item  "><a
 									href="component-carousel.html" class="submenu-link">Carousel</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
 									href="component-collapse.html" class="submenu-link">Collapse</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
 									href="component-dropdown.html" class="submenu-link">Dropdown</a>
-
 								</li>
 
 								<li class="submenu-item  "><a
@@ -582,21 +577,11 @@ label {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="country-floating" class="form-label">이름</label>
-															<input type="text" id="firstName"
-																name="firstName" th:value="${customerItem?.firstName}" 
+															<input type="text" id="customerName"
+																name="customerName" th:value="${customerItem?.customerName}" 
 																class="form-control" placeholder="이름" />
 														</div>
 													</div>
-												</div>
-												<div class="col-md-3 col-12">
-													<div class="form-group">
-														<div class="form-group mandatory">
-												 			<label for="city-column" class="form-label">성</label>
-													    		<input type="text" id="lastName"
-													    		name="lastName" th:value="${customerItem?.lastName}"
-													    		class="form-control" placeholder="성" />
-												    	</div>
-												    </div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group mandatory">
@@ -611,20 +596,6 @@ label {
 															</fieldset>
 													</div>
 												</div>
-											</div>
-											<!-- 1번째 row end -->
-											<!-- 2번째 row start -->
-											<div class="row">
-											<div class="col-md-3 col-12">
-													<div class="form-group">
-														<div class="form-group mandatory">
-												 			<label for="city-column" class="form-label">이메일</label>
-													    		<input type="text" id="email"
-													    		name="email" th:value="${customerItem?.email}"
-													    		class="form-control" placeholder="email@naver.com" />
-												    	</div>
-												    </div>
-												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
@@ -635,6 +606,10 @@ label {
 												    	</div>
 												    </div>
 												</div>
+											</div>
+											<!-- 1번째 row end -->
+											<!-- 2번째 row start -->
+											<div class="row">
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
@@ -645,10 +620,16 @@ label {
 														</div>
 													</div>
 												</div>
-											</div>
-											<!-- 2번째 row end -->
-											<!-- 3번째 row start -->
-											<div class="row">
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+												 			<label for="city-column" class="form-label">이메일</label>
+													    		<input type="text" id="email"
+													    		name="email" th:value="${customerItem?.email}"
+													    		class="form-control" placeholder="email@naver.com" />
+												    	</div>
+												    </div>
+												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
 														<div class="form-group mandatory">
@@ -666,6 +647,40 @@ label {
 																<input type="text" id="password"
 																	name="password" th:value="${customerItem?.password}"
 																	class="form-control" placeholder="영대소문자, 숫자"/>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- 2번째 row end -->
+											<!-- 3번째 row start -->
+											<div class="row">
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">우편번호</label>
+																<input type="text" id="customerZipCode"
+																	name="customerZipCode" th:value="${customerItem?.customerZipCode}"
+																	class="form-control" placeholder="우편번호"/>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">주소</label>
+																<input type="text" id="customerAddress1"
+																	name="customerAddress1" th:value="${customerItem?.customerAddress1}"
+																	class="form-control" placeholder="주소"/>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+														<div class="form-group mandatory">
+															<label for="disabledInput" class="form-label">상세주소</label>
+																<input type="text" id="customerAddress2"
+																	name="customerAddress2" th:value="${customerItem?.customerAddress2}"
+																	class="form-control" placeholder="상세주소"/>
 														</div>
 													</div>
 												</div>

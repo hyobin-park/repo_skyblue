@@ -99,7 +99,7 @@ public class CustomerController {
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
 				httpSession.setAttribute("sessSeqXdm", rtMember2.getCustomerSeq());
 				httpSession.setAttribute("sessIdXdm", rtMember2.getId());
-				httpSession.setAttribute("sessNameXdm", rtMember2.getFirstName());
+				httpSession.setAttribute("sessNameXdm", rtMember2.getCustomerName());
 				
 				returnMap.put("rt", "success");
 				

@@ -596,6 +596,15 @@ td {
 										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
+												<select class="form-select" id="shregisterAgreeContentNy" name="shregisterAgreeContentNy">
+													<option value="" th:selected="${vo.shregisterAgreeContentNy == null}">약관동의여부</option>
+													<option value="1" th:selected="${vo.shregisterAgreeContentNy == 1}">동의</option>
+													<option value="0" th:selected="${vo.shregisterAgreeContentNy == 0}">거부</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
 												<select class="form-select" id="shOptionDate" name="shOptionDate">
 													<option value="" th:selected="${vo.shOptionDate == null}">날짜 구분</option>
 													<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
@@ -617,14 +626,28 @@ td {
 										</div>
 									</div>
 									<!-- class="row" 1 end -->
+									<!-- class="row" 2 start -->
 									<div class="row">
-										<!-- class="row" 2 start -->
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shgender" name="shgender">
+													<option value="" th:selected="${vo.shgender == null}">성별</option>
+													<option value="1" th:selected="${vo.shgender == 1}">남성</option>
+													<option value="2" th:selected="${vo.shgender == 2}">여성</option>
+												</select>
+											</fieldset>
+										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
 												<select class="form-select" id="shOption" name="shOption">
 													<option value="" th:selected="${vo.shOption == null}">검색구분</option>
 													<option value="1" th:selected="${vo.shOption == 1}">번호</option>
 													<option value="2" th:selected="${vo.shOption == 2}">이름</option>
+													<option value="3" th:selected="${vo.shOption == 3}">생년월일</option>
+													<option value="4" th:selected="${vo.shOption == 4}">핸드폰번호</option>
+													<option value="5" th:selected="${vo.shOption == 5}">이메일</option>
+													<option value="6" th:selected="${vo.shOption == 6}">아이디</option>
+													<option value="7" th:selected="${vo.shOption == 7}">주소</option>
 												</select>
 											</fieldset>
 										</div>
@@ -672,13 +695,15 @@ td {
 														<th>#</th>
 														<th>NO.</th>
 														<th>이름</th>
-														<th>성</th>
 														<th>성별</th>
 														<th>생년월일</th>
-														<th>이메일</th>
 														<th>핸드폰번호</th>
+														<th>이메일</th>
 														<th>아이디</th>
 														<th>비밀번호</th>
+														<th>우편번호</th>
+														<th>주소</th>
+														<th>상세주소</th>
 														<th>약관</th>
 														<th>삭제여부</th>
 														<th>사용여부</th>
@@ -686,7 +711,7 @@ td {
 														<th>수정일</th>
 													</tr>
 													<tr th:if="${#lists.isEmpty(customerList)}">
-                                                		<td colspan="14">
+                                                		<td colspan="18">
                                                 			<p class="fs-0" style="padding-top: 12px;">There are no data!</p>
                                                 		</td>
                                                 	</tr>
@@ -697,15 +722,17 @@ td {
 														<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
 														<td th:text="${list.customerSeq}"></td>
 														<td><a th:href="@{/v1/infra/customer/customerXdmMFom(customerSeq=${list.customerSeq})}"
-															th:text="${list.firstName}"></a></td>
-														<td th:text="${list.lastName}"></td>
+															th:text="${list.customerName}"></a></td>
 														<td th:if="${list.gender != null}" th:text="${@codeService.selectOneCachedCode(list.gender)}"></td>
 														<td th:unless="${list.gender != null}"></td>
 														<td th:text="${#dates.format(list.birthDate, 'yyyy-MM-dd')}"></td>
-														<td th:text="${list.email}"></td>
 														<td th:text="${list.phoneNumber}"></td>
+														<td th:text="${list.email}"></td>
 														<td th:text="${list.id}"></td>
 														<td th:text="${list.password}"></td>
+														<td th:text="${list.customerZipCode}"></td>
+														<td th:text="${list.customerAddress1}"></td>
+														<td th:text="${list.customerAddress2}"></td>
 														<td th:if="${list.registerAgreeContentNy eq 0}">거부</td>
 														<td th:unless="${list.registerAgreeContentNy eq 0}">동의</td>
 														<td th:if="${list.customer_delNy eq 0}">N</td>
