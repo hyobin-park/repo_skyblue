@@ -8,11 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Rentkit - Directory & Listings Bootstrap 5 Template.">
 
-
   <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/rentkit-html/assets/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/template/booking_page/rentkit-html/assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/template/booking_page/rentkit-html/assets/images/favicon-16x16.png">
-
 
   <!-- Libs CSS -->
 
@@ -24,13 +22,16 @@
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-
-
-
+  
+  <style type="text/css">
+  .col-md-12 {
+  	padding-bottom: 7px;
+  	}
+  </style>
+  
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
   <title>Register Page - STAYJOURNEY</title>
-
 
 </head>
 
@@ -44,73 +45,167 @@
       <div class="row d-flex align-items-center min-vh-100 justify-content-end">
         <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
           <!-- card -->
-          <div class="card border-0 shadow">
+          <div class="card border-1 shadow">
             <div class="card-body p-8">
               <h3 class="mb-4">회원정보 입력</h3>
               <!-- form -->
-              <form>
-                <!-- email -->
-                <div class="mb-3">
-                  <label for="email" class="form-label">이메일 주소</label>
-                  <input type="email" class="form-control" id="email" placeholder="이메일 주소" required>
-                </div>
-                <!-- password -->
-                <div class="mb-3">
-                  <label for="password" class="form-label">비밀번호</label>
-                  <input type="password" class="form-control" id="password" placeholder="비밀번호 입력" required>
-                </div>
-                <!-- confirm password -->
-                <div class="mb-3">
-                  <label for="confirm-password" class="form-label">비밀번호 확인</label>
-                  <input type="password" class="form-control" id="confirm-password" placeholder="비밀번호 재입력" required>
-                </div>
+              <form name="form" method="post" action="/xdm/v1/infra/customer/customerXdmInst" 
+              class="needs-validation" novalidate="novalidate">
                 <!-- 이름 -->
-                <div class="mb-3">
-                  <label for="Name" class="form-label">이름</label>
-                  <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요" required>
+                <div class="row">
+	                <div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="Name" class="form-label">이름</label>
+		                  <input type="text" class="form-control"
+		                  id="customerName" name="customerName"
+		                  placeholder="이름을 입력해주세요" required>
+		                  	<div class="invalid-feedback" id="customerNameFeedback">이름을 입력해 주세요.</div>
+							<div class="invalid-feedback" id="customerNameRegExpFeedback">한글, 영대소문자만 입력해 주세요.</div>
+		                </div>
+	                </div>
                 </div>
                 <!-- 성별 -->
-                <div class="mb-3">
-                  <label for="gender" class="form-label">성별</label>
-                  <select class="select2">
-                    <option value="Female">여자</option>
-                    <option value="Male">남자</option>
-                    <option value="Etc">기타</option>
-                  </select>
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="gender" class="form-label">성별</label>
+		                  <select class="select2" id="gender" name="gender" required>
+		                  	<option value="">선택하세요</option>
+		                    <option value="1">남성</option>
+		                    <option value="2">여성</option>
+		                  </select>
+		                  <div class="invalid-feedback">성별을 선택해 주세요.</div>
+	                	</div>
+	                </div>
                 </div>
                 <!-- 생년월일 -->
-                <div class="mb-3">
-                  <label for="birthdate" class="form-label">생년월일</label>
-                  <input type="date" class="form-control" id="name" placeholder="YYYYMMDD" required>
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+                  			<label for="birthdate" class="form-label">생년월일</label>
+                  			<input type="date" class="form-control"
+                  			id="birthDate" name="birthDate"
+                  			placeholder="YYYYMMDD" required>
+                  			<div class="invalid-feedback">생년월일을 입력해 주세요.</div>
+	                	</div>
+	                </div>
                 </div>
-                <!-- 전화번호 -->
-                <div class="mb-3">
-                  <label for="Tel" class="form-label">전화번호</label>
-                  <input type="tel" class="form-control" id="name" placeholder="휴대폰 번호 입력" required>
+                <!-- 휴대폰번호 -->
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+                  			<label for="Tel" class="form-label">휴대폰번호</label>
+                  			<input type="tel" class="form-control"
+                  			id="phoneNumber" name="phoneNumber"
+                  			placeholder="휴대폰 번호 입력" required>
+                  			<div class="invalid-feedback" id="phoneNumberFeedback">휴대폰번호를 입력해 주세요.</div>
+							<div class="invalid-feedback" id="phoneNumberRegExpFeedback">형식대로 입력해 주세요.</div>
+	                	</div>
+	                </div>
                 </div>
-
+                <!-- email -->
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="email" class="form-label">이메일 주소</label>
+		                  <input type="email" class="form-control"
+		                  id="email" name="email"
+		                  placeholder="이메일 주소" required>
+		                  <div class="invalid-feedback" id="emailFeedback">이메일을 입력해 주세요.</div>
+						  <div class="invalid-feedback" id="emailRegExpFeedback">이메일 형식대로 입력해 주세요.</div>
+	                	</div>
+	                </div>
+                </div>
+                <!-- ID -->
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="id" class="form-label">아이디</label>
+		                  <input type="id" class="form-control"
+		                  id="id" name="id"
+		                  placeholder="아이디" required>
+		                  <div class="invalid-feedback" id="idFeedback">아이디를 입력해 주세요.</div>
+					      <div class="invalid-feedback" id="idRegExpFeedback">한글, 영대소문자만 입력해 주세요.</div>
+	                	</div>
+	                </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="password" class="form-label">비밀번호</label>
+		                  <input type="password" class="form-control"
+		                  id="password" name="password"
+		                  placeholder="비밀번호 입력" required>
+		                  <div class="invalid-feedback" id="passwordFeedback">비밀번호를 입력해 주세요.</div>
+						  <div class="invalid-feedback" id="passwordRegExpFeedback">최소 8자리 이상/ 영문 대소문자, 숫자, 특수문자 각각 1개 이상 입력해 주세요.</div>
+	                	</div>
+	                </div>
+                </div>
+                <!-- confirm password -->
+                <div class="row">
+                	<div class="col-md-12">
+		                <div class="col-md-12">
+		                  <label for="confirm-password" class="form-label">비밀번호 확인</label>
+		                  <input type="password" class="form-control"
+		                  id="Repassword" placeholder="비밀번호 재입력" required>
+		                  <div class="invalid-feedback" id="RepasswordFeedback">비밀번호를 입력해 주세요.</div>
+						  <div class="invalid-feedback" id="RepasswordRegExpFeedback">비밀번호가 일치하지 않습니다.</div>
+	                	</div>
+	                </div>
+                </div>
+                <!-- 주소찾기 -->
+				<div class="d-flex align-items-center">
+					<div class="me-1">
+	                	<label for="id" class="form-label">주소</label>
+	                  	<input type="text" class="form-control"
+	                  	id="customerZipCode" name="customerZipCode"
+	                  	placeholder="우편번호" style="margin-bottom: 7px">
+	                </div>
+	                <div class="ms-1">
+						<label>&nbsp;</label>
+						<input type="button" class="btn btn-primary btn-block"
+						onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="height: 42px">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12">
+						  <input type="text" class="form-control"
+						  id="customerAddress1" name="customerAddress1"
+						  placeholder="주소" style="margin-bottom: 7px">
+						  
+						  <input type="text" class="form-control"
+						  id="customerAddress2" name="customerAddress2"
+						  placeholder="상세주소">
+						  <div class="invalid-feedback" id="customerAddress2Feedback">상세주소를 입력해 주세요.</div>
+						  <div class="invalid-feedback" id="customerAddress2RegExpFeedback">정확히 입력해 주세요.</div>
+						</div>
+					</div>
+                </div>
+                
                 <!-- text -->
                 <div class="row">
                   <div class="col-md-12">
-                    <input type="checkbox"><label class="text-sm"><strong class="text-dark">&nbsp;[필수]
-                        이용약관</strong></label>
+                    <input id="registerAgreeContentNy" name="registerAgreeContentNy" type="checkbox" ><label class="text-sm">
+                    <strong class="text-dark">&nbsp;[필수] 이용약관</strong>
+                    </label>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <input type="checkbox"><label class="text-sm"><strong class="text-dark">&nbsp;[필수] 개인정보 수집 및
-                          이용안내</strong></label>
+                      <input type="checkbox"><label class="text-sm">
+                      <strong class="text-dark">&nbsp;[필수] 개인정보 수집 및 이용안내</strong>
+                      </label>
                     </div>
                   </div>
                   <!-- button -->
                   <br>
                   <br>
-                  <button type="submit" class="btn btn-primary btn-block">회원가입</button>
+                  <button type="button" id="btnSubmit" class="btn btn-primary btn-block">회원가입</button>
               </form>
               <div class="mt-3">
                 <p class="mb-0">계정이 있으신가요? <span class="ml-3"><a href="0_signin.html">로그인</a></span></p>
               </div>
-
-            </div>
           </div>
         </div>
       </div>
@@ -139,3 +234,266 @@
 
   <!-- Theme JS -->
   <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
+  <sc
+  
+  <!-- address -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('customerZipCode').value = data.zonecode;
+                document.getElementById("customerAddress1").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("customerAddress2").focus();
+            }
+        }).open();
+    }
+  </script>
+  
+  <script type="text/javascript">
+	// validation
+	document.getElementById("btnSubmit").onclick = function (){
+		
+		// customerName
+	    var customerName = document.getElementById("customerName");  					// 객체를 만들고
+	    var customerNameValue = document.getElementById("customerName").value.trim();	// 객체의 값을 받는 객체 생성
+	    var customerNameRegExp = /^[ㄱ-ㅎ가-힣A-Za-z]+$/;
+	    var customerNameFeedback = document.getElementById("customerNameFeedback");
+	    var customerNameRegExpFeedback = document.getElementById("customerNameRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    customerName.classList.remove('is-valid', 'is-invalid');
+	    customerNameFeedback.style.display='none';
+	    customerNameRegExpFeedback.style.display='none';
+	    
+	    if(customerNameValue == "" || customerNameValue == null) { 
+	    	customerNameFeedback.style.display='block';			// 에러 메세지 표시
+	    	customerName.classList.add('is-invalid');			// 유효성 검사 실패 처리 - 빨간 테두리
+	    	customerName.focus(); // input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!customerNameRegExp.test(customerNameValue)) {
+	    	customerNameRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	customerName.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	customerName.focus();
+	    	return false;
+	    } else {
+	    	customerName.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+	 	// gender
+	    var gender = document.getElementById("gender");
+	    var genderValue = document.getElementById("gender").value.trim();
+	    
+	    if (genderValue == "" || genderValue == null) {
+				gender.classList.add('is-invalid');
+				gender.focus();
+				return false;
+		    } else {
+		    	gender.classList.remove('is-invalid');
+		    	gender.classList.add('is-valid');
+		    }
+	    
+		// birthDate
+	    var birthDate = document.getElementById("birthDate");  					// 객체를 만들고
+	    var birthDateValue = document.getElementById("birthDate").value.trim();	// 객체의 값을 받는 객체 생성
+		
+	    if(birthDateValue == "" || birthDateValue == null) { 
+	    	birthDate.classList.add('is-invalid');			// 유효성 검사 실패 처리 - 빨간 테두리
+	    	birthDate.focus(); 								// input창에 포커스 함
+ 			return false; 									// 함수를 빠져나옴   
+	    } else {
+	    	birthDate.classList.remove('is-invalid');
+	    	birthDate.classList.add('is-valid');
+	    }
+	    
+		// phoneNumber
+	    var phoneNumber = document.getElementById("phoneNumber");  					// 객체를 만들고
+	    var phoneNumberValue = document.getElementById("phoneNumber").value.trim();	// 객체의 값을 받는 객체 생성
+	    var phoneNumberRegExp = /^\d{3}\d{3,4}\d{4}$/;
+	    var phoneNumberFeedback = document.getElementById("phoneNumberFeedback");
+	    var phoneNumberRegExpFeedback = document.getElementById("phoneNumberRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    phoneNumber.classList.remove('is-valid', 'is-invalid');
+	    phoneNumberFeedback.style.display='none';
+	    phoneNumberRegExpFeedback.style.display='none';
+	    
+	    if(phoneNumberValue == "" || phoneNumberValue == null) { 
+	    	phoneNumberFeedback.style.display='block';			// 에러 메세지 표시
+	    	phoneNumber.classList.add('is-invalid');			// 유효성 검사 실패 처리 - 빨간 테두리
+	    	phoneNumber.focus(); // input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!phoneNumberRegExp.test(phoneNumberValue)) {
+	    	phoneNumberRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	phoneNumber.focus();
+	    	return false;
+	    } else {
+	    	phoneNumber.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+		// email
+	    var email = document.getElementById("email");  					// 객체를 만들고
+	    var emailValue = document.getElementById("email").value.trim();	// 객체의 값을 받는 객체 생성
+	    var emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+	    var emailFeedback = document.getElementById("emailFeedback");
+	    var emailRegExpFeedback = document.getElementById("emailRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    email.classList.remove('is-valid', 'is-invalid');
+	    emailFeedback.style.display='none';
+	    emailRegExpFeedback.style.display='none';
+	    
+	    if(emailValue == "" || emailValue == null) { 
+	    	emailFeedback.style.display='block';			// 에러 메세지 표시
+	    	email.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	email.focus(); // input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!emailRegExp.test(emailValue)) {
+	    	emailRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	email.focus();
+	    	return false;
+	    } else {
+	    	email.classList.add('is-valid');				// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+	 	// id
+	    var id = document.getElementById("id");  					// 객체를 만들고
+	    var idValue = document.getElementById("id").value.trim();	// 객체의 값을 받는 객체 생성
+	    var idRegExp = /^[A-Za-z0-9]+$/;
+	    var idFeedback = document.getElementById("idFeedback");
+	    var idRegExpFeedback = document.getElementById("idRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    id.classList.remove('is-valid', 'is-invalid');
+	    idFeedback.style.display='none';
+	    idRegExpFeedback.style.display='none';
+	    
+	    if(idValue == "" || idValue == null) { 
+	    	idFeedback.style.display='block';			// 에러 메세지 표시
+	    	id.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	id.focus(); // input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!idRegExp.test(idValue)) {
+	    	idRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	id.focus();
+	    	return false;
+	    } else {
+	    	id.classList.add('is-valid');				// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+	 	// password
+	    var password = document.getElementById("password");  					// 객체를 만들고
+	    var passwordValue = document.getElementById("password").value.trim();	// 객체의 값을 받는 객체 생성
+	    var passwordRegExp = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+	    var passwordFeedback = document.getElementById("passwordFeedback");
+	    var passwordRegExpFeedback = document.getElementById("passwordRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    password.classList.remove('is-valid', 'is-invalid');
+	    passwordFeedback.style.display='none';
+	    passwordRegExpFeedback.style.display='none';
+	    
+	    if(passwordValue == "" || passwordValue == null) { 
+	    	passwordFeedback.style.display='block';				// 에러 메세지 표시
+	    	password.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	password.focus(); 									// input창에 포커스 함
+ 			return false; 										// 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!passwordRegExp.test(passwordValue)) {
+	    	passwordRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	password.focus();
+	    	return false;
+	    } else {
+	    	password.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+	 	// password Confirm
+	    var Repassword = document.getElementById("Repassword");  					// 객체를 만들고
+	    var RepasswordValue = document.getElementById("Repassword").value.trim();	// 객체의 값을 받는 객체 생성
+	    var RepasswordFeedback = document.getElementById("RepasswordFeedback");
+	    var RepasswordRegExpFeedback = document.getElementById("RepasswordRegExpFeedback");
+	    
+	    //기존의 validation 초기화
+	    Repassword.classList.remove('is-valid', 'is-invalid');
+	    RepasswordFeedback.style.display='none';
+	    RepasswordRegExpFeedback.style.display='none';
+	    
+	    if(RepasswordValue == "" || RepasswordValue == null) { 
+	    	RepasswordFeedback.style.display='block';				// 에러 메세지 표시
+	    	Repassword.classList.add('is-invalid');					// 유효성 검사 실패 처리 - 빨간 테두리
+	    	Repassword.focus(); 									// input창에 포커스 함
+ 			return false; 											// 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(RepasswordValue != passwordValue) {
+	    	RepasswordRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	Repassword.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	Repassword.focus(); 								// input창에 포커스 함
+ 			return false; 										// 함수를 빠져나옴
+	    } else {
+	    	Repassword.classList.add('is-valid');
+	    }
+	    
+	 	// customerAddress2
+	    var customerAddress2 = document.getElementById("customerAddress2");  					// 객체를 만들고
+	    var customerAddress2Value = document.getElementById("customerAddress2").value.trim();	// 객체의 값을 받는 객체 생성
+	    var customerAddress2RegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
+	    var customerAddress2Feedback = document.getElementById("customerAddress2Feedback");
+	    var customerAddress2RegExpFeedback = document.getElementById("customerAddress2RegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    customerAddress2.classList.remove('is-valid', 'is-invalid');
+	    customerAddress2Feedback.style.display='none';
+	    customerAddress2RegExpFeedback.style.display='none';
+	    
+	    if(customerAddress2Value == "" || customerAddress2Value == null) { 
+	    	customerAddress2Feedback.style.display='block';				// 에러 메세지 표시
+	    	customerAddress2.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	customerAddress2.focus(); // input창에 포커스 함
+ 			return false; // 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!customerAddress2RegExp.test(customerAddress2Value)) {
+	    	customerAddress2RegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	customerAddress2.focus();
+	    	return false;
+	    } else {
+	    	customerAddress2.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+	    form.action = "/v1/infra/customer/customerXdmInst";
+		form.submit();
+	}
+  
+  </script>

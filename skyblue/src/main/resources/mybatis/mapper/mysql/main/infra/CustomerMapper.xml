@@ -60,6 +60,7 @@
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
+	<!-- 로그인 -->
 	<select id="LoginselectOne" resultMap="resultMapObj">
 		SELECT
 			d.customerSeq,

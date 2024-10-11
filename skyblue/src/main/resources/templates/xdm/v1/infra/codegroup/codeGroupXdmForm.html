@@ -712,16 +712,12 @@ label, placeholder {
 	
 	<script type="text/javascript">
 	
-// 	var abc = document.getElementById("ifcgName");
-// 	alert(abc);
-// 	alert(abc.value);
-// 	alert(document.getElementById("ifcgName").value);
-	
+	// validation
 	document.getElementById("btnSubmit").onclick = function (){
 		
 		// ifcgName
-	    var ifcgName = document.getElementById("ifcgName");
-	    var ifcgNameValue = document.getElementById("ifcgName").value.trim();
+	    var ifcgName = document.getElementById("ifcgName");  					// 객체를 만들고
+	    var ifcgNameValue = document.getElementById("ifcgName").value.trim();	// 객체의 값을 받는 객체 생성
 	    var ifcgNameRegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
 	    
 	    var ifcgNameFeedback = document.getElementById("ifcgNameFeedback");
@@ -733,20 +729,20 @@ label, placeholder {
 	    ifcgNameRegExpFeedback.style.display='none';
 	    
 	    if(ifcgNameValue == "" || ifcgNameValue == null) { 
-	    	ifcgNameFeedback.style.display='block';
-	    	ifcgName.classList.add('is-invalid');
+	    	ifcgNameFeedback.style.display='block';			// 에러 메세지 표시
+	    	ifcgName.classList.add('is-invalid');			// 유효성 검사 실패 처리 - 빨간 테두리
 	    	ifcgName.focus(); // ifcgName의 input창에 포커스 함
  			return false; // 함수를 빠져나옴   
 	    } else {
 // 	    	by pass
 	    }
 	    if(!ifcgNameRegExp.test(ifcgNameValue)) {
-	    	ifcgNameRegExpFeedback.style.display='block';
-	    	ifcgName.classList.add('is-invalid');
+	    	ifcgNameRegExpFeedback.style.display='block';	// 에러 메세지 표시
+	    	ifcgName.classList.add('is-invalid');			// 유효성 검사 실패 처리 - 빨간 테두리
 	    	ifcgName.focus();
 	    	return false;
 	    } else {
-			ifcgName.classList.add('is-valid');
+			ifcgName.classList.add('is-valid');				// 유효성 검사 성공 처리 - 초록 테두리
 	    }
 	    
 	    // ifcgUseNy

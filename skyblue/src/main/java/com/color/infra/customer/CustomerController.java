@@ -80,16 +80,17 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerLogIn")
-	public String customerLogIn() {
+	public String customerLogIn(CustomerDto customerDto) {
+		customerService.LoginselectOne(customerDto);
 		return "/xdm/v1/infra/customer/customerLogIn";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/v1/infra/customer/customerLoginProc")
 	public Map<String, Object> customerLoginProc(CustomerDto customerDto, HttpSession httpSession) {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
+		Map<String, Object> returnMap = new HashMap<String, Object>();		// 결과를 담기 위한 앱 생성
 		
-		CustomerDto rtMember = customerService.LoginselectOne(customerDto);
+		CustomerDto rtMember = customerService.LoginselectOne(customerDto);	// 사용자 정보 조회
 		
 		if(rtMember != null) {
 			CustomerDto rtMember2 = customerService.selectOneId(customerDto);
@@ -101,14 +102,14 @@ public class CustomerController {
 				httpSession.setAttribute("sessIdXdm", rtMember2.getId());
 				httpSession.setAttribute("sessNameXdm", rtMember2.getCustomerName());
 				
-				returnMap.put("rt", "success");
+				returnMap.put("rt", "success");		// 응답 성공 설정
 				
 				System.out.println("sessSeqXdm: " + httpSession.getAttribute("sessSeqXdm"));
 				System.out.println("sessIdXdm: " + httpSession.getAttribute("sessIdXdm"));
 				System.out.println("sessNameXdm: " + httpSession.getAttribute("sessNameXdm"));
 			}
 		} else {
-			returnMap.put("rt", "fail");
+			returnMap.put("rt", "fail");		// 응답 실패 설정
 		}
 		return returnMap;
 	}
