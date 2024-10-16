@@ -122,7 +122,7 @@ public class CustomerController {
 	@ResponseBody
 	@RequestMapping(value = "/v1/infra/customer/customerLogoutProc")
 	public Map<String, Object> customerLogoutProc(HttpSession httpSession) {
-		System.out.println("로그아웃");
+//		System.out.println("로그아웃");
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		httpSession.invalidate();
 		returnMap.put("rt", "success");

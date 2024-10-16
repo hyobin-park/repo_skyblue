@@ -7,10 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Rentkit - Directory & Listings Bootstrap 5 Template.">
 
-
   <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/booking_page/docs/assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/booking_page/docs/assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/booking_page/docs/assets/images/icon 32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/booking_page/docs/assets/images/icon 16x16.png">
 
 
   <!-- Libs CSS -->
@@ -24,15 +23,12 @@
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-
-
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
   <title>STAYJOURNEY</title>
 </head>
 
 <body class="">
-
 
   <!-- navbar -->
   <!-- navbar -->
@@ -41,7 +37,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="./0_index.html"> <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/HotelLogo.png"
+            <a class="navbar-brand" href="/v1/infra/usrhotel/usrHotelXdmIndex"> <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/Hotelsite_logo_hp.svg"
                 alt="Rentkit Directory & Listing Bootstrap 5 Theme"></a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -52,13 +48,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto ms-lg-3">
-                <li class="nav-item dropdown ">
+                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Home
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./0_index.html">Home</a></li>
+                    <li><a class="dropdown-item" href="/v1/infra/usrhotel/usrHotelXdmIndex">Home</a></li>
                     <li><a class="dropdown-item" href="./pages/modern.html">Modern</a></li>
                     <li><a class="dropdown-item" href="./pages/hotel-finder.html">Hotel</a></li>
                     <li><a class="dropdown-item" href="./pages/real-estate.html">Real Estate <span
@@ -164,11 +160,9 @@
                           <div class="col-md-3">
                             <h5 class="mb-2 text-uppercase h6 text-primary fw-bold">Account</h5>
                             <ul class="mega-menu-list list-unstyled">
-                              <li><a class="dropdown-item" href="./pages/0_signin.html">
-                                  Login</a>
+                              <li><a class="dropdown-item" href="./pages/0_signin.html">Login</a>
                               </li>
-                              <li><a class="dropdown-item" href="./pages/0_signup.html">
-                                  Register</a>
+                              <li><a class="dropdown-item" href="/v1/infra/usrhotel/usrHotelXdmSignup">Register</a>
                               </li>
                               <li>
                                 <a class="dropdown-item" href="./pages/forget-password.html">
@@ -200,8 +194,25 @@
                   <a class="nav-link" href="./docs/index.html">Docs</a>
                 </li>
               </ul>
-              <a href="/v1/infra/usrhotel/usrHotelXdmSignin" class="btn btn-primary d-none d-lg-block" style="margin-right: 5px">Log In</a>
-              <a href="/v1/infra/usrhotel/usrHotelXdmSignin" class="btn btn-primary d-none d-lg-block">Log Out</a>
+<!--               <div class="row"> -->
+<!--               	<div class="col-md-12" align="right"> -->
+				  <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Account
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                    <li><a th:text="${session.sessNameXdm}" class="dropdown-item"></a></li>
+                    <li><button type="button" id="logoutBtn" class="btn btn-block btn-xl btn-outline-primary font-bold mt-3; dropdown-item">Log Out</button></li>
+                  </ul>
+                </li>
+<!--                   <div class="btn btn-primary d-none d-lg-block" style="margin-right: 5px; height: 42px"> -->
+<!--                    <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/user.png" alt="" -->
+<!--                    class="avatar-xs avatar rounded-circle" style="height:30px; width: 30px" > -->
+<!-- 					<h7 th:text="${session.sessNameXdm}" align="center"></h7> -->
+<!-- 				  </div> -->
+                  <a href="/v1/infra/usrhotel/usrHotelXdmSignin" class="btn btn-primary d-none d-lg-block" style="margin-right: 5px">Log In</a>
+	              <a href="/v1/infra/usrhotel/usrHotelXdmSignup" class="btn btn-primary d-none d-lg-block">Sign Up</a>
             </div>
           </nav>
         </div>
@@ -797,3 +808,25 @@
 
   <!-- Theme JS -->
   <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
+  
+   <script type="text/javascript">
+ 	// 로그아웃
+    document.getElementById("logoutBtn").onclick = function () {
+          alert("로그아웃되었습니다");
+             $.ajax({  
+               async: true
+               ,cache: false
+               ,type: "post"
+               /* ,dataType:"json" */
+               ,url: "/v1/infra/usrhotel/usrHotelXdmLogoutProc"
+               /* ,data : $("#formLogin").serialize() */
+               ,success: function(response) {
+                  if(response.rt == "success") {
+                     location.href="/v1/infra/usrhotel/usrHotelXdmSignin";  
+                  } else {        
+                     // by pass  
+                  }
+                 }      
+                }); // ajax end
+     } // logoutBtn end
+    </script>

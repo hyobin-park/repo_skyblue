@@ -25,8 +25,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
-    <title>Login Page - Rentkit - Directory & Listings Bootstrap 5 Template.</title>
-
+    <title>Login Page - STAYJOURNEY</title>
 
 </head>
 
@@ -43,20 +42,26 @@
                     <div class="card shadow border-0">
                         <!-- card body -->
                         <div class="card-body p-8">
-                            <h3 class="mb-4">Welcome back to Rentkit</h3>
+                            <h3 class="mb-4">Welcome back to STAYJOURNEY</h3>
                             <!-- form -->
                             <form>
                                 <!-- email -->
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">이메일 주소</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email"
-                                        required>
+                                    <label for="id" class="form-label">아이디</label>
+                                    <input type="id" class="form-control"
+                                    id="id" name="id" placeholder="아이디"
+                                    value="qlswkd99" required>
+                                    <div class="invalid-feedback" id="idFeedback">아이디를 입력해 주세요.</div>
+					      			<div class="invalid-feedback" id="idRegExpFeedback">일치하지 않습니다.</div>
                                 </div>
                                 <!-- password -->
                                 <div class="mb-3">
                                     <label for="password" class="form-label">비밀번호</label>
-                                    <input type="password" class="form-control" id="password" placeholder="**********"
-                                        required>
+                                    <input type="password" class="form-control"
+                                    id="password" name="password" placeholder="**********"
+                                    value="park990303" required>
+                                    <div class="invalid-feedback" id="passwordFeedback">비밀번호를 입력해 주세요.</div>
+						  			<div class="invalid-feedback" id="passwordRegExpFeedback">일치하지 않습니다.</div>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2 pb-2 mt-3 text-sm ">
                                     <!-- form check -->
@@ -70,10 +75,10 @@
                                     </div>
                                 </div>
                                 <!-- button -->
-                                <button type="submit" class="btn btn-primary btn-block">로그인</button>
+                                <button type="button" id="btnSubmit" class="btn btn-primary btn-block">로그인</button>
                             </form>
                             <div class="mt-4">
-                                <p class="mb-0">계정이 없으신가요?<a href="0_signup.html"> 회원가입</a></p>
+                                <p class="mb-0">계정이 없으신가요?<a href="/v1/infra/usrhotel/usrHotelXdmSignup"> 회원가입</a></p>
                             </div>
                         </div>
                     </div>
@@ -104,4 +109,94 @@
 
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
+    
+    <script type="text/javascript">
+	
+	document.getElementById("btnSubmit").onclick = function (){
+	// validation
+	// id
+	var id = document.getElementById("id");  					// 객체를 만들고
+	var idValue = document.getElementById("id").value.trim();	// 객체의 값을 받는 객체 생성
+	var idRegExp = /^[A-Za-z0-9]+$/;
+	var idFeedback = document.getElementById("idFeedback");
+	var idRegExpFeedback = document.getElementById("idRegExpFeedback");
+		
+	//기존의 validation 초기화
+	id.classList.remove('is-valid', 'is-invalid');
+	idFeedback.style.display='none';
+	idRegExpFeedback.style.display='none';
+	    
+	if(idValue == "" || idValue == null) { 
+	  idFeedback.style.display='block';			// 에러 메세지 표시
+	  id.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	  id.focus(); // input창에 포커스 함
+ 	  return false; // 함수를 빠져나옴   
+	} else {
+// 	    	by pass
+	}
+	if(!idRegExp.test(idValue)) {
+	  idRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	  id.focus();
+	  return false;
+	  } else {
+	  	id.classList.add('is-valid');				// 유효성 검사 성공 처리 - 초록 테두리
+	  }
+	    
+	 	// password
+	    var password = document.getElementById("password");  					// 객체를 만들고
+	    var passwordValue = document.getElementById("password").value.trim();	// 객체의 값을 받는 객체 생성
+	    var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+	    var passwordFeedback = document.getElementById("passwordFeedback");
+	    var passwordRegExpFeedback = document.getElementById("passwordRegExpFeedback");
+		
+	    //기존의 validation 초기화
+	    password.classList.remove('is-valid', 'is-invalid');
+	    passwordFeedback.style.display='none';
+	    passwordRegExpFeedback.style.display='none';
+	    
+	    if(passwordValue == "" || passwordValue == null) { 
+	    	passwordFeedback.style.display='block';				// 에러 메세지 표시
+	    	password.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+	    	password.focus(); 									// input창에 포커스 함
+ 			return false; 										// 함수를 빠져나옴   
+	    } else {
+// 	    	by pass
+	    }
+	    if(!passwordRegExp.test(passwordValue)) {
+	    	passwordRegExpFeedback.style.display='block';		// 에러 메세지 표시
+	    	password.focus();
+	    	return false;
+	    } else {
+	    	password.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+	    }
+	    
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			/* ,dataType:"json" */
+			,url: "/v1/infra/usrhotel/usrHotelXdmSigninProc"
+			/* ,data : $("#formLogin").serialize() */
+			,data : { "id" : $("#id").val(),
+				"password" : $("#password").val(),
+//	 			"autoLogin" : $("#autoLogin").is(":checked")
+			}
+			,success: function(response) {
+				if(response.rt == "success") {
+					alert("성공");
+						location.href = "/v1/infra/usrhotel/usrHotelXdmIndex";
+				} else {
+					alert("실패");
+//	 		 		document.getElementById("modalAlertTitle").innerText = "확 인";
+//	 		 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
+//	 		 		$("#modalAlert").modal("show");
+				}
+			}
+//	 		,error : function(jqXHR, textStatus, errorThrown){
+//	 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+//	 		}
+		});
+	}
+	
+	</script>
     
