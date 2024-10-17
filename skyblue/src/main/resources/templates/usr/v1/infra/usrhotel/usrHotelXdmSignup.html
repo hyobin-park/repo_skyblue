@@ -23,6 +23,8 @@
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   
+  <link href="/xdm/v1/css/datetimepicker/jquery.datetimepicker.min.css" rel="stylesheet" >
+  
   <style type="text/css">
   .col-md-12 {
   	padding-bottom: 7px;
@@ -83,7 +85,7 @@
                 	<div class="col-md-12">
 		                <div class="col-md-12">
                   			<label for="birthdate" class="form-label">생년월일</label>
-                  			<input type="date" class="form-control"
+                  			<input type="text" class="form-control"
                   			id="birthDate" name="birthDate"
                   			placeholder="YYYYMMDD" required>
                   			<div class="invalid-feedback">생년월일을 입력해 주세요.</div>
@@ -177,9 +179,8 @@
 						  
 						  <input type="text" class="form-control"
 						  id="customerAddress2" name="customerAddress2"
-						  placeholder="상세주소">
-						  <div class="invalid-feedback" id="customerAddress2Feedback">상세주소를 입력해 주세요.</div>
-						  <div class="invalid-feedback" id="customerAddress2RegExpFeedback">정확히 입력해 주세요.</div>
+						  placeholder="상세주소" required>
+						  <div class="invalid-feedback">상세주소를 입력해 주세요.</div>
 						</div>
 					</div>
                 </div>
@@ -234,7 +235,23 @@
 
   <!-- Theme JS -->
   <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
-  <sc
+  
+  <!-- by developer -->
+  <script src="/xdm/v1/jquery/jquery-3.7.1.min.js"></script>
+  <script src="/xdm/v1/js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	
+  <script type="text/javascript">
+	
+	window.addEventListener('load', function() {
+
+		$.datetimepicker.setLocale('ko'); //한국어 사용하겠다.
+		$("#birthDate").datetimepicker({
+			timepicker:false,
+			format: 'Y-m-d'
+		});
+	});
+	
+</script>
   
   <!-- address -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -465,32 +482,18 @@
 	    }
 	    
 	 	// customerAddress2
-	    var customerAddress2 = document.getElementById("customerAddress2");  					// 객체를 만들고
-	    var customerAddress2Value = document.getElementById("customerAddress2").value.trim();	// 객체의 값을 받는 객체 생성
-	    var customerAddress2RegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
-	    var customerAddress2Feedback = document.getElementById("customerAddress2Feedback");
-	    var customerAddress2RegExpFeedback = document.getElementById("customerAddress2RegExpFeedback");
-		
-	    //기존의 validation 초기화
-	    customerAddress2.classList.remove('is-valid', 'is-invalid');
-	    customerAddress2Feedback.style.display='none';
-	    customerAddress2RegExpFeedback.style.display='none';
-	    
-	    if(customerAddress2Value == "" || customerAddress2Value == null) { 
-	    	customerAddress2Feedback.style.display='block';				// 에러 메세지 표시
-	    	customerAddress2.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
-	    	customerAddress2.focus(); // input창에 포커스 함
- 			return false; // 함수를 빠져나옴   
-	    } else {
-// 	    	by pass
-	    }
-	    if(!customerAddress2RegExp.test(customerAddress2Value)) {
-	    	customerAddress2RegExpFeedback.style.display='block';		// 에러 메세지 표시
-	    	customerAddress2.focus();
-	    	return false;
-	    } else {
-	    	customerAddress2.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
-	    }
+	    var customerAddress2 = document.getElementById("customerAddress2");
+        var customerAddress2Value = document.getElementById("customerAddress2").value.trim();
+        
+        if(customerAddress2Value == "" || customerAddress2Value == null){
+        	customerAddress2.classList.add('is-invalid');
+        	customerAddress2.focus();
+           return false;
+        } else {
+//            by pass
+           customerAddress2.classList.remove('is-invalid');
+           customerAddress2.classList.add('is-valid');
+        }
 	    
 	    form.action = "/v1/infra/customer/customerXdmInst";
 		form.submit();

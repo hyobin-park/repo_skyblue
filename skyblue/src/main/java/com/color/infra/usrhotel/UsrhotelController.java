@@ -5,12 +5,16 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.color.common.constants.Constants;
 import com.color.infra.customer.CustomerDto;
 import com.color.infra.customer.CustomerService;
+import com.color.infra.hotel.HotelService;
+import com.color.infra.hotel.HotelVo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -19,6 +23,8 @@ public class UsrhotelController {
 	
 	@Autowired
 	CustomerService customerService;
+	@Autowired
+	HotelService hotelService;
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmIndex")
 	public String usrHotelXdmIndex() {
@@ -26,8 +32,15 @@ public class UsrhotelController {
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmList")
-	public String usrHotelXdmList() {
+	public String usrHotelXdmList(@ModelAttribute("vo") HotelVo hotelVo, Model model) {
+		model.addAttribute("list", hotelService.hotelList(hotelVo));
 		return "/usr/v1/infra/usrhotel/usrHotelXdmList";
+	}
+	
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmInst")
+	public String usrHotelXdmInst(CustomerDto customerDto) {
+		customerService.customerIns(customerDto);
+		return "redirect:/usr/v1/infra/usrhotel/usrHotelXdmSignin";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmSignup")
