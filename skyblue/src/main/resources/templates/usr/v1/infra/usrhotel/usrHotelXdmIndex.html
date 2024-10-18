@@ -194,25 +194,34 @@
                   <a class="nav-link" href="./docs/index.html">Docs</a>
                 </li>
               </ul>
-<!--               <div class="row"> -->
-<!--               	<div class="col-md-12" align="right"> -->
-				  <li class="nav-item dropdown ">
-                  <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Account
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                    <li><a th:text="${session.sessNameXdm}" class="dropdown-item"></a></li>
-                    <li><button type="button" id="logoutBtn" class="btn btn-block btn-xl btn-outline-primary font-bold mt-3; dropdown-item">Log Out</button></li>
+              <th:block th:if="${session.sessSeqXdm != null}">
+              	<ul class="navbar-nav ms-lg-3">
+				  <li class="nav-item dropdown">
+	                  <a class="nav-link dropdown-toggle" href="#" id="blogDropdown"
+	                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                    <span th:text="${session.sessNameXdm}"></span>님
+	                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                    	<a class="dropdown-item">
+                    		<span th:text="${session.sessIdXdm}"></span>
+                    	</a>
+                    </li>
                   </ul>
+                    <li class="nav-item" style="padding-right: 25px">
+                    	<a class="nav-link" id="logoutBtn">Log Out</a>
+                    </li>
                 </li>
-<!--                   <div class="btn btn-primary d-none d-lg-block" style="margin-right: 5px; height: 42px"> -->
-<!--                    <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/user.png" alt="" -->
-<!--                    class="avatar-xs avatar rounded-circle" style="height:30px; width: 30px" > -->
-<!-- 					<h7 th:text="${session.sessNameXdm}" align="center"></h7> -->
-<!-- 				  </div> -->
-                  <a href="/v1/infra/usrhotel/usrHotelXdmSignin" class="btn btn-primary d-none d-lg-block" style="margin-right: 5px">Log In</a>
-	              <a href="/v1/infra/usrhotel/usrHotelXdmSignup" class="btn btn-primary d-none d-lg-block">Sign Up</a>
+               </ul>
+               </th:block>
+                <th:block th:if="${session.sessSeqXdm == null}">
+                 <ul class="navbar-nav ms-lg-3">
+                  <li class="nav-item">
+                   <a class="nav-link" href="/v1/infra/usrhotel/usrHotelXdmSignin">Log In</a>
+	               <a class="nav-link" href="/v1/infra/usrhotel/usrHotelXdmSignup">Sign Up</a>
+                  </li>
+                 </ul>
+                </th:block>
             </div>
           </nav>
         </div>

@@ -408,7 +408,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 col-12" th:if="!${#lists.isEmpty(list)}" th:each="list : ${list}">
+                            <div class="col-md-12 col-12" th:each="list : ${list}">
                                 <!-- listing block -->
                                 <div class="row ">
                                     <div class="col-md-5 col-12">
@@ -461,8 +461,10 @@
                                     </div>
                                     <div class="col-md-7 col-12 ">
                                         <div>
-                                            <h4 class="mb-0"> <a href="0_list-single_signiel.html" class="text-inherit">시그니엘 호텔(Signiel Seoul)</a></h4>
-                                            <p class="text-sm font-weight-semi-bold">서울, 대한민국</p>
+                                            <h4 class="mb-0" th:text="${list.hotelName}">
+                                            	<a href="0_list-single_signiel.html" class="text-inherit">시그니엘 호텔(Signiel Seoul)</a>
+                                            </h4>
+                                            <p class="text-sm font-weight-semi-bold" th:text="${list.hotelAddress}">서울, 대한민국</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div>
@@ -471,8 +473,8 @@
                                             </div>
                                             <div>
                                                 <span class="mdi mdi-star me-1 text-primary text-sm"></span>
-                                                <span class="font-weight-semi-bold  text-sm"><span
-                                                        class="text-dark">5.0</span> (8)</span>
+                                                <span class="font-weight-semi-bold  text-sm">
+                                                <span class="text-dark">5.0</span> (8)</span>
                                             </div>
                                         </div>
                                     </div>

@@ -37,6 +37,11 @@ public class UsrhotelController {
 		return "/usr/v1/infra/usrhotel/usrHotelXdmList";
 	}
 	
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmDeList")
+	public String usrHotelXdmDeList() {
+		return "/usr/v1/infra/usrhotel/usrHotelXdmDeList";
+	}
+	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmInst")
 	public String usrHotelXdmInst(CustomerDto customerDto) {
 		customerService.customerIns(customerDto);

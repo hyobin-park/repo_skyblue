@@ -32,14 +32,16 @@
 					<form action="index.html">
 						<div class="form-group position-relative has-icon-left mb-4">
 							<input type="text" class="form-control form-control-xl"
-								id="id" name="id" placeholder="Username">
+								id="id" name="id" placeholder="Username" required>
+								<div class="invalid-feedback" id="idFeedback">아이디를 입력해 주세요.</div>
+					      		<div class="invalid-feedback" id="idRegExpFeedback">일치하지 않습니다.</div>
 							<div class="form-control-icon">
 								<i class="bi bi-person"></i>
 							</div>
 						</div>
 						<div class="form-group position-relative has-icon-left mb-4">
 							<input type="password" class="form-control form-control-xl"
-								id="password" name="password" placeholder="Password">
+								id="password" name="password" placeholder="Password" required>
 							<div class="form-control-icon">
 								<i class="bi bi-shield-lock"></i>
 							</div>
@@ -71,6 +73,67 @@
 	
 	<script src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
 	<script src="/xdm/v1/js/commonXdm.js"></script>
+	
+	<script type="text/javascript">
+	document.getElementById("loginBtn").onclick = function (){
+		// validation
+		// id
+		var id = document.getElementById("id");  					// 객체를 만들고
+		var idValue = document.getElementById("id").value.trim();	// 객체의 값을 받는 객체 생성
+		var idRegExp = /^[A-Za-z0-9]+$/;
+		var idFeedback = document.getElementById("idFeedback");
+		var idRegExpFeedback = document.getElementById("idRegExpFeedback");
+			
+		//기존의 validation 초기화
+		id.classList.remove('is-valid', 'is-invalid');
+		idFeedback.style.display='none';
+		idRegExpFeedback.style.display='none';
+		    
+		if(idValue == "" || idValue == null) { 
+		  idFeedback.style.display='block';			// 에러 메세지 표시
+		  id.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+		  id.focus(); // input창에 포커스 함
+	 	  return false; // 함수를 빠져나옴   
+		} else {
+//	 	    	by pass
+		}
+		if(!idRegExp.test(idValue)) {
+		  idRegExpFeedback.style.display='block';		// 에러 메세지 표시
+		  id.focus();
+		  return false;
+		  } else {
+		  	id.classList.add('is-valid');				// 유효성 검사 성공 처리 - 초록 테두리
+		  }
+		    
+		 	// password
+		    var password = document.getElementById("password");  					// 객체를 만들고
+		    var passwordValue = document.getElementById("password").value.trim();	// 객체의 값을 받는 객체 생성
+		    var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+		    var passwordFeedback = document.getElementById("passwordFeedback");
+		    var passwordRegExpFeedback = document.getElementById("passwordRegExpFeedback");
+			
+		    //기존의 validation 초기화
+		    password.classList.remove('is-valid', 'is-invalid');
+		    passwordFeedback.style.display='none';
+		    passwordRegExpFeedback.style.display='none';
+		    
+		    if(passwordValue == "" || passwordValue == null) { 
+		    	passwordFeedback.style.display='block';				// 에러 메세지 표시
+		    	password.classList.add('is-invalid');				// 유효성 검사 실패 처리 - 빨간 테두리
+		    	password.focus(); 									// input창에 포커스 함
+	 			return false; 										// 함수를 빠져나옴   
+		    } else {
+//	 	    	by pass
+		    }
+		    if(!passwordRegExp.test(passwordValue)) {
+		    	passwordRegExpFeedback.style.display='block';		// 에러 메세지 표시
+		    	password.focus();
+		    	return false;
+		    } else {
+		    	password.classList.add('is-valid');					// 유효성 검사 성공 처리 - 초록 테두리
+		    }
+	
+	</script>
 	
 </body>
 </html>
