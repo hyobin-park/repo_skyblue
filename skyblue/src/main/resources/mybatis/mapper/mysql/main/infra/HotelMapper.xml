@@ -31,7 +31,9 @@
 		SELECT
 			c.hotelSeq,
 		    c.hotelName,
-		    c.hotelAddress,
+		    c.hotelZipCode,
+		    c.hotelAddress1,
+		    c.hotelAddress2,
 		    c.site,
 		    c.stars,
 		    c.swimmingPoolNy,
@@ -58,7 +60,9 @@
 	<insert id="hotelInsert">
 		INSERT INTO hotel (
 		    hotelName,
-		    hotelAddress,
+		    hotelZipCode,
+    		hotelAddress1,
+    		hotelAddress2,
 		    site,
 		    stars,
 		    swimmingPoolNy,
@@ -78,7 +82,9 @@
 		)
 		VALUES (
 			#{hotelName},
-		    #{hotelAddress},
+		    #{hotelZipCode},
+		    #{hotelAddress1},
+		    #{hotelAddress2},
 		    #{site},
 		    #{stars},
 		    #{swimmingPoolNy},
@@ -105,7 +111,9 @@
 		SELECT
 			c.hotelSeq,
 		    c.hotelName,
-		    c.hotelAddress,
+		    c.hotelZipCode,
+		    c.hotelAddress1,
+		    c.hotelAddress2,
 		    c.site,
 		    c.stars,
 		    c.swimmingPoolNy,
@@ -132,7 +140,9 @@
 		UPDATE hotel
 		SET
 			hotelName = #{hotelName},
-		    hotelAddress = #{hotelAddress},
+		    hotelZipCode = #{hotelZipCode},
+		    hotelAddress1 = #{hotelAddress1},
+		    hotelAddress2 = #{hotelAddress2},
 		    site = #{site},
 		    stars = #{stars},
 		    swimmingPoolNy = #{swimmingPoolNy},

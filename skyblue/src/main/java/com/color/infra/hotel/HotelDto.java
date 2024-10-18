@@ -8,7 +8,9 @@ public class HotelDto {
 	
 	private String hotelSeq;
 	private String hotelName;
-	private String hotelAddress;
+	private String hotelZipCode;
+	private String hotelAddress1;
+	private String hotelAddress2;
 	private String site;
 	private Integer stars;
 	private Integer swimmingPoolNy;
@@ -27,7 +29,8 @@ public class HotelDto {
 	private Date hotelRgDate;
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date hotelEditDate;
-
+	
+	
 	//	----- getter/setter -----
 	public String getHotelSeq() {
 		return hotelSeq;
@@ -41,11 +44,23 @@ public class HotelDto {
 	public void setHotelName(String hotelName) {
 		this.hotelName = hotelName;
 	}
-	public String getHotelAddress() {
-		return hotelAddress;
+	public String getHotelZipCode() {
+		return hotelZipCode;
 	}
-	public void setHotelAddress(String hotelAddress) {
-		this.hotelAddress = hotelAddress;
+	public void setHotelZipCode(String hotelZipCode) {
+		this.hotelZipCode = hotelZipCode;
+	}
+	public String getHotelAddress1() {
+		return hotelAddress1;
+	}
+	public void setHotelAddress1(String hotelAddress1) {
+		this.hotelAddress1 = hotelAddress1;
+	}
+	public String getHotelAddress2() {
+		return hotelAddress2;
+	}
+	public void setHotelAddress2(String hotelAddress2) {
+		this.hotelAddress2 = hotelAddress2;
 	}
 	public String getSite() {
 		return site;
@@ -143,4 +158,5 @@ public class HotelDto {
 	public void setHotelEditDate(Date hotelEditDate) {
 		this.hotelEditDate = hotelEditDate;
 	}
+	
 }

@@ -670,7 +670,9 @@ td {
 														<th>#</th>
 														<th>NO.</th>
 														<th>호텔이름</th>
-														<th>호텔주소</th>
+														<th>우편번호</th>
+														<th>주소</th>
+														<th>상세주소</th>
 														<th>시설</th>
 														<th>등급</th>
 														<th>수영장</th>
@@ -700,7 +702,9 @@ td {
 														<td th:text="${list.hotelSeq}"></td>
 														<td><a th:href="@{/v1/infra/hotel/hotelXdmMFom(hotelSeq=${list.hotelSeq})}"
 															th:text="${list.hotelName}"></a></td>
-														<td th:text="${list.hotelAddress}"></td>
+														<td th:text="${list.hotelZipCode}"></td>
+														<td th:text="${list.hotelAddress1}"></td>
+														<td th:text="${list.hotelAddress2}"></td>
 														<td th:text="${list.site}"></td>
 														<td th:text="${list.stars}"></td>
 														<td th:if="${list.swimmingPoolNy eq 0}">N</td>
