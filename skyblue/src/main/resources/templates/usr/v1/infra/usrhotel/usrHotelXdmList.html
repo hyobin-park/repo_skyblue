@@ -464,7 +464,7 @@
                                             <h4 class="mb-0" th:text="${list.hotelName}">
                                             	<a href="0_list-single_signiel.html" class="text-inherit">시그니엘 호텔(Signiel Seoul)</a>
                                             </h4>
-                                            <p class="text-sm font-weight-semi-bold" th:text="${list.hotelAddress}">서울, 대한민국</p>
+                                            <p class="text-sm font-weight-semi-bold" th:text="${list.hotelAddress1}">서울, 대한민국</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div>
@@ -728,7 +728,32 @@
                                 </div>
                                 <!-- listing block  -->
                             </div>
-
+            				<div class="col-md-12 col-12">
+                                <!-- listing block -->
+                                <div class="row">
+                                    <div class="col-md-5 col-12">
+								<div class="col md-12" align="left">
+									<nav aria-label="Page navigation example">
+									  <ul class="pagination">
+									    <li class="page-item">
+									      <a class="page-link" href="#" aria-label="Previous">
+									        <span aria-hidden="true">&laquo;</span>
+									      </a>
+									    </li>
+									    <li class="page-item"><a class="page-link" href="#">1</a></li>
+									    <li class="page-item"><a class="page-link" href="#">2</a></li>
+									    <li class="page-item"><a class="page-link" href="#">3</a></li>
+									    <li class="page-item">
+									      <a class="page-link" href="#" aria-label="Next">
+									        <span aria-hidden="true">&raquo;</span>
+									      </a>
+									    </li>
+									  </ul>
+									</nav>
+								</div>
+							</div>
+							</div>
+</div>
                         </div>
                     </div>
                 </div>
@@ -810,8 +835,6 @@
                                         aria-label="Enter your email" aria-describedby="subscriber">
                                     <span class="btn btn-primary" id="subscriber">Subscribe</span>
                                 </div>
-
-
 
                             </form>
                             <!-- footer widget  -->
