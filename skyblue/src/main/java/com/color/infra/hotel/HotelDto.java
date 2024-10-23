@@ -30,6 +30,12 @@ public class HotelDto {
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date hotelEditDate;
 	
+	// rooms
+	private String roomType;
+	private Integer price;
+	private String status;
+	private String Hotel_seq;
+	
 	
 	//	----- getter/setter -----
 	public String getHotelSeq() {
@@ -158,5 +164,30 @@ public class HotelDto {
 	public void setHotelEditDate(Date hotelEditDate) {
 		this.hotelEditDate = hotelEditDate;
 	}
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getHotel_seq() {
+		return Hotel_seq;
+	}
+	public void setHotel_seq(String hotel_seq) {
+		Hotel_seq = hotel_seq;
+	}
+	
 	
 }

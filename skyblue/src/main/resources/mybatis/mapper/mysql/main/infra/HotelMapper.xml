@@ -8,6 +8,8 @@
 	<sql id="selectCommon">
 		FROM
 			hotel c
+		LEFT JOIN rooms d
+		ON c.hotelSeq = d.Hotel_seq
 		WHERE 1=1
 		<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
 		<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
@@ -49,7 +51,11 @@
 		    c.hotel_useNy,
 		    c.hotelDesc,
 		    c.hotelRgDate,
-		    c.hotelEditDate
+		    c.hotelEditDate,
+		    d.roomType,
+    		d.price,
+    		d.status,
+    		d.Hotel_seq
 		<include refid="selectCommon"/>
 		ORDER BY
 			c.hotelSeq DESC

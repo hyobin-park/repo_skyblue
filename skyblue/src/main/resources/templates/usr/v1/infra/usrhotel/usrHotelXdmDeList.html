@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Rentkit - Directory & Listings Bootstrap 5 Template.">
 
-   <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/booking_page/docs/assets/images/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/booking_page/docs/assets/images/icon-16x16.png">
 
@@ -23,215 +23,20 @@
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-
-
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
-    <title>List Single - Rentkit - Directory & Listings Bootstrap 5 Template.</title>
-
+    <title>Signiel Hotel - Seoul</title>
 
 </head>
 
 <body>
     <!-- main wrapper -->
     <div class="main-wrapper">
-        <!-- navbar -->
+        <!-- ======= header ======= -->
         <div class="nav-header nav-header-classic shadow">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="/v1/infra/usrhotel/usrHotelXdmIndex"> <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/logo.svg"
-                                    alt="Rentkit Directory & Listing Bootstrap 5 Theme"></a>
-                            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto ms-lg-3">
-                                    <li class="nav-item dropdown ">
-                                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Home
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="/v1/infra/usrhotel/usrHotelXdmIndex">Home</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown menu_list">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarExplore" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Explore
-                                        </a>
-                                        <div class="dropdown-menu w-100 p-0" aria-labelledby="navbarExplore">
-                                            <div class="row g-0">
-                                                <div
-                                                    class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-none">
-                                                    <div class="dropdown-img "
-                                                        style="background-image: url(/usr/v1/template/booking_page/rentkit-html/assets/images/dropdown-img.jpg);">
-                                                        <div class="dropdown-img-caption">
-                                                            <h2 class="text-white mb-1">Want Experience on Rentkit ?
-                                                            </h2>
-                                                            <p class="mb-4">Experience a level of our quality in both
-                                                                design &amp; customization works.
-                                                            </p>
-                                                            <a href="../pages/add-listing.html" class="btn btn-primary">
-                                                                List Your Space
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-12 col-lg-6">
-                                                    <div class="row m-3 m-lg-6">
-                                                        <div class="col-md-3">
-                                                            <h5 class="mb-2 text-uppercase h6 text-primary fw-bold">
-                                                                Listing</h5>
-                                                            <ul class="list-unstyled">
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/0_listing-list-view.html">
-                                                                        Listing View</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/listing-grid-view.html">
-                                                                        Grid View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item"
-                                                                        href="../pages/list-with-map.html">
-                                                                        List With Map</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item"
-                                                                        href="../pages/grid-with-map.html">
-                                                                        Grid With Map</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/listing-category.html">
-                                                                        Listing Category</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/list-single.html">
-                                                                        Listing Single</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/add-listing.html">
-                                                                        Add Listing</a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-
-                                                        <div class="col-md-3">
-                                                            <h5 class="mb-2 text-uppercase h6 text-primary fw-bold">
-                                                                Other Pages</h5>
-                                                            <ul class="mega-menu-list list-unstyled">
-                                                                <li><a class="dropdown-item" href="../pages/about.html">
-                                                                        About us</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item"
-                                                                        href="../pages/contact-us.html">
-                                                                        Contact</a>
-                                                                </li>
-
-                                                                <li><a class="dropdown-item" href="../pages/faq.html">
-                                                                        Faq</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/pricing.html">
-                                                                        Pricing</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/checkout-page.html">
-                                                                        Checkout</a>
-                                                                </li>
-
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/coming-soon.html">
-                                                                        Coming Soon</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/404-error.html">
-                                                                        404 Error</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <h5 class="mb-2 text-uppercase h6 text-primary fw-bold">
-                                                                Author</h5>
-                                                            <ul class="list-unstyled">
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/author-list.html">
-                                                                        List</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/author-reviews.html">
-                                                                        Reviews</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item"
-                                                                        href="../pages/author-favourite.html">
-                                                                        Favourite</a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <h5 class="mb-2 text-uppercase h6 text-primary fw-bold">
-                                                                Account</h5>
-                                                            <ul class="mega-menu-list list-unstyled">
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/0_signin.html">
-                                                                        Login</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item"
-                                                                        href="../pages/0_signup.html">
-                                                                        Register</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item"
-                                                                        href="../pages/forget-password.html">
-                                                                        Forgot Password</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown ">
-                                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Blog
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                                            <li><a href="../pages/blog.html" class="dropdown-item">Blog</a></li>
-                                            <li><a href="../pages/blog-author.html" class="dropdown-item">Author</a>
-                                            </li>
-                                            <li><a href="../pages/blog-category.html" class="dropdown-item">Category</a>
-                                            </li>
-                                            <li><a href="../pages/blog-single.html" class="dropdown-item">Single</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../pages/dashboard/overview.html">Dashboard</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../docs/index.html">Docs</a>
-                                    </li>
-                                </ul>
-                                <a href="../pages/add-listing.html" class="btn btn-primary d-none d-lg-block">List Your Space</a>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+        	<div th:replace="~{/usr/v1/infra/common/header :: div}"></div>
         </div>
+        <!-- End header -->
         <!-- listing slide -->
         <div class="container mt-5">
             <div class="py-22 position-relative rounded-3"
@@ -258,17 +63,25 @@
                         <div class="card mb-4">
                             <!-- listing detail head -->
                             <div class="card-body p-4">
-                                <h2 class="mb-2">시그니엘 호텔(Signiel Seoul) </h2>
+                                <h2 class="mb-2">시그니엘 호텔(Signiel Seoul)</h2>
                                 <p class="mb-4 fs-6">서울, 대한민국</p>
                                 <div class="text-sm">
-                                    <span class="me-2"><i class="mdi mdi-star text-primary"></i><span
-                                            class="ms-2">5성급</span></span>
-                                    <span class="me-2"><i class="mdi mdi-hours-24 text-primary"></i><span
-                                            class="ms-2">24시간 체크인</span></span>
-                                    <span class="me-2"><i class="mdi mdi-thumb-up text-primary"></i><span
-                                            class="ms-2">다양한 액티비티</span></span>
-                                    <span class="me-2"><i class="mdi mdi-train-car text-primary"></i><span
-                                            class="ms-2">대중교통 이용 편리</span></span>
+                                    <span class="me-2">
+	                                    <i class="mdi mdi-star text-primary"></i>
+	                                    <span class="ms-2">5성급</span>
+                                    </span>
+                                    <span class="me-2">
+	                                    <i class="mdi mdi-hours-24 text-primary"></i>
+	                                    <span class="ms-2">24시간 체크인</span>
+                                    </span>
+                                    <span class="me-2">
+	                                    <i class="mdi mdi-thumb-up text-primary"></i>
+	                                    <span class="ms-2">다양한 액티비티</span>
+                                    </span>
+                                    <span class="me-2">
+	                                    <i class="mdi mdi-train-car text-primary"></i>
+	                                    <span class="ms-2">대중교통 이용 편리</span>
+                                    </span>
                                 </div>
                             </div>
                             <!-- listing detail head -->
@@ -292,14 +105,22 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>피트니스 센터</li>
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-pool me-2 text-dark  fs-5"></span>수영장</li>
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-silverware-fork-knife me-2 text-dark fs-5"></span>레스토랑/바</li>
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-room-service me-2 text-dark  fs-5"></span>룸서비스</li>
+                                            <li class="list-item">
+	                                            <span class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>
+	                                            피트니스 센터
+                                            </li>
+                                            <li class="list-item">
+	                                            <span class="mdi mdi-pool me-2 text-dark  fs-5"></span>
+	                                            수영장
+                                            </li>
+                                            <li class="list-item">
+	                                            <span class="mdi mdi-silverware-fork-knife me-2 text-dark fs-5"></span>
+	                                            레스토랑/바
+	                                        </li>
+                                            <li class="list-item">
+	                                            <span class="mdi mdi-room-service me-2 text-dark  fs-5"></span>
+	                                            룸서비스
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
@@ -339,73 +160,96 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="d-flex justify-content-between">
-                                            <div><span>전망/뷰</span></div>
-                                            <div> <span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span> <span
-                                                    class="review-list-value">5.0</span></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <div><span>보안</span></div>
-                                            <div> <span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span> <span
-                                                    class="review-list-value">5.0</span>
+                                            <div>
+                                            	<span>전망/뷰</span>
+                                            </div>
+                                            <div> 
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="review-list-value">5.0</span>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div><span>위치</span></div>
-                                            <div><span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star-outline text-primary"></span>
-                                                <span>4.0</span>
+                                            <div>
+                                            	<span>보안</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="review-list-value">5.0</span>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div><span>부대시설</span> </div>
-                                            <div><span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star-half text-primary"></span>
-                                                <span>4.5</span>
+                                            <div>
+                                            	<span>위치</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star-outline text-primary"></span>
+	                                            <span>4.0</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                            	<span>부대시설</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star-half text-primary"></span>
+	                                            <span>4.5</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="d-flex justify-content-between">
-                                            <div><span>직원 친절도</span> </div>
-                                            <div><span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span>
+                                            <div>
+                                            	<span>직원 친절도</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
                                                 <span>5.0</span>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div><span>숙소 청결 상태</span></div>
-                                            <div><span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span>
+                                            <div>
+                                            	<span>숙소 청결 상태</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
                                                 <span>5.0</span>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div><span>가격 대비 만족도</span></div>
-                                            <div><span class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star text-primary"></span><span
-                                                    class="mdi mdi-star-outline text-primary"></span> <span>4.0</span>
+                                            <div>
+                                            	<span>가격 대비 만족도</span>
+                                            </div>
+                                            <div>
+	                                            <span class="mdi mdi-star text-primary"></span>
+	                                            <span class="mdi mdi-star text-primary"></span>
+                                                <span class="mdi mdi-star text-primary"></span>
+                                                <span class="mdi mdi-star text-primary"></span>
+                                                <span class="mdi mdi-star-outline text-primary"></span>
+                                                <span>4.0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -492,20 +336,36 @@
                                     </div>
                                     <div class="col-md-5 review-total mb-2">
                                         <div class="d-flex justify-content-between text-sm">
-                                            <div><span>전망/뷰</span></div>
-                                            <div><span id="ratingstar1" class="rating-star-img"></span></div>
+                                            <div>
+                                            	<span>전망/뷰</span>
+                                            </div>
+                                            <div>
+                                            	<span id="ratingstar1" class="rating-star-img"></span>
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-between text-sm">
-                                            <div><span>보안</span></div>
-                                            <div><span id="ratingstar2" class="rating-star-img"></span></div>
+                                            <div>
+                                            	<span>보안</span>
+                                            </div>
+                                            <div>
+                                            	<span id="ratingstar2" class="rating-star-img"></span>
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-between text-sm">
-                                            <div><span>위치</span></div>
-                                            <div><span id="ratingstar3" class="rating-star-img"></span></div>
+                                            <div>
+                                            	<span>위치</span>
+                                            </div>
+                                            <div>
+                                            	<span id="ratingstar3" class="rating-star-img"></span>
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-between text-sm">
-                                            <div><span>부대시설</span> </div>
-                                            <div><span id="ratingstar4" class="rating-star-img"></span></div>
+                                            <div>
+                                            	<span>부대시설</span>
+                                            </div>
+                                            <div>
+                                            	<span id="ratingstar4" class="rating-star-img"></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="offset-md-1 col-md-5 review-total">
