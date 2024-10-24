@@ -26,40 +26,47 @@ public class UsrhotelController {
 	@Autowired
 	HotelService hotelService;
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmIndex")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelIndex")
 	public String usrHotelXdmIndex() {
-		return "/usr/v1/infra/usrhotel/usrHotelXdmIndex";
+		return "/usr/v1/infra/usrhotel/usrHotelIndex";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmList")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelList")
 	public String usrHotelXdmList(@ModelAttribute("vo") HotelVo hotelVo, Model model) {
-		model.addAttribute("list", hotelService.hotelList(hotelVo));
-		return "/usr/v1/infra/usrhotel/usrHotelXdmList";
+		
+		//paging
+		hotelVo.setParamsPaging(hotelService.selectOneCount(hotelVo));
+
+		if (hotelVo.getTotalRows() > 0) {
+			model.addAttribute("list", hotelService.hotelList(hotelVo));
+		}
+		
+		return "/usr/v1/infra/usrhotel/usrHotelList";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmDeList")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelDeList")
 	public String usrHotelXdmDeList() {
-		return "/usr/v1/infra/usrhotel/usrHotelXdmDeList";
+		return "/usr/v1/infra/usrhotel/usrHotelDeList";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmInst")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelInst")
 	public String usrHotelXdmInst(CustomerDto customerDto) {
 		customerService.customerIns(customerDto);
-		return "redirect:/usr/v1/infra/usrhotel/usrHotelXdmSignin";
+		return "redirect:/usr/v1/infra/usrhotel/usrHotelSignin";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmSignup")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSignup")
 	public String usrHotelXdmSignup() {
-		return "/usr/v1/infra/usrhotel/usrHotelXdmSignup";
+		return "/usr/v1/infra/usrhotel/usrHotelSignup";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmSignin")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSignin")
 	public String usrHotelXdmSignin() {
-		return "/usr/v1/infra/usrhotel/usrHotelXdmSignin";
+		return "/usr/v1/infra/usrhotel/usrHotelSignin";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/v1/infra/usrhotel/usrHotelXdmSigninProc")
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSigninProc")
 	public Map<String, Object> customerLoginProc(CustomerDto customerDto, HttpSession httpSession) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();		// 결과를 담기 위한 앱 생성
 		
@@ -88,7 +95,7 @@ public class UsrhotelController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/v1/infra/usrhotel/usrHotelXdmLogoutProc")
+	@RequestMapping(value = "/v1/infra/usrhotel/usrHotelLogoutProc")
 	public Map<String, Object> usrHotelXdmLogoutProc(HttpSession httpSession) {
 		System.out.println("로그아웃");
 		Map<String, Object> returnMap = new HashMap<String, Object>();

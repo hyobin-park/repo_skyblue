@@ -28,7 +28,7 @@ public class HotelController {
 
 		if (hotelVo.getTotalRows() > 0) {
 			model.addAttribute("list", hotelService.hotelList(hotelVo));
-				}
+		}
 		
 		return "/xdm/v1/infra/hotel/hotelXdmList";
 	}

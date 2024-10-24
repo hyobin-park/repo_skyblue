@@ -634,11 +634,11 @@
                ,cache: false
                ,type: "post"
                /* ,dataType:"json" */
-               ,url: "/v1/infra/usrhotel/usrHotelXdmLogoutProc"
+               ,url: "/v1/infra/usrhotel/usrHotelLogoutProc"
                /* ,data : $("#formLogin").serialize() */
                ,success: function(response) {
                   if(response.rt == "success") {
-                     location.href="/v1/infra/usrhotel/usrHotelXdmSignin";  
+                     location.href="/v1/infra/usrhotel/usrHotelSignin";  
                   } else {        
                      // by pass  
                   }
