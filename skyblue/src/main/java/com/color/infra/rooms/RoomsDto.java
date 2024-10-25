@@ -1,13 +1,21 @@
 package com.color.infra.rooms;
 
+import java.util.Date;
+
 public class RoomsDto {
 	
 	private String roomSeq;
 	private String roomType;
 	private Integer price;
-	private String status;
+	private Integer status;
+	private String roomDesc;
 	private Integer rooms_delNy;
+	private Date roomRgDate;
+	private Date roomEditDate;
 	private String Hotel_seq;
+	
+	// Hotel
+	private String hotelName;
 	
 	// ------- getter/setter -------
 	public String getRoomSeq() {
@@ -28,10 +36,10 @@ public class RoomsDto {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	public Integer getRooms_delNy() {
@@ -46,5 +54,30 @@ public class RoomsDto {
 	public void setHotel_seq(String hotel_seq) {
 		Hotel_seq = hotel_seq;
 	}
+	public String getRoomDesc() {
+		return roomDesc;
+	}
+	public void setRoomDesc(String roomDesc) {
+		this.roomDesc = roomDesc;
+	}
+	public Date getRoomRgDate() {
+		return roomRgDate;
+	}
+	public void setRoomRgDate(Date roomRgDate) {
+		this.roomRgDate = roomRgDate;
+	}
+	public Date getRoomEditDate() {
+		return roomEditDate;
+	}
+	public void setRoomEditDate(Date roomEditDate) {
+		this.roomEditDate = roomEditDate;
+	}
+	public String getHotelName() {
+		return hotelName;
+	}
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+	
 	
 }

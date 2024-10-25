@@ -11,10 +11,29 @@ public class RoomsService {
 	@Autowired
 	private RoomsDao roomsDao;
 	
+	// roomSelectList
+	public List<RoomsDto> roomSelectList(RoomsVo roomsVo) {
+		return roomsDao.roomSelectList(roomsVo);
+	}
+	
 	// roomSelectOne
-		public List<RoomsDto> roomSelectOne() {
-			List<RoomsDto> rooms = roomsDao.roomSelectOne();
-			return rooms;
-		}
+	public RoomsDto roomSelectOne(RoomsDto roomsDto) {
+		return roomsDao.roomSelectOne(roomsDto);
+	}
+	
+	// roomInsert
+	public int roomInsert(RoomsDto roomsDto) {
+		return roomsDao.roomInsert(roomsDto);
+	}
+	
+	// roomUpdate
+	public int roomUpdate(RoomsDto roomsDto) {
+		return roomsDao.roomUpdate(roomsDto);
+	}
+	
+	// selectOneCount
+	public int selectOneCount(RoomsVo roomsVo) { 
+    	return roomsDao.selectOneCount(roomsVo);
+    }
 
 }

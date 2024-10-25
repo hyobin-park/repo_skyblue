@@ -75,7 +75,7 @@ label {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post" action="/v1/infra/rooms/roomsXdmInst">
+										<form class="form" data-parsley-validate method="post" action="/v1/infra/rooms/roomsXdmUpdt">
 											<!-- 1번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
@@ -83,8 +83,8 @@ label {
 														<div class="form-group mandatory">
 															<label for="disabledInput" class="form-label">번호</label>
 															<input type="text" id="roomSeq"
-																class="form-control" name="roomSeq"
-																placeholder="자동생성" disabled/>
+																class="form-control" name="roomSeq" th:value="${item?.roomSeq}"
+																placeholder="자동생성" style="background-color: #EAECEF" readonly />
 														</div>
 													</div>
 												</div>
@@ -92,7 +92,7 @@ label {
 													<div class="form-group">
 														<div class="form-group mandatory">
 															<label for="country-floating" class="form-label">호텔명</label>
-															<input type="text" id="Hotel_seq"
+															<input type="text" id="Hotel_seq" th:value="${item?.Hotel_seq}"
 																class="form-control" name="Hotel_seq"
 																placeholder="이름" />
 														</div>
@@ -103,6 +103,7 @@ label {
 														<div class="form-group mandatory">
 															<label for="company-column" class="form-label">룸타입</label>
 																<input type="text" id="roomType" name="roomType"
+																th:value="${item?.roomType}"
 																class="form-control" placeholder="룸타입" />
 												    	</div>
 												    </div>
@@ -115,6 +116,7 @@ label {
 													<div class="form-group">
 												 		<label for="city-column" class="form-label">금액</label>
 												    		<input type="text" id="price" name="price"
+												    		th:value="${item?.price}"
 												    		class="form-control" placeholder="금액" />
 												    </div>
 												</div>
@@ -123,10 +125,10 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="status"
 																name="status" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
-																<option value="1">예약가능</option>
-																<option value="2">예약 중</option>
-																<option value="3">예약완료</option>
+																<option value="" th:selected="${item?.status == null}">선택하세요</option>
+																<option value="1" th:selected="${item?.status == 1}">예약가능</option>
+																<option value="2" th:selected="${item?.status == 2}">예약 중</option>
+																<option value="3" th:selected="${item?.status == 3}">예약완료</option>
 															</select>
 														</fieldset>
 												</div>
@@ -136,25 +138,35 @@ label {
 																<fieldset class="form-group">
 																	<select class="form-select" id="rooms_delNy"
 																		name="rooms_delNy" style="padding: .375rem .75rem;">
-																		<option value="">선택하세요</option>
-																		<option value="1">Y</option>
-																		<option value="0">N</option>
+																		<option value="" th:selected="${item?.rooms_delNy == null}">선택하세요</option>
+																		<option value="1" th:selected="${item?.rooms_delNy == 1}">Y</option>
+																		<option value="0" th:selected="${item?.rooms_delNy == 0}">N</option>
 																	</select>
 																</fieldset>
 														</div>
 													</div>
 											</div>
 											<!-- 2번째 row end -->
-<!-- 											<div class="row"> -->
-<!-- 												<div class="col-md-3 col-12"> -->
-<!-- 													<div class="form-group mandatory"> -->
-<!-- 														<div class="form-group"> -->
-<!-- 												 		<label for="city-column" class="form-label">등록일</label> -->
-<!-- 												    		<input type="text" id="roomRgDate" name="roomRgDate" -->
-<!-- 												    		class="form-control" placeholder="등록일" /> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
+											<div class="row">
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+												 		<label for="city-column" class="form-label">등록일</label>
+												    		<input type="text" id="roomRgDate" name="roomRgDate"
+												    		th:value="${#dates.format(item?.roomRgDate, 'yyyy-MM-dd HH:mm:ss')}"
+												    		class="form-control" placeholder="등록일" 
+												    		style="background-color: #EAECEF" readonly/>
+													</div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+												 		<label for="city-column" class="form-label">수정일</label>
+												    		<input type="text" id="roomEditDate" name="roomEditDate"
+												    		th:value="${#dates.format(item?.roomEditDate, 'yyyy-MM-dd HH:mm:ss')}"
+												    		class="form-control" placeholder="등록일" 
+												    		style="background-color: #EAECEF" readonly/>
+													</div>
+												</div>
+											</div>
 											<!-- 3번째 row start -->
 											<div class="row">
 												<div class="col-md-6 col-12">
@@ -162,7 +174,7 @@ label {
 														<label for="country-floating" class="form-label">설명</label>
 														<div class="form-group mb-3">
 															<textarea class="form-control" name="hotelDesc"
-																id="hotelDesc"></textarea>
+																id="hotelDesc" th:text="${item?.hotelDesc}"></textarea>
 														</div>
 													</div>
 												</div>

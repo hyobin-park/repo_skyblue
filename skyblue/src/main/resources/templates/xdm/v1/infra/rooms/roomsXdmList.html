@@ -69,25 +69,26 @@ td {
 						<div class="card">
 							<div class="card-header"></div>
 							<div class="card-body">
-								<form name="form" method="post" action="/v1/infra/hotel/hotelXdmList">
+								<form name="form" id="form" method="post" action="/v1/infra/rooms/roomsXdmList">
 								<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 								<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
 									<div class="row">
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="shtelDelNy" name="shtelDelNy">
-													<option value="" th:selected="${vo.shtelDelNy == null}">삭제여부</option>
-													<option value="1" th:selected="${vo.shtelDelNy == 1}">Y</option>
-													<option value="0" th:selected="${vo.shtelDelNy == 0}">N</option>
+												<select class="form-select" id="shRooms_delNy" name="shRooms_delNy">
+													<option value="" th:selected="${vo.shRooms_delNy == null}">삭제여부</option>
+													<option value="1" th:selected="${vo.shRooms_delNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shRooms_delNy == 0}">N</option>
 												</select>
 											</fieldset>
 										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
-												<select class="form-select" id="shtelUseNy" name="shtelUseNy">
-													<option value="" th:selected="${vo.shtelUseNy == null}">사용여부</option>
-													<option value="1" th:selected="${vo.shtelUseNy == 1}">Y</option>
-													<option value="0" th:selected="${vo.shtelUseNy == 0}">N</option>
+												<select class="form-select" id="shStatus" name="shStatus">
+													<option value="" th:selected="${vo.shStatus == null}">예약상태</option>
+													<option value="1" th:selected="${vo.shStatus == 1}">예약가능</option>
+													<option value="2" th:selected="${vo.shStatus == 2}">예약 중</option>
+													<option value="3" th:selected="${vo.shStatus == 3}">예약완료</option>
 												</select>
 											</fieldset>
 										</div>
@@ -114,14 +115,15 @@ td {
 										</div>
 									</div>
 									<!-- class="row" 1 end -->
+									<!-- class="row" 2 start -->
 									<div class="row">
-										<!-- class="row" 2 start -->
 										<div class="col-md-2">
 											<fieldset class="form-group">
 												<select class="form-select" id="shOption" name="shOption">
 													<option value="" th:selected="${vo.shOption == null}">검색구분</option>
 													<option value="1" th:selected="${vo.shOption == 1}">번호</option>
-													<option value="2" th:selected="${vo.shOption == 2}">호텔이름</option>
+													<option value="2" th:selected="${vo.shOption == 2}">룸타입</option>
+													<option value="3" th:selected="${vo.shOption == 3}">내용</option>
 												</select>
 											</fieldset>
 										</div>
@@ -168,28 +170,16 @@ td {
 														<th><input type="checkbox"></th>
 														<th>#</th>
 														<th>NO.</th>
-														<th>호텔이름</th>
-														<th>우편번호</th>
-														<th>주소</th>
-														<th>상세주소</th>
-														<th>시설</th>
-														<th>등급</th>
-														<th>수영장</th>
-														<th>피트니스센터</th>
-														<th>룸서비스</th>
-														<th>스파</th>
-														<th>와이파이</th>
-														<th>주차</th>
-														<th>냉난방</th>
-														<th>흡연구역</th>
-														<th>애완동물</th>
-														<th>삭제여부</th>
-														<th>사용여부</th>
+														<th>호텔명</th>
+														<th>룸타입</th>
+														<th>금액</th>
+														<th>예약상태</th>
 														<th>등록일</th>
 														<th>수정일</th>
+														<th>삭제여부</th>
 													</tr>
 													<tr th:if="${#lists.isEmpty(list)}">
-                                                		<td colspan="17">
+                                                		<td colspan="10">
                                                 			<p class="fs-0" style="padding-top: 12px;">There are no data!</p>
                                                 		</td>
                                                 	</tr>
@@ -198,38 +188,18 @@ td {
 													<tr th:if="!${#lists.isEmpty(list)}" th:each="list : ${list}">
 														<td><input type="checkbox"></td>
 														<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
-														<td th:text="${list.hotelSeq}"></td>
-														<td><a th:href="@{/v1/infra/hotel/hotelXdmMFom(hotelSeq=${list.hotelSeq})}"
-															th:text="${list.hotelName}"></a></td>
-														<td th:text="${list.hotelZipCode}"></td>
-														<td th:text="${list.hotelAddress1}"></td>
-														<td th:text="${list.hotelAddress2}"></td>
-														<td th:text="${list.site}"></td>
-														<td th:text="${list.stars}"></td>
-														<td th:if="${list.swimmingPoolNy eq 0}">N</td>
-														<td th:unless="${list.swimmingPoolNy eq 0}">Y</td>
-														<td th:if="${list.fitnessCenterNy eq 0}">N</td>
-														<td th:unless="${list.fitnessCenterNy eq 0}">Y</td>
-														<td th:if="${list.roomServiceNy eq 0}">N</td>
-														<td th:unless="${list.roomServiceNy eq 0}">Y</td>
-														<td th:if="${list.spaNy eq 0}">N</td>
-														<td th:unless="${list.spaNy eq 0}">Y</td>
-														<td th:if="${list.wifiNy eq 0}">N</td>
-														<td th:unless="${list.wifiNy eq 0}">Y</td>
-														<td th:if="${list.parkingNy eq 0}">N</td>
-														<td th:unless="${list.parkingNy eq 0}">Y</td>
-														<td th:if="${list.hvacNy eq 0}">N</td>
-														<td th:unless="${list.hvacNy eq 0}">Y</td>
-														<td th:if="${list.smokingAreaNy eq 0}">N</td>
-														<td th:unless="${list.smokingAreaNy eq 0}">Y</td>
-														<td th:if="${list.petsNy eq 0}">N</td>
-														<td th:unless="${list.petsNy eq 0}">Y</td>
-														<td th:if="${list.hotel_delNy eq 0}">N</td>
-														<td th:unless="${list.hotel_delNy eq 0}">Y</td>
-														<td th:if="${list.hotel_useNy eq 0}">N</td>
-														<td th:unless="${list.hotel_useNy eq 0}">Y</td>
-														<td th:text="${#dates.format(list.hotelRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td th:text="${#dates.format(list.hotelEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:text="${list.roomSeq}"></td>
+														<td th:text="${list.hotelName}"></td>
+														<td><a th:href="@{/v1/infra/rooms/roomsXdmMFom(roomSeq=${list.roomSeq})}"
+															th:text="${list.roomType}"></a></td>
+														<td th:text="${list.price}"></td>
+														<td th:if="${list.status eq 1}">예약가능</td>
+														<td th:if="${list.status eq 2}">예약 중</td>
+														<td th:if="${list.status eq 3}">예약완료</td>
+														<td th:if="${list.rooms_delNy eq 0}">N</td>
+														<td th:unless="${list.rooms_delNy eq 0}">Y</td>
+														<td th:text="${#dates.format(list.roomRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:text="${#dates.format(list.roomEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -360,14 +330,14 @@ td {
 	// paging
 	goList = function (thisPage) {
 		document.querySelector("input[name=thisPage]").value = thisPage;
-		document.querySelector("form[name=form]").action = "/v1/infra/hotel/hotelXdmList";
+		document.querySelector("form[name=form]").action = "/v1/infra/rooms/roomsXdmList";
 		document.querySelector("form[name=form]").submit();
 	}
 	
 	//search 조건 유지
 	document.getElementById("changeRowNum").onchange = function () {
 		document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
-		form.action = "/v1/infra/hotel/hotelXdmList";
+		form.action = "/v1/infra/rooms/roomsXdmList";
 		form.submit();
 	}
 	
