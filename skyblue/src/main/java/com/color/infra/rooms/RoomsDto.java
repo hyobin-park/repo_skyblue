@@ -2,6 +2,8 @@ package com.color.infra.rooms;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class RoomsDto {
 	
 	private String roomSeq;
@@ -10,7 +12,9 @@ public class RoomsDto {
 	private Integer status;
 	private String roomDesc;
 	private Integer rooms_delNy;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date roomRgDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date roomEditDate;
 	private String Hotel_seq;
 	

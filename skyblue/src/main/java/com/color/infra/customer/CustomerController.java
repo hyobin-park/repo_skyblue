@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.color.common.util.UtilDateTime;
+import com.color.infra.mail.MailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -20,9 +22,12 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
+	@Autowired
+	private MailService mailService;
+	
 	@RequestMapping(value="/v1/infra/customer/customerXdmList")
 	public String customerXdmList(@ModelAttribute("vo") CustomerVo customerVo, Model model) {
-		
+				
 //		customerVo.setShDateStart(customerVo.getShDateStart() + " 00:00:00");
 //		customerVo.setShDateEnd(customerVo.getShDateEnd() + " 23:59:59");
 		
@@ -47,6 +52,9 @@ public class CustomerController {
 	@RequestMapping(value="/v1/infra/customer/customerXdmInst")
 	public String customerXdmInst(CustomerDto customerDto) {
 		customerService.customerIns(customerDto);
+		
+		customerDto.setPassword(encodeBcrypt(customerDto.getPassword(), 10));
+		
 		return "redirect:/v1/infra/customer/customerXdmList";
 	}
 	
@@ -59,6 +67,18 @@ public class CustomerController {
 	@RequestMapping(value="/v1/infra/customer/customerXdmUpdt")
 	public String customerXdmUpdt(CustomerDto customerDto) {
 		customerService.customerUpdt(customerDto);
+		
+//		mailService.sendMailSimple();
+		
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				mailService.sendMailSimple();
+			}
+		});
+		
+		thread.start();
+		
 		return "redirect:/v1/infra/customer/customerXdmList";
 	}
 	
@@ -115,7 +135,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerSignUp")
-	public String customerSignUp() {
+	public String customerSignUp(CustomerDto customerDto) {
 		return "/xdm/v1/infra/customer/customerSignUp";
 	}
 	
@@ -128,4 +148,16 @@ public class CustomerController {
 		returnMap.put("rt", "success");
 		return returnMap;
 	}
+	
+	// 암호화
+	public String encodeBcrypt(String planeText, int strength) {
+		return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+		return passwordEncoder.matches(planeText, hashValue);
+	}
+	
+	
 }

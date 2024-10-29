@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Form</title>
+<title>Rooms Form</title>
 
 
 
@@ -47,7 +47,7 @@ label {
 				<div class="page-title">
 					<div class="row">
 						<div class="col-12 col-md-6 order-md-1 order-last">
-							<h3>Hotel</h3>
+							<h3>Rooms</h3>
 							<br>
 						</div>
 						<div class="col-12 col-md-6 order-md-2 order-first">
@@ -75,7 +75,7 @@ label {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post" action="/v1/infra/rooms/roomsXdmInst">
+										<form class="form" data-parsley-validate method="post" action="/v1/infra/rooms/roomsXdmList">
 											<!-- 1번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
@@ -161,8 +161,8 @@ label {
 													<div class="form-group">
 														<label for="country-floating" class="form-label">설명</label>
 														<div class="form-group mb-3">
-															<textarea class="form-control" name="hotelDesc"
-																id="hotelDesc"></textarea>
+															<textarea class="form-control" name="roomDesc"
+																id="roomDesc"></textarea>
 														</div>
 													</div>
 												</div>

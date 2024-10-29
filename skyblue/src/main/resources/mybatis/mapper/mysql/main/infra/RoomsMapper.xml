@@ -6,9 +6,10 @@
 	<resultMap type="com.color.infra.rooms.RoomsDto" id="resultMapObj"></resultMap>
 	
 	<sql id="selectCommon">
-		FROM rooms d
+		FROM
+			rooms d
 		LEFT JOIN hotel c
-		ON d.Hotel_seq = c.hotelSeq
+			ON d.Hotel_seq = c.hotelSeq
 		WHERE 1=1
 			<if test="shRooms_delNy != null and !shRooms_delNy.equals('')">AND rooms_delNy = #{shRooms_delNy}</if>
 			<if test="shStatus != null and !shStatus.equals('')">AND status = #{shStatus}</if>
@@ -23,7 +24,7 @@
 			</choose>
 	</sql>
 	
-	<select id="selectOneCount" resultMap="Integer">
+	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		<include refid="selectCommon"/>
 	</select>
@@ -39,7 +40,8 @@
 		    d.rooms_delNy,
 		    d.roomRgDate,
 		    d.roomEditDate,
-		    d.Hotel_seq
+		    d.Hotel_seq,
+		    c.hotelName
 		<include refid="selectCommon"/>
 		ORDER BY
 			d.roomSeq DESC
@@ -57,11 +59,14 @@
 		    d.rooms_delNy,
 		    d.roomRgDate,
 		    d.roomEditDate,
-		    d.Hotel_seq
-		FROM rooms d
+		    d.Hotel_seq,
+		    c.hotelName
+		FROM
+			rooms d
 		LEFT JOIN hotel c
-		ON d.Hotel_seq = c.hotelSeq
-		ORDER BY d.roomSeq desc
+			ON d.Hotel_seq = c.hotelSeq
+		WHERE 1=1
+			AND d.roomSeq = #{roomSeq}
 	</select>
 	
 	<insert id="roomInsert">

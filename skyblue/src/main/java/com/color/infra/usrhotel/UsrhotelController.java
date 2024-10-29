@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,6 +24,7 @@ public class UsrhotelController {
 	
 	@Autowired
 	CustomerService customerService;
+	
 	@Autowired
 	HotelService hotelService;
 	
@@ -52,11 +54,14 @@ public class UsrhotelController {
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelInst")
 	public String usrHotelXdmInst(CustomerDto customerDto) {
 		customerService.customerIns(customerDto);
+		
+		customerDto.setPassword(encodeBcrypt(customerDto.getPassword(), 10));
+		
 		return "redirect:/usr/v1/infra/usrhotel/usrHotelSignin";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSignup")
-	public String usrHotelXdmSignup() {
+	public String usrHotelXdmSignup(CustomerDto customerDto) {
 		return "/usr/v1/infra/usrhotel/usrHotelSignup";
 	}
 	
@@ -103,5 +108,15 @@ public class UsrhotelController {
 		returnMap.put("rt", "success");
 		return returnMap;
 	}
+	
+	// 암호화
+	public String encodeBcrypt(String planeText, int strength) {
+		  return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+	
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+	  return passwordEncoder.matches(planeText, hashValue);
+	}	
 	
 }

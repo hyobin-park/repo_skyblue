@@ -130,5 +130,6 @@ public class CustomerDto {
 	public void setCustomerEditDate(Date customerEditDate) {
 		this.customerEditDate = customerEditDate;
 	}
+	
 
 }

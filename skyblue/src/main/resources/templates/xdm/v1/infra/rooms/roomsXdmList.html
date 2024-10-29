@@ -52,7 +52,7 @@ td {
 				<div class="page-title">
 					<div class="row match-height">
 						<div class="col-12 col-md-6 order-md-1 order-last">
-							<h3>Hotel</h3>
+							<h3>Rooms</h3>
 							<br>
 						</div>
 						<div class="col-12 col-md-6 order-md-2 order-first">
@@ -190,16 +190,16 @@ td {
 														<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
 														<td th:text="${list.roomSeq}"></td>
 														<td th:text="${list.hotelName}"></td>
-														<td><a th:href="@{/v1/infra/rooms/roomsXdmMFom(roomSeq=${list.roomSeq})}"
+														<td><a th:href="@{/v1/infra/rooms/roomsXdmMForm(roomSeq=${list.roomSeq})}"
 															th:text="${list.roomType}"></a></td>
 														<td th:text="${list.price}"></td>
 														<td th:if="${list.status eq 1}">예약가능</td>
 														<td th:if="${list.status eq 2}">예약 중</td>
 														<td th:if="${list.status eq 3}">예약완료</td>
-														<td th:if="${list.rooms_delNy eq 0}">N</td>
-														<td th:unless="${list.rooms_delNy eq 0}">Y</td>
 														<td th:text="${#dates.format(list.roomRgDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 														<td th:text="${#dates.format(list.roomEditDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:if="${list.rooms_delNy eq 0}">N</td>
+														<td th:unless="${list.rooms_delNy eq 0}">Y</td>
 													</tr>
 												</tbody>
 											</table>
@@ -284,7 +284,7 @@ td {
 										<button  class="btn icon btn-sm btn-success">
 											<i class="bi bi-file-earmark-excel"></i>
 										</button>
-										<a href="/v1/infra/hotel/hotelXdmForm">
+										<a href="/v1/infra/rooms/roomsXdmForm">
 											<button class="btn icon btn-sm btn-primary">
 												<i class="bi bi-plus-lg"></i>
 											</button>
