@@ -28,6 +28,17 @@ public class UsrhotelController {
 	@Autowired
 	HotelService hotelService;
 	
+	// 암호화
+	public String encodeBcrypt(String planeText, int strength) {
+		return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+	
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+	  return passwordEncoder.matches(planeText, hashValue);
+	}	
+	
+	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelIndex")
 	public String usrHotelXdmIndex() {
 		return "/usr/v1/infra/usrhotel/usrHotelIndex";
@@ -53,10 +64,12 @@ public class UsrhotelController {
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelInst")
 	public String usrHotelXdmInst(CustomerDto customerDto) {
-		customerService.customerIns(customerDto);
 		
+		// 암호화
 		customerDto.setPassword(encodeBcrypt(customerDto.getPassword(), 10));
 		
+		customerService.customerIns(customerDto);
+
 		return "redirect:/usr/v1/infra/usrhotel/usrHotelSignin";
 	}
 	
@@ -108,15 +121,5 @@ public class UsrhotelController {
 		returnMap.put("rt", "success");
 		return returnMap;
 	}
-	
-	// 암호화
-	public String encodeBcrypt(String planeText, int strength) {
-		  return new BCryptPasswordEncoder(strength).encode(planeText);
-	}
-	
-	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
-	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
-	  return passwordEncoder.matches(planeText, hashValue);
-	}	
 	
 }
