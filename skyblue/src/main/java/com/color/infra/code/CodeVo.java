@@ -1,5 +1,7 @@
 package com.color.infra.code;
 
+import com.color.common.constants.Constants;
+
 public class CodeVo {
 	
 	private Integer shcdDelNy;

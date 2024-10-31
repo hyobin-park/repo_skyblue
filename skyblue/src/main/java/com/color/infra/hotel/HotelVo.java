@@ -1,5 +1,7 @@
 package com.color.infra.hotel;
 
+import com.color.common.constants.Constants;
+
 public class HotelVo {
 	
 	private Integer shtelDelNy;

@@ -174,35 +174,33 @@ label {
 											<!-- 2번째 row end -->
 											<!-- 3번째 row start -->
 											<div class="row">
-												<div class="col-md-3 col-12">
+												<div class="col-md-2 col-12">
 													<div class="form-group">
-														<div class="form-group mandatory">
-															<label class="form-label">우편번호</label>
-																<input type="text" id="customerZipCode" name="customerZipCode"
-																class="form-control" placeholder="우편번호" required/>
-																<div class="invalid-feedback">우편번호를 입력해주세요.</div>
-												    	</div>
+												 		<label for="city-column" class="form-label">우편번호</label>
+												    		<input type="text" id="customerZipCode" name="customerZipCode"
+												    		class="form-control" placeholder="우편번호" />
 												    </div>
 												</div>
-											<div class="col-md-3 col-12">
+												<div class="col-md-1 col-12">
 													<div class="form-group">
-														<div class="form-group mandatory">
-															<label class="form-label">주소</label>
-																<input type="text" id="customerAddress1" name="customerAddress1"
-																	class="form-control" placeholder="주소" required/>
-																<div class="invalid-feedback">주소를 입력해주세요.</div>	
-														</div>
+												    	<label for="city-column" class="form-label">&nbsp;</label>
+													    	<input type="button" class="btn btn-primary btn-block"
+																onclick="sample6_execDaumPostcode()" value="찾기">
 													</div>
 												</div>
 												<div class="col-md-3 col-12">
 													<div class="form-group">
-														<div class="form-group mandatory">
-															<label class="form-label">상세주소</label>
-																<input type="text" id="customerAddress2" name="customerAddress2"
-																	class="form-control" placeholder="상세주소" required/>
-																<div class="invalid-feedback">상세주소를 입력해주세요.</div>
-														</div>
-													</div>
+												 		<label for="city-column" class="form-label">주소</label>
+												    		<input type="text" id="customerAddress1" name="customerAddress1"
+												    		class="form-control" placeholder="주소" />
+												    </div>
+												</div>
+												<div class="col-md-3 col-12">
+													<div class="form-group">
+												 		<label for="city-column" class="form-label">상세주소</label>
+												    		<input type="text" id="customerAddress2" name="customerAddress2"
+												    		class="form-control" placeholder="주소" />
+												    </div>
 												</div>
 											</div>
 											<!-- 3번째 row end -->

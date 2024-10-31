@@ -1,5 +1,7 @@
 package com.color.infra.customer;
 
+import com.color.common.constants.Constants;
+
 public class CustomerVo {
 	
 	private Integer shcustomer_delNy;

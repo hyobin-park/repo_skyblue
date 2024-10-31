@@ -58,7 +58,8 @@ public class UsrhotelController {
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelDeList")
-	public String usrHotelXdmDeList() {
+	public String usrHotelXdmDeList(HotelVo hotelVo, Model model) {
+		model.addAttribute("list", hotelService.hotelList(hotelVo));
 		return "/usr/v1/infra/usrhotel/usrHotelDeList";
 	}
 	

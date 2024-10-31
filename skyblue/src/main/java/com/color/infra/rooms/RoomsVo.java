@@ -1,6 +1,6 @@
 package com.color.infra.rooms;
 
-import com.color.infra.hotel.Constants;
+import com.color.common.constants.Constants;
 
 public class RoomsVo {
 

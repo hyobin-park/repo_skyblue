@@ -59,12 +59,12 @@
         <div class="py-6">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-8 col-md-12 col-12">
+                    <div class="col-xl-8 col-lg-8 col-md-12 col-12" th:each="list : ${list}">
                         <div class="card mb-4">
                             <!-- listing detail head -->
                             <div class="card-body p-4">
-                                <h2 class="mb-2">시그니엘 호텔(Signiel Seoul)</h2>
-                                <p class="mb-4 fs-6">서울, 대한민국</p>
+                                <h2 class="mb-2" th:text="${list.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
+                                <p class="mb-4 fs-6" th:text="${list.hotelAddress1}">서울, 대한민국</p>
                                 <div class="text-sm">
                                     <span class="me-2">
 	                                    <i class="mdi mdi-star text-primary"></i>
@@ -110,7 +110,7 @@
 	                                            피트니스 센터
                                             </li>
                                             <li class="list-item">
-	                                            <span class="mdi mdi-pool me-2 text-dark  fs-5"></span>
+	                                            <span class="mdi mdi-pool me-2 text-dark fs-5" th:text=${list.swimmingPoolNy}></span>
 	                                            수영장
                                             </li>
                                             <li class="list-item">

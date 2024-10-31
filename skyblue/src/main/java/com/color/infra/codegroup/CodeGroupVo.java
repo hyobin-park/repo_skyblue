@@ -1,5 +1,7 @@
 package com.color.infra.codegroup;
 
+import com.color.common.constants.Constants;
+
 public class CodeGroupVo {
 
 	private Integer shcgDelNy;
