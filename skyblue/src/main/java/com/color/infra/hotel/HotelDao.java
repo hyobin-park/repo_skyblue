@@ -27,4 +27,7 @@ public interface HotelDao {
 	//selectOneCount
 	public int selectOneCount(HotelVo hotelVo);
 	
+	// file 첨부
+	public void insertUploaded(HotelDto hotelDto);
+	
 }

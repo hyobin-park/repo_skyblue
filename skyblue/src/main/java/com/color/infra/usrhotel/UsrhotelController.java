@@ -94,6 +94,8 @@ public class UsrhotelController {
 		if(rtMember != null) {
 			CustomerDto rtMember2 = customerService.selectOneId(customerDto);
 			
+		 if(matchesBcrypt(customerDto.getPassword(), rtMember.getPassword(), 10)) {
+				
 			if(rtMember2 != null) {
 				//세션값 저장
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
@@ -107,6 +109,8 @@ public class UsrhotelController {
 				System.out.println("sessIdXdm: " + httpSession.getAttribute("sessIdXdm"));
 				System.out.println("sessNameXdm: " + httpSession.getAttribute("sessNameXdm"));
 			}
+		 } // matchesBcrypt end
+		 
 		} else {
 			returnMap.put("rt", "fail");			// 응답 실패 설정
 		}

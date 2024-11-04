@@ -75,7 +75,7 @@ label {
 								</div>
 								<div class="card-content">
 									<div class="card-body">
-										<form class="form" data-parsley-validate method="post" action="/v1/infra/hotel/hotelXdmInst">
+										<form class="form" data-parsley-validate method="post" enctype="multipart/form-data" action="/v1/infra/hotel/hotelXdmInst">
 											<!-- 2번째 row start -->
 											<div class="row">
 												<div class="col-md-3 col-12">
@@ -286,6 +286,17 @@ label {
 											<div class="row">
 												<div class="col-md-6 col-12">
 													<div class="form-group">
+														<label for="uploadFiles" class="form-label">파일첨부</label>
+														<input type="file" id="uploadFiles" name="uploadFiles" multiple class="form-control"/>
+														<div class="invalid-feedback" id="uploadFilesFeedback"></div>
+													</div>
+												</div>
+											</div>
+											<!-- 5번째 row end -->
+											<!-- 6번째 row start -->
+											<div class="row">
+												<div class="col-md-6 col-12">
+													<div class="form-group">
 														<label for="country-floating" class="form-label">설명</label>
 														<div class="form-group mb-3">
 															<textarea class="form-control" name="hotelDesc"
@@ -294,7 +305,7 @@ label {
 													</div>
 												</div>
 											</div>
-											<!-- 5번째 row end -->
+											<!-- 6번째 row end -->
 											<div class="row md-3">
 												<div class="col-md-6">
 													<button class="btn btn-sm btn-outline-dark">

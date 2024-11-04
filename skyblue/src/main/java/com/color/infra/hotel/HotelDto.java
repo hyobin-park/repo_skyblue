@@ -3,6 +3,7 @@ package com.color.infra.hotel;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class HotelDto {
 	
@@ -35,6 +36,26 @@ public class HotelDto {
 	private Integer price;
 	private String status;
 	private String Hotel_seq;
+	
+	// files
+	private MultipartFile uploadFile;
+	private MultipartFile[] uploadFiles;
+	private Integer seq;
+	private Integer type;
+	private Integer defaultNy;
+	private Integer sort;
+	private String path;
+	private String originalName;
+	private String uuidName;
+	private String ext;
+	private Integer size;
+	private Integer delNy;
+	private Integer pseq;
+	private String regIp;
+	private Integer regSeq;
+	private Integer regDeviceCd;
+	private Date regDateTime;
+	private Date regDateTimeSvr;
 	
 	
 	//	----- getter/setter -----
@@ -187,6 +208,114 @@ public class HotelDto {
 	}
 	public void setHotel_seq(String hotel_seq) {
 		Hotel_seq = hotel_seq;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public MultipartFile[] getUploadFiles() {
+		return uploadFiles;
+	}
+	public void setUploadFiles(MultipartFile[] uploadFiles) {
+		this.uploadFiles = uploadFiles;
+	}
+	public Integer getSeq() {
+		return seq;
+	}
+	public void setSeq(Integer seq) {
+		this.seq = seq;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+	public Integer getSort() {
+		return sort;
+	}
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getOriginalName() {
+		return originalName;
+	}
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getExt() {
+		return ext;
+	}
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+	public Integer getSize() {
+		return size;
+	}
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+	public Integer getPseq() {
+		return pseq;
+	}
+	public void setPseq(Integer pseq) {
+		this.pseq = pseq;
+	}
+	public String getRegIp() {
+		return regIp;
+	}
+	public void setRegIp(String regIp) {
+		this.regIp = regIp;
+	}
+	public Integer getRegSeq() {
+		return regSeq;
+	}
+	public void setRegSeq(Integer regSeq) {
+		this.regSeq = regSeq;
+	}
+	public Integer getRegDeviceCd() {
+		return regDeviceCd;
+	}
+	public void setRegDeviceCd(Integer regDeviceCd) {
+		this.regDeviceCd = regDeviceCd;
+	}
+	public Date getRegDateTime() {
+		return regDateTime;
+	}
+	public void setRegDateTime(Date regDateTime) {
+		this.regDateTime = regDateTime;
+	}
+	public Date getRegDateTimeSvr() {
+		return regDateTimeSvr;
+	}
+	public void setRegDateTimeSvr(Date regDateTimeSvr) {
+		this.regDateTimeSvr = regDateTimeSvr;
 	}
 	
 	
