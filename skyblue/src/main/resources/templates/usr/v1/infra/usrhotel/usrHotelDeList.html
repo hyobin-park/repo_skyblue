@@ -22,7 +22,102 @@
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/jquery-raty-js/lib/jquery.raty.css" rel="stylesheet">
+	<link href="/usr/v1/css/commonUsr.css" rel="stylesheet">
+
+	<style type="text/css">
+		.rating__input {
+			display: none; /* 라디오버튼 hide */
+		}
+		
+		.rating__label .star-icon {
+			width: 24px;
+			height: 24px;
+			display: block;
+			background-image: url("/usr/v1/template/booking_page/rentkit-html/assets/images/self/ico-star-empty.svg");
+			background-repeat: no-repeat;
+		}
+		.rating__label {
+			width: 12px; /* 원본 사이즈/2 */
+			overflow: hidden;
+			cursor: pointer;
+		}
+		.rating__label .star-icon {
+			width: 12px; /* 원본 사이즈/2 */
+			height: 24px;
+			display: block;
+			position: relative;
+			left: 0;
+			background-image: url("/usr/v1/template/booking_page/rentkit-html/assets/images/self/ico-star-empty.svg");
+			background-repeat: no-repeat;
+		}
+		
+		.wrap {
+		    height: 100vh;
+		    min-height: 400px;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-direction: column;
+		    gap: 32px;
+		}
+		.rating__label--full .star-icon {
+			background-position: right;
+		}
+		.rating__label--half .star-icon {
+			background-position: left;
+		}
+		
+		h1 {
+		    font-size: 40px;
+		    font-weight: 600;
+		}
+		
+		.rating {
+		    float: none;
+		    width: 200px;
+		    display: flex;
+		
+		    &__input {
+		        display: none;
+		    }
+		
+		    &__label {
+		        width: 20px;
+		        overflow: hidden;
+		        cursor: pointer;
+		
+		        .star-icon {
+		            width: 20px;
+		            height: 40px;
+		            display: block;
+		            position: relative;
+		            left: 0;
+		            background-image: url('https://velog.velcdn.com/images/jellykelly/post/9957327f-f358-4c25-9989-5bb3dd5755d6/image.svg');
+		            background-repeat: no-repeat;
+		            background-size: 40px;
+		          
+		            &.filled {
+		                background-image: url(' https://velog.velcdn.com/images/jellykelly/post/10caf033-b0ef-4d58-804b-6e33395e4ea5/image.svg');
+		            }
+		        }
+		
+		        &--full .star-icon {
+		            background-position: right;
+		        }
+		
+		        &--half .star-icon {
+		            background-position: left;
+		        }
+		    }
+		
+		    &.readonly {
+		        .star-icon {
+		            opacity: 0.7;
+		            cursor: default;
+		        }
+		    }
+		}
+	</style>
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
@@ -126,12 +221,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-spa me-2 text-dark  fs-5"></span>스파</li>
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-wifi me-2 text-dark  fs-5"></span>무료 와이파이</li>
-                                            <li class="list-item"><span
-                                                    class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>무료 주차
+                                            <li class="list-item">
+                                            	<span class="mdi mdi-spa me-2 text-dark  fs-5"></span>스파
+                                            </li>
+                                            <li class="list-item">
+                                            	<span class="mdi mdi-wifi me-2 text-dark  fs-5"></span>무료 와이파이
+                                            </li>
+                                            <li class="list-item">
+                                            	<span class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>무료 주차
                                             </li>
                                             <li class="list-item">
                                                 <span class="mdi mdi-air-filter me-2 text-dark fs-5"></span>냉/난방 시설
@@ -328,61 +425,106 @@
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="reviewtitle" class="form-label">제목
-                                        <span class="text-danger">*</span></label>
+                                        	<span class="text-danger">*</span>
+                                        </label>
                                         <input type="text" name="title" class="form-control" id="reviewtitle"
                                             aria-describedby="reviewtitle" placeholder="Write Review Title" required="">
                                     </div>
                                     <div class="col-md-12 mt-2">
                                         <h5>별점</h5>
                                     </div>
-                                    <div class="col-md-5 review-total mb-2">
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div>
-                                            	<span>전망/뷰</span>
-                                            </div>
-                                            <div>
-                                            	<span id="ratingstar1" class="rating-star-img"></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div>
-                                            	<span>보안</span>
-                                            </div>
-                                            <div>
-                                            	<span id="ratingstar2" class="rating-star-img"></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div>
-                                            	<span>위치</span>
-                                            </div>
-                                            <div>
-                                            	<span id="ratingstar3" class="rating-star-img"></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div>
-                                            	<span>부대시설</span>
-                                            </div>
-                                            <div>
-                                            	<span id="ratingstar4" class="rating-star-img"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="offset-md-1 col-md-5 review-total">
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div><span>직원 친절도</span></div>
-                                            <div><span id="ratingstar5" class="rating-star-img"></span></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div><span>숙소 청결 상태</span></div>
-                                            <div><span id="ratingstar6" class="rating-star-img"></span></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-sm">
-                                            <div><span>가격 대비 만족도</span></div>
-                                            <div><span id="ratingstar7" class="rating-star-img"></span></div>
-                                        </div>
-                                    </div>
+                                   <div class="wrap">
+								    <div class="rating">
+								        <label class="rating__label rating__label--half" for="starhalf">
+								            <input type="radio" id="starhalf" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--full" for="star1">
+								            <input type="radio" id="star1" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--half" for="star1half">
+								            <input type="radio" id="star1half" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--full" for="star2">
+								            <input type="radio" id="star2" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--half" for="star2half">
+								            <input type="radio" id="star2half" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--full" for="star3">
+								            <input type="radio" id="star3" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--half" for="star3half">
+								            <input type="radio" id="star3half" class="rating__input" name="rating" checked>
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--full" for="star4">
+								            <input type="radio" id="star4" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--half" for="star4half">
+								            <input type="radio" id="star4half" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								        <label class="rating__label rating__label--full" for="star5">
+								            <input type="radio" id="star5" class="rating__input" name="rating" value="">
+								            <span class="star-icon"></span>
+								        </label>
+								    </div>
+								</div>
+<!--                                     <div class="col-md-5 review-total mb-2"> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div> -->
+<!--                                             	<span>전망/뷰</span> -->
+<!--                                             </div> -->
+<!--                                             <div> -->
+<!--                                             	<span id="ratingstar1" class="rating-star-img"></span> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div> -->
+<!--                                             	<span>보안</span> -->
+<!--                                             </div> -->
+<!--                                             <div> -->
+<!--                                             	<span id="ratingstar2" class="rating-star-img"></span> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div> -->
+<!--                                             	<span>위치</span> -->
+<!--                                             </div> -->
+<!--                                             <div> -->
+<!--                                             	<span id="ratingstar3" class="rating-star-img"></span> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div> -->
+<!--                                             	<span>부대시설</span> -->
+<!--                                             </div> -->
+<!--                                             <div> -->
+<!--                                             	<span id="ratingstar4" class="rating-star-img"></span> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     <div class="offset-md-1 col-md-5 review-total"> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div><span>직원 친절도</span></div> -->
+<!--                                             <div><span id="ratingstar5" class="rating-star-img"></span></div> -->
+<!--                                         </div> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div><span>숙소 청결 상태</span></div> -->
+<!--                                             <div><span id="ratingstar6" class="rating-star-img"></span></div> -->
+<!--                                         </div> -->
+<!--                                         <div class="d-flex justify-content-between text-sm"> -->
+<!--                                             <div><span>가격 대비 만족도</span></div> -->
+<!--                                             <div><span id="ratingstar7" class="rating-star-img"></span></div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
                                     <div class="mb-3 col-12 mt-3">
                                         <label for="reviewdescription" class="form-label">후기</label>
                                         <textarea class="form-control" id="reviewdescription" rows="3"></textarea>
@@ -684,6 +826,7 @@
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+    <script src="/usr/v1/js/commonUsr.js"></script>
 
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
