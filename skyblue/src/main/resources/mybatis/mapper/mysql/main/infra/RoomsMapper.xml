@@ -7,9 +7,9 @@
 	
 	<sql id="selectCommon">
 		FROM
-			rooms d
+			rooms e
 		LEFT JOIN hotel c
-			ON d.Hotel_seq = c.hotelSeq
+			ON e.Hotel_seq = c.hotelSeq
 		WHERE 1=1
 			<if test="shRooms_delNy != null and !shRooms_delNy.equals('')">AND rooms_delNy = #{shRooms_delNy}</if>
 			<if test="shStatus != null and !shStatus.equals('')">AND status = #{shStatus}</if>
@@ -32,41 +32,41 @@
 	<select id="roomSelectList" resultMap="resultMapObj">
 		select aa.* from(
 		SELECT
-			d.roomSeq,
-		    d.roomType,
-		    d.price,
-		    d.status,
-		    d.roomDesc,
-		    d.rooms_delNy,
-		    d.roomRgDate,
-		    d.roomEditDate,
-		    d.Hotel_seq,
+			e.roomSeq,
+		    e.roomType,
+		    e.price,
+		    e.status,
+		    e.roomDesc,
+		    e.rooms_delNy,
+		    e.roomRgDate,
+		    e.roomEditDate,
+		    e.Hotel_seq,
 		    c.hotelName
 		<include refid="selectCommon"/>
 		ORDER BY
-			d.roomSeq DESC
+			e.roomSeq DESC
 		)aa
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
 	<select id="roomSelectOne" resultMap="resultMapObj">
 		SELECT
-			d.roomSeq,
-		    d.roomType,
-		    d.price,
-		    d.status,
-		    d.roomDesc,
-		    d.rooms_delNy,
-		    d.roomRgDate,
-		    d.roomEditDate,
-		    d.Hotel_seq,
+			e.roomSeq,
+		    e.roomType,
+		    e.price,
+		    e.status,
+		    e.roomDesc,
+		    e.rooms_delNy,
+		    e.roomRgDate,
+		    e.roomEditDate,
+		    e.Hotel_seq,
 		    c.hotelName
 		FROM
-			rooms d
+			rooms e
 		LEFT JOIN hotel c
-			ON d.Hotel_seq = c.hotelSeq
+			ON e.Hotel_seq = c.hotelSeq
 		WHERE 1=1
-			AND d.roomSeq = #{roomSeq}
+			AND e.roomSeq = #{roomSeq}
 	</select>
 	
 	<insert id="roomInsert">

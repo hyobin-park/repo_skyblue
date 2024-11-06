@@ -37,6 +37,21 @@ public class HotelDto {
 	private String status;
 	private String Hotel_seq;
 	
+	// reviews
+	private String reviewSeq;
+	private Integer reStars;
+    private String reTitle;
+    private String reDesc;
+    private Integer reDelNy;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date reRegDate;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date reEditDate;
+    private String Customer_seq;
+	
+    // customer
+    private String customerName;
+    
 	// files
 	private MultipartFile uploadFile;
 	private MultipartFile[] uploadFiles;
@@ -317,6 +332,59 @@ public class HotelDto {
 	public void setRegDateTimeSvr(Date regDateTimeSvr) {
 		this.regDateTimeSvr = regDateTimeSvr;
 	}
-	
+	public String getReviewSeq() {
+		return reviewSeq;
+	}
+	public void setReviewSeq(String reviewSeq) {
+		this.reviewSeq = reviewSeq;
+	}
+	public Integer getReStars() {
+		return reStars;
+	}
+	public void setReStars(Integer reStars) {
+		this.reStars = reStars;
+	}
+	public String getReTitle() {
+		return reTitle;
+	}
+	public void setReTitle(String reTitle) {
+		this.reTitle = reTitle;
+	}
+	public String getReDesc() {
+		return reDesc;
+	}
+	public void setReDesc(String reDesc) {
+		this.reDesc = reDesc;
+	}
+	public Integer getReDelNy() {
+		return reDelNy;
+	}
+	public void setReDelNy(Integer reDelNy) {
+		this.reDelNy = reDelNy;
+	}
+	public Date getReRegDate() {
+		return reRegDate;
+	}
+	public void setReRegDate(Date reRegDate) {
+		this.reRegDate = reRegDate;
+	}
+	public Date getReEditDate() {
+		return reEditDate;
+	}
+	public void setReEditDate(Date reEditDate) {
+		this.reEditDate = reEditDate;
+	}
+	public String getCustomer_seq() {
+		return Customer_seq;
+	}
+	public void setCustomer_seq(String customer_seq) {
+		Customer_seq = customer_seq;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 	
 }

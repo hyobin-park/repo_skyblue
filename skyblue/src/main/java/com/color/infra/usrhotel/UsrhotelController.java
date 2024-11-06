@@ -1,6 +1,7 @@
 package com.color.infra.usrhotel;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.color.common.constants.Constants;
 import com.color.infra.customer.CustomerDto;
 import com.color.infra.customer.CustomerService;
+import com.color.infra.hotel.HotelDto;
 import com.color.infra.hotel.HotelService;
 import com.color.infra.hotel.HotelVo;
 
@@ -59,7 +61,11 @@ public class UsrhotelController {
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelDeList")
 	public String usrHotelXdmDeList(HotelVo hotelVo, Model model) {
-		model.addAttribute("list", hotelService.hotelList(hotelVo));
+		model.addAttribute("list", hotelService.HotelDeList(hotelVo));
+		
+		//review
+		model.addAttribute("reviewList", hotelService.ReviewSelectList(hotelVo));
+		
 		return "/usr/v1/infra/usrhotel/usrHotelDeList";
 	}
 	

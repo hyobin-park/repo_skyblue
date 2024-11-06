@@ -30,4 +30,10 @@ public interface HotelDao {
 	// file 첨부
 	public void insertUploaded(HotelDto hotelDto);
 	
+	// ReviewSelectList
+	public List<HotelDto> ReviewSelectList(HotelVo hotelVo);
+	
+	// HotelDeList
+	public List<HotelDto> HotelDeList(HotelVo hotelVo);
+	
 }

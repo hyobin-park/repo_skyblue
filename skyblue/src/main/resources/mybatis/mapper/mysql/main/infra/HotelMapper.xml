@@ -181,5 +181,64 @@
 		WHERE 1=1
 			AND hotelSeq = #{hotelSeq}
 	</delete>
+	
+	<!-- HotelDeList -->
+	<select id="HotelDeList" resultMap="resultMapObj">
+		SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelZipCode,
+		    c.hotelAddress1,
+		    c.hotelAddress2,
+		    c.site,
+		    c.stars,
+		    c.swimmingPoolNy,
+		    c.fitnessCenterNy,
+		    c.roomServiceNy,
+		    c.spaNy,
+		    c.wifiNy,
+		    c.parkingNy,
+		    c.hvacNy,
+		    c.smokingAreaNy,
+		    c.petsNy,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc,
+		    c.hotelRgDate,
+		    c.hotelEditDate,
+		    d.roomType,
+    		d.price,
+    		d.status,
+    		d.Hotel_seq
+    	FROM
+    		hotel c
+		LEFT JOIN rooms d
+		ON c.hotelSeq = d.Hotel_seq
+		WHERE 1=1
+			AND c.hotelSeq = #{hotelSeq}
+		ORDER BY
+			d.price desc
+	</select>
+	
+	<!-- reviews -->
+	<select id="ReviewSelectList" resultMap="resultMapObj">
+		SELECT
+			c.hotelSeq,
+			c.hotelName,
+		    d.customerName,
+		    f.reStars,
+		    f.reTitle,
+		    f.reDesc,
+		    f.reDelNy,
+		    f.reRegDate,
+		    f.reEditDate,
+		    f.Customer_seq,
+		    f.Hotel_seq
+		FROM reviews f
+		LEFT JOIN hotel c
+			ON f.Hotel_seq = c.hotelSeq
+		LEFT JOIN customer d
+			ON f.Customer_seq = d.customerSeq
+	</select>
 	  
 </mapper>
