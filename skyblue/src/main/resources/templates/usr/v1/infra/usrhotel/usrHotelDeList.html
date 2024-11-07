@@ -25,7 +25,7 @@
 	
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
-    <title>Signiel Hotel - Seoul</title>
+    <title>Hotels</title>
 
 </head>
 
@@ -59,8 +59,8 @@
         <div class="py-6">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-8 col-md-12 col-12" th:each="list : ${list}">
-                        <div class="card mb-4">
+                    <div class="col-xl-8 col-lg-8 col-md-12 col-12">
+                        <div class="card mb-4" th:each="list : ${list}">
                             <!-- listing detail head -->
                             <div class="card-body p-4">
                                 <h2 class="mb-2" th:text="${list.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
@@ -84,65 +84,73 @@
                                     </span>
                                 </div>
                             </div>
-                            <!-- listing detail head -->
                         </div>
+                        <!-- listing detail head -->
                         <!-- listing detail -->
-                        <div class="card mb-4">
+                        <div class="card mb-4" th:each="list : ${list}">
                             <div class="card-body p-4">
                                 <h4>소개</h4>
-                                <p> 시그니엘은 진심 어린 서비스, 인상적인 순간들로 기대보다 더 큰 경험을 제공합니다.</p>
-                                <p class="mb-0">단순히 여행이나 출장을 위해 머무르는 곳이 아닌 여행의 목적지이자 새로운 미각 여행이 시작되는 공간입니다.
-                                    편안한 휴식을 선사하는 우아한 객실, 최상급 외식문화를 경험하는 최고급 레스토랑
-                                    그리고 마음까지 치유하는 테라퓨틱 스파에서 진정한 여유를 누릴 수 있습니다.</p>
-                                <p class="mb-0">서비스를 넘어, 기대를 넘어 일생에 한 번 머물고 싶은 곳이 되는 것이 시그니엘의 목표입니다.</p>
+                                <p th:text="${list.hotelDesc}"> 시그니엘은 진심 어린 서비스, 인상적인 순간들로 기대보다 더 큰 경험을 제공합니다.</p>
                             </div>
                         </div>
                         <!-- listing detail -->
                         <!-- listing detail -->
-                        <div class="card mb-4">
+                        <div class="card mb-4" th:each="list : ${list}">
                             <div class="card-body p-4">
                                 <h4 class="mb-3">편의시설</h4>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
                                             <li class="list-item">
-	                                            <span class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>
-	                                            피트니스 센터
+                                            	<span th:if=${list.fitnessCenterNy==0}></span>
+	                                            <span th:if=${list.fitnessCenterNy==1} class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.fitnessCenterNy==1}>피트니스 센터</span>
                                             </li>
                                             <li class="list-item">
-	                                            <span class="mdi mdi-pool me-2 text-dark fs-5" th:text=${list.swimmingPoolNy}></span>
-	                                            수영장
+                                            	<span th:if=${list.swimmingPoolNy==0}></span>
+	                                            <span th:if=${list.swimmingPoolNy==1} class="mdi mdi-pool me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.swimmingPoolNy==1}>수영장</span>
                                             </li>
                                             <li class="list-item">
-	                                            <span class="mdi mdi-silverware-fork-knife me-2 text-dark fs-5"></span>
-	                                            레스토랑/바
+                                            	<span th:if=${list.roomServiceNy==0}></span>
+	                                            <span th:if=${list.roomServiceNy==1} class="mdi mdi-room-service me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.roomServiceNy==1}>룸서비스</span>
 	                                        </li>
                                             <li class="list-item">
-	                                            <span class="mdi mdi-room-service me-2 text-dark  fs-5"></span>
-	                                            룸서비스
+                                            	<span th:if=${list.spaNy==0}></span>
+	                                            <span th:if=${list.spaNy==1} class="mdi mdi-spa me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.spaNy==1}>스파</span>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
                                             <li class="list-item">
-                                            	<span class="mdi mdi-spa me-2 text-dark  fs-5"></span>스파
+                                            	<span th:if=${list.wifiNy==0}></span>
+	                                            <span th:if=${list.wifiNy==1} class="mdi mdi-wifi me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.wifiNy==1}>무료 와이파이</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span class="mdi mdi-wifi me-2 text-dark  fs-5"></span>무료 와이파이
+                                            	<span th:if=${list.parkingNy==0}></span>
+	                                            <span th:if=${list.parkingNy==1} class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.parkingNy==1}>무료 주차</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>무료 주차
+                                            	<span th:if=${list.hvacNy==0}></span>
+	                                            <span th:if=${list.hvacNy==1} class="mdi mdi-air-filter me-2 text-dark fs-5"></span>
+	                                            <span th:if=${list.hvacNy==1}>냉/난방 시설</span>
                                             </li>
                                             <li class="list-item">
-                                                <span class="mdi mdi-air-filter me-2 text-dark fs-5"></span>냉/난방 시설
+                                            	<span th:if=${list.smokingAreaNy==0}></span>
+	                                            <span th:if=${list.smokingAreaNy==1} class="bi bi-house"></span>
+	                                            <span th:if=${list.smokingAreaNy==1}>흡연구역</span>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- listing detail -->
+                    <!-- listing detail -->
                     <!-- listing detail -->
                     <div class="card mb-4">
                      <div class="card-body p-4">
@@ -171,23 +179,23 @@
                         </div>
                         <!--  review start -->
                         <div class="row">
-                           <div class="col-md-12 mb-5" th:each="list : ${reviewList}">
+                           <div class="col-md-12 mb-5" th:each="reviewList : ${reviewList}">
                               <div class="row">
                                  <div class="col-md-3">
                                     <div>
                                        <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/customer_3.png"
                                           alt="Rentkit Directory & Listing Bootstrap 5 Theme" class="avatar-md avatar rounded-circle mb-3">
-                                       <h5 class="mb-n1" th:text="${list.customerName}">회원이름</h5>
-                                       <small th:text="${#dates.format(list?.reRegDate, 'yyyy-MM-dd')}">리뷰등록일</small>
+                                       <h5 class="mb-n1" th:text="${reviewList.customerName}">회원이름</h5>
+                                       <small th:text="${#dates.format(reviewList?.reRegDate, 'yyyy-MM-dd')}">리뷰등록일</small>
                                     </div>
                                  </div>
                                  <div class="col-md-9">
                                     <div>
-                                       <h5 class="fw-bold mb-2" th:text="${list.reTitle}">리뷰제목</h5>
-                                       <p th:text="${list.reDesc}">
+                                       <h5 class="fw-bold mb-2" th:text="${reviewList.reTitle}">리뷰제목</h5>
+                                       <p th:text="${reviewList.reDesc}">
                                           리뷰내용
                                        </p>
-                                       <span th:each="i : ${#numbers.sequence(1, list.reStars)}" class="mdi mdi-star text-primary"></span>
+                                       <span th:each="i : ${#numbers.sequence(1, reviewList.reStars)}" class="mdi mdi-star text-primary"></span>
                                     </div>
                                  </div>
                               </div>

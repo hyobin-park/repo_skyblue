@@ -90,13 +90,13 @@ public class HotelService {
 	}
 	
 	// ReviewSelectList
-	public List<HotelDto> ReviewSelectList(HotelVo hotelVo) {
-		return hotelDao.ReviewSelectList(hotelVo);
+	public List<HotelDto> ReviewSelectList(HotelDto hotelDto) {
+		return hotelDao.ReviewSelectList(hotelDto);
 	}
 	
 	// HotelDeList
-	public List<HotelDto> HotelDeList(HotelVo hotelVo) {
-		return hotelDao.HotelDeList(hotelVo);
+	public List<HotelDto> HotelDeList(HotelDto hotelDto) {
+		return hotelDao.HotelDeList(hotelDto);
 	}
 	
 }

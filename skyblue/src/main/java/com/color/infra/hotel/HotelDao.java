@@ -31,9 +31,9 @@ public interface HotelDao {
 	public void insertUploaded(HotelDto hotelDto);
 	
 	// ReviewSelectList
-	public List<HotelDto> ReviewSelectList(HotelVo hotelVo);
+	public List<HotelDto> ReviewSelectList(HotelDto hotelDto);
 	
 	// HotelDeList
-	public List<HotelDto> HotelDeList(HotelVo hotelVo);
+	public List<HotelDto> HotelDeList(HotelDto hotelDto);
 	
 }

@@ -60,15 +60,16 @@ public class UsrhotelController {
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelDeList")
-	public String usrHotelXdmDeList(HotelVo hotelVo, Model model) {
-		model.addAttribute("list", hotelService.HotelDeList(hotelVo));
+	public String usrHotelXdmDeList(HotelDto hotelDto, Model model) {
+		
+		model.addAttribute("list", hotelService.HotelDeList(hotelDto));
 		
 		//review
-		model.addAttribute("reviewList", hotelService.ReviewSelectList(hotelVo));
+		model.addAttribute("reviewList", hotelService.ReviewSelectList(hotelDto));
 		
 		return "/usr/v1/infra/usrhotel/usrHotelDeList";
 	}
-	
+		
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelInst")
 	public String usrHotelXdmInst(CustomerDto customerDto) {
 		
