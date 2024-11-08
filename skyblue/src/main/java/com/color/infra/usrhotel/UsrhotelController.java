@@ -63,6 +63,7 @@ public class UsrhotelController {
 	public String usrHotelXdmDeList(HotelDto hotelDto, Model model) {
 		
 		model.addAttribute("list", hotelService.HotelDeList(hotelDto));
+		model.addAttribute("item", hotelService.HotelDeListOne(hotelDto));
 		
 		//review
 		model.addAttribute("reviewList", hotelService.ReviewSelectList(hotelDto));

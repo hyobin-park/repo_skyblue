@@ -187,7 +187,6 @@ td {
 														<th>주차</th>
 														<th>냉난방</th>
 														<th>흡연구역</th>
-														<th>애완동물</th>
 														<th>삭제여부</th>
 														<th>사용여부</th>
 														<th>등록일</th>
@@ -227,8 +226,6 @@ td {
 														<td th:unless="${list.hvacNy eq 0}">Y</td>
 														<td th:if="${list.smokingAreaNy eq 0}">N</td>
 														<td th:unless="${list.smokingAreaNy eq 0}">Y</td>
-														<td th:if="${list.petsNy eq 0}">N</td>
-														<td th:unless="${list.petsNy eq 0}">Y</td>
 														<td th:if="${list.hotel_delNy eq 0}">N</td>
 														<td th:unless="${list.hotel_delNy eq 0}">Y</td>
 														<td th:if="${list.hotel_useNy eq 0}">N</td>

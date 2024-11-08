@@ -209,15 +209,73 @@
 		    d.roomType,
     		d.price,
     		d.status,
-    		d.Hotel_seq
-    	FROM
-    		hotel c
+    		d.Hotel_seq,
+    		g.minPrice
+		FROM
+			hotel c
 		LEFT JOIN rooms d
 			ON c.hotelSeq = d.Hotel_seq
+		LEFT JOIN
+			(SELECT 
+		      Hotel_seq, MIN(price) AS minPrice
+			FROM  
+		      rooms
+		   GROUP BY Hotel_seq
+		   ) as g
+			ON c.hotelSeq = g.Hotel_seq
+<!--     	FROM -->
+<!--     		hotel c -->
+<!-- 		LEFT JOIN rooms d -->
+<!-- 			ON c.hotelSeq = d.Hotel_seq -->
 		WHERE 1=1
 			AND c.hotelSeq = #{hotelSeq}
-		ORDER BY
-			d.price desc
+<!-- 		ORDER BY -->
+<!-- 			d.price desc -->
+	</select>
+	
+	<!-- HotelDeListOne -->
+	<select id="HotelDeListOne" resultMap="resultMapObj">
+		SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelZipCode,
+		    c.hotelAddress1,
+		    c.hotelAddress2,
+		    c.site,
+		    c.stars,
+		    c.swimmingPoolNy,
+		    c.fitnessCenterNy,
+		    c.roomServiceNy,
+		    c.spaNy,
+		    c.wifiNy,
+		    c.parkingNy,
+		    c.hvacNy,
+		    c.smokingAreaNy,
+		    c.petsNy,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc,
+		    c.hotelRgDate,
+		    c.hotelEditDate,
+		    d.roomType,
+    		d.price,
+    		d.status,
+    		d.Hotel_seq,
+    		g.minPrice
+		FROM
+			hotel c
+		LEFT JOIN rooms d
+			ON c.hotelSeq = d.Hotel_seq
+		LEFT JOIN
+			(SELECT 
+		      Hotel_seq, MIN(price) AS minPrice
+			FROM  
+		      rooms
+		   GROUP BY Hotel_seq
+		   ) as g
+			ON c.hotelSeq = g.Hotel_seq
+		WHERE 1=1
+			AND c.hotelSeq = #{hotelSeq}
 	</select>
 	
 	<!-- reviews -->
@@ -240,5 +298,42 @@
 		LEFT JOIN customer d
 			ON f.Customer_seq = d.customerSeq
 	</select>
-	  
+	
+	<!-- upload files -->
+	<insert id="insertUploaded">
+		INSERT INTO CustomerUploaded (
+			upType,
+		    upDefaultNy,
+		    upSort,
+		    upPath,
+		    upOriginalName,
+		    upUuidName,
+		    upExt,
+		    upSize,
+		    upDelNy,
+		    upCusSeq,
+		    upRegIp,
+		    upRegSeq,
+		    upRegDeviceCd,
+		    upRegDateTime,
+		    upRegDateTimeSvr
+		) VALUES (
+			#{upType},
+		    #{upDefaultNy},
+		    #{upSort},
+		    #{upPath},
+		    #{upOriginalName},
+		    #{upUuidName},
+		    #{upExt},
+		    #{upSize},
+		    0,
+		    7,
+		    #{upRegIp},
+		    #{upRegSeq},
+		    #{upRegDeviceCd},
+		    #{upRegDateTime},
+		    #{upRegDateTimeSvr}
+		)
+	</insert>
+	
 </mapper>

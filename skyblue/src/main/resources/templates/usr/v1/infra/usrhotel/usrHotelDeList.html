@@ -63,7 +63,7 @@
                         <div class="card mb-4" th:each="list : ${list}">
                             <!-- listing detail head -->
                             <div class="card-body p-4">
-                                <h2 class="mb-2" th:text="${list.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
+                                <h2 class="mb-2" th:text="${item.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
                                 <p class="mb-4 fs-6" th:text="${list.hotelAddress1}">서울, 대한민국</p>
                                 <div class="text-sm">
                                     <span class="me-2">
@@ -141,8 +141,9 @@
 	                                            <span th:if=${list.hvacNy==1}>냉/난방 시설</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.smokingAreaNy==0}></span>
-	                                            <span th:if=${list.smokingAreaNy==1} class="bi bi-house"></span>
+                                            	<span th:if=${list.smokingAreaNy==0} class="mdi mdi-smoking-off me-2 text-dark fs-5"></span>
+                                            	<span th:if=${list.smokingAreaNy==0}>금연구역</span>
+	                                            <span th:if=${list.smokingAreaNy==1} class="mdi mdi-smoking me-2 text-dark fs-5"></span>
 	                                            <span th:if=${list.smokingAreaNy==1}>흡연구역</span>
                                             </li>
                                         </ul>
@@ -307,10 +308,10 @@
                         </div>
                         <!-- listing detail -->
                         <!-- listing detail -->
-                        <div class="card mb-4">
+                        <div class="card mb-4" th:each="list : ${list}">
                             <div class="card-body p-4">
                                 <h4 class="mb-1">위치</h4>
-                                <p>올림픽로 300, 송파, 서울, 대한민국, 05551</p>
+                                <p th:text="${list.hotelAddress1}">올림픽로 300, 송파, 서울, 대한민국, 05551</p>
                                 <div id="detailMap" class="listing-map"></div>
                             </div>
                         </div>
@@ -320,10 +321,12 @@
                         <!-- listing detail -->
                         <div>
                             <!-- listing widget -->
-                            <div class="card mb-4 ">
+                            <div class="card mb-4" th:each="list : ${list}">
                                 <div class="card-body p-4">
                                     <div class="d-flex align-items-center mb-3">
-                                        <h3 class="fw-bold">₩404,000~</h3><small class="text-muted ms-2">/ 박</small>
+                                        <h3 class="fw-bold" th:text="'₩' + ${#numbers.formatInteger(list.minPrice, 0, 'COMMA')} + '~'"></h3>
+<!--                                         <h3 class="fw-bold" th:text="'₩' + (${list.minPrice} != null ? ${list.minPrice} : '0') + '~'"></h3> -->
+                                        <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
                                         <form>
@@ -355,7 +358,7 @@
                             </div>
                             <!-- listing widget -->
                             <!-- listing widget -->
-                            <div class="card mb-4">
+                            <div class="card mb-4" th:each="list : ${list}">
                                 <div class="card-body p-4">
                                     <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span><b>
                                             객실</b></h5>
@@ -366,15 +369,15 @@
                                             alt="Rentkit Directory & Listing Bootstrap 5 Theme"
                                             style="height: 5.5cm; width: 8cm">
                                         </div>
-                                        <h5 class="mb-2">프리미어 트윈 (Premier Twin)</h5>
+                                        <h5 class="mb-2" th:text="${list.roomType}">프리미어 트윈 (Premier Twin)</h5>
                                         <small><i class="mdi mdi-bed text-primary"></i> 싱글베드 2개
                                             <br><i class="mdi mdi-account-multiple text-primary"></i> 인원 : 성인 2명 + 아동 1명
-                                            <br><i class="mdi mdi-city text-primary"></i> 시내 전망
+                                            <br><i class="mdi mdi-city text-primary" th:text="${list.site}"></i> 시내 전망
                                         </small>
                                     </div>
                                 </div>
                                 <div class="border-top card-body p-4 text-center">  
-                                    <p><b>1박 당 요금: <span class="text-primary">₩ 550,000</b></span>
+                                    <p><b>1박 당 요금: <span class="text-primary" th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></b></span>
                                         <br>(세금 및 수수료 포함)</p>
                                     <div class="d-grid mx-8">
                                         <a href="#" class="btn btn-dark">예약하기</a>
@@ -382,32 +385,6 @@
                                 </div>
                             </div>
                             <!-- listing widget -->
-                            <div class="card mb-4">
-                                <div class="card-body p-4">
-                                    <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span><b>
-                                            객실</b></h5>
-                                    <div class="text-center mt-4">
-                                        <div>
-                                            <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/lottehotel_proom_2.jpg"
-                                            class="img-fluid rounded-3 mb-2"
-                                            alt="Rentkit Directory & Listing Bootstrap 5 Theme"
-                                            style="height: 5.5cm; width: 8cm">
-                                        </div>
-                                        <h5 class="mb-2">프레지덴셜 스위트 (Presidential Suite)</h5>
-                                        <small><i class="mdi mdi-bed text-primary"></i> 더블베드 1개 또는 싱글베드 1개
-                                            <br><i class="mdi mdi-account-multiple text-primary"></i> 인원 : 성인 2명 + 아동 1명
-                                            <br><i class="mdi mdi-city text-primary"></i> 시내 전망
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="border-top card-body p-4 text-center">  
-                                    <p><b>1박 당 요금: <span class="text-primary">₩ 7,995,000</b></span>
-                                        <br>(세금 및 수수료 포함)</p>
-                                    <div class="d-grid mx-8">
-                                        <a href="#" class="btn btn-dark">예약하기</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

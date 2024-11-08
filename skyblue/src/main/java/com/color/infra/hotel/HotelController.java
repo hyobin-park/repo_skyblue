@@ -39,8 +39,9 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmInst")
-	public String hotelXdmInst(HotelDto hotelDto) {
-		hotelService.hotelInsert(hotelDto);
+	public String hotelXdmInst(HotelDto hotelDto) throws Exception {
+		System.out.println("insert 해유~");
+		hotelService.hotelInsert(hotelDto, 0);
 		return "redirect:/v1/infra/hotel/hotelXdmList";
 	}
 	

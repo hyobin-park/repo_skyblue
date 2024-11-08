@@ -30,6 +30,7 @@ public class HotelDto {
 	private Date hotelRgDate;
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date hotelEditDate;
+	private Integer minPrice;
 	
 	// rooms
 	private String roomType;
@@ -55,22 +56,22 @@ public class HotelDto {
 	// files
 	private MultipartFile uploadFile;
 	private MultipartFile[] uploadFiles;
-	private Integer seq;
-	private Integer type;
-	private Integer defaultNy;
-	private Integer sort;
-	private String path;
-	private String originalName;
-	private String uuidName;
-	private String ext;
-	private Integer size;
-	private Integer delNy;
-	private Integer pseq;
-	private String regIp;
-	private Integer regSeq;
-	private Integer regDeviceCd;
-	private Date regDateTime;
-	private Date regDateTimeSvr;
+	private Integer upSeq;
+	private Integer upType;
+	private Integer upDefaultNy;
+	private Integer upSort;
+	private String upPath;
+	private String upOriginalName;
+	private String upUuidName;
+	private String upExt;
+	private Long upSize;
+	private Integer upDelNy;
+	private Integer upCusSeq;
+	private String upRegIp;
+	private Integer upRegSeq;
+	private Integer upRegDeviceCd;
+	private Date upRegDateTime;
+	private Date upRegDateTimeSvr;
 	
 	
 	//	----- getter/setter -----
@@ -236,102 +237,6 @@ public class HotelDto {
 	public void setUploadFiles(MultipartFile[] uploadFiles) {
 		this.uploadFiles = uploadFiles;
 	}
-	public Integer getSeq() {
-		return seq;
-	}
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
-	public Integer getDefaultNy() {
-		return defaultNy;
-	}
-	public void setDefaultNy(Integer defaultNy) {
-		this.defaultNy = defaultNy;
-	}
-	public Integer getSort() {
-		return sort;
-	}
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
-	public String getPath() {
-		return path;
-	}
-	public void setPath(String path) {
-		this.path = path;
-	}
-	public String getOriginalName() {
-		return originalName;
-	}
-	public void setOriginalName(String originalName) {
-		this.originalName = originalName;
-	}
-	public String getUuidName() {
-		return uuidName;
-	}
-	public void setUuidName(String uuidName) {
-		this.uuidName = uuidName;
-	}
-	public String getExt() {
-		return ext;
-	}
-	public void setExt(String ext) {
-		this.ext = ext;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	public Integer getDelNy() {
-		return delNy;
-	}
-	public void setDelNy(Integer delNy) {
-		this.delNy = delNy;
-	}
-	public Integer getPseq() {
-		return pseq;
-	}
-	public void setPseq(Integer pseq) {
-		this.pseq = pseq;
-	}
-	public String getRegIp() {
-		return regIp;
-	}
-	public void setRegIp(String regIp) {
-		this.regIp = regIp;
-	}
-	public Integer getRegSeq() {
-		return regSeq;
-	}
-	public void setRegSeq(Integer regSeq) {
-		this.regSeq = regSeq;
-	}
-	public Integer getRegDeviceCd() {
-		return regDeviceCd;
-	}
-	public void setRegDeviceCd(Integer regDeviceCd) {
-		this.regDeviceCd = regDeviceCd;
-	}
-	public Date getRegDateTime() {
-		return regDateTime;
-	}
-	public void setRegDateTime(Date regDateTime) {
-		this.regDateTime = regDateTime;
-	}
-	public Date getRegDateTimeSvr() {
-		return regDateTimeSvr;
-	}
-	public void setRegDateTimeSvr(Date regDateTimeSvr) {
-		this.regDateTimeSvr = regDateTimeSvr;
-	}
 	public String getReviewSeq() {
 		return reviewSeq;
 	}
@@ -385,6 +290,108 @@ public class HotelDto {
 	}
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
+	}
+	public Integer getMinPrice() {
+		return minPrice;
+	}
+	public void setMinPrice(Integer minPrice) {
+		this.minPrice = minPrice;
+	}
+	public Integer getUpSeq() {
+		return upSeq;
+	}
+	public void setUpSeq(Integer upSeq) {
+		this.upSeq = upSeq;
+	}
+	public Integer getUpType() {
+		return upType;
+	}
+	public void setUpType(Integer upType) {
+		this.upType = upType;
+	}
+	public Integer getUpDefaultNy() {
+		return upDefaultNy;
+	}
+	public void setUpDefaultNy(Integer upDefaultNy) {
+		this.upDefaultNy = upDefaultNy;
+	}
+	public Integer getUpSort() {
+		return upSort;
+	}
+	public void setUpSort(Integer upSort) {
+		this.upSort = upSort;
+	}
+	public String getUpPath() {
+		return upPath;
+	}
+	public void setUpPath(String upPath) {
+		this.upPath = upPath;
+	}
+	public String getUpOriginalName() {
+		return upOriginalName;
+	}
+	public void setUpOriginalName(String upOriginalName) {
+		this.upOriginalName = upOriginalName;
+	}
+	public String getUpUuidName() {
+		return upUuidName;
+	}
+	public void setUpUuidName(String upUuidName) {
+		this.upUuidName = upUuidName;
+	}
+	public String getUpExt() {
+		return upExt;
+	}
+	public void setUpExt(String upExt) {
+		this.upExt = upExt;
+	}
+	public Long getUpSize() {
+		return upSize;
+	}
+	public void setUpSize(Long upSize) {
+		this.upSize = upSize;
+	}
+	public Integer getUpDelNy() {
+		return upDelNy;
+	}
+	public void setUpDelNy(Integer upDelNy) {
+		this.upDelNy = upDelNy;
+	}
+	public Integer getUpCusSeq() {
+		return upCusSeq;
+	}
+	public void setUpCusSeq(Integer upCusSeq) {
+		this.upCusSeq = upCusSeq;
+	}
+	public String getUpRegIp() {
+		return upRegIp;
+	}
+	public void setUpRegIp(String upRegIp) {
+		this.upRegIp = upRegIp;
+	}
+	public Integer getUpRegSeq() {
+		return upRegSeq;
+	}
+	public void setUpRegSeq(Integer upRegSeq) {
+		this.upRegSeq = upRegSeq;
+	}
+	public Integer getUpRegDeviceCd() {
+		return upRegDeviceCd;
+	}
+	public void setUpRegDeviceCd(Integer upRegDeviceCd) {
+		this.upRegDeviceCd = upRegDeviceCd;
+	}
+	public Date getUpRegDateTime() {
+		return upRegDateTime;
+	}
+	public void setUpRegDateTime(Date upRegDateTime) {
+		this.upRegDateTime = upRegDateTime;
+	}
+	public Date getUpRegDateTimeSvr() {
+		return upRegDateTimeSvr;
+	}
+	public void setUpRegDateTimeSvr(Date upRegDateTimeSvr) {
+		this.upRegDateTimeSvr = upRegDateTimeSvr;
 	}
 	
 }
