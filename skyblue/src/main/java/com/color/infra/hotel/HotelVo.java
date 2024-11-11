@@ -4,6 +4,7 @@ import com.color.common.constants.Constants;
 
 public class HotelVo {
 	
+//	private String hotelSeq;
 	private Integer shtelDelNy;
 	private Integer shtelUseNy;
 	private Integer shOption;
@@ -24,6 +25,14 @@ public class HotelVo {
 	private int startRnumForMysql = 0;							// 쿼리 시작 row
 
 	// ----- getter/setter -----
+//	public String getHotelSeq() {
+//		return hotelSeq;
+//	}
+//
+//	public void setHotelSeq(String hotelSeq) {
+//		this.hotelSeq = hotelSeq;
+//	}
+	
 	public Integer getShtelDelNy() {
 		return shtelDelNy;
 	}

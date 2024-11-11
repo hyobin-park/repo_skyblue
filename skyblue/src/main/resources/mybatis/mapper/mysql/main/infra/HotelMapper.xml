@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.color.infra.hotel.HotelDao">
 
 	<resultMap type="com.color.infra.hotel.HotelDto" id="resultMapObj"></resultMap>
@@ -8,9 +7,73 @@
 	<sql id="selectCommon">
 		FROM
 			hotel c
-		LEFT JOIN rooms d
-		ON c.hotelSeq = d.Hotel_seq
-		WHERE 1=1
+		LEFT JOIN
+			(SELECT
+				Hotel_seq,
+				roomSeq,
+				roomType,
+				price,
+				status,
+				roomDesc
+				ROW_NUMBER() OVER (PARTITION BY hotel_seq ORDER BY price) AS rn
+			FROM
+				rooms
+			) as e
+		ON c.hotelSeq = e.Hotel_seq AND e.rn = 1
+		LEFT JOIN
+			(SELECT
+				hotel_seq, MIN(price) AS minPrice
+			FROM
+				rooms
+			GROUP BY hotel_seq
+			) as g
+		ON c.hotelSeq = g.Hotel_seq
+		
+		
+		FROM 
+			hotel as a
+		LEFT JOIN  
+			(SELECT 
+				hotel_seq,
+				htrseq,
+				htrRoomName,
+				htrRoomPrice,
+				htrStay,
+				bedoption,
+				aircondNy,
+				bathNy,
+				tvNy,
+				wifiNy,
+				coffeeNy,
+				ROW_NUMBER() OVER (PARTITION BY hotel_seq ORDER BY htrRoomPrice) AS rn
+			 FROM 
+				hotelroom
+			) as b
+		ON a.htseq = b.hotel_seq AND b.rn = 1
+		LEFT JOIN
+			(SELECT 
+				hotel_seq, MIN(htrRoomPrice) AS minPrice
+			 FROM   
+				hotelroom
+			 GROUP BY hotel_seq
+			) as c	  
+		ON a.htseq = c.hotel_seq
+<!-- 		LEFT JOIN  -->
+<!-- 			(SELECT  -->
+<!-- 				hotel_seq, -->
+<!-- 				AVG(htrestars) AS average_star, -->
+<!--        			COUNT(*) AS review_count -->
+<!-- 	 	     FROM -->
+<!-- 				hotelreview -->
+<!--     			GROUP BY hotel_seq -->
+<!--     		) AS avg_table  -->
+<!-- 				ON a.htseq = avg_table.hotel_seq -->
+<!-- 			where 1=1 -->
+<!-- 				AND a.htseq = htseq -->
+<!-- 		FROM -->
+<!-- 			hotel c -->
+<!-- 		LEFT JOIN rooms e -->
+<!-- 			ON c.hotelSeq = e.Hotel_seq -->
 		<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
 		<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
 		<choose>
@@ -22,11 +85,6 @@
 			<when test="shOption == 2">AND hotelName LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 	</sql>
-	
-	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
-		<include refid="selectCommon"/>
-	</select>
 	
 	<select id="hotelList" resultMap="resultMapObj">
 		select aa.* from (
@@ -52,15 +110,22 @@
 		    c.hotelDesc,
 		    c.hotelRgDate,
 		    c.hotelEditDate,
-		    d.roomType,
-    		d.price,
-    		d.status,
-    		d.Hotel_seq
+		    e.roomType,
+    		e.price,
+    		e.status,
+    		e.Hotel_seq
 		<include refid="selectCommon"/>
+<!-- 		WHERE 1=1 -->
+<!-- 			AND c.hotelSeq = #{hotelSeq} -->
 		ORDER BY
 			c.hotelSeq DESC
 		) aa
 		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon"/>
 	</select>
 	
 	<insert id="hotelInsert">
@@ -206,31 +271,25 @@
 		    c.hotelDesc,
 		    c.hotelRgDate,
 		    c.hotelEditDate,
-		    d.roomType,
-    		d.price,
-    		d.status,
-    		d.Hotel_seq,
+		    e.roomType,
+    		e.price,
+    		e.status,
+    		e.Hotel_seq,
     		g.minPrice
 		FROM
 			hotel c
-		LEFT JOIN rooms d
-			ON c.hotelSeq = d.Hotel_seq
+		LEFT JOIN rooms e
+			ON c.hotelSeq = e.Hotel_seq
 		LEFT JOIN
-			(SELECT 
+			(SELECT
 		      Hotel_seq, MIN(price) AS minPrice
-			FROM  
+			FROM
 		      rooms
 		   GROUP BY Hotel_seq
 		   ) as g
 			ON c.hotelSeq = g.Hotel_seq
-<!--     	FROM -->
-<!--     		hotel c -->
-<!-- 		LEFT JOIN rooms d -->
-<!-- 			ON c.hotelSeq = d.Hotel_seq -->
 		WHERE 1=1
 			AND c.hotelSeq = #{hotelSeq}
-<!-- 		ORDER BY -->
-<!-- 			d.price desc -->
 	</select>
 	
 	<!-- HotelDeListOne -->
@@ -257,15 +316,15 @@
 		    c.hotelDesc,
 		    c.hotelRgDate,
 		    c.hotelEditDate,
-		    d.roomType,
-    		d.price,
-    		d.status,
-    		d.Hotel_seq,
+		    e.roomType,
+    		e.price,
+    		e.status,
+    		e.Hotel_seq,
     		g.minPrice
 		FROM
 			hotel c
-		LEFT JOIN rooms d
-			ON c.hotelSeq = d.Hotel_seq
+		LEFT JOIN rooms e
+			ON c.hotelSeq = e.Hotel_seq
 		LEFT JOIN
 			(SELECT 
 		      Hotel_seq, MIN(price) AS minPrice
