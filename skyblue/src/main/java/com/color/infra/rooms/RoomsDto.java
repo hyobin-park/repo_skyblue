@@ -17,6 +17,8 @@ public class RoomsDto {
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date roomEditDate;
 	private String Hotel_seq;
+	private String bedType;
+	private Integer PeopleStay;
 	
 	// Hotel
 	private String hotelName;
@@ -81,6 +83,18 @@ public class RoomsDto {
 	}
 	public void setHotelName(String hotelName) {
 		this.hotelName = hotelName;
+	}
+	public String getBedType() {
+		return bedType;
+	}
+	public void setBedType(String bedType) {
+		this.bedType = bedType;
+	}
+	public Integer getPeopleStay() {
+		return PeopleStay;
+	}
+	public void setPeopleStay(Integer peopleStay) {
+		PeopleStay = peopleStay;
 	}
 	
 	

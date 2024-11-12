@@ -99,9 +99,4 @@ public class HotelService {
 		return hotelDao.HotelDeList(hotelDto);
 	}
 	
-	// HotelDeListOne
-	public HotelDto HotelDeListOne(HotelDto hotelDto) {
-		return hotelDao.HotelDeListOne(hotelDto);
-	}
-	
 }

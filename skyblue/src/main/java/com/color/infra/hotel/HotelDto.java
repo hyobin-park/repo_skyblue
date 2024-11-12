@@ -37,6 +37,8 @@ public class HotelDto {
 	private Integer price;
 	private String status;
 	private String Hotel_seq;
+	private String bedType;
+	private Integer PeopleStay;
 	
 	// reviews
 	private String reviewSeq;
@@ -393,5 +395,18 @@ public class HotelDto {
 	public void setUpRegDateTimeSvr(Date upRegDateTimeSvr) {
 		this.upRegDateTimeSvr = upRegDateTimeSvr;
 	}
+	public String getBedType() {
+		return bedType;
+	}
+	public void setBedType(String bedType) {
+		this.bedType = bedType;
+	}
+	public Integer getPeopleStay() {
+		return PeopleStay;
+	}
+	public void setPeopleStay(Integer peopleStay) {
+		PeopleStay = peopleStay;
+	}
+	
 	
 }

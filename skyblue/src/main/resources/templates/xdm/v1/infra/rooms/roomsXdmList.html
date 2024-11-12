@@ -172,6 +172,8 @@ td {
 														<th>NO.</th>
 														<th>호텔명</th>
 														<th>룸타입</th>
+														<th>인원</th>
+														<th>베드타입</th>
 														<th>금액</th>
 														<th>예약상태</th>
 														<th>등록일</th>
@@ -179,7 +181,7 @@ td {
 														<th>삭제여부</th>
 													</tr>
 													<tr th:if="${#lists.isEmpty(list)}">
-                                                		<td colspan="10">
+                                                		<td colspan="12">
                                                 			<p class="fs-0" style="padding-top: 12px;">There are no data!</p>
                                                 		</td>
                                                 	</tr>
@@ -192,7 +194,9 @@ td {
 														<td th:text="${list.hotelName}"></td>
 														<td><a th:href="@{/v1/infra/rooms/roomsXdmMForm(roomSeq=${list.roomSeq})}"
 															th:text="${list.roomType}"></a></td>
-														<td th:text="${list.price}"></td>
+														<td th:text="${list.PeopleStay}"></td>
+														<td th:text="${list.bedType}"></td>
+														<td th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></td>
 														<td th:if="${list.status eq 1}">예약가능</td>
 														<td th:if="${list.status eq 2}">예약 중</td>
 														<td th:if="${list.status eq 3}">예약완료</td>

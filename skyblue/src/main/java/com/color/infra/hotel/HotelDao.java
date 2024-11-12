@@ -36,7 +36,4 @@ public interface HotelDao {
 	// HotelDeList
 	public List<HotelDto> HotelDeList(HotelDto hotelDto);
 	
-	// HotelDeListOne
-	public HotelDto HotelDeListOne(HotelDto hotelDto);
-	
 }

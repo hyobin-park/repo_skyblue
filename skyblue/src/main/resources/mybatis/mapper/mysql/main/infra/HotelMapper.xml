@@ -14,7 +14,9 @@
 				roomType,
 				price,
 				status,
-				roomDesc
+				bedType,
+				PeopleStay,
+				roomDesc,
 				ROW_NUMBER() OVER (PARTITION BY hotel_seq ORDER BY price) AS rn
 			FROM
 				rooms
@@ -28,36 +30,6 @@
 			GROUP BY hotel_seq
 			) as g
 		ON c.hotelSeq = g.Hotel_seq
-		
-		
-		FROM 
-			hotel as a
-		LEFT JOIN  
-			(SELECT 
-				hotel_seq,
-				htrseq,
-				htrRoomName,
-				htrRoomPrice,
-				htrStay,
-				bedoption,
-				aircondNy,
-				bathNy,
-				tvNy,
-				wifiNy,
-				coffeeNy,
-				ROW_NUMBER() OVER (PARTITION BY hotel_seq ORDER BY htrRoomPrice) AS rn
-			 FROM 
-				hotelroom
-			) as b
-		ON a.htseq = b.hotel_seq AND b.rn = 1
-		LEFT JOIN
-			(SELECT 
-				hotel_seq, MIN(htrRoomPrice) AS minPrice
-			 FROM   
-				hotelroom
-			 GROUP BY hotel_seq
-			) as c	  
-		ON a.htseq = c.hotel_seq
 <!-- 		LEFT JOIN  -->
 <!-- 			(SELECT  -->
 <!-- 				hotel_seq, -->
@@ -86,6 +58,7 @@
 		</choose>
 	</sql>
 	
+	<!-- 호텔리스트 -->
 	<select id="hotelList" resultMap="resultMapObj">
 		select aa.* from (
 		SELECT
@@ -113,8 +86,11 @@
 		    e.roomType,
     		e.price,
     		e.status,
-    		e.Hotel_seq
-		<include refid="selectCommon"/>
+    		e.bedType,
+    		e.PeopleStay,
+    		e.Hotel_seq,
+    		g.g.minPrice
+			<include refid="selectCommon"/>
 <!-- 		WHERE 1=1 -->
 <!-- 			AND c.hotelSeq = #{hotelSeq} -->
 		ORDER BY
@@ -126,6 +102,46 @@
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		<include refid="selectCommon"/>
+	</select>
+	
+	<!-- 호텔 상세리스트 -->
+	<select id="HotelDeList" resultMap="resultMapObj">
+		SELECT
+			c.hotelSeq,
+		    c.hotelName,
+		    c.hotelZipCode,
+		    c.hotelAddress1,
+		    c.hotelAddress2,
+		    c.site,
+		    c.stars,
+		    c.swimmingPoolNy,
+		    c.fitnessCenterNy,
+		    c.roomServiceNy,
+		    c.spaNy,
+		    c.wifiNy,
+		    c.parkingNy,
+		    c.hvacNy,
+		    c.smokingAreaNy,
+		    c.petsNy,
+		    c.hotel_delNy,
+		    c.hotel_useNy,
+		    c.hotelDesc,
+		    c.hotelRgDate,
+		    c.hotelEditDate,
+		    e.roomType,
+    		e.price,
+    		e.status,
+    		e.bedType,
+    		e.PeopleStay,
+    		e.Hotel_seq
+		FROM
+			hotel c
+		LEFT JOIN rooms e
+			ON e.Hotel_seq = c.hotelSeq
+		WHERE 1=1
+			AND c.hotelSeq = #{hotelSeq}
+		ORDER BY
+			e.price asc
 	</select>
 	
 	<insert id="hotelInsert">
@@ -200,9 +216,39 @@
 		    c.hotel_useNy,
 		    c.hotelDesc,
 		    c.hotelRgDate,
-		    c.hotelEditDate
-		FROM
+		    c.hotelEditDate,
+		    e.roomType,
+    		e.price,
+    		e.status,
+    		e.bedType,
+    		e.PeopleStay,
+    		e.Hotel_seq,
+    		g.minPrice
+    	FROM
 			hotel c
+		LEFT JOIN
+			(SELECT
+				Hotel_seq,
+				roomSeq,
+				roomType,
+				price,
+				status,
+				bedType,
+				PeopleStay,
+				roomDesc,
+				ROW_NUMBER() OVER (PARTITION BY hotel_seq ORDER BY price) AS rn
+			FROM
+				rooms
+			) as e
+		ON c.hotelSeq = e.Hotel_seq AND e.rn = 1
+		LEFT JOIN
+			(SELECT
+				hotel_seq, MIN(price) AS minPrice
+			FROM
+				rooms
+			GROUP BY hotel_seq
+			) as g
+		ON c.hotelSeq = g.Hotel_seq
 		WHERE 1=1
 			AND c.hotelSeq = #{hotelSeq}
 	</select>
@@ -246,96 +292,6 @@
 		WHERE 1=1
 			AND hotelSeq = #{hotelSeq}
 	</delete>
-	
-	<!-- HotelDeList -->
-	<select id="HotelDeList" resultMap="resultMapObj">
-		SELECT
-			c.hotelSeq,
-		    c.hotelName,
-		    c.hotelZipCode,
-		    c.hotelAddress1,
-		    c.hotelAddress2,
-		    c.site,
-		    c.stars,
-		    c.swimmingPoolNy,
-		    c.fitnessCenterNy,
-		    c.roomServiceNy,
-		    c.spaNy,
-		    c.wifiNy,
-		    c.parkingNy,
-		    c.hvacNy,
-		    c.smokingAreaNy,
-		    c.petsNy,
-		    c.hotel_delNy,
-		    c.hotel_useNy,
-		    c.hotelDesc,
-		    c.hotelRgDate,
-		    c.hotelEditDate,
-		    e.roomType,
-    		e.price,
-    		e.status,
-    		e.Hotel_seq,
-    		g.minPrice
-		FROM
-			hotel c
-		LEFT JOIN rooms e
-			ON c.hotelSeq = e.Hotel_seq
-		LEFT JOIN
-			(SELECT
-		      Hotel_seq, MIN(price) AS minPrice
-			FROM
-		      rooms
-		   GROUP BY Hotel_seq
-		   ) as g
-			ON c.hotelSeq = g.Hotel_seq
-		WHERE 1=1
-			AND c.hotelSeq = #{hotelSeq}
-	</select>
-	
-	<!-- HotelDeListOne -->
-	<select id="HotelDeListOne" resultMap="resultMapObj">
-		SELECT
-			c.hotelSeq,
-		    c.hotelName,
-		    c.hotelZipCode,
-		    c.hotelAddress1,
-		    c.hotelAddress2,
-		    c.site,
-		    c.stars,
-		    c.swimmingPoolNy,
-		    c.fitnessCenterNy,
-		    c.roomServiceNy,
-		    c.spaNy,
-		    c.wifiNy,
-		    c.parkingNy,
-		    c.hvacNy,
-		    c.smokingAreaNy,
-		    c.petsNy,
-		    c.hotel_delNy,
-		    c.hotel_useNy,
-		    c.hotelDesc,
-		    c.hotelRgDate,
-		    c.hotelEditDate,
-		    e.roomType,
-    		e.price,
-    		e.status,
-    		e.Hotel_seq,
-    		g.minPrice
-		FROM
-			hotel c
-		LEFT JOIN rooms e
-			ON c.hotelSeq = e.Hotel_seq
-		LEFT JOIN
-			(SELECT 
-		      Hotel_seq, MIN(price) AS minPrice
-			FROM  
-		      rooms
-		   GROUP BY Hotel_seq
-		   ) as g
-			ON c.hotelSeq = g.Hotel_seq
-		WHERE 1=1
-			AND c.hotelSeq = #{hotelSeq}
-	</select>
 	
 	<!-- reviews -->
 	<select id="ReviewSelectList" resultMap="resultMapObj">

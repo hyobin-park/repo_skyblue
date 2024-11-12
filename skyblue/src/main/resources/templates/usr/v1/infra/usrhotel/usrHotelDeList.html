@@ -60,11 +60,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-8 col-md-12 col-12">
-                        <div class="card mb-4" th:each="list : ${list}">
+                        <div class="card mb-4">
                             <!-- listing detail head -->
                             <div class="card-body p-4">
-                                <h2 class="mb-2" th:text="${item.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
-                                <p class="mb-4 fs-6" th:text="${list.hotelAddress1}">서울, 대한민국</p>
+                                <h2 class="mb-2" th:text="${roomItem?.hotelName}">시그니엘 호텔(Signiel Seoul)</h2>
+                                <p class="mb-4 fs-6" th:text="${roomItem?.hotelAddress1}">서울, 대한민국</p>
                                 <div class="text-sm">
                                     <span class="me-2">
 	                                    <i class="mdi mdi-star text-primary"></i>
@@ -87,64 +87,64 @@
                         </div>
                         <!-- listing detail head -->
                         <!-- listing detail -->
-                        <div class="card mb-4" th:each="list : ${list}">
+                        <div class="card mb-4">
                             <div class="card-body p-4">
                                 <h4>소개</h4>
-                                <p th:text="${list.hotelDesc}"> 시그니엘은 진심 어린 서비스, 인상적인 순간들로 기대보다 더 큰 경험을 제공합니다.</p>
+                                <p th:text="${roomItem?.hotelDesc}"> 시그니엘은 진심 어린 서비스, 인상적인 순간들로 기대보다 더 큰 경험을 제공합니다.</p>
                             </div>
                         </div>
                         <!-- listing detail -->
                         <!-- listing detail -->
-                        <div class="card mb-4" th:each="list : ${list}">
+                        <div class="card mb-4">
                             <div class="card-body p-4">
                                 <h4 class="mb-3">편의시설</h4>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
                                             <li class="list-item">
-                                            	<span th:if=${list.fitnessCenterNy==0}></span>
-	                                            <span th:if=${list.fitnessCenterNy==1} class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.fitnessCenterNy==1}>피트니스 센터</span>
+                                            	<span th:if=${roomItem?.fitnessCenterNy==0}></span>
+	                                            <span th:if=${roomItem?.fitnessCenterNy==1} class="mdi mdi-weight-lifter me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.fitnessCenterNy==1}>피트니스 센터</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.swimmingPoolNy==0}></span>
-	                                            <span th:if=${list.swimmingPoolNy==1} class="mdi mdi-pool me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.swimmingPoolNy==1}>수영장</span>
+                                            	<span th:if=${roomItem?.swimmingPoolNy==0}></span>
+	                                            <span th:if=${roomItem?.swimmingPoolNy==1} class="mdi mdi-pool me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.swimmingPoolNy==1}>수영장</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.roomServiceNy==0}></span>
-	                                            <span th:if=${list.roomServiceNy==1} class="mdi mdi-room-service me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.roomServiceNy==1}>룸서비스</span>
+                                            	<span th:if=${roomItem?.roomServiceNy==0}></span>
+	                                            <span th:if=${roomItem?.roomServiceNy==1} class="mdi mdi-room-service me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.roomServiceNy==1}>룸서비스</span>
 	                                        </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.spaNy==0}></span>
-	                                            <span th:if=${list.spaNy==1} class="mdi mdi-spa me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.spaNy==1}>스파</span>
+                                            	<span th:if=${roomItem?.spaNy==0}></span>
+	                                            <span th:if=${roomItem?.spaNy==1} class="mdi mdi-spa me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.spaNy==1}>스파</span>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="list-group list-unstyled">
                                             <li class="list-item">
-                                            	<span th:if=${list.wifiNy==0}></span>
-	                                            <span th:if=${list.wifiNy==1} class="mdi mdi-wifi me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.wifiNy==1}>무료 와이파이</span>
+                                            	<span th:if=${roomItem?.wifiNy==0}></span>
+	                                            <span th:if=${roomItem?.wifiNy==1} class="mdi mdi-wifi me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.wifiNy==1}>무료 와이파이</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.parkingNy==0}></span>
-	                                            <span th:if=${list.parkingNy==1} class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.parkingNy==1}>무료 주차</span>
+                                            	<span th:if=${roomItem?.parkingNy==0}></span>
+	                                            <span th:if=${roomItem?.parkingNy==1} class="mdi mdi-car-brake-parking me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.parkingNy==1}>무료 주차</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.hvacNy==0}></span>
-	                                            <span th:if=${list.hvacNy==1} class="mdi mdi-air-filter me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.hvacNy==1}>냉/난방 시설</span>
+                                            	<span th:if=${roomItem?.hvacNy==0}></span>
+	                                            <span th:if=${roomItem?.hvacNy==1} class="mdi mdi-air-filter me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.hvacNy==1}>냉/난방 시설</span>
                                             </li>
                                             <li class="list-item">
-                                            	<span th:if=${list.smokingAreaNy==0} class="mdi mdi-smoking-off me-2 text-dark fs-5"></span>
-                                            	<span th:if=${list.smokingAreaNy==0}>금연구역</span>
-	                                            <span th:if=${list.smokingAreaNy==1} class="mdi mdi-smoking me-2 text-dark fs-5"></span>
-	                                            <span th:if=${list.smokingAreaNy==1}>흡연구역</span>
+                                            	<span th:if=${roomItem?.smokingAreaNy==0} class="mdi mdi-smoking-off me-2 text-dark fs-5"></span>
+                                            	<span th:if=${roomItem?.smokingAreaNy==0}>금연구역</span>
+	                                            <span th:if=${roomItem?.smokingAreaNy==1} class="mdi mdi-smoking me-2 text-dark fs-5"></span>
+	                                            <span th:if=${roomItem?.smokingAreaNy==1}>흡연구역</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -209,16 +209,16 @@
                   		<!-- listing detail -->
                         <div class="card mb-4 ">
                             <div class="card-body p-4">
-                                <h4 class="mb-3">Leave Your Review</h4>
+                                <h4 class="mb-3">리뷰 남기기</h4>
                                 <form class="row">
                                     <div class="mb-3 col-6">
-                                        <label for="reviewtitle" class="form-label"> Name </label>
+                                        <label for="reviewtitle" class="form-label">이름</label>
                                         <input type="text" name="customerName" class="form-control" id="customerName"
                                             aria-describedby="reviewname" placeholder="John Deo" required="">
                                     </div>
                                     <div class="mb-3 col-6" id="mystar">
 		                               <fieldset>
-		                                   <span for="reviewemail" class="form-label">Reviews</span><br>
+		                                   <span for="reviewemail" class="form-label">별점</span><br>
 		                                   <input type="radio" name="reviewStar" value="1" id="rate1">
 		                                   <label for="rate1" data-value="1">★</label>
 		                                   <input type="radio" name="reviewStar" value="2" id="rate2">
@@ -232,16 +232,16 @@
 		                               </fieldset>
 		                           </div>
                                     <div class="mb-3 col-12">
-                                        <label for="reviewtitle" class="form-label"> Review Title </label>
+                                        <label for="reviewtitle" class="form-label">제목</label>
                                         <input type="text" name="reTitle" class="form-control" id="reTitle"
-                                            aria-describedby="reviewtitle" placeholder="Write Review Title" required="">
+                                            aria-describedby="reviewtitle" placeholder="제목을 작성하세요" required="">
                                     </div>
                                     <div class="mb-3 col-12 mt-3">
-                                        <label for="reviewdescription" class="form-label">Write Your Experience</label>
+                                        <label for="reviewdescription" class="form-label">경험을 작성해주세요</label>
                                         <textarea class="form-control" id="reDesc" rows="3"></textarea>
                                     </div>
                                     <div class="d-lg-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                                        <button type="submit" class="btn btn-primary">제출하기</button>
                                     </div>
                                 </form>
                             </div>
@@ -308,10 +308,10 @@
                         </div>
                         <!-- listing detail -->
                         <!-- listing detail -->
-                        <div class="card mb-4" th:each="list : ${list}">
+                        <div class="card mb-4">
                             <div class="card-body p-4">
                                 <h4 class="mb-1">위치</h4>
-                                <p th:text="${list.hotelAddress1}">올림픽로 300, 송파, 서울, 대한민국, 05551</p>
+                                <p th:text="${roomItem?.hotelAddress1}"></p>
                                 <div id="detailMap" class="listing-map"></div>
                             </div>
                         </div>
@@ -321,11 +321,10 @@
                         <!-- listing detail -->
                         <div>
                             <!-- listing widget -->
-                            <div class="card mb-4" th:each="list : ${list}">
+                            <div class="card mb-4">
                                 <div class="card-body p-4">
                                     <div class="d-flex align-items-center mb-3">
-                                        <h3 class="fw-bold" th:text="'₩' + ${#numbers.formatInteger(list.minPrice, 0, 'COMMA')} + '~'"></h3>
-<!--                                         <h3 class="fw-bold" th:text="'₩' + (${list.minPrice} != null ? ${list.minPrice} : '0') + '~'"></h3> -->
+                                        <h3 class="fw-bold" th:text="'₩' + ${#numbers.formatInteger(roomItem?.minPrice, 0, 'COMMA')} + '~'"></h3>
                                         <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
@@ -349,8 +348,7 @@
                                                 <option value="5">5</option>
                                             </select>
                                             <div class="mt-3 d-grid">
-                                                <button class="btn btn-primary" type="button">Check
-                                                    Availability</button>
+                                                <button class="btn btn-primary" type="button">Check Availability</button>
                                             </div>
                                         </form>
                                     </div>
@@ -358,7 +356,7 @@
                             </div>
                             <!-- listing widget -->
                             <!-- listing widget -->
-                            <div class="card mb-4" th:each="list : ${list}">
+                            <div class="card mb-4" th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list : ${hotelDeList}">
                                 <div class="card-body p-4">
                                     <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span><b>
                                             객실</b></h5>
@@ -369,11 +367,29 @@
                                             alt="Rentkit Directory & Listing Bootstrap 5 Theme"
                                             style="height: 5.5cm; width: 8cm">
                                         </div>
-                                        <h5 class="mb-2" th:text="${list.roomType}">프리미어 트윈 (Premier Twin)</h5>
-                                        <small><i class="mdi mdi-bed text-primary"></i> 싱글베드 2개
-                                            <br><i class="mdi mdi-account-multiple text-primary"></i> 인원 : 성인 2명 + 아동 1명
-                                            <br><i class="mdi mdi-city text-primary" th:text="${list.site}"></i> 시내 전망
-                                        </small>
+                                        <h5 class="mb-2" th:text="${list.roomType}"></h5>
+                                        <small>
+                                        	<ul class="list-group list-unstyled">
+	                                        	<li class="list-item">
+	                                        		<span th:if="${list.bedType != null and list.bedType != ''}">
+	                                        			<i class="mdi mdi-bed me-2 text-dark fs-5"></i> 침대종류:
+	                                        			<span th:text="${list.bedType}"></span>
+	                                        		</span>
+	                                        	</li>
+	                                        	<li class="list-item">
+	                                        		<span th:if="${list.PeopleStay != null and list.PeopleStay != ''}">
+	                                        			<i class="mdi mdi-account-supervisor me-2 text-dark fs-5"></i> 숙박 가능 인원:
+	                                        			<span th:text="${list.PeopleStay} + '명'"></span>
+	                                        		</span>
+	                                        	</li>
+	                                        	<li class="list-item">
+	                                        		<span th:if="${list.site != null and list.site != ''}">
+	                                        			<i class="mdi mdi-office-building-marker me-2 text-dark fs-5"></i>
+	                                        			<span th:text="${list.site} + '에 위치'"></span>
+	                                        		</span>
+	                                        	</li>
+	                                        </ul>
+										</small>
                                     </div>
                                 </div>
                                 <div class="border-top card-body p-4 text-center">  
