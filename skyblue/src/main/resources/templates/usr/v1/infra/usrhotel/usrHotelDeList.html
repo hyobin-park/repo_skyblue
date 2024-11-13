@@ -307,15 +307,15 @@
                             </div>
                         </div>
                         <!-- listing detail -->
-                        <!-- listing detail -->
+                        <!-- Google Map -->
                         <div class="card mb-4">
                             <div class="card-body p-4">
                                 <h4 class="mb-1">위치</h4>
                                 <p th:text="${roomItem?.hotelAddress1}"></p>
-                                <div id="detailMap" class="listing-map"></div>
+                                <div id="googleMap" style="width: 100%; height: 400px;"></div>
                             </div>
                         </div>
-                        <!-- listing detail -->
+                        <!-- Google Map -->
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
                         <!-- listing detail -->
@@ -489,9 +489,6 @@
                                         aria-label="Enter your email" aria-describedby="subscriber">
                                     <span class="btn btn-primary" id="subscriber">Subscribe</span>
                                 </div>
-
-
-
                             </form>
                             <!-- footer widget  -->
                         </div>
@@ -566,5 +563,62 @@
 	            });
 	        });
 	    });
-	    
     </script>
+    <script>
+// 	    function myMap(){
+// 	        var mapOptions = { 
+// 	        	center:new google.maps.LatLng(39.95, 128.25),
+// 	            zoom:5
+// 	        };
+	        
+// 	        var map = new google.maps.Map(
+// 	               document.getElementById("googleMap")
+// 	              , mapOptions );
+// 	     }
+
+ 		let map;
+
+        // 지도 초기화 함수
+        function initMap() {
+            // 서울을 기본 중심으로 설정
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: { lat: 37.5665, lng: 126.9784 }, // 서울 중심
+            });
+
+            // 서버에서 전달된 주소를 JavaScript로 받기
+            const hotelAddress = /*[[${roomItem?.hotelAddress1}]]*/ ''; // Thymeleaf로 서버에서 전달된 주소를 받습니다
+
+            if (hotelAddress.trim() !== '') {
+                // 주소가 비어 있지 않으면, Geocoder 객체를 사용하여 주소를 변환
+                const geocoder = new google.maps.Geocoder();
+                geocodeAddress(geocoder, map, hotelAddress);
+            } else {
+                alert("주소가 비어 있습니다.");
+            }
+        }
+
+        // 주소를 위도/경도로 변환하고 마커를 추가하는 함수
+        function geocodeAddress(geocoder, map, address) {
+            geocoder.geocode({ address: address }, function (results, status) {
+                if (status === "OK") {
+                    const location = results[0].geometry.location;
+                    new google.maps.Marker({
+                        map: map,
+                        position: location,
+                        title: address,  // 마커 툴팁에 주소 표시
+                    });
+
+                    // 지도 중심을 해당 위치로 이동
+                    map.setCenter(location);
+                } else {
+                    alert("주소 변환 실패: " + status);
+                }
+            });
+        }
+	    
+	</script>
+<!-- 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUzFs8An7Kg0GFq3F3eLfK-Nz0Huz_E-4&callback=myMap"></script> -->
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUzFs8An7Kg0GFq3F3eLfK-Nz0Huz_E-4&callback=initMap&libraries=places&v=weekly" async defer></script>
+	

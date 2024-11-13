@@ -156,7 +156,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="swimmingPoolNy"
 																name="swimmingPoolNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.swimmingPoolNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.swimmingPoolNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.swimmingPoolNy == 0}">N</option>
 															</select>
@@ -167,7 +167,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="fitnessCenterNy"
 																name="fitnessCenterNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.fitnessCenterNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.fitnessCenterNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.fitnessCenterNy == 0}">N</option>
 															</select>
@@ -178,7 +178,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="roomServiceNy"
 																name="roomServiceNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.roomServiceNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.roomServiceNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.roomServiceNy == 0}">N</option>
 															</select>
@@ -193,7 +193,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="spaNy"
 																name="spaNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.spaNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.spaNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.spaNy == 0}">N</option>
 															</select>
@@ -204,7 +204,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="wifiNy"
 																name="wifiNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.wifiNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.wifiNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.wifiNy == 0}">N</option>
 															</select>
@@ -215,7 +215,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="parkingNy"
 																name="parkingNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.parkingNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.parkingNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.parkingNy == 0}">N</option>
 															</select>
@@ -226,7 +226,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="hvacNy"
 																name="hvacNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.hvacNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.hvacNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.hvacNy == 0}">N</option>
 															</select>
@@ -241,7 +241,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="smokingAreaNy"
 																name="smokingAreaNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.smokingAreaNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.smokingAreaNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.smokingAreaNy == 0}">N</option>
 															</select>
@@ -253,7 +253,7 @@ label {
 														<fieldset class="form-group">
 															<select class="form-select" id="basicSelect"
 																name="hotel_useNy" style="padding: .375rem .75rem;">
-																<option value="">선택하세요</option>
+																<option value="" th:selected="${hotelItem?.hotel_useNy == null}">선택하세요</option>
 																<option value="1" th:selected="${hotelItem?.hotel_useNy == 1}">Y</option>
 																<option value="0" th:selected="${hotelItem?.hotel_useNy == 0}">N</option>
 															</select>
@@ -266,7 +266,7 @@ label {
 															<fieldset class="form-group">
 																<select class="form-select" id="basicSelect" name="hotel_delNy"
 																	style="padding: .375rem .75rem;">
-																	<option value="">선택하세요</option>
+																	<option value="" th:selected="${hotelItem?.hotel_delNy == null}">선택하세요</option>
 																	<option value="1" th:selected="${hotelItem?.hotel_delNy == 1}">Y</option>
 																	<option value="0" th:selected="${hotelItem?.hotel_delNy == 0}">N</option>
 																</select>
