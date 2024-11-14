@@ -26,6 +26,17 @@ public class CustomerController {
 	@Autowired
 	private MailService mailService;
 	
+	// 암호화
+	public String encodeBcrypt(String planeText, int strength) {
+		return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+		return passwordEncoder.matches(planeText, hashValue);
+	}
+	
+	
 	@RequestMapping(value="/v1/infra/customer/customerXdmList")
 	public String customerXdmList(@ModelAttribute("vo") CustomerVo customerVo, Model model) {
 				
@@ -155,15 +166,5 @@ public class CustomerController {
 		return returnMap;
 	}
 	
-	// 암호화
-	public String encodeBcrypt(String planeText, int strength) {
-		return new BCryptPasswordEncoder(strength).encode(planeText);
-	}
 
-	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
-		return passwordEncoder.matches(planeText, hashValue);
-	}
-	
-	
 }
