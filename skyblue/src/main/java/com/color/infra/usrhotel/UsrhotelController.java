@@ -133,4 +133,9 @@ public class UsrhotelController {
 		return returnMap;
 	}
 	
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelBooking")
+	public String usrHotelBooking() {
+		return "/usr/v1/infra/usrhotel/usrHotelBooking";
+	}
+	
 }
