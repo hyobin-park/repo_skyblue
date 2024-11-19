@@ -77,6 +77,7 @@ td {
 								<form name="form" method="post" action="/v1/infra/hotel/hotelXdmList">
 								<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 								<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+									<!-- row 1 start -->
 									<div class="row">
 										<div class="col-md-2">
 											<fieldset class="form-group">
@@ -93,6 +94,18 @@ td {
 													<option value="" th:selected="${vo.shtelUseNy == null}">사용여부</option>
 													<option value="1" th:selected="${vo.shtelUseNy == 1}">Y</option>
 													<option value="0" th:selected="${vo.shtelUseNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shStars" name="shStars">
+													<option value="" th:selected="${vo.shStars == null}">등급</option>
+													<option value="1" th:selected="${vo.shStars == 1}">1</option>
+													<option value="2" th:selected="${vo.shStars == 2}">2</option>
+													<option value="3" th:selected="${vo.shStars == 3}">3</option>
+													<option value="4" th:selected="${vo.shStars == 4}">4</option>
+													<option value="5" th:selected="${vo.shStars == 5}">5</option>
 												</select>
 											</fieldset>
 										</div>
@@ -118,15 +131,94 @@ td {
 												placeholder="종료일" autocomplete="off">
 										</div>
 									</div>
-									<!-- class="row" 1 end -->
+									<!-- row 1 end -->
+									<!-- row 2 start -->
 									<div class="row">
-										<!-- class="row" 2 start -->
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shSwimmingPoolNy" name="shSwimmingPoolNy">
+													<option value="" th:selected="${vo.shSwimmingPoolNy == null}">수영장여부</option>
+													<option value="1" th:selected="${vo.shSwimmingPoolNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shSwimmingPoolNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shFitnessCenterNy" name="shFitnessCenterNy">
+													<option value="" th:selected="${vo.shFitnessCenterNy == null}">피트니스여부</option>
+													<option value="1" th:selected="${vo.shFitnessCenterNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shFitnessCenterNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shRoomServiceNy" name="shRoomServiceNy">
+													<option value="" th:selected="${vo.shRoomServiceNy == null}">룸서비스여부</option>
+													<option value="1" th:selected="${vo.shRoomServiceNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shRoomServiceNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shSpaNy" name="shSpaNy">
+													<option value="" th:selected="${vo.shSpaNy == null}">스파여부</option>
+													<option value="1" th:selected="${vo.shSpaNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shSpaNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shWifiNy" name="shWifiNy">
+													<option value="" th:selected="${vo.shWifiNy == null}">와이파이여부</option>
+													<option value="1" th:selected="${vo.shWifiNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shWifiNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shParkingNy" name="shParkingNy">
+													<option value="" th:selected="${vo.shParkingNy == null}">주차장여부</option>
+													<option value="1" th:selected="${vo.shParkingNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shParkingNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+									</div>
+									<!-- row 2 end -->
+									<!-- row 3 start -->
+									<div class="row">
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shHvacNy" name="shHvacNy">
+													<option value="" th:selected="${vo.shHvacNy == null}">냉/난방시설 여부</option>
+													<option value="1" th:selected="${vo.shHvacNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shHvacNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
+										<div class="col-md-2">
+											<fieldset class="form-group">
+												<select class="form-select" id="shSmokingAreaNy" name="shSmokingAreaNy">
+													<option value="" th:selected="${vo.shSmokingAreaNy == null}">흡연구역 여부</option>
+													<option value="1" th:selected="${vo.shSmokingAreaNy == 1}">Y</option>
+													<option value="0" th:selected="${vo.shSmokingAreaNy == 0}">N</option>
+												</select>
+											</fieldset>
+										</div>
 										<div class="col-md-2">
 											<fieldset class="form-group">
 												<select class="form-select" id="shOption" name="shOption">
 													<option value="" th:selected="${vo.shOption == null}">검색구분</option>
 													<option value="1" th:selected="${vo.shOption == 1}">번호</option>
 													<option value="2" th:selected="${vo.shOption == 2}">호텔이름</option>
+													<option value="3" th:selected="${vo.shOption == 3}">우편번호</option>
+													<option value="4" th:selected="${vo.shOption == 4}">주소</option>
+													<option value="5" th:selected="${vo.shOption == 5}">상세주소</option>
 												</select>
 											</fieldset>
 										</div>
@@ -143,7 +235,7 @@ td {
 											</button>
 										</div>
 									</div>
-									<!-- class="row" 2 end -->
+									<!-- row 3 end -->
 									<br>
 									<div class="row">
 										<div class="col-md-2">

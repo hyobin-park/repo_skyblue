@@ -4,7 +4,6 @@ import com.color.common.constants.Constants;
 
 public class HotelVo {
 	
-//	private String hotelSeq;
 	private Integer shtelDelNy;
 	private Integer shtelUseNy;
 	private Integer shOption;
@@ -12,10 +11,19 @@ public class HotelVo {
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOptionDate;
+	private Integer shStars;
+	private Integer shSwimmingPoolNy;
+	private Integer shFitnessCenterNy;
+	private Integer shRoomServiceNy;
+	private Integer shSpaNy;
+	private Integer shWifiNy;
+	private Integer shParkingNy;
+	private Integer shHvacNy;
+	private Integer shSmokingAreaNy;
 	
 	private int thisPage = 1;									// 현재 페이지
-	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;	// 화면에 보여줄 데이터 줄 갯수
-	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW;	// 화면에 보여줄 페이징 번호 갯수
+	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
+	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW;		// 화면에 보여줄 페이징 번호 갯수
 
 	private int totalRows;										// 전체 데이터 갯수
 	private int totalPages;										// 전체 페이지 번호
@@ -25,14 +33,6 @@ public class HotelVo {
 	private int startRnumForMysql = 0;							// 쿼리 시작 row
 
 	// ----- getter/setter -----
-//	public String getHotelSeq() {
-//		return hotelSeq;
-//	}
-//
-//	public void setHotelSeq(String hotelSeq) {
-//		this.hotelSeq = hotelSeq;
-//	}
-	
 	public Integer getShtelDelNy() {
 		return shtelDelNy;
 	}
@@ -152,7 +152,76 @@ public class HotelVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
-	
+	public Integer getShStars() {
+			return shStars;
+	}
+	public void setShStars(Integer shStars) {
+			this.shStars = shStars;
+	}
+	public Integer getShSwimmingPoolNy() {
+		return shSwimmingPoolNy;
+	}
+
+	public void setShSwimmingPoolNy(Integer shSwimmingPoolNy) {
+		this.shSwimmingPoolNy = shSwimmingPoolNy;
+	}
+
+	public Integer getShFitnessCenterNy() {
+		return shFitnessCenterNy;
+	}
+
+	public void setShFitnessCenterNy(Integer shFitnessCenterNy) {
+		this.shFitnessCenterNy = shFitnessCenterNy;
+	}
+
+	public Integer getShRoomServiceNy() {
+		return shRoomServiceNy;
+	}
+
+	public void setShRoomServiceNy(Integer shRoomServiceNy) {
+		this.shRoomServiceNy = shRoomServiceNy;
+	}
+
+	public Integer getShSpaNy() {
+		return shSpaNy;
+	}
+
+	public void setShSpaNy(Integer shSpaNy) {
+		this.shSpaNy = shSpaNy;
+	}
+
+	public Integer getShWifiNy() {
+		return shWifiNy;
+	}
+
+	public void setShWifiNy(Integer shWifiNy) {
+		this.shWifiNy = shWifiNy;
+	}
+
+	public Integer getShParkingNy() {
+		return shParkingNy;
+	}
+
+	public void setShParkingNy(Integer shParkingNy) {
+		this.shParkingNy = shParkingNy;
+	}
+
+	public Integer getShHvacNy() {
+		return shHvacNy;
+	}
+
+	public void setShHvacNy(Integer shHvacNy) {
+		this.shHvacNy = shHvacNy;
+	}
+
+	public Integer getShSmokingAreaNy() {
+		return shSmokingAreaNy;
+	}
+
+	public void setShSmokingAreaNy(Integer shSmokingAreaNy) {
+		this.shSmokingAreaNy = shSmokingAreaNy;
+	}
+
 public void setParamsPaging(int totalRows) {
 		
 		setTotalRows(totalRows);

@@ -30,10 +30,11 @@
 			GROUP BY hotel_seq
 			) as g
 		ON c.hotelSeq = g.Hotel_seq
+		
 <!-- 		LEFT JOIN  -->
 <!-- 			(SELECT  -->
 <!-- 				hotel_seq, -->
-<!-- 				AVG(htrestars) AS average_star, -->
+<!-- 				AVG(restars) AS average_star, -->
 <!--        			COUNT(*) AS review_count -->
 <!-- 	 	     FROM -->
 <!-- 				hotelreview -->
@@ -42,19 +43,34 @@
 <!-- 				ON a.htseq = avg_table.hotel_seq -->
 <!-- 			where 1=1 -->
 <!-- 				AND a.htseq = htseq -->
-<!-- 		FROM -->
-<!-- 			hotel c -->
-<!-- 		LEFT JOIN rooms e -->
-<!-- 			ON c.hotelSeq = e.Hotel_seq -->
+<!-- 				   <if test="starsArr != null and starsArr.length != 0"> -->
+<!-- 				   		AND TRUNCATE(avg_table.average_star, 0) IN ( -->
+<!--             		<foreach collection="starsArr" item="item" separator=","> -->
+<!--                 		#{item} -->
+<!--             		</foreach> -->
+<!--         		    ) -->
+<!--    				  </if> -->
 		<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
 		<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
+		<if test="shStars != null and !shStars.equals('')">AND stars = #{shStars}</if>
 		<choose>
 			<when test="shOptionDate == 1">AND c.hotelRgDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			<when test="shOptionDate == 2">AND c.hotelEditDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 		</choose>
+		<if test="shSwimmingPoolNy != null and !shSwimmingPoolNy.equals('')">AND swimmingPoolNy = #{shSwimmingPoolNy}</if>
+		<if test="shFitnessCenterNy != null and !shFitnessCenterNy.equals('')">AND fitnessCenterNy = #{shFitnessCenterNy}</if>
+		<if test="shRoomServiceNy != null and !shRoomServiceNy.equals('')">AND roomServiceNy = #{shRoomServiceNy}</if>
+		<if test="shSpaNy != null and !shSpaNy.equals('')">AND spaNy = #{shSpaNy}</if>
+		<if test="shWifiNy != null and !shWifiNy.equals('')">AND wifiNy = #{shWifiNy}</if>
+		<if test="shParkingNy != null and !shParkingNy.equals('')">AND parkingNy = #{shParkingNy}</if>
+		<if test="shHvacNy != null and !shHvacNy.equals('')">AND hvacNy = #{shHvacNy}</if>
+		<if test="shSmokingAreaNy != null and !shSmokingAreaNy.equals('')">AND smokingAreaNy = #{shSmokingAreaNy}</if>
 		<choose>
 			<when test="shOption == 1">AND hotelSeq = #{shValue}</when>
 			<when test="shOption == 2">AND hotelName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND hotelZipCode LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 4">AND hotelAddress1 LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 5">AND hotelAddress2 LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 	</sql>
 	

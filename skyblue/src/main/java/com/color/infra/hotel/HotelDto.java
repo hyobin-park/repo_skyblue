@@ -75,6 +75,9 @@ public class HotelDto {
 	private Date upRegDateTime;
 	private Date upRegDateTimeSvr;
 	
+	// 
+	private String[] reStarsArr;
+	
 	
 	//	----- getter/setter -----
 	public String getHotelSeq() {
@@ -406,6 +409,12 @@ public class HotelDto {
 	}
 	public void setPeopleStay(Integer peopleStay) {
 		PeopleStay = peopleStay;
+	}
+	public String[] getReStarsArr() {
+		return reStarsArr;
+	}
+	public void setReStarsArr(String[] reStarsArr) {
+		this.reStarsArr = reStarsArr;
 	}
 	
 	

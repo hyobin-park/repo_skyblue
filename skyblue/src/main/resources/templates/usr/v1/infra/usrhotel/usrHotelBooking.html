@@ -44,46 +44,60 @@
           <div class="col-lg-8 col-md-12 col-12">
             <div class="card checkout-form">
               <div class="card-body p-5">
-                <h4 class="mb-4 border-bottom pb-2">Your Information</h4>
+                <h4 class="mb-4 border-bottom pb-2">예약 세부정보</h4>
                 <!-- form -->
-                <form class="row">
-                  <!-- first name -->
-                  <div class="mb-3 col-md-6">
-                    <label for="fname" class="form-label">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="fname" placeholder="First Name" required="">
+                <form>
+                  <!-- row 1 start -->
+                  <div class="row">
+	                  <div class="mb-3 col-md-6">
+	                    <label for="fname" class="form-label">이름
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="text" class="form-control" id="fname" placeholder="예약자 성함" required="">
+	                  </div>
+	                  <div class="mb-3 col-md-6">
+	                    <label for="email" class="form-label">생년월일
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="email" class="form-control" id="email" placeholder="YYYY-MM-DD" required="">
+	                  </div>
                   </div>
-                  <!-- last name -->
-                  <div class="mb-3 col-md-6">
-                    <label for="lname" class="form-label">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="lname" placeholder="Last Name">
+                  <!-- row 1 end -->
+                  <!-- row 2 start -->
+                  <div class="row">
+	                  <div class="mb-3 col-md-6">
+	                    <label for="confirm-email" class="form-label">전화번호
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="email" class="form-control" required="" id="confirm-email"
+	                      placeholder="전화번호">
+	                  </div>
+	                  <div class="mb-3 col-md-6">
+	                    <label for="confirm-email" class="form-label">이메일
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="email" class="form-control" required="" id="confirm-email"
+	                      placeholder="이메일">
+	                  </div>
                   </div>
-                  <!-- email -->
-                  <div class="mb-3 col-md-6">
-                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" required="" id="email" placeholder="Email Id">
+                  <!-- row 2 end -->
+                  <!-- row 3 start -->
+                  <div class="row">
+	                  <div class="mb-3 col-md-12">
+	                    <label for="message" class="form-label">요청사항
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <textarea class="form-control" required="" rows="3" placeholder="요청사항을 작성하세요" id="message"></textarea>
+	                  </div>
+	              </div>
+	              <!-- 숙소 예약정보 -->
+	              <div class="col-md-12">
+                    <h4 class="mb-4 mt-2 border-bottom pb-2">호텔이름</h4>
                   </div>
-                  <!-- confirm mail -->
-                  <div class="mb-3 col-md-6">
-                    <label for="confirm-email" class="form-label">Confirm Email <span
-                        class="text-danger">*</span></label>
-                    <input type="email" class="form-control" required="" id="confirm-email"
-                      placeholder="Confirm Email Id">
-                  </div>
-                  <!-- message -->
-                  <div class="mb-3 col-md-12">
-                    <label for="message" class="form-label">Your Message For Us <span
-                        class="text-danger">*</span></label>
-                    <textarea class="form-control" required="" rows="3" placeholder="Message" id="message"></textarea>
-                  </div>
-                  <!-- phone number -->
-                  <div class="mb-3 col-md-12">
-                    <label for="mobile" class="form-label"> Mobile Phone Number <span
-                        class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="mobile" placeholder="Mobile Number">
-                  </div>
+                 
                   <!-- payment details -->
                   <div class="col-md-12">
-                    <h4 class="mb-4 mt-2 border-bottom pb-2">Payment Details</h4>
+                    <h4 class="mb-4 mt-2 border-bottom pb-2">결제수단</h4>
                   </div>
                   <div class="col-md-12">
                     <div class="d-flex flex-wrap mb-4">
