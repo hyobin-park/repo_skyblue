@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Required meta tags -->
@@ -20,7 +20,7 @@
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<link href="/usr/v1/css/commonUsr.css" rel="stylesheet">
+  <link href="/usr/v1/css/commonUsr.css" rel="stylesheet">
 	
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
@@ -46,7 +46,7 @@
               <div class="card-body p-5">
                 <h4 class="mb-4 border-bottom pb-2">예약 세부정보</h4>
                 <!-- form -->
-                <form>
+                <form method="post" action="">
                   <!-- row 1 start -->
                   <div class="row">
 	                  <div class="mb-3 col-md-6">
@@ -92,134 +92,44 @@
 	              </div>
 	              <!-- 숙소 예약정보 -->
 	              <div class="col-md-12">
-                    <h4 class="mb-4 mt-2 border-bottom pb-2">호텔이름</h4>
+                    <h4 class="mb-4 mt-2 border-bottom pb-2">호텔 예약정보</h4>
+                  </div>
+                  <div class="row">
+                  	<div class="mb-3 col-md-12">
+                    	<label for="cardname" class="form-label">호텔이름
+                    		<span class="text-danger">*</span>
+                    	</label>
+                    	<input type="text" class="form-control" required="" id="cardname" placeholder="호텔명">
+                  	</div>
+                  </div>
+                  <div class="row">
+	                  <div class="mb-3 col-md-6">
+	                    <label for="fname" class="form-label">체크인
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="text" class="form-control" id="fname" placeholder="YYYY-MM-DD" required="">
+	                  </div>
+	                  <div class="mb-3 col-md-6">
+	                    <label for="email" class="form-label">체크아웃
+	                    	<span class="text-danger">*</span>
+	                    </label>
+	                    <input type="email" class="form-control" id="email" placeholder="YYYY-MM-DD" required="">
+	                  </div>
                   </div>
                  
                   <!-- payment details -->
                   <div class="col-md-12">
                     <h4 class="mb-4 mt-2 border-bottom pb-2">결제수단</h4>
                   </div>
+                  <div class="position-relative">
+                    <button type="button" id="btn-pay-ready">
+						<img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/Kakaopayment_icon.png">            	
+                    </button>
+                  </div>
+                  
+                  
                   <div class="col-md-12">
-                    <div class="d-flex flex-wrap mb-4">
-
-                      <div class="position-relative">
-                        <input id="visa" class="radio-button" type="radio" name="radio" checked />
-                        <div class="radio-img">
-                          <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/visa.png"  alt="Rentkit Directory & Listing Bootstrap 5 Theme">
-                          <label for="visa"></label>
-                        </div>
-                      </div>
-                      <div class="position-relative">
-                        <input id="discover" class="radio-button" type="radio" name="radio" />
-                        <div class="radio-img">
-                          <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/discover.png"  alt="Rentkit Directory & Listing Bootstrap 5 Theme">
-                          <label for="discover"></label>
-                        </div>
-                      </div>
-                      <div class="position-relative">
-                        <input id="mastercard" class="radio-button" type="radio" name="radio" />
-                        <div class="radio-img">
-                          <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/mastercard.png"  alt="Rentkit Directory & Listing Bootstrap 5 Theme">
-                          <label for="mastercard"></label>
-                        </div>
-                      </div>
-                      <div class="position-relative">
-                        <input id="american-express" class="radio-button" type="radio" name="radio" />
-                        <div class="radio-img">
-                          <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/american-express.png"  alt="Rentkit Directory & Listing Bootstrap 5 Theme">
-                          <label for="american-express"></label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- name in card -->
-                  <div class="mb-3 col-md-12">
-                    <label for="cardname" class="form-label">Name on Card <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="cardname" placeholder="Name on Card">
-                  </div>
-                  <!-- credit card number -->
-                  <div class="mb-3 col-md-12">
-                    <label for="cardnumber" class="form-label">Credit Card Number <span
-                        class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="cardnumber" placeholder="Name on Card">
-                  </div>
-                  <!-- month -->
-                  <div class="mb-3 col-md-4">
-                    <label for="month" class="form-label">Month <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="month" placeholder="Month">
-                  </div>
-                  <!-- year -->
-                  <div class="mb-3 col-md-4">
-                    <label for="year" class="form-label">Year <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="year" placeholder="Year">
-                  </div>
-                  <!-- security code -->
-                  <div class="mb-3 col-md-4">
-                    <label for="securitycode" class="form-label">Security Code <span
-                        class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="securitycode" placeholder="***">
-                  </div>
-                  <!-- billing country -->
-                  <div class="mb-3 col-md-12">
-                    <label for="billing" class="form-label">Billing Country <span class="text-danger">*</span></label>
-                    <select class="select2" id="billing">
-                      <option selected>United States</option>
-                      <option value="1">United Kingdom</option>
-                      <option value="2">India</option>
-                      <option value="3">Russia</option>
-                    </select>
-                  </div>
-                  <!-- street address -->
-                  <div class="mb-3 col-md-12">
-                    <label for="street-address" class="form-label">Street Address <span
-                        class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required="" id="street-address"
-                      placeholder=" e.g. 300 Tetrick Road Fort Myers, London 33912">
-                  </div>
-                  <!-- town city -->
-                  <div class="mb-3 col-md-4">
-                    <label for="city" class="form-label">Town/City<span class="text-danger">*</span></label>
-                    <select class="select2" id="city">
-                      <option selected>New York</option>
-                      <option value="1">Liverpool</option>
-                      <option value="2">Delhi</option>
-                      <option value="3">Moscow</option>
-                    </select>
-                  </div>
-                  <!-- state province -->
-                  <div class="mb-3 col-md-4">
-                    <label for="state" class="form-label">State/Province<span class="text-danger">*</span></label>
-                    <select class="select2" id="state">
-                      <option selected>American Samoa</option>
-                      <option value="1">Scotland</option>
-                      <option value="2">Delhi</option>
-                      <option value="3">Amur</option>
-                    </select>
-                  </div>
-                  <!-- zipcode -->
-                  <div class="mb-3 col-md-4">
-                    <label for="zipcode" class="form-label">Zipcode<span class="text-danger">*</span></label>
-                    <input class="form-control" placeholder="" type="text" id="zipcode">
-                  </div>
-                  <div class="col-md-12 mt-4">
-                    <h5 class="mb-4 border-bottom pb-2">Introduce Yourself to The Manager</h5>
-                  </div>
-                  <div class="col-md-12">
-                    <ul class="list-unstyled">
-                      <li><span class="mdi mdi-chevron-right me-1"></span>Some info about you and who's coming with you?
-                      </li>
-                      <li><span class="mdi mdi-chevron-right me-1"></span>What about this home interests you?</li>
-                    </ul>
-                  </div>
-                  <!-- message -->
-                  <div class="mb-3 col-md-12">
-                    <label for="message-for-host" class="form-label">Message For Host <span
-                        class="text-danger">*</span></label>
-                    <textarea class="form-control" rows="3" placeholder="Write Your Message"
-                      id="message-for-host"></textarea>
-                  </div>
-                  <div class="col-md-12">
-                    <h5 class="mb-4 mt-2 border-bottom pb-2">Review And Book</h5>
+                    <h5 class="mb-4 mt-2 border-bottom pb-2">결제 금액</h5>
                   </div>
                   <!-- meta -->
                   <div class="col-md-12">
@@ -235,7 +145,7 @@
                         </ul>
                       </div>
                       <div>
-                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-lock me-2"></i>Book Now</button>
+                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-lock me-2"></i>예약하기</button>
                       </div>
                     </div>
                   </div>
@@ -322,8 +232,6 @@
                     <span class="btn btn-primary" id="subscriber">Subscribe</span>
                   </div>
 
-
-
                 </form>
                 <!-- footer widget  -->
               </div>
@@ -361,3 +269,30 @@
 
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
+    
+    <script type="text/javascript">
+	    // 카카오페이 결제 팝업창 연결
+	    $(function() {
+	        $("#btn-pay-ready").click(function(e) {
+	            // 아래 데이터 외에도 필요한 데이터를 원하는 대로 담고, Controller에서 @RequestBody로 받으면 됨
+	            let data = {
+	                name: '상품명',    // 카카오페이에 보낼 대표 상품명
+	                totalPrice: 20000 // 총 결제금액
+	            };
+	          
+	            $.ajax({
+	                type: 'POST',
+	                url: '/order/pay/ready',
+	                data: JSON.stringify(data),
+	                contentType: 'application/json',
+	                success: function(response) {
+	                location.href = response.next_redirect_pc_url;
+	                },
+	                error: function(xhr, status, error) {
+	                    console.log("Request failed with status: " + status);
+	                    console.log("Error: " + error);
+	                }
+	            });
+	        });
+	    });
+	</script>
