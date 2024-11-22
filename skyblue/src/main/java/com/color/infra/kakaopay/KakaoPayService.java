@@ -68,10 +68,26 @@ public class KakaoPayService {
 
         RestTemplate template = new RestTemplate();
         String url = "https://open-api.kakaopay.com/online/v1/payment/approve";
-        ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
-        System.out.println("결제승인 응답객체: " + approveResponseDto);
-
-        return approveResponseDto;
+        
+        try {
+            // postForObject는 응답 객체가 정상적으로 반환될 때까지 기다린 후 결과를 리턴
+            ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
+            if (approveResponseDto != null) {
+                System.out.println("결제승인 응답객체: " + approveResponseDto);
+            } else {
+                System.out.println("결제승인 응답객체가 null입니다.");
+            }
+            return approveResponseDto;
+        } catch (Exception e) {
+            System.out.println("결제 승인 요청 중 오류 발생: " + e.getMessage());
+            e.printStackTrace();  // 오류 스택을 출력하여 문제를 파악할 수 있습니다.
+            return null;
+        }
+        
+//        ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
+//        System.out.println("결제승인 응답객체: " + approveResponseDto);
+//        
+//        return approveResponseDto;
     }
 
 }

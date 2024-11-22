@@ -43,7 +43,7 @@ public class UsrhotelController {
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelIndex")
 	public String usrHotelXdmIndex() {
-		return "/usr/v1/infra/usrhotel/usrHotelIndex";
+		return "usr/v1/infra/usrhotel/usrHotelIndex";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelList")
@@ -56,7 +56,7 @@ public class UsrhotelController {
 			model.addAttribute("list", hotelService.hotelList(hotelVo));
 		}
 		
-		return "/usr/v1/infra/usrhotel/usrHotelList";
+		return "usr/v1/infra/usrhotel/usrHotelList";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelDeList")
@@ -66,7 +66,7 @@ public class UsrhotelController {
 		model.addAttribute("hotelDeList", hotelService.HotelDeList(hotelDto));			// hotel Detail List
 		model.addAttribute("reviewList", hotelService.ReviewSelectList(hotelDto));		// review
 		
-		return "/usr/v1/infra/usrhotel/usrHotelDeList";
+		return "usr/v1/infra/usrhotel/usrHotelDeList";
 	}
 		
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelInst")
@@ -82,12 +82,12 @@ public class UsrhotelController {
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSignup")
 	public String usrHotelXdmSignup(CustomerDto customerDto) {
-		return "/usr/v1/infra/usrhotel/usrHotelSignup";
+		return "usr/v1/infra/usrhotel/usrHotelSignup";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelSignin")
 	public String usrHotelXdmSignin() {
-		return "/usr/v1/infra/usrhotel/usrHotelSignin";
+		return "usr/v1/infra/usrhotel/usrHotelSignin";
 	}
 	
 	@ResponseBody
@@ -135,7 +135,7 @@ public class UsrhotelController {
 	
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelBooking")
 	public String usrHotelBooking() {
-		return "/usr/v1/infra/usrhotel/usrHotelBooking";
+		return "usr/v1/infra/usrhotel/usrHotelBooking";
 	}
 	
 }

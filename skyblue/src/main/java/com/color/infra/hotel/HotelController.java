@@ -30,12 +30,12 @@ public class HotelController {
 			model.addAttribute("list", hotelService.hotelList(hotelVo));
 		}
 		
-		return "/xdm/v1/infra/hotel/hotelXdmList";
+		return "xdm/v1/infra/hotel/hotelXdmList";
 	}
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmForm")
 	public String hotelXdmForm() {
-		return "/xdm/v1/infra/hotel/hotelXdmForm";
+		return "xdm/v1/infra/hotel/hotelXdmForm";
 	}
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmInst")
@@ -48,7 +48,7 @@ public class HotelController {
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmMFom")
 	public String hotelXdmMFom(HotelDto hotelDto, Model model) {
 		model.addAttribute("hotelItem", hotelService.selectOne(hotelDto));
-		return "/xdm/v1/infra/hotel/hotelXdmMFom";
+		return "xdm/v1/infra/hotel/hotelXdmMFom";
 	}
 	
 	@RequestMapping(value="/v1/infra/hotel/hotelXdmUpdt")

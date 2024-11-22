@@ -76,12 +76,12 @@ public class CodeGroupController {
 		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("header").get("resultMsg").asText());
 		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("body").get("items").get(0).get("KIT_PROD_QTY").asText());
 		
-		return "/xdm/v1/infra/codegroup/codeGroupXdmList";	// 고정된 주소로 full 주소로 기재
+		return "xdm/v1/infra/codegroup/codeGroupXdmList";	// 고정된 주소로 full 주소로 기재
 	}
 	
 	@RequestMapping(value="/v1/infra/codegroup/codeGroupXdmForm")
 	public String codeGroupXdmForm() {
-		return "/xdm/v1/infra/codegroup/codeGroupXdmForm";
+		return "xdm/v1/infra/codegroup/codeGroupXdmForm";
 	}
 	
 	@RequestMapping(value="/v1/infra/codegroup/codeGroupXdmInst")
@@ -94,7 +94,7 @@ public class CodeGroupController {
 	@RequestMapping(value="/v1/infra/codegroup/codegroupxdmMfom")
 	public String codegroupxdmMfom(CodeGroupDto codeGroupDto, Model model) {
 		model.addAttribute("item", codeGroupService.selectOne(codeGroupDto));
-		return "/xdm/v1/infra/codegroup/codegroupxdmMfom";
+		return "xdm/v1/infra/codegroup/codegroupxdmMfom";
 	}
 	
 //	@RequestMapping(value="/v1/infra/codegroup/codegroupxdmMfom")

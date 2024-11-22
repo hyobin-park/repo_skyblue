@@ -53,12 +53,12 @@ public class CustomerController {
 		model.addAttribute("customerList", customerService.customerList(customerVo));
 		}
 		
-		return "/xdm/v1/infra/customer/customerXdmList";
+		return "xdm/v1/infra/customer/customerXdmList";
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerXdmForm")
 	public String customerXdmForm() {
-		return "/xdm/v1/infra/customer/customerXdmForm";
+		return "xdm/v1/infra/customer/customerXdmForm";
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerXdmInst")
@@ -73,7 +73,7 @@ public class CustomerController {
 	@RequestMapping(value="/v1/infra/customer/customerXdmMFom")
 	public String customerXdmMFom(CustomerDto customerDto, Model model) {
 		model.addAttribute("customerItem", customerService.selectOne(customerDto));
-		return "/xdm/v1/infra/customer/customerXdmMFom";
+		return "xdm/v1/infra/customer/customerXdmMFom";
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerXdmUpdt")
@@ -108,13 +108,13 @@ public class CustomerController {
 	
 	@RequestMapping(value="/v1/infra/customer/customerXdmMain")
 	public String customerXdmMain() {
-		return "/xdm/v1/infra/customer/customerXdmMain";
+		return "xdm/v1/infra/customer/customerXdmMain";
 	}
 	
 	@RequestMapping(value="/v1/infra/customer/customerLogIn")
 	public String customerLogIn(CustomerDto customerDto) {
 		customerService.LoginselectOne(customerDto);
-		return "/xdm/v1/infra/customer/customerLogIn";
+		return "xdm/v1/infra/customer/customerLogIn";
 	}
 	
 	@ResponseBody
@@ -153,7 +153,7 @@ public class CustomerController {
 	
 	@RequestMapping(value="/v1/infra/customer/customerSignUp")
 	public String customerSignUp(CustomerDto customerDto) {
-		return "/xdm/v1/infra/customer/customerSignUp";
+		return "xdm/v1/infra/customer/customerSignUp";
 	}
 	
 	@ResponseBody

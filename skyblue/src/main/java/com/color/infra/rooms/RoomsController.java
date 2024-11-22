@@ -27,12 +27,12 @@ public class RoomsController {
 			model.addAttribute("list", roomsService.roomSelectList(roomsVo));
 		}
 		
-		return "/xdm/v1/infra/rooms/roomsXdmList";
+		return "xdm/v1/infra/rooms/roomsXdmList";
 	}
 	
 	@RequestMapping(value="/v1/infra/rooms/roomsXdmForm")
 	public String roomsXdmForm() {
-		return "/xdm/v1/infra/rooms/roomsXdmForm";
+		return "xdm/v1/infra/rooms/roomsXdmForm";
 	}
 	
 	@RequestMapping(value="/v1/infra/rooms/roomsXdmInst")
@@ -44,7 +44,7 @@ public class RoomsController {
 	@RequestMapping(value="/v1/infra/rooms/roomsXdmMForm")
 	public String roomsXdmMForm(RoomsDto roomsDto, Model model) {
 		model.addAttribute("item", roomsService.roomSelectOne(roomsDto));
-		return "/xdm/v1/infra/rooms/roomsXdmMForm";
+		return "xdm/v1/infra/rooms/roomsXdmMForm";
 	}
 	
 	@RequestMapping(value="/v1/infra/rooms/roomsXdmUpdt")

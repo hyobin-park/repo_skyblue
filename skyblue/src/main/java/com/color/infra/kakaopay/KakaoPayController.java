@@ -45,9 +45,6 @@ public class KakaoPayController {
 		 System.out.println("결제승인 요청을 인증하는 토큰: " + pgToken);
 		 System.out.println("결제 고유번호: " + tid);
 		 
-//		 log.info("결제승인 요청을 인증하는 토큰: " + pgToken);
-//		 log.info("결제 고유번호: " + tid);
-	
 		 // 카카오 결제 요청하기
 		 ApproveResponseDto approveResponseDto = kakaoPayService.approveResponseDto(tid, pgToken);
 		 

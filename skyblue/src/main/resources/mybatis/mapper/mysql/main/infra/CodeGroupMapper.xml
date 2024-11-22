@@ -40,7 +40,7 @@
 		    ,a.ifcgRgDate
 		    ,a.ifcgEditDate
 		    ,(SELECT count(ifcdSeq)
-				FROM Code b 
+				FROM code b 
 		        WHERE 1=1
 		        AND b.codegroup_ifcgSeq = a.ifcgSeq)
 		        AS ifcdSeqcount
