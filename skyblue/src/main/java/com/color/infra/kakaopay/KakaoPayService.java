@@ -23,9 +23,9 @@ public class KakaoPayService {
         parameters.put("quantity", "1");                                        // 상품 수량
         parameters.put("total_amount", String.valueOf(totalPrice));             // 상품 총액
         parameters.put("tax_free_amount", "0");                                 // 상품 비과세 금액
-        parameters.put("approval_url", "http://localhost/order/pay/completed"); // 결제 성공 시 URL
-        parameters.put("cancel_url", "http://localhost/order/pay/cancel");      // 결제 취소 시 URL
-        parameters.put("fail_url", "http://localhost/order/pay/fail");          // 결제 실패 시 URL
+        parameters.put("approval_url", "http://localhost:8080/order/pay/completed"); // 결제 성공 시 URL
+        parameters.put("cancel_url", "http://localhost:8080/order/pay/cancel");      // 결제 취소 시 URL
+        parameters.put("fail_url", "http://localhost:8080/order/pay/fail");          // 결제 실패 시 URL
         
         // 카카오페이 측에 요청 시 헤더부에 필요한 값
         HttpHeaders headers = new HttpHeaders();
@@ -59,9 +59,11 @@ public class KakaoPayService {
         parameters.put("partner_user_id", "roommake");    // 회원 아이디
         parameters.put("pg_token", pgToken);              // 결제승인 요청을 인증하는 토큰
         
+        System.out.println("결제승인 요청을 인증하는 토큰" + pgToken);
+        
      // 카카오페이 측에 요청 시 헤더부에 필요한 값
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "KakaoAK {PRD00B9EE93C0B9C5D2F375B08C26BA2A9C30DF2}");
+        headers.set("Authorization", "SECRET_KEY " + "DEV9F394E52C8BD5339F2706491E972A4CF021DC");
         headers.set("Content-type", "application/json");
         
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(parameters, headers);
@@ -69,25 +71,10 @@ public class KakaoPayService {
         RestTemplate template = new RestTemplate();
         String url = "https://open-api.kakaopay.com/online/v1/payment/approve";
         
-        try {
-            // postForObject는 응답 객체가 정상적으로 반환될 때까지 기다린 후 결과를 리턴
-            ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
-            if (approveResponseDto != null) {
-                System.out.println("결제승인 응답객체: " + approveResponseDto);
-            } else {
-                System.out.println("결제승인 응답객체가 null입니다.");
-            }
-            return approveResponseDto;
-        } catch (Exception e) {
-            System.out.println("결제 승인 요청 중 오류 발생: " + e.getMessage());
-            e.printStackTrace();  // 오류 스택을 출력하여 문제를 파악할 수 있습니다.
-            return null;
-        }
+        ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
+        System.out.println("결제승인 응답객체: " + approveResponseDto);
         
-//        ApproveResponseDto approveResponseDto = template.postForObject(url, requestEntity, ApproveResponseDto.class);
-//        System.out.println("결제승인 응답객체: " + approveResponseDto);
-//        
-//        return approveResponseDto;
+        return approveResponseDto;
     }
-
+    
 }
