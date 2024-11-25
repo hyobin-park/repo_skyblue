@@ -45,15 +45,19 @@ public class KakaoPayController {
 		 
 		 String tid = SessionUtils.getStringAttributeValue("tid");
 		 
-		 System.out.println("결제승인 요청을 인증하는 토큰: " + pgToken);
+		 System.out.println("결제승인 요청을 인증하는 토큰(ct): " + pgToken);
 		 System.out.println("결제 고유번호: " + tid);
 		 
-//		 // 카카오 결제 요청하기
-//		 ApproveResponseDto approveResponseDto = kakaoPayService.approveResponseDto(tid, pgToken);
+		 // 결제 완료 카카오톡 발송
+		 ApproveResponseDto approveResponseDto = kakaoPayService.approveResponseDto(tid, pgToken);
 		 
-//		 return "redirect:/order/completed";
-		 return "redirect:/usr/v1/infra/usrhotel/usrHotelIndex";
+		 return "redirect:/order/completed";
+//		 return "redirect:/usr/v1/infra/usrhotel/usrHotelIndex";
 	 }
 	 
-
+	 @GetMapping("/order/completed")
+	 public String orderCompleted() {
+	     // 결제 완료 후 보여줄 정보 처리
+	     return "/usr/v1/infra/usrhotel/usrHotelIndex"; // Thymeleaf 템플릿에서는 completed.html로 연결됩니다.
+	 }
 }

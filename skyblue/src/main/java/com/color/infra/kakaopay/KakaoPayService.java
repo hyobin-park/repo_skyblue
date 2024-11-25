@@ -59,7 +59,7 @@ public class KakaoPayService {
         parameters.put("partner_user_id", "roommake");    // 회원 아이디
         parameters.put("pg_token", pgToken);              // 결제승인 요청을 인증하는 토큰
         
-        System.out.println("결제승인 요청을 인증하는 토큰" + pgToken);
+        System.out.println("결제승인 요청을 인증하는 토큰(sv):" + pgToken);
         
      // 카카오페이 측에 요청 시 헤더부에 필요한 값
         HttpHeaders headers = new HttpHeaders();
