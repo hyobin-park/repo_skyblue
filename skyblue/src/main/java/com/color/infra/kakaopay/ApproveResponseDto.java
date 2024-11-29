@@ -89,7 +89,4 @@ public class ApproveResponseDto {
 	public void setPayload(String payload) {
 		this.payload = payload;
 	}
-    
-    
-
 }

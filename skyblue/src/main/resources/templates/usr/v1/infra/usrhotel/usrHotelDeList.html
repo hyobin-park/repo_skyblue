@@ -22,11 +22,11 @@
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
     <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 	<link href="/usr/v1/css/commonUsr.css" rel="stylesheet">
+	<link href="/xdm/v1/css/datetimepicker/jquery.datetimepicker.min.css" rel="stylesheet"> 
 	
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
     <title>Hotels</title>
-
 </head>
 
 <body>
@@ -328,34 +328,37 @@
                                         <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
-                                        <form>
+                                        <form name="form" method="post" action="/v1/infra/hotel/hotelBookingInst">
+                                        	<!-- 체크인/아웃 날짜 선택 -->
                                             <div class="mb-3">
-                                                <label class="form-label">체크인/아웃</label>
+                                                <label class="form-label">날짜선택</label>
                                                 <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" id="dateSelect"
-                                                        placeholder="Select Date" aria-label="Recipient's username">
-                                                    <span class="input-group-text bg-transparent"><i
-                                                            class="mdi mdi-calendar-month-outline"></i></span>
+                                                    <input type="text" class="form-control" id="checkInDate" name="checkInDate"
+                                                        placeholder="체크인" aria-label="Recipient's username">
+                                                    <span class="input-group-text bg-transparent">
+                                                    	<i class="mdi mdi-calendar-month-outline"></i>
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <!-- select -->
-                                            <select class="select2">
-                                                <option>인원</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                            <div class="mt-3 d-grid">
-                                                <button class="btn btn-primary" type="button">검색</button>
+                                            <div class="mb-3">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" id="checkOutDate" name="checkOutDate"
+                                                        placeholder="체크아웃" aria-label="Recipient's username">
+                                                    <span class="input-group-text bg-transparent">
+                                                    	<i class="mdi mdi-calendar-month-outline"></i>
+                                                    </span>
+                                                </div>
                                             </div>
+<!--                                             <div class="mt-3 d-grid"> -->
+<!--                                                 <button class="btn btn-primary" type="button">검색</button> -->
+<!--                                             </div> -->
+                                            <!-- 체크인/아웃 날짜 선택 -->
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <!-- listing widget -->
-                            <!-- listing widget -->
+                            <!-- rooms detail start -->
                             <div class="card mb-4" th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list : ${hotelDeList}">
                                 <div class="card-body p-4">
                                     <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span><b>
@@ -393,14 +396,30 @@
                                     </div>
                                 </div>
                                 <div class="border-top card-body p-4 text-center">  
-                                    <p><b>1박 당 요금: <span class="text-primary" th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></b></span>
-                                        <br>(세금 및 수수료 포함)</p>
-                                    <div class="d-grid mx-8">
-                                        <a href="/v1/infra/usrhotel/usrHotelBooking" class="btn btn-dark">예약하기</a>
-                                    </div>
+                                    <p>
+                                    	<b>1박 당 요금: <span class="text-primary" th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></b></span>
+                                        <br>(세금 및 수수료 포함)
+                                    </p>
                                 </div>
                             </div>
-                            <!-- listing widget -->
+                            <!-- rooms detail end -->
+                            <!-- total start -->
+                            <div class="card mb-4">
+                            	<div class="card-body p-4">
+                            		<label class="form-label">Total</label>
+										<div class="input-group mb-3">
+											<p>
+												<span>예약 날짜 : <span id="rvDate"></span></span> <br>
+												<span>예약 시간 : <span id="rvTime"></span></span> <br>
+												<span>총 금액 : <span id="boTotalPrice">0</span>원 </span>
+											</p>
+										</div>
+                                    <div class="d-grid mx-8">
+                                        <a href="/v1/infra/usrhotel/usrHotelBooking" class="btn btn-dark">예약하기</a>
+                            		</div>
+                            	</div>
+                            </div>
+                            <!-- total end -->
                         </div>
                     </div>
                 </div>
@@ -526,6 +545,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
     <script src="/usr/v1/js/commonUsr.js"></script>
+    <script src="/xdm/v1/js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
@@ -633,5 +653,70 @@
 		            console.error("주소 변환 실패. 상태:", status);
 		        }
 		    });
+		}
+	</script>
+	
+	<!-- Total price Script -->
+	<script type="text/javascript">
+		// 예약 날짜,시간 검색 - datetimepicker
+	    window.addEventListener('load', function () {
+	        $.datetimepicker.setLocale('ko');
+	        
+	        // 날짜 선택 필드 초기화
+	        $("#checkInDate, #checkOutDate").datetimepicker({
+	            timepicker: false,    // 시간 선택 비활성화
+	            format: 'Y-m-d'      // 날짜 형식
+	        }).on('change', function () {
+	            // 날짜 선택 시 rvDate에 값 반영
+	            const selectedDate = $(this).val();
+	            $('#rvDate').text(selectedDate);
+	        });
+	
+	        // 시간 선택 필드 초기화
+// 	        $("#boTime").datetimepicker({ 
+// 	            datepicker: false,    // 날짜 선택 비활성화
+// 	            timepicker: true,     // 시간 선택 활성화
+// 	            format: 'H:i',        // 시간 형식 (24시간제)
+// 	            step: 30              // 30분 단위
+// 	        }).on('change', function () {
+// 	            // 시간 선택 시 rvTime에 값 반영
+// 	            const selectedTime = $(this).val();
+// 	            $('#rvTime').text(selectedTime);
+// 	        });
+    	});
+		
+		
+		// 메뉴 가격 합산 및 선택된 메뉴 seq 처리
+		function updateTotalPrice() {
+		    let total = 0; // 총 금액 초기화
+		    let selectedMenuSeqs = []; // 선택된 메뉴 seq 배열 초기화
+		
+		    // 선택된 체크박스들의 데이터(가격, seq)를 처리
+		    document.querySelectorAll('.menu-checkbox:checked').forEach(checkbox => {
+		        const price = checkbox.getAttribute('data-price'); // data-price 읽기
+		        console.log('data-price:', price); // 디버깅 출력
+		
+		        const priceValue = isNaN(price) || price === null || price === '' ? 0 : parseInt(price, 10);
+		
+		        total += priceValue; // 총 금액 합산
+		        selectedMenuSeqs.push(checkbox.value); // 메뉴 seq 저장
+		    });
+		
+		    // 총 금액을 화면에 표시 (boTotalPrice)
+		    document.getElementById('boTotalPrice').textContent = total.toLocaleString(); // 숫자 형식화
+		
+		    // 총 금액을 hidden 필드에 설정
+		    document.getElementById('boTotalPriceInput').value = total;
+		
+		    // 선택된 메뉴 seq를 디버깅 로그로 출력
+		    console.log('선택된 메뉴 seq:', selectedMenuSeqs);
+		    console.log('총 금액:', total);
+		}
+
+		
+		// 예약하기 버튼 - insert
+		document.getElementById('btnBooking').onclick = function(){
+			form.action="/v1/infra/hotel/hotelBookingInst";
+			form.submit();
 		}
 	</script>

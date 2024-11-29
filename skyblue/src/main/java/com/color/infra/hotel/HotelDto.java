@@ -1,6 +1,7 @@
 package com.color.infra.hotel;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,6 +41,31 @@ public class HotelDto {
 	private String bedType;
 	private Integer PeopleStay;
 	
+	// booking
+	private String bookingSeq;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date checkInDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date checkOutDate;
+	private Integer bkPayment;
+	private Integer totalPrice;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date paymentDate;
+	private String bkDesc;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date bkRegDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date bkEditDate;
+	private Integer bkDelNy;
+	
+	//bookingroom
+	private String brSeq;
+	private Integer brUseNy;
+	private Integer brDelNy;
+	private String rooms_roomSeq;
+	private String booking_bookingSeq;
+	private List<String> roomSeqs;	// checkbox 선택된 meseq 배열
+	
 	// reviews
 	private String reviewSeq;
 	private Integer reStars;
@@ -75,7 +101,7 @@ public class HotelDto {
 	private Date upRegDateTime;
 	private Date upRegDateTimeSvr;
 	
-	// 
+	// review
 	private String[] reStarsArr;
 	
 	
@@ -416,6 +442,101 @@ public class HotelDto {
 	public void setReStarsArr(String[] reStarsArr) {
 		this.reStarsArr = reStarsArr;
 	}
-	
+	public String getBookingSeq() {
+		return bookingSeq;
+	}
+	public void setBookingSeq(String bookingSeq) {
+		this.bookingSeq = bookingSeq;
+	}
+	public Date getCheckInDate() {
+		return checkInDate;
+	}
+	public void setCheckInDate(Date checkInDate) {
+		this.checkInDate = checkInDate;
+	}
+	public Date getCheckOutDate() {
+		return checkOutDate;
+	}
+	public void setCheckOutDate(Date checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
+	public Integer getBkPayment() {
+		return bkPayment;
+	}
+	public void setBkPayment(Integer bkPayment) {
+		this.bkPayment = bkPayment;
+	}
+	public Integer getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+	public String getBkDesc() {
+		return bkDesc;
+	}
+	public void setBkDesc(String bkDesc) {
+		this.bkDesc = bkDesc;
+	}
+	public Date getBkRegDate() {
+		return bkRegDate;
+	}
+	public void setBkRegDate(Date bkRegDate) {
+		this.bkRegDate = bkRegDate;
+	}
+	public Date getBkEditDate() {
+		return bkEditDate;
+	}
+	public void setBkEditDate(Date bkEditDate) {
+		this.bkEditDate = bkEditDate;
+	}
+	public Integer getBkDelNy() {
+		return bkDelNy;
+	}
+	public void setBkDelNy(Integer bkDelNy) {
+		this.bkDelNy = bkDelNy;
+	}
+	public String getBrSeq() {
+		return brSeq;
+	}
+	public void setBrSeq(String brSeq) {
+		this.brSeq = brSeq;
+	}
+	public Integer getBrUseNy() {
+		return brUseNy;
+	}
+	public void setBrUseNy(Integer brUseNy) {
+		this.brUseNy = brUseNy;
+	}
+	public Integer getBrDelNy() {
+		return brDelNy;
+	}
+	public void setBrDelNy(Integer brDelNy) {
+		this.brDelNy = brDelNy;
+	}
+	public String getRooms_roomSeq() {
+		return rooms_roomSeq;
+	}
+	public void setRooms_roomSeq(String rooms_roomSeq) {
+		this.rooms_roomSeq = rooms_roomSeq;
+	}
+	public String getBooking_bookingSeq() {
+		return booking_bookingSeq;
+	}
+	public void setBooking_bookingSeq(String booking_bookingSeq) {
+		this.booking_bookingSeq = booking_bookingSeq;
+	}
+	public List<String> getRoomSeqs() {
+		return roomSeqs;
+	}
+	public void setRoomSeqs(List<String> roomSeqs) {
+		this.roomSeqs = roomSeqs;
+	}
 	
 }

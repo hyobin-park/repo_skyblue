@@ -39,6 +39,7 @@ public class KakaoPayController {
 		 return readyResponseDto;
 	 }
 
+	// 결제 승인요청
 	 @GetMapping("/pay/completed")
 	 public String payCompleted(@RequestParam("pg_token") String pgToken) {
 	    System.out.println("@@@@@@@@@@@@");
@@ -50,10 +51,9 @@ public class KakaoPayController {
 		 
 		 // 결제 완료 카카오톡 발송
 		 ApproveResponseDto approveResponseDto = kakaoPayService.approveResponseDto(tid, pgToken);
-//		 String nextRedirectUrl = approveResponseDto.get;
 		 
-//		 return "redirect:/order/completed";
-		 return "redirect:/usr/v1/infra/usrhotel/usrHotelIndex";
+		 return "redirect:/order/completed";
+//		 return "redirect:/usr/v1/infra/usrhotel/usrHotelIndex";
 	 }
 	
 }

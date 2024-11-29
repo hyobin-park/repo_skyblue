@@ -19,7 +19,5 @@ public class OrderCreateFormDto {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-    
-    
 
 }
