@@ -328,7 +328,7 @@
                                         <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
-                                        <form name="form" method="post" action="/v1/infra/hotel/hotelBookingInst">
+                                        <form name="form" method="post" action="/v1/infra/hotel/bookingInsert">
                                         	<!-- 체크인/아웃 날짜 선택 -->
                                             <div class="mb-3">
                                                 <label class="form-label">날짜선택</label>
@@ -359,10 +359,21 @@
                             </div>
                             <!-- listing widget -->
                             <!-- rooms detail start -->
-                            <div class="card mb-4" th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list : ${hotelDeList}">
+                            <label th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list : ${hotelDeList}" >
+                            <div class="card mb-4" style=" display: block;
+    border: 1px solid #007bff; /* 얇은 파란색 테두리 */
+    border-radius: 10px; /* 둥근 모서리 */
+    background-color: #fff; /* 흰색 배경 */
+    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+    cursor: pointer; /* 클릭할 수 있는 느낌 */">
                                 <div class="card-body p-4">
-                                    <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span><b>
-                                            객실</b></h5>
+                                    <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span>
+                                    	<b>객실</b>
+                                    </h5>
+                                    <!-- name="room_Seqs" 로 여러개의 메뉴를 배열로 서버에 전송 -->
+								<input type="checkbox" id="checkbox1" name="room_Seqs" class="menu-checkbox" hidden
+    								th:value="${list.roomSeq}" th:attr="data-price=${list.price != null ? list.price : 0}" onchange="updateTotalPrice()">
+								<input type="hidden" name="totalPrice" id="totalPriceInput"><!-- DB에 boTotalPrice를 넘기기위해서 hidden으로 만든다. -->
                                     <div class="text-center mt-4">
                                         <div>
                                             <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/lottehotel_proom_1.jpg"
@@ -402,6 +413,7 @@
                                     </p>
                                 </div>
                             </div>
+                            </label>
                             <!-- rooms detail end -->
                             <!-- total start -->
                             <div class="card mb-4">
@@ -717,4 +729,6 @@
 			form.action="/v1/infra/hotel/hotelBookingInst";
 			form.submit();
 		}
+		
+		document.getElementById()
 	</script>
