@@ -99,4 +99,14 @@ public class HotelService {
 		return hotelDao.HotelDeList(hotelDto);
 	}
 	
+	// ===== booking ===== //
+	// 예약 등록 - bookingInsert
+	public int bookingInsert(HotelDto hotelDto) {
+		return hotelDao.bookingInsert(hotelDto);
+	};
+	
+	public int roomBookingInsert(HotelDto hotelDto) {
+		return hotelDao.roomBookingInsert(hotelDto);
+	};
+		
 }

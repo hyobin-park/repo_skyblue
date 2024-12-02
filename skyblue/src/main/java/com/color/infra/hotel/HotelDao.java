@@ -36,4 +36,9 @@ public interface HotelDao {
 	// HotelDeList
 	public List<HotelDto> HotelDeList(HotelDto hotelDto);
 	
+	// ===== booking ===== //
+	// 예약 등록 - bookingInsert
+	public int bookingInsert(HotelDto hotelDto);
+	public int roomBookingInsert(HotelDto hotelDto);
+	
 }

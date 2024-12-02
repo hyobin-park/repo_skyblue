@@ -30,26 +30,6 @@
 			GROUP BY hotel_seq
 			) as g
 		ON c.hotelSeq = g.Hotel_seq
-		
-<!-- 		LEFT JOIN  -->
-<!-- 			(SELECT  -->
-<!-- 				hotel_seq, -->
-<!-- 				AVG(restars) AS average_star, -->
-<!--        			COUNT(*) AS review_count -->
-<!-- 	 	     FROM -->
-<!-- 				hotelreview -->
-<!--     			GROUP BY hotel_seq -->
-<!--     		) AS avg_table  -->
-<!-- 				ON a.htseq = avg_table.hotel_seq -->
-<!-- 			where 1=1 -->
-<!-- 				AND a.htseq = htseq -->
-<!-- 				   <if test="starsArr != null and starsArr.length != 0"> -->
-<!-- 				   		AND TRUNCATE(avg_table.average_star, 0) IN ( -->
-<!--             		<foreach collection="starsArr" item="item" separator=","> -->
-<!--                 		#{item} -->
-<!--             		</foreach> -->
-<!--         		    ) -->
-<!--    				  </if> -->
 		<if test="shtelDelNy != null and !shtelDelNy.equals('')">AND hotel_delNy = #{shtelDelNy}</if>
 		<if test="shtelUseNy != null and !shtelUseNy.equals('')">AND hotel_useNy = #{shtelUseNy}</if>
 		<if test="shStars != null and !shStars.equals('')">AND stars = #{shStars}</if>
@@ -329,6 +309,52 @@
 		LEFT JOIN customer d
 			ON f.Customer_seq = d.customerSeq
 	</select>
+	
+	<!-- hotelDetail에서 booking, rooms insert -->
+	<!-- bookingSeq 값을 booking에 삽입한 후 bookingroom에 전달하려면, MyBatis에서는 useGeneratedKeys를 설정하여 자동 생성된 bookingSeq 값을 가져올 수 있다. -->
+	<insert id="bookingInsert" useGeneratedKeys="true" keyProperty="bookingSeq">
+		INSERT INTO booking (
+			checkInDate, 
+			checkOutDate, 
+			bkPayment, 
+			totalPrice, 
+			paymentDate, 
+			bkDesc, 
+			bkRegDate, 
+			bkEditDate,
+			bkDelNy, 
+			Customer_seq
+		) values (
+			#{checkInDate}, 
+			#{checkOutDate}, 
+			null, 
+			#{totalPrice},
+			null, 
+			null, 
+			#{bkDesc},
+			now(), 
+			now(), 
+			0, 
+			#{Customer_seq}
+		)
+	</insert>
+	<insert id="roomBookingInsert" parameterType="map">
+		<!-- 선택된 메뉴들의 roomSeq값이 room_Seqs 리스트로 전달되어 roomBookingInsert에서 각각의 room_Seq를 사용하여 bookingroom테이블에 데이터를 삽입할 수 있다. -->
+		INSERT INTO bookingroom (
+			brUseNy,
+			brDelNy,
+			rooms_roomSeq,
+			booking_bookingSeq
+		) values 
+		<foreach collection="room_Seqs" item="room_Seq" separator=",">
+			(
+				1,
+				0,
+				#{room_Seq},
+				#{bookingSeq}
+			)
+		</foreach>
+	</insert>
 	
 	<!-- upload files -->
 	<insert id="insertUploaded">

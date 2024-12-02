@@ -409,8 +409,8 @@
                             		<label class="form-label">Total</label>
 										<div class="input-group mb-3">
 											<p>
-												<span>예약 날짜 : <span id="rvDate"></span></span> <br>
-												<span>예약 시간 : <span id="rvTime"></span></span> <br>
+												<span>체크인 날짜 : <span id="rvCheckIn"></span></span> <br>
+												<span>체크아웃 날짜 : <span id="rvCheckOut"></span></span> <br>
 												<span>총 금액 : <span id="boTotalPrice">0</span>원 </span>
 											</p>
 										</div>
@@ -663,26 +663,24 @@
 	        $.datetimepicker.setLocale('ko');
 	        
 	        // 날짜 선택 필드 초기화
-	        $("#checkInDate, #checkOutDate").datetimepicker({
+	        $("#checkInDate").datetimepicker({
 	            timepicker: false,    // 시간 선택 비활성화
 	            format: 'Y-m-d'      // 날짜 형식
 	        }).on('change', function () {
 	            // 날짜 선택 시 rvDate에 값 반영
 	            const selectedDate = $(this).val();
-	            $('#rvDate').text(selectedDate);
+	            $('#rvCheckIn').text(selectedDate);
 	        });
-	
-	        // 시간 선택 필드 초기화
-// 	        $("#boTime").datetimepicker({ 
-// 	            datepicker: false,    // 날짜 선택 비활성화
-// 	            timepicker: true,     // 시간 선택 활성화
-// 	            format: 'H:i',        // 시간 형식 (24시간제)
-// 	            step: 30              // 30분 단위
-// 	        }).on('change', function () {
-// 	            // 시간 선택 시 rvTime에 값 반영
-// 	            const selectedTime = $(this).val();
-// 	            $('#rvTime').text(selectedTime);
-// 	        });
+	        
+	     // 날짜 선택 필드 초기화
+	        $("#checkOutDate").datetimepicker({
+	            timepicker: false,    // 시간 선택 비활성화
+	            format: 'Y-m-d'      // 날짜 형식
+	        }).on('change', function () {
+	            // 날짜 선택 시 rvDate에 값 반영
+	            const selectedDate = $(this).val();
+	            $('#rvCheckOut').text(selectedDate);
+	        });
     	});
 		
 		

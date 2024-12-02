@@ -34,6 +34,7 @@ public class HotelDto {
 	private Integer minPrice;
 	
 	// rooms
+	private String roomSeq;
 	private String roomType;
 	private Integer price;
 	private String status;
@@ -64,7 +65,7 @@ public class HotelDto {
 	private Integer brDelNy;
 	private String rooms_roomSeq;
 	private String booking_bookingSeq;
-	private List<String> roomSeqs;	// checkbox 선택된 meseq 배열
+	private List<String> room_Seqs;	// checkbox 선택된 meseq 배열
 	
 	// reviews
 	private String reviewSeq;
@@ -532,11 +533,17 @@ public class HotelDto {
 	public void setBooking_bookingSeq(String booking_bookingSeq) {
 		this.booking_bookingSeq = booking_bookingSeq;
 	}
-	public List<String> getRoomSeqs() {
-		return roomSeqs;
+	public List<String> getRoom_Seqs() {
+		return room_Seqs;
 	}
-	public void setRoomSeqs(List<String> roomSeqs) {
-		this.roomSeqs = roomSeqs;
+	public void setRoom_Seqs(List<String> room_Seqs) {
+		this.room_Seqs = room_Seqs;
+	}
+	public String getRoomSeq() {
+		return roomSeq;
+	}
+	public void setRoomSeq(String roomSeq) {
+		this.roomSeq = roomSeq;
 	}
 	
 }
