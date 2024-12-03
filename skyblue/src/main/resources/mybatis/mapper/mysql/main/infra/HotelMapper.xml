@@ -124,6 +124,7 @@
 		    c.hotelDesc,
 		    c.hotelRgDate,
 		    c.hotelEditDate,
+		    e.roomSeq,
 		    e.roomType,
     		e.price,
     		e.status,
@@ -324,7 +325,7 @@
 			bkEditDate,
 			bkDelNy, 
 			Customer_seq
-		) values (
+		) VALUES (
 			#{checkInDate}, 
 			#{checkOutDate}, 
 			null, 
@@ -345,7 +346,7 @@
 			brDelNy,
 			rooms_roomSeq,
 			booking_bookingSeq
-		) values 
+		) VALUES 
 		<foreach collection="room_Seqs" item="room_Seq" separator=",">
 			(
 				1,

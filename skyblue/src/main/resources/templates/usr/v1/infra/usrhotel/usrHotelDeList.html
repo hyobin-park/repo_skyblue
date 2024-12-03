@@ -210,7 +210,6 @@
                         <div class="card mb-4 ">
                             <div class="card-body p-4">
                                 <h4 class="mb-3">리뷰 남기기</h4>
-                                <form class="row">
                                     <div class="mb-3 col-6">
                                         <label for="reviewtitle" class="form-label">이름</label>
                                         <input type="text" name="customerName" class="form-control" id="customerName"
@@ -243,7 +242,6 @@
                                     <div class="d-lg-flex justify-content-between align-items-center">
                                         <button type="submit" class="btn btn-primary">제출하기</button>
                                     </div>
-                                </form>
                             </div>
                         </div>
                         <!-- listing detail -->
@@ -328,13 +326,12 @@
                                         <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
-                                        <form name="form" method="post" action="/v1/infra/hotel/bookingInsert">
                                         	<!-- 체크인/아웃 날짜 선택 -->
                                             <div class="mb-3">
                                                 <label class="form-label">날짜선택</label>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" id="checkInDate" name="checkInDate"
-                                                        placeholder="체크인" aria-label="Recipient's username">
+                                                        placeholder="체크인" aria-label="Recipient's username" autocomplete="off">
                                                     <span class="input-group-text bg-transparent">
                                                     	<i class="mdi mdi-calendar-month-outline"></i>
                                                     </span>
@@ -343,7 +340,7 @@
                                             <div class="mb-3">
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" id="checkOutDate" name="checkOutDate"
-                                                        placeholder="체크아웃" aria-label="Recipient's username">
+                                                        placeholder="체크아웃" aria-label="Recipient's username" autocomplete="off">
                                                     <span class="input-group-text bg-transparent">
                                                     	<i class="mdi mdi-calendar-month-outline"></i>
                                                     </span>
@@ -353,34 +350,28 @@
 <!--                                                 <button class="btn btn-primary" type="button">검색</button> -->
 <!--                                             </div> -->
                                             <!-- 체크인/아웃 날짜 선택 -->
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <!-- listing widget -->
                             <!-- rooms detail start -->
-                            <label th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list : ${hotelDeList}" >
-                            <div class="card mb-4" style=" display: block;
-    border: 1px solid #007bff; /* 얇은 파란색 테두리 */
-    border-radius: 10px; /* 둥근 모서리 */
-    background-color: #fff; /* 흰색 배경 */
-    transition: all 0.3s ease; /* 부드러운 전환 효과 */
-    cursor: pointer; /* 클릭할 수 있는 느낌 */">
-                                <div class="card-body p-4">
-                                    <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span>
-                                    	<b>객실</b>
-                                    </h5>
+                            <label th:if="${!#lists.isEmpty(hotelDeList)}" th:each="list,start : ${hotelDeList}" >
+                            	<div class="card mb-4" th:id="roomChecked_+${start.index}">
+                                	<div class="card-body p-4">
+	                                    <h5 class="mb-0"><span class="mdi mdi-bed text-primary float-right"></span>
+	                                    	<b>객실</b>
+	                                    </h5>
                                     <!-- name="room_Seqs" 로 여러개의 메뉴를 배열로 서버에 전송 -->
-								<input type="checkbox" id="checkbox1" name="room_Seqs" class="menu-checkbox" hidden
-    								th:value="${list.roomSeq}" th:attr="data-price=${list.price != null ? list.price : 0}" onchange="updateTotalPrice()">
-								<input type="hidden" name="totalPrice" id="totalPriceInput"><!-- DB에 boTotalPrice를 넘기기위해서 hidden으로 만든다. -->
-                                    <div class="text-center mt-4">
-                                        <div>
-                                            <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/lottehotel_proom_1.jpg"
-                                            class="img-fluid rounded-3 mb-2"
-                                            alt="Rentkit Directory & Listing Bootstrap 5 Theme"
-                                            style="height: 5.5cm; width: 8cm">
-                                        </div>
+										<input type="checkbox" th:id="room_Seqs_+${start.index}" name="aa" class="menu-checkbox" hidden
+		    								th:value="${list.roomSeq}" th:attr="data-price=${list.price != null ? list.price : 0}" onchange="updateTotalPrice()">
+										<input type="hidden" name="totalPrice" id="totalPriceInput"><!-- DB에 totalPrice를 넘기기위해서 hidden으로 만든다. -->
+                                    	<div class="text-center mt-4">
+                                        	<div>
+	                                            <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/lottehotel_proom_1.jpg"
+	                                            class="img-fluid rounded-3 mb-2"
+	                                            alt="Rentkit Directory & Listing Bootstrap 5 Theme"
+	                                            style="height: 5.5cm; width: 8cm">
+                                        	</div>
                                         <h5 class="mb-2" th:text="${list.roomType}"></h5>
                                         <small>
                                         	<ul class="list-group list-unstyled">
@@ -406,31 +397,36 @@
 										</small>
                                     </div>
                                 </div>
-                                <div class="border-top card-body p-4 text-center">  
-                                    <p>
-                                    	<b>1박 당 요금: <span class="text-primary" th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></b></span>
-                                        <br>(세금 및 수수료 포함)
-                                    </p>
-                                </div>
-                            </div>
+                                	<div class="border-top card-body p-4 text-center">  
+                                    	<p>
+                                    		<b>1박 당 요금: <span class="text-primary" th:text="'₩' + ${#numbers.formatInteger(list.price, 0, 'COMMA')}"></b></span>
+                                        	<br>(세금 및 수수료 포함)
+                                    	</p>
+                                	</div>
+                            	</div>
                             </label>
                             <!-- rooms detail end -->
                             <!-- total start -->
-                            <div class="card mb-4">
-                            	<div class="card-body p-4">
-                            		<label class="form-label">Total</label>
-										<div class="input-group mb-3">
-											<p>
-												<span>체크인 날짜 : <span id="rvCheckIn"></span></span> <br>
-												<span>체크아웃 날짜 : <span id="rvCheckOut"></span></span> <br>
-												<span>총 금액 : <span id="boTotalPrice">0</span>원 </span>
-											</p>
-										</div>
-                                    <div class="d-grid mx-8">
-                                        <a href="/v1/infra/usrhotel/usrHotelBooking" class="btn btn-dark">예약하기</a>
-                            		</div>
-                            	</div>
-                            </div>
+                            <form id="form" name="form" method="post">
+<input type="hidden" id="room_Seqs" name="room_Seqs">
+	                            <div class="card mb-4">
+	                            	<div class="card-body p-4">
+	                            		<label class="form-label">Total</label>
+											<div class="input-group mb-3">
+												<p>
+													<span>체크인 날짜 : <span id="rvCheckIn"></span></span> <br>
+													<span>체크아웃 날짜 : <span id="rvCheckOut"></span></span> <br>
+													<span>총 금액 : <span id="boTotalPrice">0</span>원 </span>
+												</p>
+											</div>
+	                                    <div class="d-grid mx-8">
+	                                    	<button class="btn btn-primary" id="btnBooking">
+	                                    		예약하기
+	                            			</button>
+	                            		</div>
+	                            	</div>
+	                            </div>
+                            </form>
                             <!-- total end -->
                         </div>
                     </div>
@@ -514,13 +510,11 @@
                         <div class="mb-14">
                             <h4 class=" mb-3  text-white">Rentkit deals in your inbox ?</h4>
                             <p class="text-reset">Get special offers, travel inspiration, and more from Rentkit </p>
-                            <form>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="Enter your email"
                                         aria-label="Enter your email" aria-describedby="subscriber">
                                     <span class="btn btn-primary" id="subscriber">Subscribe</span>
                                 </div>
-                            </form>
                             <!-- footer widget  -->
                         </div>
                     </div>
@@ -699,7 +693,7 @@
 		// 메뉴 가격 합산 및 선택된 메뉴 seq 처리
 		function updateTotalPrice() {
 		    let total = 0; // 총 금액 초기화
-		    let selectedMenuSeqs = []; // 선택된 메뉴 seq 배열 초기화
+		    let selectedRoom_Seqs = []; // 선택된 메뉴 seq 배열 초기화
 		
 		    // 선택된 체크박스들의 데이터(가격, seq)를 처리
 		    document.querySelectorAll('.menu-checkbox:checked').forEach(checkbox => {
@@ -709,26 +703,48 @@
 		        const priceValue = isNaN(price) || price === null || price === '' ? 0 : parseInt(price, 10);
 		
 		        total += priceValue; // 총 금액 합산
-		        selectedMenuSeqs.push(checkbox.value); // 메뉴 seq 저장
+		        selectedRoom_Seqs.push(checkbox.value); // 메뉴 seq 저장
 		    });
 		
-		    // 총 금액을 화면에 표시 (boTotalPrice)
+		    // 총 금액을 화면에 표시 (totalPrice)
 		    document.getElementById('boTotalPrice').textContent = total.toLocaleString(); // 숫자 형식화
 		
 		    // 총 금액을 hidden 필드에 설정
 		    document.getElementById('boTotalPriceInput').value = total;
-		
 		    // 선택된 메뉴 seq를 디버깅 로그로 출력
 		    console.log('선택된 메뉴 seq:', selectedMenuSeqs);
 		    console.log('총 금액:', total);
 		}
-
-		
+		let a = [];
 		// 예약하기 버튼 - insert
 		document.getElementById('btnBooking').onclick = function(){
-			form.action="/v1/infra/hotel/hotelBookingInst";
+			for(let i = 0; i < 4; i++){
+			    const checkbox = document.getElementById("room_Seqs_" + i);
+			    
+			    if (checkbox && checkbox.checked) {
+			        // 체크박스가 체크된 경우에만 값을 배열에 추가
+			        a.push(checkbox.value);
+			    } else {
+			    	a.splice(i)
+			    }
+			}
+			document.getElementById("room_Seqs").value = a;
+			form.action="/v1/infra/usrhotel/bookingInsert";
 			form.submit();
 		}
 		
-		document.getElementById()
+		document.querySelectorAll('.menu-checkbox').forEach(function(checkbox) {
+		    checkbox.addEventListener('change', function() {
+		        var card = checkbox.closest('.card'); // 체크박스를 포함한 가장 가까운 .card 요소 찾기
+
+		        if (checkbox.checked) {
+		            // 체크박스가 선택되면 .selected-card 클래스를 추가하여 테두리 색을 변경
+		            card.classList.add('selected-card');
+		        } else {
+		            // 체크박스가 선택되지 않으면 .selected-card 클래스를 제거하여 테두리 색을 원래대로
+		            card.classList.remove('selected-card');
+		        }
+		    });
+		});
+
 	</script>

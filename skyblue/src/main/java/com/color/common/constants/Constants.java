@@ -3,7 +3,8 @@ package com.color.common.constants;
 public class Constants {
 	
 	// login
-	public static final String URL_LOGINFORM = "/v1/infra/customer/customerLogIn";
+	public static final String XDM_URL_LOGINFORM = "/v1/infra/customer/customerLogIn";
+	public static final String USR_URL_LOGINFORM = "/v1/infra/usrhotel/usrHotelSignin";
 	public static final Integer SESSION_MINUTE_XDM = 60;
 	
 	// paging

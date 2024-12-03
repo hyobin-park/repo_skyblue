@@ -102,6 +102,7 @@ public class HotelService {
 	// ===== booking ===== //
 	// 예약 등록 - bookingInsert
 	public int bookingInsert(HotelDto hotelDto) {
+		System.out.println("service insert 해유~");
 		return hotelDao.bookingInsert(hotelDto);
 	};
 	

@@ -6,25 +6,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HotelDao {
 	
-	//HotelList
+	// HotelList
 	public List<HotelDto> hotelList(HotelVo hotelVo);
 	
-	//insert
+	// insert
 	public int hotelInsert(HotelDto hotelDto);
 	
-	//selectOne
+	// selectOne
 	public HotelDto selectOne(HotelDto hotelDto);
 	
-	//update
+	// update
 	public int hotelUpdate(HotelDto hotelDto);
 	
-	//uelete
+	// uelete
 	public int hotelUelete(HotelDto hotelDto);
 	
-	//delete
+	// delete
 	public int hotelDelete(HotelDto hotelDto);
 	
-	//selectOneCount
+	// selectOneCount
 	public int selectOneCount(HotelVo hotelVo);
 	
 	// file 첨부

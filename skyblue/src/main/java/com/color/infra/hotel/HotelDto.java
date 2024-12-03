@@ -65,7 +65,7 @@ public class HotelDto {
 	private Integer brDelNy;
 	private String rooms_roomSeq;
 	private String booking_bookingSeq;
-	private List<String> room_Seqs;	// checkbox 선택된 meseq 배열
+	private String[] room_Seqs;	// checkbox 선택된 meseq 배열
 	
 	// reviews
 	private String reviewSeq;
@@ -81,6 +81,11 @@ public class HotelDto {
 	
     // customer
     private String customerName;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date birthDate;
+    private String phoneNumber;
+    private String email;
+    
     
 	// files
 	private MultipartFile uploadFile;
@@ -533,10 +538,10 @@ public class HotelDto {
 	public void setBooking_bookingSeq(String booking_bookingSeq) {
 		this.booking_bookingSeq = booking_bookingSeq;
 	}
-	public List<String> getRoom_Seqs() {
+	public String[] getRoom_Seqs() {
 		return room_Seqs;
 	}
-	public void setRoom_Seqs(List<String> room_Seqs) {
+	public void setRoom_Seqs(String[] room_Seqs) {
 		this.room_Seqs = room_Seqs;
 	}
 	public String getRoomSeq() {
@@ -544,6 +549,24 @@ public class HotelDto {
 	}
 	public void setRoomSeq(String roomSeq) {
 		this.roomSeq = roomSeq;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

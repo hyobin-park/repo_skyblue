@@ -13,7 +13,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new CheckLoginSessionInterceptor()) // 인터셉터 연결
 //				.order(1) 인터셉트의 호출 순서를 지정. 낮을 수록 먼저 호출
-				.addPathPatterns("/xdm/v1/infra/**") // 인터셉터를 적용할 패턴 지정
+				.addPathPatterns("/xdm/v1/infra/**", "/v1/infra/usrhotel/usrHotelSignin") // 인터셉터를 적용할 패턴 지정
 				.excludePathPatterns( // 인터셉터에서 제외할 패턴 지정(예외 처리)
 						"/resources/**",
 						"/xdm/**", // resources 하위 폴더

@@ -1,5 +1,6 @@
 package com.color.infra.usrhotel;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.color.common.constants.Constants;
@@ -18,7 +20,9 @@ import com.color.infra.customer.CustomerService;
 import com.color.infra.hotel.HotelDto;
 import com.color.infra.hotel.HotelService;
 import com.color.infra.hotel.HotelVo;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -133,8 +137,45 @@ public class UsrhotelController {
 		return returnMap;
 	}
 	
+	// usrHotelDeList에서 booking, roomBooking insert
+	@RequestMapping(value = "/v1/infra/usrhotel/bookingInsert")
+	public String bookingInsert(HotelDto hotelDto, HttpSession httpSession) {
+		
+		  // room_Seqs 값 출력
+			
+		// 세션에서 sessSeqXdm 값 가져오기
+		String sessSeqXdm = (String) httpSession.getAttribute("sessSeqXdm");
+			
+		if (sessSeqXdm != null) {
+			// Customer_seq로 사용되는 값 설정
+			hotelDto.setCustomer_seq(sessSeqXdm);
+				
+			// room_Seqs 값을 hotelDto에 설정
+//			hotelDto.setRoom_Seqs(a);	// hotelDto에 Room_Seqs 필드 추가
+				
+			// totalPrice 값 설정 (자동으로 폼에서 전달된 값이 hotelDto로 바인딩됨)
+			System.out.println("총 금액: " + hotelDto.getTotalPrice()); // 확인용 출력
+			for(int i = 0; i< hotelDto.getRoom_Seqs().length; i++) {
+				hotelDto.setRoom_Seqs()[i];
+				hotelService.bookingInsert(hotelDto);
+			}
+			// 실제 bookingInsert와 관련된 서비스 호출
+			
+			hotelService.roomBookingInsert(hotelDto);
+				
+			// BookingSeq 값을 usrHotelBooking로 리다이렉션 전달
+			return "redirect:/v1/infra/usrhotel/usrHotelBooking?bookingSeq=" + hotelDto.getBookingSeq();
+		} else {
+			// 세션에 사용자 정보가 없으면 처리
+			return "redirect:/v1/infra/usrhotel/usrHotelSignin"; // 로그인 페이지로 리디렉션
+		}
+//		return "/v1/infra/hotel/userHotelBooking";
+	}
+		
+	// usrHotelBooking
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelBooking")
-	public String usrHotelBooking() {
+	public String userHotelBooking(HotelDto hotelDto, Model model, HttpServletRequest request) {
+		model.addAttribute("hotelItem", hotelService.selectOne(hotelDto));
 		return "usr/v1/infra/usrhotel/usrHotelBooking";
 	}
 	
