@@ -51,4 +51,7 @@ public interface HotelDao {
 	// hotel 정보 출력
 	public HotelDto bookingHotelSelectOne(HotelDto hotelDto);
 	
+	// booking 정보 update
+	public int bookingUpdate(HotelDto hotelDto);
+	
 }

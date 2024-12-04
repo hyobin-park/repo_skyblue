@@ -124,4 +124,9 @@ public class HotelService {
 	public HotelDto bookingHotelSelectOne(HotelDto hotelDto) {
 		return hotelDao.bookingHotelSelectOne(hotelDto);
 	}
+	
+	// booking 정보 update
+	public int bookingUpdate(HotelDto hotelDto) {
+		return hotelDao.bookingUpdate(hotelDto);
+	}
 }

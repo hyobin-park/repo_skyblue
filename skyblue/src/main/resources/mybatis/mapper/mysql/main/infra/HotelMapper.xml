@@ -407,6 +407,16 @@
 			AND bookingSeq = #{bookingSeq}
 	</select>
 	
+	<!-- 결제하면 결제방식이랑 결제일 업데이트되어야함 -->
+	<update id="bookingUpdate">
+	    UPDATE booking
+	    SET
+	        bkPayment = #{bkPayment},
+	        paymentDate = now()
+	    WHERE 1 = 1
+	        AND bookingSeq = #{bookingSeq}
+	</update>
+	
 	<!-- upload files -->
 	<insert id="insertUploaded">
 		INSERT INTO CustomerUploaded (

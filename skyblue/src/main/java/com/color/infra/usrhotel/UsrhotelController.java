@@ -140,8 +140,6 @@ public class UsrhotelController {
 	// usrHotelDeList에서 booking, roomBooking insert
 	@RequestMapping(value = "/v1/infra/usrhotel/bookingInsert")
 	public String bookingInsert(HotelDto hotelDto, HttpSession httpSession) {
-		
-		  // room_Seqs 값 출력
 			
 		// 세션에서 sessSeqXdm 값 가져오기
 		String sessSeqXdm = (String) httpSession.getAttribute("sessSeqXdm");
@@ -151,7 +149,7 @@ public class UsrhotelController {
 			hotelDto.setCustomer_seq(sessSeqXdm);
 				
 			// room_Seqs 값을 hotelDto에 설정
-//			hotelDto.setRoom_Seqs(a);	// hotelDto에 Room_Seqs 필드 추가
+			// hotelDto.setRoom_Seqs(a);	// hotelDto에 Room_Seqs 필드 추가
 				
 			// totalPrice 값 설정 (자동으로 폼에서 전달된 값이 hotelDto로 바인딩됨)
 			System.out.println("총 금액: " + hotelDto.getTotalPrice()); // 확인용 출력
@@ -183,6 +181,18 @@ public class UsrhotelController {
 		model.addAttribute("bookingRoomList", hotelService.bookingRoomSelectList(hotelDto));
 		
 		return "usr/v1/infra/usrhotel/usrHotelBooking";
+	}
+	
+	// bookingUpdt(결제수단, 결제일 업데이트)
+	@RequestMapping(value="/v1/infra/usrhotel/bookingUpdt")
+	public String bookingUpdt(HotelDto hotelDto) {
+		hotelService.bookingUpdate(hotelDto);
+		return "usr/v1/infra/usrhotel/usrHotelPaymentCom";
+	}
+	// 결제완료 후 이동할 페이지 띄우기
+	@RequestMapping(value="/v1/infra/usrhotel/usrHotelPaymentCom")
+	public String usrHotelPaymentCom() {
+		return "usr/v1/infra/usrhotel/usrHotelPaymentCom";
 	}
 	
 }

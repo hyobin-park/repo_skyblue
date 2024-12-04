@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Rentkit - Directory & Listings Bootstrap 5 Template.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/booking_page/docs/assets/images/icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/booking_page/docs/assets/images/icon-16x16.png">
+
+  <!-- Libs CSS -->
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/nouislider/dist/nouislider.min.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/uppy/dist/uppy.min.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/litepicker/dist/css/litepicker.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
+  <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/usr/v1/css/commonUsr.css" rel="stylesheet">
+	
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
+  
+  <title>Checkout Page - Rentkit - Directory & Listings Bootstrap 5 Template.</title>
+
+</head>
+
+<body>
+  <!-- main wrapper -->
+  <div class="main-wrapper">
+  	<!-- ======= header ======= -->
+    <div class="nav-header nav-header-classic shadow">
+    	<div th:replace="~{usr/v1/infra/common/header :: div}"></div>
+    </div>
+    <!-- End header -->
+    <!-- content -->
+    <div class="py-11 py-7">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-12 col-12">
+            <div class="card checkout-form">
+              <form name="form" method="post" action="/v1/infra/usrhotel/bookingUpdt">
+              	<div class="card-body p-5" style="text-align: center;">
+                	<h4 class="mb-4 border-bottom pb-2">예약완료 안내</h4>
+                		<span>요청하신 예약이 완료되었습니다.</span>
+						<div class="mb-3 col-md-12" style="margin-top: 20px;">
+				        	<button type="submit" class="btn btn-primary">
+			                	<a href="/v1/infra/usrhotel/usrHotelIndex" style="color: white;">확인</a>
+			                </button>
+                 		</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  	<!-- scripts -->
+  	<script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/jquery-raty-js/lib/jquery.raty.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/quill/dist/quill.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/uppy/dist/uppy.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/litepicker/dist/litepicker.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/prismjs/prism.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/leaflet/dist/leaflet.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/nouislider/dist/nouislider.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/wnumb/wNumb.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+    <script src="/usr/v1/js/commonUsr.js"></script>
+
+    <!-- Theme JS -->
+    <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>

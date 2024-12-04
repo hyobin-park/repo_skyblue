@@ -166,17 +166,6 @@
                                  <h1 class="fw-bold mb-0 lh-1">5.0</h1>
                               </div>
                            </div>
-                           <div class="col-md-3">
-                              <div class="text-lg-left">
-                                 <p>
-                                    <span class="mdi mdi-star text-primary"></span> 
-                                    <span class="mdi mdi-star text-primary"></span> 
-                                    <span class="mdi mdi-star text-primary"></span> 
-                                    <span class="mdi mdi-star text-primary"></span> 
-                                    <span class="mdi mdi-star text-primary"></span>
-                                 </p>
-                              </div>
-                           </div>
                         </div>
                         <!--  review start -->
                         <div class="row">
@@ -410,8 +399,7 @@
                             </label>
                             <!-- rooms detail end -->
                             <!-- total start -->
-                            
-<input type="hidden" id="room_Seqs" name="room_Seqs">
+							<input type="hidden" id="room_Seqs" name="room_Seqs">
 	                            <div class="card mb-4">
 	                            	<div class="card-body p-4">
 	                            		<label class="form-label">Total</label>
@@ -444,92 +432,9 @@
                 </div>
             </div>
         </div>
-        <!-- footer section -->
-        <div class="footer pt-14 bg-dark ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-6">
-                        <!-- footer widget  -->
-                        <div class="mb-14">
-                            <h4 class=" mb-3 text-white">Explore Rentkit</h4>
-                            <div>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-reset lh-lg">List your property</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Book with Confidence</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Trust & Safety</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Vacation rental guides</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-6">
-                        <!-- footer widget  -->
-                        <div class="mb-14">
-                            <h4 class=" mb-3  text-white">For Owner</h4>
-                            <div>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-reset lh-lg">How it works</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Pricing</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Join as Owner</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Help centre</a> </li>
-                                    <li><a href="#" class="text-reset lh-lg">Mobile App</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-6">
-                        <div class="mb-14">
-                            <h4 class=" mb-3  text-white">Company</h4>
-                            <div>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-reset lh-lg">About us</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Careers</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Clients</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Team</a> </li>
-                                    <li><a href="#" class="text-reset lh-lg">Help Center</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Press</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- footer widget  -->
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-6">
-                        <div class="mb-14">
-                            <h4 class=" mb-3  text-white">Social</h4>
-                            <div>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="text-reset lh-lg">Facebook</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Twitter</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Linkedin</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Google</a></li>
-                                    <li><a href="#" class="text-reset lh-lg">Instagram</a></li>
-                                </ul>
-                            </div>
-                            <!-- footer widget  -->
-                        </div>
-                    </div>
-                    <!-- footer widget  -->
-                    <div class="col-xl-4 col-lg-4 col-md-8 col-12">
-                        <div class="mb-14">
-                            <h4 class=" mb-3  text-white">Rentkit deals in your inbox ?</h4>
-                            <p class="text-reset">Get special offers, travel inspiration, and more from Rentkit </p>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Enter your email"
-                                        aria-label="Enter your email" aria-describedby="subscriber">
-                                    <span class="btn btn-primary" id="subscriber">Subscribe</span>
-                                </div>
-                            <!-- footer widget  -->
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-12">
-                        <p class="fs-6 text-gray-500">© 2021 Rentkit. All rights reserved.</p>
-                    </div>
-                </div>
-                <!-- tiny footer  -->
-                <!-- footer section -->
-            </div>
-            <!-- footer section -->
-        </div>
+	<!-- ======= footer ======= -->
+	<div th:replace="~{usr/v1/infra/common/footer :: div}"></div>
+	<!-- End footer -->
 
     </div>
     <!-- scripts  -->
@@ -562,16 +467,16 @@
     <!-- Review Stars -->
     <script type="text/javascript">
     	// 리뷰 별
-	    const stars = document.querySelectorAll('#mystar label');
+	    const rwStars = document.querySelectorAll('#mystar label');
     	
     	// 선택된 별점 값을 저장하는 변수
     	let selectedValue = 0;
 	    
 	    // 별에 마우스 올렸을 때 해당 별과 왼쪽 별들 채우기
-	    stars.forEach(star => {
+	    rwStars.forEach(star => {
 	        star.addEventListener('mouseover', () => {
 	            const value = parseInt(star.getAttribute('data-value'));
-	            stars.forEach((s, index) => {
+	            rwStars.forEach((s, index) => {
 	                if (index < value) {
 	                    s.style.color = 'rgba(250, 208, 0, 0.99)';
 	                } else {
@@ -582,7 +487,7 @@
 	
 	        // 마우스가 별 밖으로 나가면 선택된 상태 유지
 	        star.addEventListener('mouseout', () => {
-	        	stars.forEach((s, index) => {
+	        	rwStars.forEach((s, index) => {
 	        		if (index < selectedValue) {
 	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
 	        		} else {
@@ -594,7 +499,7 @@
 	        // 별 클릭 시 선택 상태 저장 및 유지
 	        star.addEventListener('click', () => {
 	        	selectedValue = parseInt(star.getAttribute('data-value')); //선택된 값 저장
-	        	stars.forEach((s, index) => {
+	        	rwStars.forEach((s, index) => {
 	        		if (index < selectedValue) {
 	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
 	        		} else {
