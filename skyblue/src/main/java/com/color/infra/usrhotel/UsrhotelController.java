@@ -156,11 +156,13 @@ public class UsrhotelController {
 			// totalPrice 값 설정 (자동으로 폼에서 전달된 값이 hotelDto로 바인딩됨)
 			System.out.println("총 금액: " + hotelDto.getTotalPrice()); // 확인용 출력
 			for(int i = 0; i< hotelDto.getRoom_Seqs().length; i++) {
-				hotelDto.setRoom_Seqs()[i];
+				
+				String roomSeq = hotelDto.getRoom_Seqs()[i];  // 각 roomSeq 값 가져오기
+                System.out.println("Room Seq: " + roomSeq);  // 확인용 출력
+                
 				hotelService.bookingInsert(hotelDto);
 			}
 			// 실제 bookingInsert와 관련된 서비스 호출
-			
 			hotelService.roomBookingInsert(hotelDto);
 				
 			// BookingSeq 값을 usrHotelBooking로 리다이렉션 전달
@@ -174,8 +176,12 @@ public class UsrhotelController {
 		
 	// usrHotelBooking
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelBooking")
-	public String userHotelBooking(HotelDto hotelDto, Model model, HttpServletRequest request) {
-		model.addAttribute("hotelItem", hotelService.selectOne(hotelDto));
+	public String userHotelBooking(HotelDto hotelDto, @RequestParam("bookingSeq") String bookingSeq, Model model, HttpServletRequest request) {
+		
+		model.addAttribute("hotelItem", hotelService.bookingHotelSelectOne(hotelDto));
+		model.addAttribute("bookingItem", hotelService.bookingSelectOne(hotelDto));
+		model.addAttribute("bookingRoomList", hotelService.bookingRoomSelectList(hotelDto));
+		
 		return "usr/v1/infra/usrhotel/usrHotelBooking";
 	}
 	

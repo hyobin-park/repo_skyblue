@@ -102,12 +102,26 @@ public class HotelService {
 	// ===== booking ===== //
 	// 예약 등록 - bookingInsert
 	public int bookingInsert(HotelDto hotelDto) {
-		System.out.println("service insert 해유~");
 		return hotelDao.bookingInsert(hotelDto);
 	};
 	
 	public int roomBookingInsert(HotelDto hotelDto) {
 		return hotelDao.roomBookingInsert(hotelDto);
 	};
+	
+	// ===== ShopPayment ===== //
+	// booking+customer 정보 출력
+	public HotelDto bookingSelectOne(HotelDto hotelDto) {
+		return hotelDao.bookingSelectOne(hotelDto);
+	}
 		
+	// bookingRoom+room 정보 출력
+	public List<HotelDto> bookingRoomSelectList(HotelDto hotelDto) {
+		return hotelDao.bookingRoomSelectList(hotelDto);
+	}
+		
+	// hotel 정보 출력
+	public HotelDto bookingHotelSelectOne(HotelDto hotelDto) {
+		return hotelDao.bookingHotelSelectOne(hotelDto);
+	}
 }

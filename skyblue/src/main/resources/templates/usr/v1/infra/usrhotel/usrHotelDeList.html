@@ -209,13 +209,14 @@
                   		<!-- listing detail -->
                         <div class="card mb-4 ">
                             <div class="card-body p-4">
-                                <h4 class="mb-3">리뷰 남기기</h4>
-                                    <div class="mb-3 col-6">
+                              <h4 class="mb-3">리뷰 남기기</h4>
+                                <div class="row">
+                                    <div class="mb-3 col-5">
                                         <label for="reviewtitle" class="form-label">이름</label>
                                         <input type="text" name="customerName" class="form-control" id="customerName"
                                             aria-describedby="reviewname" placeholder="John Deo" required="">
                                     </div>
-                                    <div class="mb-3 col-6" id="mystar">
+                                    <div class="mb-3 col-5" id="mystar">
 		                               <fieldset>
 		                                   <span for="reviewemail" class="form-label">별점</span><br>
 		                                   <input type="radio" name="reviewStar" value="1" id="rate1">
@@ -230,6 +231,7 @@
 		                                   <label for="rate5" data-value="5">★</label>
 		                               </fieldset>
 		                           </div>
+                                </div>
                                     <div class="mb-3 col-12">
                                         <label for="reviewtitle" class="form-label">제목</label>
                                         <input type="text" name="reTitle" class="form-control" id="reTitle"
@@ -327,6 +329,7 @@
                                     </div>
                                     <div>
                                         	<!-- 체크인/아웃 날짜 선택 -->
+                                        <form id="form" name="form" method="post" action="/v1/infra/usrhotel/bookingInsert">
                                             <div class="mb-3">
                                                 <label class="form-label">날짜선택</label>
                                                 <div class="input-group mb-3">
@@ -407,7 +410,7 @@
                             </label>
                             <!-- rooms detail end -->
                             <!-- total start -->
-                            <form id="form" name="form" method="post">
+                            
 <input type="hidden" id="room_Seqs" name="room_Seqs">
 	                            <div class="card mb-4">
 	                            	<div class="card-body p-4">
@@ -556,8 +559,13 @@
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
     
+    <!-- Review Stars -->
     <script type="text/javascript">
+    	// 리뷰 별
 	    const stars = document.querySelectorAll('#mystar label');
+    	
+    	// 선택된 별점 값을 저장하는 변수
+    	let selectedValue = 0;
 	    
 	    // 별에 마우스 올렸을 때 해당 별과 왼쪽 별들 채우기
 	    stars.forEach(star => {
@@ -572,21 +580,27 @@
 	            });
 	        });
 	
-	        // 마우스가 별 밖으로 나가면 별 초기화
+	        // 마우스가 별 밖으로 나가면 선택된 상태 유지
 	        star.addEventListener('mouseout', () => {
-	            stars.forEach(s => s.style.color = 'transparent');
+	        	stars.forEach((s, index) => {
+	        		if (index < selectedValue) {
+	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
+	        		} else {
+	        			s.style.color = 'transparent';
+	        		}
+	        	});
 	        });
 	
-	        // 별 클릭 시 선택 상태 유지
+	        // 별 클릭 시 선택 상태 저장 및 유지
 	        star.addEventListener('click', () => {
-	            const value = parseInt(star.getAttribute('data-value'));
-	            stars.forEach((s, index) => {
-	                if (index < value) {
-	                    s.style.color = 'rgba(250, 208, 0, 0.99)';
-	                } else {
-	                    s.style.color = 'transparent';
-	                }
-	            });
+	        	selectedValue = parseInt(star.getAttribute('data-value')); //선택된 값 저장
+	        	stars.forEach((s, index) => {
+	        		if (index < selectedValue) {
+	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
+	        		} else {
+	        			s.style.color = 'transparent';
+	        		}
+	        	});
 	        });
 	    });
     </script>
@@ -710,7 +724,7 @@
 		    document.getElementById('boTotalPrice').textContent = total.toLocaleString(); // 숫자 형식화
 		
 		    // 총 금액을 hidden 필드에 설정
-		    document.getElementById('boTotalPriceInput').value = total;
+		    document.getElementById('totalPriceInput').value = total;
 		    // 선택된 메뉴 seq를 디버깅 로그로 출력
 		    console.log('선택된 메뉴 seq:', selectedMenuSeqs);
 		    console.log('총 금액:', total);

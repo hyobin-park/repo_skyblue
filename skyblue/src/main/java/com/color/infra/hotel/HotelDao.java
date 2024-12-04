@@ -41,4 +41,14 @@ public interface HotelDao {
 	public int bookingInsert(HotelDto hotelDto);
 	public int roomBookingInsert(HotelDto hotelDto);
 	
+	// ===== ShopPayment ===== //
+	// booking+customer 정보 출력
+	public HotelDto bookingSelectOne(HotelDto hotelDto);
+		
+	// bookingRoom+room 정보 출력
+	public List<HotelDto> bookingRoomSelectList(HotelDto hotelDto);
+		
+	// hotel 정보 출력
+	public HotelDto bookingHotelSelectOne(HotelDto hotelDto);
+	
 }

@@ -331,7 +331,6 @@
 			null, 
 			#{totalPrice},
 			null, 
-			null, 
 			#{bkDesc},
 			now(), 
 			now(), 
@@ -348,14 +347,65 @@
 			booking_bookingSeq
 		) VALUES 
 		<foreach collection="room_Seqs" item="room_Seq" separator=",">
-			(
-				1,
-				0,
-				#{room_Seq},
-				#{bookingSeq}
-			)
+		(
+			1,
+			0,
+			#{room_Seq},
+			#{bookingSeq}
+		)
 		</foreach>
 	</insert>
+	
+	<!-- booking 페이지에 booking테이블 정보 출력 -->
+	<select id="bookingSelectOne" resultMap="resultMapObj" parameterType="String" resultType="map">
+		SELECT
+			i.bookingSeq,
+		    d.customerSeq,
+		    d.customerName,
+		    d.birthDate,
+		    d.phoneNumber,
+		    d.email,
+		    i.bkDesc,
+		    i.checkInDate,
+		    i.checkOutDate,
+		    i.totalPrice
+		FROM booking AS i
+			LEFT JOIN customer AS d
+				ON i.Customer_seq = d.customerSeq
+		WHERE 1 = 1
+			AND i.bookingSeq = #{bookingSeq}
+	</select>
+	
+	<!-- booking 페이지에 bookingroom테이블 정보 출력 -->
+	<select id="bookingRoomSelectList" resultMap="resultMapObj" parameterType="String" resultType="map">
+		SELECT
+			e.roomType,
+		    e.price
+		FROM bookingroom AS h
+			LEFT JOIN rooms AS e
+				ON h.rooms_roomSeq = e.roomSeq
+			LEFT JOIN booking AS i
+				ON h.booking_bookingSeq = i.bookingSeq
+		WHERE 1 = 1
+			AND bookingSeq = #{bookingSeq}
+	</select>
+	
+	<!-- booking 페이지에 hotel테이블 정보 출력 -->
+	<!-- DISTINCT를 이용하여 쿼리가 특정칼럼들만 중복되지 않도록 보장하면서 중복을 제거한다. -->
+	<select id="bookingHotelSelectOne" resultMap="resultMapObj" parameterType="String" resultType="map">
+		SELECT DISTINCT
+			c.hotelName,
+		    c.hotelAddress1
+		FROM bookingroom AS h
+			LEFT JOIN rooms AS e
+				ON h.booking_bookingSeq = e.roomSeq
+			LEFT JOIN hotel AS c
+				ON e.Hotel_seq = c.hotelSeq
+			LEFT JOIN booking AS i
+				ON h.booking_bookingSeq = i.bookingSeq
+		WHERE 1 = 1
+			AND bookingSeq = #{bookingSeq}
+	</select>
 	
 	<!-- upload files -->
 	<insert id="insertUploaded">
