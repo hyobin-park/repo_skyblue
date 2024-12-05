@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Rentkit - Directory & Listings Bootstrap 5 Template.">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/booking_page/docs/assets/images/icon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/booking_page/docs/assets/images/icon-16x16.png">
+  	<link rel="apple-touch-icon" sizes="180x180" href="/usr/v1/template/booking_page/docs/assets/images/apple-touch-icon.png">
+  	<link rel="icon" type="image/png" sizes="32x32" href="/usr/v1/template/booking_page/docs/assets/images/icon-32x32.png">
+  	<link rel="icon" type="image/png" sizes="16x16" href="/usr/v1/template/booking_page/docs/assets/images/icon-16x16.png">
 
   <!-- Libs CSS -->
   <link href="/usr/v1/template/booking_page/rentkit-html/assets/libs/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/usr/v1/template/booking_page/rentkit-html/assets/css/theme.min.css">
   
-  <title>Checkout Page - Rentkit - Directory & Listings Bootstrap 5 Template.</title>
+  <title>Reservation</title>
 
 </head>
 
@@ -164,6 +164,8 @@
 								<img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/jcb-icon.png" style="height: 30px; width: 30px;">
 								<img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/american-icon.png" style="height: 30px; width: 30px;">
 							<br>
+							<!-- booking테이블의 boSeq 정보 bookingUpdate에 넘겨주기 -->
+							<input type="hidden" name="bookingSeq" th:value="${bookingItem?.bookingSeq}">
 						</div>
 					</div>
 				</div>
@@ -250,6 +252,20 @@
 	</script>
 	<script type="text/javascript">
 		document.getElementById("btnSubmit").onclick = function(){
+			
+			// price 필드에서 '원'과 쉼표를 제거하여 숫자만 남기도록 처리
+	        var priceField = document.getElementById("price");
+	        var priceValue = priceField.value;
+
+	        // '원'과 쉼표 제거
+	        var cleanedPrice = priceValue.replace(/[^\d]/g, '');  // 숫자만 남기기
+
+	        // 수정된 값으로 price 필드 업데이트
+	        priceField.value = cleanedPrice;
+
+	        // 폼 제출
+	        var form = document.forms[0];  // form을 선택
+			
 			form.action = "/v1/infra/usrhotel/bookingUpdt";
 			form.submit();
 		}

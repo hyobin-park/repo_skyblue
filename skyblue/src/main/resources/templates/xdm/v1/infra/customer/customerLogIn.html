@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app.css">
 <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/app-dark.css">
 <link rel="stylesheet" href="/xdm/v1/template/ui/assets/compiled/css/auth.css">
+<!-- Bootstrap CSS -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
 </head>
 
 <body>
@@ -31,7 +34,7 @@
 					<form action="index.html">
 						<div class="form-group position-relative has-icon-left mb-4">
 							<input type="text" class="form-control form-control-xl"
-								id="id" name="id" placeholder="ID" required>
+								id="id" name="id" placeholder="ID" value="hyobin0303" required>
 							<div class="invalid-feedback" id="idFeedback">아이디를 입력해 주세요.</div>
 					      	<div class="invalid-feedback" id="idRegExpFeedback">일치하지 않습니다.</div>
 							<div class="form-control-icon">
@@ -40,7 +43,7 @@
 						</div>
 						<div class="form-group position-relative has-icon-left mb-4">
 							<input type="password" class="form-control form-control-xl"
-								id="password" name="password" placeholder="Password" required>
+								id="password" name="password" placeholder="Password" value="Hyobin0303" required>
 							<div class="invalid-feedback" id="passwordFeedback">비밀번호를 입력해 주세요.</div>
 							<div class="invalid-feedback" id="passwordRegExpFeedback">일치하지 않습니다.</div>
 							<div class="form-control-icon">
@@ -71,11 +74,41 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="modalAlertLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="modalAlertTitle">확인</h5>
+	                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	            </div>
+	            <div class="modal-body" id="modalAlertBody">
+	                로그인에 실패했습니다. 다시 시도해주세요.
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="margin-top: 0px !important;" data-bs-dismiss="modal">확인</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 	
 	<script src="/xdm/v1/template/ui/assets/extensions/jquery/jquery.min.js"></script>
 	<script src="/xdm/v1/js/commonXdm.js"></script>
 	
+	<!-- Bootstrap JS (Modal 기능 포함) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	
 	<script type="text/javascript">
+	// 엔터키로 로그인
+    document.getElementById("id").addEventListener("keydown", enterkey);
+    document.getElementById("password").addEventListener("keydown", enterkey);
+    
+    function enterkey() {
+    	if (window.event.keyCode == 13) {
+    		document.getElementById("loginBtn").click();
+    	}
+    }
+	
 	document.getElementById("loginBtn").onclick = function (){
 		// validation
 		// id
@@ -147,18 +180,18 @@
 				}
 				,success: function(response) {
 					if(response.rt == "success") {
-						alert("성공");
+// 						alert("성공");
 							location.href = "/v1/infra/customer/customerXdmMain";
 					} else {
-						alert("실패");
-//		 		 		document.getElementById("modalAlertTitle").innerText = "확 인";
-//		 		 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
-//		 		 		$("#modalAlert").modal("show");
+// 						alert("실패");
+		 		 		document.getElementById("modalAlertTitle").innerText = "확 인";
+		 		 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
+		 		 		$("#modalAlert").modal("show");
 					}
 				}
-//		 		,error : function(jqXHR, textStatus, errorThrown){
-//		 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-//		 		}
+		 		,error : function(jqXHR, textStatus, errorThrown){
+		 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		 		}
 			});
 	}
 	

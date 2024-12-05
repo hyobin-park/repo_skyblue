@@ -9004,7 +9004,7 @@ fieldset:disabled .btn {
 }
 
 .mb-5 {
-    margin-bottom: 3rem !important
+    margin-bottom: 2rem !important
 }
 
 .mb-auto {
@@ -9308,7 +9308,7 @@ fieldset:disabled .btn {
 }
 
 .fs-4 {
-    font-size: calc(1.275rem + .3vw) !important
+    font-size: calc(1.1rem + .3vw) !important
 }
 
 .fs-5 {
@@ -13697,7 +13697,7 @@ fieldset:disabled .btn {
     }
 
     .fs-4 {
-        font-size: 1.5rem !important
+        font-size: 1.2rem !important
     }
 }
 
@@ -22704,7 +22704,7 @@ body .bi:before,
 
 .form-control.form-control-xl {
     padding: .85rem 1rem;
-    font-size: 1.2rem
+    font-size: 1.1rem
 }
 
 .form-control.form-control-xl~.form-control-icon {

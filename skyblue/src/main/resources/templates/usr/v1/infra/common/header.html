@@ -17,20 +17,25 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto ms-lg-3">
-						<li class="nav-item"><a class="nav-link"
-							href="/v1/infra/usrhotel/usrHotelIndex">Home</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/v1/infra/usrhotel/usrHotelList">Hotels</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/v1/infra/usrhotel/usrHotelBooking">Reservation</a></li>
+						<li class="nav-item">
+							<a class="nav-link" href="/v1/infra/usrhotel/usrHotelIndex">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/v1/infra/usrhotel/usrHotelList">Hotels</a>
+						</li>
+						<th:block th:if="${session.sessSeqXdm != null}">
+							<li class="nav-item">
+								<a class="nav-link" href="/v1/infra/usrhotel/usrHotelMyPage">MyPage</a>
+							</li>
+						</th:block>
 					</ul>
 					<th:block th:if="${session.sessSeqXdm != null}">
 						<ul class="navbar-nav ms-lg-3">
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" id="blogDropdown"
-								role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<span th:text="${session.sessNameXdm}"></span>님
-							</a>
+								</a>
+							</li>
 								<ul class="dropdown-menu">
 									<li>
 										<a class="dropdown-item">
