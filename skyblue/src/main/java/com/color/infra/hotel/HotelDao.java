@@ -54,4 +54,8 @@ public interface HotelDao {
 	// booking 정보 update
 	public int bookingUpdate(HotelDto hotelDto);
 	
+	// My Page 예약내역
+	public List<HotelDto> myPageBkSelectList(HotelVo hotelVo);
+	public int bkSelectOneCount(HotelVo hotelVo);
+	
 }

@@ -50,7 +50,7 @@ public class HotelDto {
 	private Date checkOutDate;
 	private Integer bkPayment;
 	private Integer totalPrice;
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date paymentDate;
 	private String bkDesc;
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -80,6 +80,7 @@ public class HotelDto {
     private String Customer_seq;
 	
     // customer
+    private String customerSeq;
     private String customerName;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthDate;
@@ -568,5 +569,12 @@ public class HotelDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getCustomerSeq() {
+		return customerSeq;
+	}
+	public void setCustomerSeq(String customerSeq) {
+		this.customerSeq = customerSeq;
+	}
+	
 	
 }

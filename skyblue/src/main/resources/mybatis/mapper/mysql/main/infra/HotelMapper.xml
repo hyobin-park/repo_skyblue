@@ -407,6 +407,48 @@
 			AND bookingSeq = #{bookingSeq}
 	</select>
 	
+	<!-- MyPage 페이지에 예약내역 테이블 정보 출력 -->
+	<select id="myPageBkSelectList" resultMap="resultMapObj" resultType="map">
+		select cc.* from (
+			SELECT DISTINCT
+				c.hotelName,
+				c.hotelAddress1,
+				c.hotelAddress2,
+				i.bookingSeq,
+				i.checkInDate,
+				i.checkOutDate,
+				i.totalPrice,
+				i.bkPayment,
+				i.paymentDate,
+			    i.bkDesc
+			    <include refid="bkSelectCommon"/>
+		ORDER BY
+			i.bookingSeq ASC
+			) cc
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	
+	<select id="bkSelectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="bkSelectCommon"/>
+	</select>
+	
+	<sql id="bkSelectCommon">		    
+		FROM bookingroom AS h
+			LEFT JOIN rooms AS e
+				ON h.booking_bookingSeq = e.roomSeq
+			LEFT JOIN hotel AS c
+				ON e.Hotel_seq = c.hotelSeq
+			LEFT JOIN booking AS i
+				ON h.booking_bookingSeq = i.bookingSeq
+			LEFT JOIN customer AS d
+				ON i.Customer_seq = d.customerSeq
+		WHERE 1 = 1
+			AND d.customerSeq = #{customerSeq}
+			AND i.bkPayment IS NOT NULL
+			AND i.paymentDate IS NOT NULL
+	</sql>
+	
 	<!-- 결제하면 결제방식이랑 결제일 업데이트되어야함 -->
 	<update id="bookingUpdate">
 	    UPDATE booking

@@ -195,11 +195,18 @@ public class UsrhotelController {
 	
 	// 마이페이지
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelMyPage")
-	public String usrHotelMyPage(HotelDto hotelDto, Model model, HttpSession httpSession) {
+	public String usrHotelMyPage(@ModelAttribute("vo") HotelVo hotelVo, Model model, HttpSession httpSession) {
+		// 세션에서 sessSeqXdm 값 가져오기
+		String sessSeqXdm = (String) httpSession.getAttribute("sessSeqXdm");
 		
-		model.addAttribute("hotelItem", hotelService.bookingHotelSelectOne(hotelDto));
-		model.addAttribute("bookingItem", hotelService.bookingSelectOne(hotelDto));
-		model.addAttribute("bookingRoomList", hotelService.bookingRoomSelectList(hotelDto));
+		hotelVo.setCustomerSeq(sessSeqXdm);
+		
+		//paging
+		hotelVo.setParamsPaging(hotelService.bkSelectOneCount(hotelVo));
+
+		if (hotelVo.getTotalRows() > 0) {
+			model.addAttribute("myBkList", hotelService.myPageBkSelectList(hotelVo));
+		}
 		
 		return "usr/v1/infra/usrhotel/usrHotelMyPage";
 	}

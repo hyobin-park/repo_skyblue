@@ -4,6 +4,8 @@ import com.color.common.constants.Constants;
 
 public class HotelVo {
 	
+	private String customerSeq;
+	
 	private Integer shtelDelNy;
 	private Integer shtelUseNy;
 	private Integer shOption;
@@ -220,6 +222,14 @@ public class HotelVo {
 
 	public void setShSmokingAreaNy(Integer shSmokingAreaNy) {
 		this.shSmokingAreaNy = shSmokingAreaNy;
+	}
+
+	public String getCustomerSeq() {
+		return customerSeq;
+	}
+
+	public void setCustomerSeq(String customerSeq) {
+		this.customerSeq = customerSeq;
 	}
 
 public void setParamsPaging(int totalRows) {

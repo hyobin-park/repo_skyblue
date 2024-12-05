@@ -129,4 +129,14 @@ public class HotelService {
 	public int bookingUpdate(HotelDto hotelDto) {
 		return hotelDao.bookingUpdate(hotelDto);
 	}
+	
+	// My Page 예약내역
+	public List<HotelDto> myPageBkSelectList(HotelVo hotelVo) {
+		return hotelDao.myPageBkSelectList(hotelVo);
+	}
+	
+	public int bkSelectOneCount(HotelVo hotelVo) {
+		return hotelDao.bkSelectOneCount(hotelVo);
+	}
+	
 }
