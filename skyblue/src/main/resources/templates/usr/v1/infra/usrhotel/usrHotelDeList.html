@@ -231,7 +231,7 @@
                                         <textarea class="form-control" id="reDesc" rows="3"></textarea>
                                     </div>
                                     <div class="d-lg-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-primary">제출하기</button>
+                                        <button type="submit" class="btn btn-primary" id="reviewSaveBtn">제출하기</button>
                                     </div>
                             </div>
                         </div>
@@ -317,7 +317,7 @@
                                         <small class="text-muted ms-2">/ 박</small>
                                     </div>
                                     <div>
-                                        	<!-- 체크인/아웃 날짜 선택 -->
+                                        <!-- 체크인/아웃 날짜 선택 -->
                                         <form id="form" name="form" method="post" action="/v1/infra/usrhotel/bookingInsert">
                                             <div class="mb-3">
                                                 <label class="form-label">날짜선택</label>
@@ -590,29 +590,45 @@
 	        // 날짜 선택 필드 초기화
 	        $("#checkInDate").datetimepicker({
 	            timepicker: false,    // 시간 선택 비활성화
-	            format: 'Y-m-d'      // 날짜 형식
+	            format: 'Y-m-d'       // 날짜 형식
 	        }).on('change', function () {
 	            // 날짜 선택 시 rvDate에 값 반영
 	            const selectedDate = $(this).val();
 	            $('#rvCheckIn').text(selectedDate);
+	            updateTotalPrice();		// 총 금액 업데이트
 	        });
 	        
 	     // 날짜 선택 필드 초기화
 	        $("#checkOutDate").datetimepicker({
 	            timepicker: false,    // 시간 선택 비활성화
-	            format: 'Y-m-d'      // 날짜 형식
+	            format: 'Y-m-d'       // 날짜 형식
 	        }).on('change', function () {
 	            // 날짜 선택 시 rvDate에 값 반영
 	            const selectedDate = $(this).val();
 	            $('#rvCheckOut').text(selectedDate);
+	            updateTotalPrice();		// 총 금액 업데이트
 	        });
     	});
-		
 		
 		// 메뉴 가격 합산 및 선택된 메뉴 seq 처리
 		function updateTotalPrice() {
 		    let total = 0; // 총 금액 초기화
 		    let selectedRoom_Seqs = []; // 선택된 메뉴 seq 배열 초기화
+		    
+		    // 체크인 및 체크아웃 날짜 가져오기
+		    const checkInDate = $("#checkInDate").val();
+		    const checkOutDate = $("#checkOutDate").val();
+		    
+		    if (checkInDate && checkOutDate) {
+		        // 날짜 차이 계산 (체크인 날짜에서 체크아웃 날짜까지)
+		        const startDate = new Date(checkInDate);
+		        const endDate = new Date(checkOutDate);
+		        const dateDifference = (endDate - startDate) / (1000 * 3600 * 24); // 날짜 차이 계산 (일수)
+
+		        if (dateDifference < 0) {
+// 		            alert('체크아웃 날짜는 체크인 날짜 이후여야 합니다.');
+		            return;
+		        }
 		
 		    // 선택된 체크박스들의 데이터(가격, seq)를 처리
 		    document.querySelectorAll('.menu-checkbox:checked').forEach(checkbox => {
@@ -621,7 +637,7 @@
 		
 		        const priceValue = isNaN(price) || price === null || price === '' ? 0 : parseInt(price, 10);
 		
-		        total += priceValue; // 총 금액 합산
+		        total += priceValue * dateDifference; // 총 금액 합산
 		        selectedRoom_Seqs.push(checkbox.value); // 메뉴 seq 저장
 		    });
 		
@@ -633,10 +649,12 @@
 		    // 선택된 메뉴 seq를 디버깅 로그로 출력
 		    console.log('선택된 메뉴 seq:', selectedMenuSeqs);
 		    console.log('총 금액:', total);
+			}
 		}
 		let a = [];
 		// 예약하기 버튼 - insert
 		document.getElementById('btnBooking').onclick = function(){
+			let a = [];
 			for(let i = 0; i < 4; i++){
 			    const checkbox = document.getElementById("room_Seqs_" + i);
 			    
@@ -663,7 +681,28 @@
 		            // 체크박스가 선택되지 않으면 .selected-card 클래스를 제거하여 테두리 색을 원래대로
 		            card.classList.remove('selected-card');
 		        }
+		        updateTotalPrice(); // 총 금액 업데이트
 		    });
 		});
-
+	</script>
+	
+	<!-- review 등록 -->
+	<script>
+		$('.reviewSaveBtn').click(function() {
+			var data = {customerName:inputCustomerName.val(), reTitle:inputReTitle.val(), mystar:mystar, reDesc:inputReDesc.val()};
+			console.log(data);
+			
+			$.ajax({
+				url: '/usr/v1/infra/usrhotel/usrHotelDeList',
+				type:"POST",
+				data:JSON.stringify(data),
+				contentType:"application/json; charset=utf-8",
+				dataType:"text",
+				success: function(result){
+					console.log("result: " + result);
+					self.location.reload();
+				}
+			})
+// 			reviewModal.modal('hide');
+		}
 	</script>

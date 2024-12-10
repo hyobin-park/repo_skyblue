@@ -1,8 +1,6 @@
 package com.color.infra.usrhotel;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import com.color.infra.customer.CustomerService;
 import com.color.infra.hotel.HotelDto;
 import com.color.infra.hotel.HotelService;
 import com.color.infra.hotel.HotelVo;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -139,7 +136,7 @@ public class UsrhotelController {
 	
 	// usrHotelDeList에서 booking, roomBooking insert
 	@RequestMapping(value = "/v1/infra/usrhotel/bookingInsert")
-	public String bookingInsert(HotelDto hotelDto, HttpSession httpSession) {
+	public String bookingInsert(HotelDto hotelDto, HttpSession httpSession, Model model) {
 			
 		// 세션에서 sessSeqXdm 값 가져오기
 		String sessSeqXdm = (String) httpSession.getAttribute("sessSeqXdm");
@@ -147,7 +144,7 @@ public class UsrhotelController {
 		if (sessSeqXdm != null) {
 			// Customer_seq로 사용되는 값 설정
 			hotelDto.setCustomer_seq(sessSeqXdm);
-				
+			
 			// totalPrice 값 설정 (자동으로 폼에서 전달된 값이 hotelDto로 바인딩됨)
 			System.out.println("총 금액: " + hotelDto.getTotalPrice()); // 확인용 출력
 			for(int i = 0; i< hotelDto.getRoom_Seqs().length; i++) {

@@ -315,7 +315,7 @@
 	<!-- bookingSeq 값을 booking에 삽입한 후 bookingroom에 전달하려면, MyBatis에서는 useGeneratedKeys를 설정하여 자동 생성된 bookingSeq 값을 가져올 수 있다. -->
 	<insert id="bookingInsert" useGeneratedKeys="true" keyProperty="bookingSeq">
 		INSERT INTO booking (
-			checkInDate, 
+			checkInDate,
 			checkOutDate, 
 			bkPayment, 
 			totalPrice, 
@@ -381,8 +381,8 @@
 		SELECT
 			e.roomType,
 		    e.price
-		FROM bookingroom AS h
-			LEFT JOIN rooms AS e
+		FROM rooms AS e
+			LEFT JOIN bookingroom AS h
 				ON h.rooms_roomSeq = e.roomSeq
 			LEFT JOIN booking AS i
 				ON h.booking_bookingSeq = i.bookingSeq
@@ -394,17 +394,18 @@
 	<!-- DISTINCT를 이용하여 쿼리가 특정칼럼들만 중복되지 않도록 보장하면서 중복을 제거한다. -->
 	<select id="bookingHotelSelectOne" resultMap="resultMapObj" parameterType="String" resultType="map">
 		SELECT DISTINCT
+			c.hotelSeq,
 			c.hotelName,
-		    c.hotelAddress1
+			c.hotelAddress1
 		FROM bookingroom AS h
 			LEFT JOIN rooms AS e
-				ON h.booking_bookingSeq = e.roomSeq
+		        ON h.rooms_roomSeq = e.roomSeq
 			LEFT JOIN hotel AS c
 				ON e.Hotel_seq = c.hotelSeq
 			LEFT JOIN booking AS i
 				ON h.booking_bookingSeq = i.bookingSeq
 		WHERE 1 = 1
-			AND bookingSeq = #{bookingSeq}
+			AND i.bookingSeq = #{bookingSeq}
 	</select>
 	
 	<!-- MyPage 페이지에 예약내역 테이블 정보 출력 -->
@@ -433,14 +434,14 @@
 		<include refid="bkSelectCommon"/>
 	</select>
 	
-	<sql id="bkSelectCommon">		    
-		FROM bookingroom AS h
+	<sql id="bkSelectCommon">
+		FROM booking AS i
+			LEFT JOIN bookingroom AS h
+				ON h.booking_bookingSeq = i.bookingSeq
 			LEFT JOIN rooms AS e
-				ON h.booking_bookingSeq = e.roomSeq
+				ON h.rooms_roomSeq = e.roomSeq
 			LEFT JOIN hotel AS c
 				ON e.Hotel_seq = c.hotelSeq
-			LEFT JOIN booking AS i
-				ON h.booking_bookingSeq = i.bookingSeq
 			LEFT JOIN customer AS d
 				ON i.Customer_seq = d.customerSeq
 		WHERE 1 = 1
