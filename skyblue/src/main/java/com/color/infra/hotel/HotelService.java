@@ -94,6 +94,11 @@ public class HotelService {
 		return hotelDao.ReviewSelectList(hotelDto);
 	}
 	
+	// DetailReviewInsert
+	public int DetailReviewInsert(HotelDto hotelDto) {
+		return hotelDao.DetailReviewInsert(hotelDto);
+	}
+	
 	// HotelDeList
 	public List<HotelDto> HotelDeList(HotelDto hotelDto) {
 		return hotelDao.HotelDeList(hotelDto);

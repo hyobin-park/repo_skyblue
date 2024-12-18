@@ -33,6 +33,9 @@ public interface HotelDao {
 	// ReviewSelectList
 	public List<HotelDto> ReviewSelectList(HotelDto hotelDto);
 	
+	// DetailReviewInsert
+	public int DetailReviewInsert(HotelDto hotelDto);
+	
 	// HotelDeList
 	public List<HotelDto> HotelDeList(HotelDto hotelDto);
 	

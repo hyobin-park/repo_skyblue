@@ -168,24 +168,27 @@
                            </div>
                         </div>
                         <!--  review start -->
-                        <div class="row">
-                           <div class="col-md-12 mb-5" th:each="reviewList : ${reviewList}">
+                        <div class="row" id="reviews" th:each="reviewList : ${reviewList}" >
+                           <div class="col-md-12 mb-5">
                               <div class="row">
                                  <div class="col-md-3">
                                     <div>
                                        <img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/customer_3.png"
                                           alt="Rentkit Directory & Listing Bootstrap 5 Theme" class="avatar-md avatar rounded-circle mb-3">
                                        <h5 class="mb-n1" th:text="${reviewList.customerName}">회원이름</h5>
-                                       <small th:text="${#dates.format(reviewList?.reRegDate, 'yyyy-MM-dd')}">리뷰등록일</small>
+                                       <small th:if="${reviewList.reRegDate != null}"
+                                       	th:text="${#dates.format(reviewList.reRegDate, 'yyyy-MM-dd')}">리뷰등록일</small>
+                                       	<small th:if="${reviewList.reRegDate == null}">등록일 없음</small>
                                     </div>
                                  </div>
                                  <div class="col-md-9">
                                     <div>
                                        <h5 class="fw-bold mb-2" th:text="${reviewList.reTitle}">리뷰제목</h5>
-                                       <p th:text="${reviewList.reDesc}">
-                                          리뷰내용
-                                       </p>
-                                       <span th:each="i : ${#numbers.sequence(1, reviewList.reStars)}" class="mdi mdi-star text-primary"></span>
+                                       <p th:text="${reviewList.reDesc}">리뷰내용</p>
+                                       <span class="mdi mdi-star text-primary"
+                                       	th:if="${reviewList.reStars > 0}"
+                                       	th:each="i : ${#numbers.sequence(1, reviewList.reStars != null ? reviewList.reStars : 0)}"></span>
+                                       <span th:if="${reviewList.reStars == null || reviewList.reStars == 0}">별점 없음</span>
                                     </div>
                                  </div>
                               </div>
@@ -196,8 +199,9 @@
                   <!-- listing detail -->
                         <!--  review start -->
                   		<!-- listing detail -->
-                        <div class="card mb-4 ">
-                            <div class="card-body p-4">
+                        <div class="card mb-4">
+                          <div class="card-body p-4">
+                            <form name="reviewsForm" method="post" action="/usr/v1/infra/usrhotel/usrHotelRvInst">
                               <h4 class="mb-3">리뷰 남기기</h4>
                                 <div class="row">
                                     <div class="mb-3 col-5">
@@ -231,9 +235,14 @@
                                         <textarea class="form-control" id="reDesc" rows="3"></textarea>
                                     </div>
                                     <div class="d-lg-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-primary" id="reviewSaveBtn">제출하기</button>
+                                    	<input type="hidden" name="reStars" id="reStarInput">
+										<div id="hiddenData" data-hotel-seq="${hotelSeq}"></div>
+										<input type="hidden" name="hotelSeq" value="">
+<!-- 										<input type="hidden" name="${hotelSeq}" value=""> -->
+                                        <button type="button" class="btn btn-primary" id="reviewSaveBtn">제출하기</button>
                                     </div>
-                            </div>
+                            </form>
+                          </div>
                         </div>
                         <!-- listing detail -->
                         <!-- listing detail -->
@@ -464,52 +473,6 @@
     <!-- Theme JS -->
     <script src="/usr/v1/template/booking_page/rentkit-html/assets/js/theme.min.js"></script>
     
-    <!-- Review Stars -->
-    <script type="text/javascript">
-    	// 리뷰 별
-	    const rwStars = document.querySelectorAll('#mystar label');
-    	
-    	// 선택된 별점 값을 저장하는 변수
-    	let selectedValue = 0;
-	    
-	    // 별에 마우스 올렸을 때 해당 별과 왼쪽 별들 채우기
-	    rwStars.forEach(star => {
-	        star.addEventListener('mouseover', () => {
-	            const value = parseInt(star.getAttribute('data-value'));
-	            rwStars.forEach((s, index) => {
-	                if (index < value) {
-	                    s.style.color = 'rgba(250, 208, 0, 0.99)';
-	                } else {
-	                    s.style.color = 'transparent';
-	                }
-	            });
-	        });
-	
-	        // 마우스가 별 밖으로 나가면 선택된 상태 유지
-	        star.addEventListener('mouseout', () => {
-	        	rwStars.forEach((s, index) => {
-	        		if (index < selectedValue) {
-	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
-	        		} else {
-	        			s.style.color = 'transparent';
-	        		}
-	        	});
-	        });
-	
-	        // 별 클릭 시 선택 상태 저장 및 유지
-	        star.addEventListener('click', () => {
-	        	selectedValue = parseInt(star.getAttribute('data-value')); //선택된 값 저장
-	        	rwStars.forEach((s, index) => {
-	        		if (index < selectedValue) {
-	        			s.style.color = 'rgba(250, 208, 0, 0.99)';
-	        		} else {
-	        			s.style.color = 'transparent';
-	        		}
-	        	});
-	        });
-	    });
-    </script>
-    
 	<!-- Google Map Script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUzFs8An7Kg0GFq3F3eLfK-Nz0Huz_E-4&callback=initMap&libraries=places&v=weekly&libraries=marker"
     	async>
@@ -686,23 +649,125 @@
 		});
 	</script>
 	
-	<!-- review 등록 -->
 	<script>
-		$('.reviewSaveBtn').click(function() {
-			var data = {customerName:inputCustomerName.val(), reTitle:inputReTitle.val(), mystar:mystar, reDesc:inputReDesc.val()};
-			console.log(data);
-			
-			$.ajax({
-				url: '/usr/v1/infra/usrhotel/usrHotelDeList',
-				type:"POST",
-				data:JSON.stringify(data),
-				contentType:"application/json; charset=utf-8",
-				dataType:"text",
-				success: function(result){
-					console.log("result: " + result);
-					self.location.reload();
-				}
-			})
-// 			reviewModal.modal('hide');
+	// ------ review 별 등록 시작 ------
+	// 리뷰 별
+    const rwStars = document.querySelectorAll('#mystar label');
+	
+	// 선택된 별점 값을 저장하는 변수
+	let selectedValue = 0;
+    
+    // 별에 마우스 올렸을 때 해당 별과 왼쪽 별들 채우기
+    rwStars.forEach(star => {
+        star.addEventListener('mouseover', () => {
+            const value = parseInt(star.getAttribute('data-value'));
+            rwStars.forEach((s, index) => {
+                if (index < value) {
+                    s.style.color = 'rgba(250, 208, 0, 0.99)';
+                } else {
+                    s.style.color = 'transparent';
+                }
+            });
+        });
+
+        // 마우스가 별 밖으로 나가면 선택된 상태 유지
+        star.addEventListener('mouseout', () => {
+        	rwStars.forEach((s, index) => {
+        		if (index < selectedValue) {
+        			s.style.color = 'rgba(250, 208, 0, 0.99)';
+        		} else {
+        			s.style.color = 'transparent';
+        		}
+        	});
+        });
+
+        // 별 클릭 시 선택 상태 저장 및 유지
+        star.addEventListener('click', () => {
+        	selectedValue = parseInt(star.getAttribute('data-value')); //선택된 값 저장
+        	rwStars.forEach((s, index) => {
+        		if (index < selectedValue) {
+        			s.style.color = 'rgba(250, 208, 0, 0.99)';
+        		} else {
+        			s.style.color = 'transparent';
+        		}
+        	});
+        	// selectedValue에 저장된 별점 값 html필드에 설정
+            document.getElementById("reStarInput").value = selectedValue;
+        });
+    });
+ 	// ------ review 별 등록 끝 ------
+    // ------ review 등록 시작 ------
+    document.addEventListener('DOMContentLoaded', () => {
+		const urlParams = new URLSearchParams(window.location.search);
+	    const hotelSeq = urlParams.get('hotelSeq');
+	    if (hotelSeq) {
+	    	document.querySelector('input[name="hotelSeq"]').value = hotelSeq;
 		}
+		console.log("hotelSeq: " + hotelSeq);
+	});
+    
+    document.getElementById('reviewSaveBtn').onclick = function() {
+    	const hotelSeq = document.querySelector('input[name="hotelSeq"]').value;
+// 		const hotelSeq = document.querySelector('#hiddenData').getAttribute('data-hotel-seq');
+    	if (selectedValue > 0) {
+    		$.ajax({
+    			async: true,
+    			cache: false,
+				url: '/usr/v1/infra/usrhotel/usrHotelRvInst',
+				type:"POST",
+				data : {
+					reTitle : $("#reTitle").val(),
+					reDesc : $("#reDesc").val(),
+					reStars : selectedValue,
+					hotelSeq : hotelSeq
+				},
+// 				contentType:"application/json; charset=utf-8",
+				success: function(response){
+					if (response.rt == "success") {
+						alert("리뷰전송완료");
+						
+						// append 추가
+						let reviews = '';
+						reviews +=	'<div class="col-md-12 mb-5">';
+						reviews +=		'<div class="row">';
+						reviews +=			'<div class="col-md-3">';
+						reviews +=				'<div>';
+						reviews +=					'<img src="/usr/v1/template/booking_page/rentkit-html/assets/images/self/customer_3.png"';
+                        reviews +=						'alt="Rentkit Directory & Listing Bootstrap 5 Theme" class="avatar-md avatar rounded-circle mb-3">';
+						reviews +=							'<h5 class="mb-n1">' + (response.customerName) + '</h5>';
+						reviews +=							'<small>' + (response.reRegDate != null ? formatDate(response.reRegDate) : '없음') + '</small>';
+						reviews +=						'</div>';
+						reviews +=					'</div>';
+						reviews +=					'<div class="col-md-9">';
+						reviews +=						'<div>';
+						reviews +=							'<h5 class="fw-bold mb-2">' + (response.reTitle) +'</h5>'
+						reviews +=								'<p>' + (response.reDesc) + '</p>';
+						reviews +=								'<span class="mdi mdi-star text-primary">' + (response.reStars == null || response.reStars == 0 ? '별점 없음' : '') + '</span>';
+						reviews +=							'</div>';
+						reviews +=						'</div>';
+						reviews +=					'</div>';
+						reviews +=				'</div>';
+						$("#reviews").append(reviews);
+						
+						// 입력창초기화
+		                $("#reTitle").val('');
+		                $("#reDesc").val('');
+		                
+		                selectedValue = 0; // 별점 초기화
+	                    rwStars.forEach(star => {
+	                        star.style.color = 'transparent'; // 별 초기화
+	                    });
+					} else { // insert 실패 시 alert 창을 띄움
+						alert("리뷰저장실패");
+					}
+				},
+				error: function(xhr, status, error) {
+	                console.error("AJAX 오류: " + status + " " + error);
+	                alert("리뷰 전송 중 오류가 발생했습니다.");
+	            }
+// 					console.log("result: " + result);
+// 					self.location.reload();
+				}
+			)};
+    	};
 	</script>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -165,6 +166,41 @@ public class UsrhotelController {
 		}
 //		return "/v1/infra/hotel/userHotelBooking";
 	}
+	
+	// DetailReviewInsert
+	@ResponseBody
+	@RequestMapping(value = "/usr/v1/infra/usrhotel/usrHotelRvInst", method = RequestMethod.POST)
+	public Map<String, Object> usrHotelRvInst(@RequestParam("hotelSeq") String hotelSeq, HotelDto hotelDto, HttpSession httpSession) {
+		Map<String, Object> response = new HashMap<>();
+
+		// 세션 값 가져오기
+		String sessSeqXdm = (String) httpSession.getAttribute("sessSeqXdm");
+		String sessNameXdm = (String) httpSession.getAttribute("sessNameXdm");
+		    
+		hotelDto.setCustomer_seq(sessSeqXdm);
+		hotelDto.setHotel_seq(hotelSeq);
+		hotelDto.setCustomerName(sessNameXdm);
+		
+//		System.out.println("hotelSeq : " + hotelDto.getHotel_seq());
+//		System.out.println("hotelDto : " + hotelDto.toString());
+
+		// 리뷰 삽입
+		int result = hotelService.DetailReviewInsert(hotelDto);
+		    
+		if (result > 0) {
+			response.put("rt", "success");
+		    response.put("success", true);
+		    response.put("customerName", hotelDto.getCustomerName());
+		    response.put("reStars", hotelDto.getReStars());	
+		    response.put("reTitle", hotelDto.getReTitle());
+		    response.put("reDesc", hotelDto.getReDesc());
+		} else {
+		    response.put("rt", "fail");
+		    response.put("message", "리뷰 실패");
+		}
+
+		return response;
+		}
 		
 	// usrHotelBooking
 	@RequestMapping(value="/v1/infra/usrhotel/usrHotelBooking")
